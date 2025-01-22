@@ -3,6 +3,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Poppins', 'Inter', 'sans-serif'], // Poppins como predeterminada
+        serif: ['Inter', 'serif'],
+      },
       typography: {
         DEFAULT: {
           css: {

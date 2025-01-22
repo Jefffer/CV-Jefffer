@@ -28,7 +28,7 @@ const Contact = () => {
       <section id="contact" className="py-12 bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-center mb-6 text-gray-800">Get in Touch</h2>
-          <p className="text-center text-gray-600 mb-8 text-lg">
+          <p className="text-lg font-light text-gray-600 text-center mb-8 text-lg">
             Feel free to reach out to me through any of the platforms below or send me a direct message 🙃
           </p>
           <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
