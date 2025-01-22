@@ -14,7 +14,7 @@ import { RiInstagramFill } from 'react-icons/ri';
   const Footer = () => {
     return (
       <footer className="p-6 bg-gray-800 text-white text-center">
-        <p>Sígueme en:</p>
+        <p>Follow me on:</p>
         <div className="flex justify-center gap-4 mt-2">
           <a href="https://github.com/tu-usuario" className="hover:text-gray-400">
             <FaGithub className="text-4xl" />

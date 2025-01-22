@@ -45,7 +45,7 @@ const Skills = () => {
 
 return (
   <section id="skills" className="prose mx-auto p-6 my-8">
-    <h2 className="text-center text-4xl font-bold">Habilidades</h2>
+    <h2 className="text-center text-4xl font-bold">Skills</h2>
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mt-6 justify-items-center">
       {skills.map((skill, index) => (
         <div
