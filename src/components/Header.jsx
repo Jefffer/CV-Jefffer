@@ -15,11 +15,4 @@ const Header = () => {
     );
   };
 
-const headerStyle = {
-  textAlign: 'center',
-  padding: '20px',
-  backgroundColor: '#282c34',
-  color: '#ffffff',
-};
-
 export default Header;

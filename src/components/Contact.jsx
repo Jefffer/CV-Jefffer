@@ -1,18 +1,19 @@
 import React from 'react';
 
 const Contact = () => {
-  return (
-    <section id="contact" style={sectionStyle}>
-      <h2>Contacto</h2>
-      <p>Puedes contactarme a través de los siguientes medios:</p>
-      <ul style={listStyle}>
-        <li>Email: <a href="mailto:tucorreo@ejemplo.com">tucorreo@ejemplo.com</a></li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/tuusuario/" target="_blank" rel="noopener noreferrer">linkedin.com/in/tuusuario</a></li>
-        <li>GitHub: <a href="https://github.com/tuusuario" target="_blank" rel="noopener noreferrer">github.com/tuusuario</a></li>
-      </ul>
-    </section>
-  );
-};
+    return (
+      <section id="contact" className="prose mx-auto p-6 my-8 bg-gray-100 rounded-md shadow-md">
+        <h2 className="text-center text-4xl font-bold">Contacto</h2>
+        <p>Si deseas colaborar en proyectos interesantes, no dudes en contactarme.</p>
+        <form className="flex flex-col gap-4 mt-4">
+          <input type="text" placeholder="Nombre" className="p-3 border rounded-md" />
+          <input type="email" placeholder="Correo Electrónico" className="p-3 border rounded-md" />
+          <textarea placeholder="Mensaje" className="p-3 border rounded-md"></textarea>
+          <button type="submit" className="p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600">Enviar</button>
+        </form>
+      </section>
+    );
+  };
 
 const sectionStyle = {
   padding: '20px',
