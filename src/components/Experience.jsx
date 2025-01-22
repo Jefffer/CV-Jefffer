@@ -39,7 +39,7 @@ const Experience = () => {
   
     return (
       <section id="experience" className="prose mx-auto p-6 my-8">
-        <h2 className="text-center text-4xl font-bold">Experiencia</h2>
+        <h2 className="text-center text-4xl font-bold">Experience</h2>
         <ul>
           {experiences.map((exp, index) => (
             <li key={index} className="mb-4">
