@@ -1,7 +1,29 @@
-import React from 'react';
+// import React from 'react';
+import React, { useRef, useState } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+
+    const form = useRef();
+    const [status, setStatus] = useState("");
+  
+    const sendEmail = (e) => {
+      e.preventDefault();
+  
+      emailjs
+        .sendForm('service_2j4ig4n', 'template_vcmt7eb', form.current, 'HBocGiWPceGhGPSWU')
+        .then(
+          (result) => {
+            setStatus("Message sent successfully!");
+            form.current.reset(); // Resetea el formulario tras enviarlo
+          },
+          (error) => {
+            setStatus("Something went wrong, please try again.");
+          }
+        );
+    };
+
     return (
       <section id="contact" className="py-12 bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100">
         <div className="container mx-auto px-6">
@@ -61,7 +83,8 @@ const Contact = () => {
           </div>
           <div className="mt-12 max-w-xl mx-auto bg-white shadow-lg rounded-lg p-8 transform transition hover:scale-105 hover:shadow-xl">
           <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Send Me a Message</h3>
-          <form action="#" method="POST">
+          {/* <form action="#" method="POST"> */}
+          <form ref={form} onSubmit={sendEmail}>
             <div className="mb-6">
               <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
                 Name
@@ -105,6 +128,7 @@ const Contact = () => {
               Send Message
             </button>
           </form>
+          {status && <p className="text-center text-green-600 mt-4">{status}</p>}
         </div>
         </div>
       </section>
