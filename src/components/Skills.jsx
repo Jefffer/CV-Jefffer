@@ -7,7 +7,8 @@ import { FaJsSquare, FaReact, FaDatabase, FaMicrosoft, FaHtml5,
   FaAngular,
   FaNodeJs,
   FaJava,
-  FaDotCircle 
+  FaDotCircle,
+  FaDocker
   } from 'react-icons/fa';
 
   import {
@@ -33,6 +34,7 @@ const Skills = () => {
     { name: "SQL", icon: <FaDatabase className="text-gray-600 text-4xl" /> },
     { name: "Python", icon: <FaPython className="text-yellow-500 text-4xl" /> },
     { name: "Java", icon: <FaJava className="text-red-600 text-4xl" /> },
+    { name: "Docker", icon: <FaDocker className="text-blue-400 text-4xl" /> },
     { name: "PHP", icon: <FaPhp className="text-indigo-500 text-4xl" /> },
     { name: "React", icon: <FaReact className="text-blue-500 text-4xl" /> },
     { name: "JavaScript", icon: <FaJsSquare className="text-yellow-500 text-4xl" /> },

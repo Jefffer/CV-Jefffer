@@ -8,6 +8,7 @@ import {
   FaGraduationCap,
   FaBars,
   FaTimes,
+  FaHome
 } from "react-icons/fa";
 
 // const Header = () => {
@@ -98,10 +99,10 @@ const Header = () => {
           } flex-col md:flex md:flex-row items-center justify-center mt-6 md:mt-6 space-y-4 md:space-y-0 md:space-x-6 text-lg`}
         >
           <a
-            href="#about"
+            href="/"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
           >
-            <FaUserAlt /> Home
+            <FaHome /> Home
           </a>
           <a
             href="#about"

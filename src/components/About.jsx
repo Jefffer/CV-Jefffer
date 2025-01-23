@@ -15,7 +15,7 @@ import React from "react";
 const About = () => {
     return (
       <section id="about" className="prose mx-auto p-6 my-8 bg-gradient-to-r from-gray-10 via-gray-100 to-gray-40 rounded-md shadow-lg">
-        <h2 className="text-center text-4xl font-bold mb-6">About Me</h2>
+        <h2 className="text-center text-4xl font-bold mb-6">My Profile</h2>
         <p className="text-base font-medium text-gray-600 eading-relaxed animate-fadeInUp">
           Profile oriented to <strong className="font-bold">analysis, design, modeling</strong>, and 
           <strong className="font-bold"> software development</strong>, with advanced knowledge in:

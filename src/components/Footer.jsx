@@ -72,6 +72,12 @@ const Footer = () => {
           <div className="mt-8">
             <p className="text-lg font-semibold">Site Map</p>
             <div className="flex flex-wrap justify-center gap-4 mt-4 text-sm">
+            <a
+                href="/"
+                className="hover:text-gray-400 transition duration-300"
+              >
+                Home
+              </a>
               <a
                 href="#about"
                 className="hover:text-gray-400 transition duration-300"
@@ -103,7 +109,7 @@ const Footer = () => {
                 Education
               </a>
               <a
-                href="#contact"
+                href="/contact"
                 className="hover:text-gray-400 transition duration-300"
               >
                 Get In Touch
