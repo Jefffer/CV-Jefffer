@@ -37,7 +37,7 @@ const Footer = () => {
       <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-8">
         <div className="container mx-auto text-center">
           {/* Redes sociales */}
-          <p className="text-lg font-semibold">Follow me on</p>
+          <p className="text-lg font-semibold">Follow me on:</p>
           <div className="flex justify-center gap-6 mt-4">
             <a
               href="https://github.com/tu-usuario"
@@ -123,8 +123,12 @@ const Footer = () => {
   
           {/* Derechos reservados */}
           <p className="mt-6 text-sm text-gray-400">
-            &copy; 2025 Developed by Jefferson Rodríguez. All rights reserved.
+            &copy; Last update: January 2025 by Jefferson Rodríguez <br />
+            All rights reserved
           </p>
+          {/* <p className="mt-6 text-sm text-gray-400">
+             2025 Developed by Jefferson Rodríguez. All rights reserved.
+          </p> */}
         </div>
       </footer>
     );

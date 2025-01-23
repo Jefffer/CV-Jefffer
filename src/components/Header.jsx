@@ -101,6 +101,12 @@ const Header = () => {
             href="#about"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
           >
+            <FaUserAlt /> Home
+          </a>
+          <a
+            href="#about"
+            className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
+          >
             <FaUserAlt /> About me
           </a>
           <a
@@ -128,7 +134,7 @@ const Header = () => {
             <FaGraduationCap /> Education
           </a>
           <a
-            href="#contact"
+            href="/contact"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
           >
             <FaEnvelope /> Get In Touch
