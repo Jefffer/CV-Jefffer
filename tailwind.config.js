@@ -10,7 +10,7 @@ export default {
       typography: {
         DEFAULT: {
           css: {
-            maxWidth: "130ch",
+            maxWidth: "120ch",
             color: "#4a4a4a",
             h1: {
               color: "#1a202c",

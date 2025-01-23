@@ -33,10 +33,10 @@ const Contact = () => {
           </p>
           <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
             {/* Location */}
-            {/* <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4">
               <FaMapMarkerAlt className="text-blue-500 text-2xl" />
               <p className="text-lg text-gray-700">Bilbao, Spain</p>
-            </div> */}
+            </div>
             {/* Email */}
             <div className="flex items-center space-x-4">
               <FaEnvelope className="text-blue-500 text-2xl" />
