@@ -25,6 +25,8 @@ import { FaJsSquare, FaReact, FaDatabase, FaMicrosoft, FaHtml5,
   import { PiFileCSharpFill, PiMathOperationsFill  } from "react-icons/pi";
 
   import { GrDocumentStore } from "react-icons/gr";
+  import { VscAzureDevops } from "react-icons/vsc";
+
 
 
 const Skills = () => {
@@ -32,6 +34,7 @@ const Skills = () => {
     { name: ".NET", icon: <FaMicrosoft className="text-purple-700 text-4xl" /> },
     { name: "C#", icon: <PiFileCSharpFill className="text-blue-500 text-4xl" /> },
     { name: "SQL", icon: <FaDatabase className="text-gray-600 text-4xl" /> },
+    { name: "Azure", icon: <VscAzureDevops className="text-blue-600 text-4xl" /> },
     { name: "Python", icon: <FaPython className="text-yellow-500 text-4xl" /> },
     { name: "Java", icon: <FaJava className="text-red-600 text-4xl" /> },
     { name: "Docker", icon: <FaDocker className="text-blue-400 text-4xl" /> },

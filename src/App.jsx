@@ -8,6 +8,7 @@ import './styles/App.css';
 // import Projects from './components/Projects';
 import ContactPage from './pages/ContactPage';
 import Home from './pages/Home';
+import AboutMePage from './pages/AboutMePage';
 import Footer from './components/Footer';
 
 
@@ -20,6 +21,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/about" element={<AboutMePage />} />
           </Routes>
         </main>
         <Footer />

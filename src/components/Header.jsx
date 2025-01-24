@@ -105,13 +105,13 @@ const Header = () => {
             <FaHome /> Home
           </a>
           <a
-            href="#about"
+            href="/about"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
           >
             <FaUserAlt /> About me
           </a>
           <a
-            href="#skills"
+            href="/#skills"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
           >
             <FaTools /> Skills

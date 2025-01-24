@@ -1,53 +1,73 @@
 // import React from 'react';
-import React, { useRef, useState } from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
-import emailjs from '@emailjs/browser';
+import React, { useRef, useState } from "react";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+} from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+  const form = useRef();
+  const [status, setStatus] = useState("");
 
-    const form = useRef();
-    const [status, setStatus] = useState("");
-  
-    const sendEmail = (e) => {
-      e.preventDefault();
-  
-      emailjs
-        .sendForm('service_2j4ig4n', 'template_vcmt7eb', form.current, 'HBocGiWPceGhGPSWU')
-        .then(
-          (result) => {
-            setStatus("Message sent successfully!");
-            form.current.reset(); // Resetea el formulario tras enviarlo
-          },
-          (error) => {
-            setStatus("Something went wrong, please try again.");
-          }
-        );
-    };
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-    return (
-      <section id="contact" className="py-12 bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-6 text-gray-800">Get in Touch</h2>
-          <p className="text-lg font-light text-gray-600 text-center mb-8 text-lg">
-            Feel free to reach out to me through any of the platforms below or send me a direct message 🙃
-          </p>
-          <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
-            {/* Location */}
-            <div className="flex items-center space-x-4">
-              <FaMapMarkerAlt className="text-blue-500 text-2xl" />
-              <p className="text-lg text-gray-700">Bilbao, Spain</p>
-            </div>
-            {/* Email */}
-            <div className="flex items-center space-x-4">
-              <FaEnvelope className="text-blue-500 text-2xl" />
-              <a
-                href="mailto:jefre123@hotmail.com"
-                className="text-lg text-gray-700 hover:text-blue-600 transition"
-              >
-                jefre123@hotmail.com
-              </a>
-            </div>
-            <div className="flex items-center space-x-4">
+    emailjs
+      .sendForm(
+        "service_2j4ig4n",
+        "template_vcmt7eb",
+        form.current,
+        "HBocGiWPceGhGPSWU"
+      )
+      .then(
+        (result) => {
+          setStatus("Message sent successfully!");
+          form.current.reset(); // Resetea el formulario tras enviarlo
+        },
+        (error) => {
+          setStatus("Something went wrong, please try again.");
+        }
+      );
+  };
+
+  return (
+    <section
+      id="contact"
+      className="py-12 bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100"
+    >
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center mb-6 text-gray-800">
+          Get in Touch
+        </h2>
+        <p className="text-lg font-light text-gray-600 text-center mb-8 text-lg">
+          Feel free to reach out to me through any of the platforms below or
+          send me a direct message 🙃 I am always open to exciting new
+          opportunities and collaborations. Whether it's a remote position or
+          one that requires relocation, I am eager to bring my skills and
+          experience to new challenges and environments. Let's work together to
+          create something amazing!
+        </p>
+        <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
+          {/* Location */}
+          <div className="flex items-center space-x-4">
+            <FaMapMarkerAlt className="text-blue-500 text-2xl" />
+            <p className="text-lg text-gray-700">Bilbao, Spain</p>
+          </div>
+          {/* Email */}
+          <div className="flex items-center space-x-4">
+            <FaEnvelope className="text-blue-500 text-2xl" />
+            <a
+              href="mailto:jefre123@hotmail.com"
+              className="text-lg text-gray-700 hover:text-blue-600 transition"
+            >
+              jefre123@hotmail.com
+            </a>
+          </div>
+          <div className="flex items-center space-x-4">
             <FaPhoneAlt className="text-blue-500 text-2xl" />
             <a
               href="tel:+34646217559"
@@ -56,37 +76,42 @@ const Contact = () => {
               +34 646 217 559
             </a>
           </div>
-            {/* GitHub */}
-            <div className="flex items-center space-x-4">
-              <FaGithub className="text-blue-500 text-2xl" />
-              <a
-                href="https://github.com/Jefffer"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-lg text-gray-700 hover:text-blue-600 transition"
-              >
-                GitHub
-              </a>
-            </div>
-            {/* LinkedIn */}
-            <div className="flex items-center space-x-4">
-              <FaLinkedin className="text-blue-500 text-2xl" />
-              <a
-                href="https://www.linkedin.com/in/jefferson-rodr%C3%ADguez-rodr%C3%ADguez-354759155/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-lg text-gray-700 hover:text-blue-600 transition"
-              >
-                LinkedIn
-              </a>
-            </div>
+          {/* GitHub */}
+          <div className="flex items-center space-x-4">
+            <FaGithub className="text-blue-500 text-2xl" />
+            <a
+              href="https://github.com/Jefffer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lg text-gray-700 hover:text-blue-600 transition"
+            >
+              GitHub
+            </a>
           </div>
-          <div className="mt-12 max-w-xl mx-auto bg-white shadow-lg rounded-lg p-8 transform transition hover:scale-105 hover:shadow-xl">
-          <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Send Me a Message</h3>
+          {/* LinkedIn */}
+          <div className="flex items-center space-x-4">
+            <FaLinkedin className="text-blue-500 text-2xl" />
+            <a
+              href="https://www.linkedin.com/in/jefferson-rodr%C3%ADguez-rodr%C3%ADguez-354759155/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lg text-gray-700 hover:text-blue-600 transition"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+        <div className="mt-12 max-w-xl mx-auto bg-white shadow-lg rounded-lg p-8 transform transition hover:scale-105 hover:shadow-xl">
+          <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+            Send Me a Message
+          </h3>
           {/* <form action="#" method="POST"> */}
           <form ref={form} onSubmit={sendEmail}>
             <div className="mb-6">
-              <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+              <label
+                htmlFor="name"
+                className="block text-gray-700 font-medium mb-2"
+              >
                 Name
               </label>
               <input
@@ -98,7 +123,10 @@ const Contact = () => {
               />
             </div>
             <div className="mb-6">
-              <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+              <label
+                htmlFor="email"
+                className="block text-gray-700 font-medium mb-2"
+              >
                 Email
               </label>
               <input
@@ -110,7 +138,10 @@ const Contact = () => {
               />
             </div>
             <div className="mb-6">
-              <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
+              <label
+                htmlFor="message"
+                className="block text-gray-700 font-medium mb-2"
+              >
                 Message
               </label>
               <textarea
@@ -128,13 +159,14 @@ const Contact = () => {
               Send Message
             </button>
           </form>
-          {status && <p className="text-center text-green-600 mt-4">{status}</p>}
+          {status && (
+            <p className="text-center text-green-600 mt-4">{status}</p>
+          )}
         </div>
-        </div>
-      </section>
-
-    );
-  };
+      </div>
+    </section>
+  );
+};
 
 // Formulario de Contacto
 // const Contact = () => {
@@ -153,18 +185,18 @@ const Contact = () => {
 //   };
 
 const sectionStyle = {
-  padding: '20px',
-  margin: '20px auto',
-  maxWidth: '800px',
-  textAlign: 'center',
-  backgroundColor: '#f9f9f9',
-  borderRadius: '8px',
+  padding: "20px",
+  margin: "20px auto",
+  maxWidth: "800px",
+  textAlign: "center",
+  backgroundColor: "#f9f9f9",
+  borderRadius: "8px",
 };
 
 const listStyle = {
-  listStyle: 'none',
-  padding: '0',
-  margin: '0',
+  listStyle: "none",
+  padding: "0",
+  margin: "0",
 };
 
 export default Contact;
