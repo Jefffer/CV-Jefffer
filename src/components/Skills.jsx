@@ -47,7 +47,7 @@ const Skills = () => {
     { name: "Node.js", icon: <FaNodeJs className="text-green-500 text-4xl" /> },
     { name: "MySQL", icon: <SiMysql className="text-teal-500 text-4xl" /> },
     { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-700 text-4xl" /> },
-    { name: "NoSQL", icon: <GrDocumentStore className="text-blue-600 text-4xl" /> },
+    // { name: "NoSQL", icon: <GrDocumentStore className="text-blue-600 text-4xl" /> },
     { name: "MongoDB", icon: <SiMongodb className="text-green-600 text-4xl" /> },
     { name: "Kotlin", icon: <SiKotlin className="text-purple-500 text-4xl" /> },
     { name: "OutSystems", icon: <FaDotCircle className="text-red-400 text-4xl" /> },
@@ -91,7 +91,7 @@ return (
   <section id="skills" className="prose mx-auto p-6 my-8">
     <h2 className="text-center text-4xl font-bold">Tech Skills</h2>
     <p className="text-center text-lg text-gray-600 mb-12">
-        These are the technologies and tools I am proficient in:
+        These are the technologies, languages and tools I am proficient in:
       </p>
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mt-6 justify-items-center">
       {skills.map((skill, index) => (

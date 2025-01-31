@@ -117,19 +117,19 @@ const Header = () => {
             <FaTools /> Skills
           </a>
           <a
-            href="#projects"
+            href="/projects"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
           >
             <FaProjectDiagram /> Projects
           </a>
           <a
-            href="#experience"
+            href="/experience"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
           >
             <FaBriefcase /> Experience
           </a>
           <a
-            href="#education"
+            href="/education"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
           >
             <FaGraduationCap /> Education
