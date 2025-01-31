@@ -89,7 +89,7 @@ const Skills = () => {
 
 return (
   <section id="skills" className="prose mx-auto p-6 my-8">
-    <h2 className="text-center text-4xl font-bold">Tech Skills</h2>
+    <h2 className="text-center text-4xl font-bold">Tech <span className="text-blue-600">Skills</span></h2>
     <p className="text-center text-lg text-gray-600 mb-12">
         These are the technologies, languages and tools I am proficient in:
       </p>
