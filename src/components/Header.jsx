@@ -99,12 +99,12 @@ const Header = () => {
             isMenuOpen ? 'flex' : 'hidden'
           } flex-col md:flex md:flex-row items-center justify-center mt-6 md:mt-6 space-y-4 md:space-y-0 md:space-x-6 text-lg`}
         >
-          <a
-            href="/"
+          <Link
+            to="/"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
           >
             <FaHome /> Home
-          </a>
+          </Link>
           <Link
             to="/about"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
@@ -117,30 +117,30 @@ const Header = () => {
           >
             <FaTools /> Skills
           </a>
-          <a
-            href="/projects"
+          <Link
+            to="/projects"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
           >
             <FaProjectDiagram /> Projects
-          </a>
-          <a
-            href="/experience"
+          </Link>
+          <Link
+            to="/experience"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
           >
             <FaBriefcase /> Experience
-          </a>
-          <a
-            href="/education"
+          </Link>
+          <Link
+            to="/education"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
           >
             <FaGraduationCap /> Education
-          </a>
-          <a
-            href="/contact"
+          </Link>
+          <Link
+            to="/contact"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
           >
             <FaEnvelope /> Get In Touch
-          </a>
+          </Link>
         </nav>
       </div>
     </header>
