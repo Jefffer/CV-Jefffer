@@ -13,11 +13,11 @@ import { BiSolidCameraMovie } from "react-icons/bi";
 const PersonalProfile = () => {
   return (
     <section className="mx-auto py-12 bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100">
-      <div className="prose container mx-auto px-6">
+      <div className=" prose container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-6 text-gray-800">
           About <span className="text-blue-600">Me</span>
         </h2>
-        <p className="text-lg text-gray-600 text-center mb-8">
+        <p className="text-lg text-gray-600 text-center">
           <em>Here’s a little glimpse into who I am outside of work.</em>
         </p>
         <div className="grid md:grid-cols-2 gap-6">
@@ -25,7 +25,7 @@ const PersonalProfile = () => {
             <h3 className="text-2xl font-semibold mb-4 text-gray-700">
               Hobbies & Interests
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 pl-1">
               <li className="flex items-center gap-3">
                 <CgGym className="text-blue-600 text-xl" />
                 <span>I love gym and staying fit.</span>

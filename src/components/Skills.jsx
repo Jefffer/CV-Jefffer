@@ -26,6 +26,7 @@ import { FaJsSquare, FaReact, FaDatabase, FaMicrosoft, FaHtml5,
 
   import { GrDocumentStore } from "react-icons/gr";
   import { VscAzureDevops } from "react-icons/vsc";
+  import { CO, ES } from "react-world-flags";
 
 
 
@@ -54,38 +55,6 @@ const Skills = () => {
     { name: "MATLAB", icon: <PiMathOperationsFill className="text-blue-400 text-4xl" /> },
     { name: "phpMyAdmin", icon: <SiPhpmyadmin className="text-green-500 text-4xl" /> },
   ];
-
-//   return (
-//     <section id="skills" className="prose mx-auto p-6 my-8">
-//       <h2 className="text-center text-4xl font-bold">Skills</h2>
-//       <ul className="flex flex-wrap justify-center gap-4 mt-4">
-//         {skills.map((skill, index) => (
-//           <li key={index} className="p-2 bg-gray-800 text-white rounded-md shadow-md hover:scale-110 transition-transform">
-//             {skill.icon}{skill.name}
-//           </li>
-//         ))}
-//       </ul>
-//     </section>
-//   );
-// };
-
-// return (
-//   <section id="skills" className="prose mx-auto p-6 my-8">
-//     <h2 className="text-center text-4xl font-bold">Habilidades</h2>
-//     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 mt-6 justify-items-center">
-//       {skills.map((skill, index) => (
-//         <div
-//           key={index}
-//           className="flex flex-col items-center gap-2 p-4 bg-gray-100 rounded-md shadow-md hover:shadow-lg transition-shadow"
-//         >
-//           {skill.icon}
-//           <span className="text-lg font-semibold">{skill.name}</span>
-//         </div>
-//       ))}
-//     </div>
-//   </section>
-// );
-// };
 
 return (
   <section id="skills" className="prose mx-auto p-6 my-8">

@@ -1,82 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaDownload } from "react-icons/fa";
-
-// const About = () => {
-//   return (
-//     <section
-//       id="about"
-//       className="prose mx-auto p-6 my-8 bg-gradient-to-r from-gray-10 via-gray-100 to-gray-40 rounded-md shadow-lg"
-//     >
-//       {/* <h2 className="text-center text-4xl font-bold mb-6">My Profile</h2> */}
-//       <p className="text-base font-medium text-gray-600 eading-relaxed animate-fadeInUp">
-//         Profile oriented to{" "}
-//         <strong className="font-bold">analysis, design, modeling</strong>, and
-//         <strong className="font-bold"> software development</strong>, with
-//         advanced knowledge in:
-//         <ul className="list-disc list-inside my-4">
-//           <li>
-//             Process diagramming and{" "}
-//             <strong className="font-bold">Database Administration </strong>
-//             (relational SQL and non-relational).
-//           </li>
-//           <li>
-//             Web development (
-//             <strong className="font-bold">MVC, WebApi, Multitier</strong>, and
-//             <strong className="font-bold"> Clean Architecture</strong>).
-//           </li>
-//           <li>
-//             <strong className="font-bold">FrontEnd</strong> development with
-//             Angular and React, and
-//             <strong className="font-bold"> Mobile development</strong> (Android,
-//             Kotlin).
-//           </li>
-//           <li>
-//             Experience in{" "}
-//             <strong className="font-bold">Microsoft .NET Framework</strong>{" "}
-//             (ASP.NET, .NET Core) and extensive knowledge in{" "}
-//             <strong className="font-bold">Entity Framework</strong>, with
-//             deployments in IIS (Windows Server).
-//           </li>
-//           <li>
-//             Agile methodologies (
-//             <strong className="font-bold">SCRUM, XP, Kanban</strong>) and tools
-//             such as
-//             <strong className="font-bold">
-//               Git, Azure DevOps, CRM
-//             </strong> and{" "}
-//             <strong className="font-bold"> Microsoft Project</strong>.
-//           </li>
-//           <li>
-//             DevOps skills with{" "}
-//             <strong className="font-bold">AWS ECS, EC2, S3</strong>, and tools
-//             like
-//             <strong className="font-bold">
-//               {" "}
-//               CodeCommit, CodePipeline
-//             </strong> and <strong className="font-bold"> CodeBuild</strong>.
-//           </li>
-//         </ul>
-//       </p>
-//       <div className="text-center mt-6">
-//           <a
-//             href="/path-to-your-cv.pdf"
-//             download="My_CV.pdf"
-//             className="inline-block bg-blue-500 text-white font-bold py-2 px-6 rounded-md shadow-md hover:bg-blue-600 hover:shadow-lg transition-all"
-//           >
-//             Download CV
-//           </a>
-//           <a
-//             href="/path-to-your-cv.pdf"
-//             download="My_CV.pdf"
-//             className="inline-block bg-blue-500 text-white font-bold py-2 px-6 rounded-md shadow-md hover:bg-blue-600 hover:shadow-lg transition-all"
-//           >
-//             Descargar CV en Español
-//           </a>
-//         </div>
-//     </section>
-//   );
-// };
+import Flag from "react-world-flags";
 
 const About = () => {
   return (
@@ -104,9 +29,8 @@ const About = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        Originally from <strong>Your Country</strong>, currently living in{" "}
-        <strong>Your Current Country</strong>. Passionate about creating robust,
-        scalable, and efficient software solutions.
+        Hi there! I'm originally from <strong>Bogotá</strong> <Flag code="CO" className="w-8 h-6 inline-block transition-transform transform hover:rotate-12" /> and currently living in <strong>Bilbao</strong> <Flag code="ES" className="w-8 h-6 inline-block transition-transform transform hover:rotate-12" />
+        <br />I am passionate about creating robust, scalable, and efficient software solutions.
       </motion.p>
 
       {/* Habilidades */}
@@ -116,9 +40,9 @@ const About = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
       >
-        <ul className="list-disc list-inside text-gray-700 space-y-3 pl-5">
+        <ul className="list-disc prose text-gray-700 space-y-3 pl-5">
           <li>
-            <strong className="font-bold">Software Design & Development</strong>{" "}
+            <strong className="font-bold">Software Design & Backend Development</strong>{" "}
             with expertise in <strong>C#, .NET, Python, PHP</strong>.
           </li>
           <li>
@@ -148,19 +72,19 @@ const About = () => {
         transition={{ duration: 0.8, delay: 0.8 }}
       >
         <a
-          href="/path-to-your-cv.pdf"
+          // href="/path-to-your-cv.pdf"
           download="My_CV.pdf"
-          className="flex items-center gap-2 bg-blue-600 text-white font-bold py-2 px-5 rounded-md shadow-md hover:bg-blue-700 hover:shadow-lg transition-all"
+          className="transition-transform transform hover:scale-105 flex items-center gap-2 bg-blue-600 text-white font-bold py-2 px-5 rounded-md shadow-md hover:bg-blue-700 hover:shadow-lg transition-all"
         >
-          <FaDownload />
+          <FaDownload className="transition-transform transform hover:rotate-12" />
           Download CV
         </a>
         <a
-          href="/path-to-your-cv.pdf"
+          // href="/path-to-your-cv.pdf"
           download="My_CV.pdf"
-          className="flex items-center gap-2 bg-gray-800 text-white font-bold py-2 px-5 rounded-md shadow-md hover:bg-gray-900 hover:shadow-lg transition-all"
+          className="transition-transform transform hover:scale-105 flex items-center gap-2 bg-gray-800 text-white font-bold py-2 px-5 rounded-md shadow-md hover:bg-gray-900 hover:shadow-lg transition-all"
         >
-          <FaDownload />
+          <FaDownload className="transition-transform transform hover:rotate-12"/>
           Descargar CV en Español
         </a>
       </motion.div>
