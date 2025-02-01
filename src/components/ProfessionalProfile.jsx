@@ -5,20 +5,25 @@ const ProfessionalProfile = () => {
   return (
     <section className="mx-auto py-12 bg-gray-50">
       <div className="prose container mx-auto px-6">
-        <h2 className="text-4xl font-extrabold text-center mb-6 text-gray-800">
+        <h2 className="text-5xl font-extrabold text-center mb-6 text-gray-800">
         {/* <h2 className="text-5xl font-extrabold text-center mb-6 text-gray-800"> */}
-          My <span className="text-blue-600">Professional Profile</span>
+          My <span className="text-indigo-500">Professional Profile</span>
         </h2>
         <p className="text-lg text-gray-600 text-center mb-8">
           <em>Discover my technical skills, certifications, and career highlights.</em>
         </p>
-
+        
         <div className="grid md:grid-cols-2 gap-8">
           {/* Technical Skills */}
           <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all">
-            <h5 className="text-2xl font-semibold mb-4 text-gray-700 flex items-center gap-2">
+            {/* <h5 className="text-2xl font-semibold mb-4 text-gray-700 flex items-center gap-2">
               <FaCode className="text-blue-600" /> Tech Stack & Skills
-            </h5>
+            </h5> */}
+            <h5 className="text-3xl font-semibold text-gray-800 flex items-center gap-3 mb-10 relative">
+                    <FaCode className="text-blue-600 text-4xl" />
+                    Tech Stack & Skills
+                    <span className="absolute left-0 -bottom-2 w-24 h-1 bg-blue-500 rounded-full"></span>
+                  </h5>
             <ul className="list-none space-y-3 text-gray-600">
               <li><strong>Backend:</strong> C#, .NET Core, ASP.NET, Entity Framework</li>
               <li><strong>Databases:</strong> SQL Server, MySQL, PostgreSQL, MongoDB</li>
@@ -30,11 +35,18 @@ const ProfessionalProfile = () => {
             </ul>
           </div>
 
+          
+
           {/* Certifications & Experience */}
           <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all">
-            <h5 className="text-2xl font-semibold mb-4 text-gray-700 flex items-center gap-2">
+            {/* <h5 className="text-2xl font-semibold mb-4 text-gray-700 flex items-center gap-2">
               <FaAward className="text-yellow-500" /> Certifications & Achievements
-            </h5>
+            </h5> */}
+            <h5 className="text-3xl font-semibold text-gray-800 flex items-center gap-3 mb-10 relative">
+                    <FaAward className="text-yellow-500 text-4xl" />
+                    Certifications & Achievements
+                    <span className="absolute left-0 -bottom-2 w-24 h-1 bg-yellow-400 rounded-full"></span>
+                  </h5>
             <ul className="list-none space-y-3 text-gray-600">
               <li>✅ Microsoft Certified: AZ-900 Azure Fundamentals</li>
               <li>🎓 Master's Degree in Software Engineering (in progress)</li>
