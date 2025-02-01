@@ -19,7 +19,7 @@ const About = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        What <span className="text-blue-600">I Do</span>
+        What <span className="text-indigo-500">I Do</span>
       </motion.h2>
 
       {/* Introducción */}
@@ -74,7 +74,7 @@ const About = () => {
         <a
           // href="/path-to-your-cv.pdf"
           download="My_CV.pdf"
-          className="transition-transform transform hover:scale-105 flex items-center gap-2 bg-blue-600 text-white font-bold py-2 px-5 rounded-md shadow-md hover:bg-blue-700 hover:shadow-lg transition-all"
+          className="transition-transform transform hover:scale-105 flex items-center gap-2 bg-indigo-600 text-white font-bold py-2 px-5 rounded-md shadow-md hover:bg-indigo-700 hover:shadow-lg transition-all"
         >
           <FaDownload className="transition-transform transform hover:rotate-12" />
           Download CV

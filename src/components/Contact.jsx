@@ -39,23 +39,22 @@ const Contact = () => {
       id="contact"
       className="py-12 bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100"
     >
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-6 text-gray-800">
-          Get in Touch
+      <div className="prose container mx-auto px-6">
+        <h2 className="text-5xl font-bold text-center mb-6 text-gray-800">
+          Get <span className="text-indigo-500">in Touch</span>
         </h2>
         <p className="text-lg font-light text-gray-600 text-center mb-8 text-lg">
           Feel free to reach out to me through any of the platforms below or
           send me a direct message 🙃 I am always open to exciting new
           opportunities and collaborations. Whether it's a remote position or
           one that requires relocation, I am eager to bring my skills and
-          experience to new challenges and environments. Let's work together to
-          create something amazing!
+          experience to new challenges and environments!!
         </p>
         <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
           {/* Location */}
           <div className="flex items-center space-x-4">
             <FaMapMarkerAlt className="text-blue-500 text-2xl" />
-            <p className="text-lg text-gray-700">Bilbao, Spain</p>
+            <p className="text-lg text-gray-700 mb-0 mt-0">Bilbao, Spain</p>
           </div>
           {/* Email */}
           <div className="flex items-center space-x-4">
@@ -102,9 +101,9 @@ const Contact = () => {
           </div>
         </div>
         <div className="mt-12 max-w-xl mx-auto bg-white shadow-lg rounded-lg p-8 transform transition hover:scale-105 hover:shadow-xl">
-          <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+          <h5 className="text-2xl font-bold text-gray-800 mb-6 text-center">
             Send Me a Message
-          </h3>
+          </h5>
           {/* <form action="#" method="POST"> */}
           <form ref={form} onSubmit={sendEmail}>
             <div className="mb-6">
@@ -154,7 +153,7 @@ const Contact = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-600 hover:shadow-lg transition duration-300 transform hover:scale-105"
+              className="w-full bg-indigo-500 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-600 hover:shadow-lg transition duration-300 transform hover:scale-105"
             >
               Send Message
             </button>
