@@ -12,7 +12,7 @@ import AboutMePage from './pages/AboutMePage';
 import Footer from './components/Footer';
 
 
-const App = () => {
+function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
@@ -30,7 +30,7 @@ const App = () => {
       </div>
     </Router>
   );
-};
+}
 
 export default App;
 
