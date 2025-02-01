@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import {
   FaUserAlt,
   FaTools,
@@ -104,12 +105,12 @@ const Header = () => {
           >
             <FaHome /> Home
           </a>
-          <a
-            href="/about"
+          <Link
+            to="/about"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
           >
             <FaUserAlt /> About me
-          </a>
+          </Link>
           <a
             href="/#skills"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
