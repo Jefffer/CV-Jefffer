@@ -1,92 +1,82 @@
 import React from "react";
+import { motion } from "framer-motion";
 import {
-  FaHiking,
   FaMusic,
-  FaBook,
+  FaGuitar,
   FaPlane,
   FaCat,
   FaPaintBrush,
 } from "react-icons/fa";
 import { CgGym } from "react-icons/cg";
 import { BiSolidCameraMovie } from "react-icons/bi";
+import { TbTargetArrow } from "react-icons/tb";
+
+const hobbies = [
+  { icon: <CgGym />, text: "Staying fit & going to the gym", color: "bg-red-100 text-red-600" },
+  { icon: <FaCat />, text: "Spending time with my cats", color: "bg-yellow-100 text-yellow-600" },
+  { icon: <FaMusic />, text: "Playing guitar & discovering music", color: "bg-blue-100 text-blue-600" },
+  { icon: <BiSolidCameraMovie />, text: "Exploring different movie genres", color: "bg-green-100 text-green-600" },
+  { icon: <FaPlane />, text: "Traveling & learning about cultures", color: "bg-purple-100 text-purple-600" },
+  { icon: <FaPaintBrush />, text: "Expressing myself through tattoos", color: "bg-pink-100 text-pink-600" },
+];
 
 const PersonalProfile = () => {
   return (
     <section className="mx-auto py-12 bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100">
-      <div className=" prose container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-6 text-gray-800">
+      <div className="prose container mx-auto px-6">
+        {/* Título */}
+        <motion.h2 
+          initial={{ opacity: 0, y: -20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.6 }}
+          className="text-5xl font-extrabold text-center mb-6 text-gray-800"
+        >
           About <span className="text-blue-600">Me</span>
-        </h2>
-        <p className="text-lg text-gray-600 text-center">
-          <em>Here’s a little glimpse into who I am outside of work.</em>
+        </motion.h2>
+
+        <p className="text-lg text-gray-600 text-center mb-8">
+          <em>Here's a little glimpse into who I am outside of work.</em>
         </p>
-        <div className="grid md:grid-cols-2 gap-6">
+
+        {/* Hobbies Section */}
+        <div className="grid md:grid-cols-2 gap-8">
           <div>
-            <h3 className="text-2xl font-semibold mb-4 text-gray-700">
-              Hobbies & Interests
-            </h3>
-            <ul className="space-y-3 pl-1">
-              <li className="flex items-center gap-3">
-                <CgGym className="text-blue-600 text-xl" />
-                <span>I love gym and staying fit.</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <FaCat className="text-blue-600 text-xl" />
-                <span>
-                  I am a cat lover and enjoy spending time with my feline
-                  friends.
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <FaMusic className="text-blue-600 text-xl" />
-                <span>
-                  I enjoy playing my guitar, discovering new music and assisting
-                  to concerts.
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <BiSolidCameraMovie className="text-blue-600 text-xl" />
-                <span>
-                  I am a movie enthusiastand enjoy watching a wide range of
-                  genres.
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <FaPlane className="text-blue-600 text-xl" />
-                <span>
-                  Traveling is one of my passions. I love learning about
-                  different cultures.
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <FaPaintBrush className="text-blue-600 text-xl" />
-                <span>
-                  I have a passion for tattoos and enjoy expressing myself
-                  through body art.
-                </span>
-              </li>
-            </ul>
+            <h5 className="text-2xl font-semibold mb-4 text-gray-700 flex items-center gap-2">
+              <FaGuitar className="text-red-700" /> Hobbies & Interests
+            </h5>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+              {hobbies.map((hobby, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: index * 0.1, duration: 0.4 }}
+                  className="flex flex-col items-center p-4 rounded-xl shadow-md hover:shadow-lg transition-all bg-white text-center"
+                >
+                  <div className={`w-16 h-16 flex items-center justify-center rounded-full ${hobby.color} text-4xl`}>
+                    {hobby.icon}
+                  </div>
+                  <span className="text-gray-700 mt-3 text-sm font-medium">{hobby.text}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
+
+          {/* Future Goals Section */}
           <div>
-            <h3 className="text-2xl font-semibold mb-4 text-gray-700">
-              Future Goals
-            </h3>
-            <p className="text-base text-gray-600 mb-4">
-                In the future, I aspire to become a Software Architect,
-              designing robust and scalable systems. I also dream of traveling
-              around the world, immersing myself in diverse cultures and
-              experiences. 
-            </p>
-            <p className="text-base text-gray-600 mb-4">
-            Additionally, I have a passion for music, and I
-              hope to produce my own tracks someday. I am committed to
-              animal welfare and aim to establish an animal refuge in the future.
-            </p>
-            <p className="text-base text-gray-600">
-              Lastly, I plan to learn new languages (currently learning French),
-              and give back to the community by mentoring aspiring developers.
-              
-            </p>
+            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+              <h5 className="text-2xl font-semibold mb-4 text-gray-700 flex items-center gap-2">
+                <TbTargetArrow className="text-red-600" /> Future Goals
+              </h5>
+              <ul className="list-none space-y-3 text-gray-600">
+                <li>🚀 Become a <strong>Software Architect</strong> designing scalable and innovative systems.</li>
+                <li>🌍 Travel the world and immerse myself in different cultures.</li>
+                <li>🎵 Produce my own music tracks and explore the world of music production.</li>
+                <li>🐾 Establish an <strong>animal refuge</strong> to support animal welfare.</li>
+                <li>🗣️ Learn new languages (currently learning <strong>French</strong>).</li>
+                <li>👨‍🏫 Mentor aspiring developers and give back to the community.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
