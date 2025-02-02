@@ -111,7 +111,13 @@ const experiences = [
 ];
 
 const Experience = () => {
-  const [expanded, setExpanded] = useState(null);
+  const [expanded, setExpanded] = useState([]);
+
+  const toggleExpand = (index) => {
+    setExpanded((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+    );
+  };
 
   return (
     <section className="py-12 bg-gray-50">
@@ -125,12 +131,14 @@ const Experience = () => {
           Professional <span className="text-indigo-500">Experience</span>
         </motion.h2>
 
-        <div className="space-y-6">
+        <div className="space-y-6 relative">
+          <div className="absolute left-4 top-0 bottom-0 w-1 bg-indigo-400 rounded-full"></div>
           {experiences.map((exp, index) => (
-            <div key={index} className="bg-white shadow-lg rounded-xl p-6 border border-gray-200">
+            <div key={index} className="relative bg-white shadow-lg rounded-xl p-6 border border-gray-200">
+              <div className="absolute left-0 top-7 w-4 h-4 bg-indigo-400 rounded-full transform -translate-x-1/2"></div>
               <div
                 className="flex items-center justify-between cursor-pointer"
-                onClick={() => setExpanded(expanded === index ? null : index)}
+                onClick={() => toggleExpand(index)}
               >
                 <div className="flex items-center space-x-4">
                   <img
@@ -144,14 +152,14 @@ const Experience = () => {
                     <p className="text-gray-500 text-sm mb-0 mt-1">{exp.location}</p>
                   </div>
                 </div>
-                {expanded === index ? (
+                {expanded.includes(index) ? (
                   <FaCaretUp className="w-6 h-6 text-indigo-400" />
                 ) : (
                   <FaCaretDown className="w-6 h-6 text-indigo-400" />
                 )}
               </div>
 
-              {expanded === index && (
+              {expanded.includes(index) && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -169,7 +177,7 @@ const Experience = () => {
                         className="w-16 h-16 object-contain rounded-md border border-gray-300 p-1"
                       />
                       <div>
-                        <h4 className="text-xl font-semibold text-gray-700">{client.name}</h4>
+                        <h4 className="text-xl font-semibold text-gray-700 mt-3">{client.name}</h4>
                         <p className="text-sm text-gray-500">{client.period}</p>
                         <p className="text-m text-gray-500 font-semibold mb-0">{client.role}</p>
                         <p className="mt-2 text-gray-600 leading-relaxed font-light text-sm">{client.activities}</p>
