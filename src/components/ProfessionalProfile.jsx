@@ -1,18 +1,29 @@
 import React from "react";
-import { FaCloud, FaDatabase, FaCode, FaAward, FaBook } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaCode, FaAward } from "react-icons/fa";
 
 const ProfessionalProfile = () => {
   return (
     <section className="mx-auto py-12 bg-gray-50">
       <div className="prose container mx-auto px-6">
-        <h2 className="text-5xl font-extrabold text-center mb-6 text-gray-800">
         {/* <h2 className="text-5xl font-extrabold text-center mb-6 text-gray-800"> */}
+        {/* <h2 className="text-5xl font-extrabold text-center mb-6 text-gray-800"> */}
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-5xl font-extrabold text-center mb-6 text-gray-800"
+        >
           My <span className="text-indigo-500">Professional Profile</span>
-        </h2>
-        <p className="text-lg text-gray-600 text-center mb-8">
+          </motion.h2>
+          <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-lg text-gray-600 text-center mb-10"
+        >
           <em>Discover my technical skills, certifications, and career highlights.</em>
-        </p>
-        
+        </motion.p>
         <div className="grid md:grid-cols-2 gap-8">
           {/* Technical Skills */}
           <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all">
