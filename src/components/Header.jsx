@@ -106,17 +106,23 @@ const Header = () => {
             <FaHome /> Home
           </Link>
           <Link
+            to="/profile"
+            className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
+          >
+            <FaTools /> Profile
+          </Link>
+          <Link
             to="/about"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
           >
             <FaUserAlt /> About me
           </Link>
-          <a
+          {/* <a
             href="/#skills"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
           >
-            <FaTools /> Skills
-          </a>
+            < /> Skills
+          </a> */}
           <Link
             to="/projects"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"

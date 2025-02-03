@@ -5,7 +5,7 @@ import ProfessionalProfile from "../components/ProfessionalProfile";
 const AboutMePage = () => {
   return (
     <div>
-      <ProfessionalProfile />
+      {/* <ProfessionalProfile /> */}
       <PersonalProfile />
     </div>
   );
