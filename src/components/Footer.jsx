@@ -1,36 +1,7 @@
 import React from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { RiInstagramFill } from 'react-icons/ri';
-
-// const Footer = () => {
-//     return (
-//       <footer className="p-6 bg-gray-800 text-white text-center">
-//         <p>&copy; 2025 Jefffer</p>
-//         <p>All rights reserved</p>
-//       </footer>
-//     );
-//   };
-
-//   const Footer = () => {
-//     return (
-//       <footer className="p-6 bg-gray-800 text-white text-center">
-//         <p>Follow me on:</p>
-//         <div className="flex justify-center gap-4 mt-2">
-//           <a href="https://github.com/tu-usuario" className="hover:text-gray-400">
-//             <FaGithub className="text-4xl" />
-//           </a>
-//           <a href="https://linkedin.com/in/tu-perfil" className="hover:text-gray-400">
-//             <FaLinkedin className="text-4xl" /> 
-//           </a>
-//           <a href="https://github.com/tu-usuario" className="hover:text-gray-400">
-//             <RiInstagramFill className="text-4xl" />
-//           </a>
-//         </div>
-//         <p className="mt-4">&copy; 2025 Jefferson Rodríguez. All rights reserved.</p>
-//       </footer>
-//     );
-//   };
-
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -72,48 +43,48 @@ const Footer = () => {
           <div className="mt-8">
             <p className="text-lg font-semibold">Site Map</p>
             <div className="flex flex-wrap justify-center gap-4 mt-4 text-sm">
-            <a
-                href="/"
+            <Link
+                to="/"
                 className="hover:text-gray-400 transition duration-300"
               >
                 Home
-              </a>
-              <a
-                href="#about"
+              </Link>
+              <Link
+                to="/profile"
+                className="hover:text-gray-400 transition duration-300"
+              >
+                Profile
+              </Link>
+              <Link
+                to="/about"
                 className="hover:text-gray-400 transition duration-300"
               >
                 About Me
-              </a>
-              <a
-                href="#skills"
-                className="hover:text-gray-400 transition duration-300"
-              >
-                Skills
-              </a>
-              <a
-                href="#projects"
+              </Link>
+              <Link
+                to="/projects"
                 className="hover:text-gray-400 transition duration-300"
               >
                 Projects
-              </a>
-              <a
-                href="#experience"
+              </Link>
+              <Link
+                to="/experience"
                 className="hover:text-gray-400 transition duration-300"
               >
                 Experience
-              </a>
-              <a
-                href="#education"
+              </Link>
+              <Link
+                to="/education"
                 className="hover:text-gray-400 transition duration-300"
               >
                 Education
-              </a>
-              <a
-                href="/contact"
+              </Link>
+              <Link
+                to="/contact"
                 className="hover:text-gray-400 transition duration-300"
               >
                 Get In Touch
-              </a>
+              </Link>
             </div>
           </div>
   
@@ -131,10 +102,7 @@ const Footer = () => {
           <p className="mt-6 text-sm text-gray-400">
             &copy; Last update: January 2025. Developed by Jefferson Rodríguez <br />
             All rights reserved
-          </p>
-          {/* <p className="mt-6 text-sm text-gray-400">
-             2025 Developed by Jefferson Rodríguez. All rights reserved.
-          </p> */}
+          </p>         
         </div>
       </footer>
     );

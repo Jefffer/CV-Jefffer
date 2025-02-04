@@ -12,54 +12,6 @@ import {
   FaHome
 } from "react-icons/fa";
 
-// const Header = () => {
-//     return (
-//       <header className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white py-8">
-//         <div className="container mx-auto px-6">
-//           {/* Nombre y título */}
-//           <h1 className="text-5xl font-extrabold text-center tracking-tight drop-shadow-md">
-//             Jefferson Rodríguez
-//           </h1>
-//           <h2 className="text-xl font-medium text-center mt-2 opacity-90">
-//             Senior .NET Developer
-//           </h2>
-
-//           {/* Navegación */}
-//           <nav className="mt-6 flex justify-center space-x-6 text-lg">
-//             <a
-//               href="#about"
-//               className="relative hover:text-gray-200 transition duration-300"
-//             >
-//               About me
-//               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 hover:w-full"></span>
-//             </a>
-//             <a
-//               href="#skills"
-//               className="relative hover:text-gray-200 transition duration-300"
-//             >
-//               Skills
-//               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 hover:w-full"></span>
-//             </a>
-//             <a
-//               href="#projects"
-//               className="relative hover:text-gray-200 transition duration-300"
-//             >
-//               Projects
-//               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 hover:w-full"></span>
-//             </a>
-//             <a
-//               href="#contact"
-//               className="relative hover:text-gray-200 transition duration-300"
-//             >
-//               Get In Touch
-//               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 hover:w-full"></span>
-//             </a>
-//           </nav>
-//         </div>
-//       </header>
-//     );
-//   };
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -117,12 +69,6 @@ const Header = () => {
           >
             <FaUserAlt /> About me
           </Link>
-          {/* <a
-            href="/#skills"
-            className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
-          >
-            < /> Skills
-          </a> */}
           <Link
             to="/projects"
             className="flex items-center gap-2 hover:text-gray-200 transition duration-300"
