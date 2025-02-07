@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from './components/Header';
-// import About from './components/About';
-// import Skills from './components/Skills';
 import './styles/App.css';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
@@ -12,7 +10,6 @@ import AboutMePage from './pages/AboutMePage';
 import Footer from './components/Footer';
 import ProfessionalProfile from './components/ProfessionalProfile';
 import Education from './components/Education';
-
 
 function App() {
   return (
@@ -37,4 +34,3 @@ function App() {
 }
 
 export default App;
-
