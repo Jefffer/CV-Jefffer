@@ -29,7 +29,7 @@ const About = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        Hi there! I'm originally from <strong>Bogotá</strong> <Flag code="CO" className="w-8 h-6 inline-block transition-transform transform hover:rotate-12" /> and currently living in <strong>Bilbao</strong> <Flag code="ES" className="w-8 h-6 inline-block transition-transform transform hover:rotate-12" />
+        Hi there! I'm a Software Developer currently living in <strong>Bilbao</strong> <Flag code="ES" className="w-8 h-6 inline-block transition-transform transform hover:rotate-12" />
         <br />I am passionate about creating robust, scalable, and efficient software solutions.
       </motion.p>
 
@@ -43,7 +43,7 @@ const About = () => {
         <ul className="list-disc prose text-gray-700 space-y-3 pl-5">
           <li>
             <strong className="font-bold">Software Design & Backend Development</strong>{" "}
-            with expertise in <strong>C#, .NET, Python, PHP</strong>.
+            with expertise in <strong>C#, .NET, Java, Python, PHP</strong>.
           </li>
           <li>
             <strong className="font-bold">Database Management</strong> (SQL,
@@ -55,7 +55,7 @@ const About = () => {
           </li>
           <li>
             <strong className="font-bold">DevOps & Cloud</strong> experience
-            with AWS (ECS, EC2, S3) and Azure DevOps.
+            with Azure DevOps and AWS (ECS, EC2, S3).
           </li>
           <li>
             Strong knowledge of <strong>Agile Methodologies</strong> (Scrum,
@@ -85,7 +85,7 @@ const About = () => {
           className="transition-transform transform hover:scale-105 flex items-center gap-2 bg-gray-800 text-white font-bold py-2 px-5 rounded-md shadow-md hover:bg-gray-900 hover:shadow-lg transition-all"
         >
           <FaDownload className="transition-transform transform hover:rotate-12"/>
-          Descargar CV en Español
+          CV en Español
         </a>
       </motion.div>
     </motion.section>

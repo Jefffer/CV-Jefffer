@@ -132,7 +132,7 @@ const Header = () => {
       {isMiniHeaderVisible && (
         // <div className="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-opacity-80 z-50 backdrop-blur-md shadow-lg transition-all duration-300">
         <div className="fixed top-0 left-0 w-full bg-indigo-500 bg-opacity-20 z-50 backdrop-blur-md shadow-lg transition-all duration-300">
-          <nav className="container mx-auto px-6 py-3 flex justify-center space-x-6 text-lg text-black-500">
+          <nav className="container mx-auto px-6 py-3 flex justify-center space-x-6 text-lg text-black-500 mt-1 mb-1">
             <Link to="/" className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
               <FaHome />
             </Link>
