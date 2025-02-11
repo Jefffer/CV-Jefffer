@@ -1,25 +1,29 @@
 import React from 'react';
 import { FaGithub, FaReact, FaNodeJs, FaPython, FaAngular, FaJava, FaCss3Alt, FaHtml5, FaJsSquare } from 'react-icons/fa';
-import { SiMongodb, SiPostgresql, SiMysql, SiTailwindcss, SiVercel, SiVite, SiBlazor, SiTypescript, SiDotnet  } from 'react-icons/si';
-import { DiDotnet, DiMsqlServer } from "react-icons/di";
-import { TbBrandVite } from "react-icons/tb";
+import { SiMongodb, SiPostgresql, SiMysql, SiTailwindcss, SiVercel, SiVite, SiBlazor, SiTypescript, SiDotnet,
+  SiPhp, SiPhpmyadmin, SiCpanel, SiKotlin 
+  } from 'react-icons/si';
+import { DiDotnet, DiMsqlServer, DiSqllite  } from "react-icons/di";
+import { TbBrandVite, TbBrandCSharp  } from "react-icons/tb";
+import { AiFillAndroid } from "react-icons/ai";
 
 import { motion } from 'framer-motion';
 import * as Tooltip from '@radix-ui/react-tooltip';
 
 const projects = [
   {
-    name: "Portfolio System",
+    name: "Portfolio Debt Collection System",
     description: "Requirements gathering, architectural design, database design, backend development and deployment of the State Insurance Portfolio System, complying with legal collection regulations for debtors of various insurance policies acquired with the company.",
     technologies: [
       { icon: <SiDotnet  className="text-purple-800" />, name: ".Net Core 5.0" },
+      { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
       { icon: <FaAngular className="text-red-600" />, name: "Angular" },
       { icon: <DiMsqlServer className="text-red-600" />, name: "SQL Server" },
     ],
     client: "State Insurance Colombia (Seguros del Estado)"
   },
   {
-    name: "FrontEnd Library App",
+    name: "Library App FrontEnd",
     description: "FrontEnd of functional e-commerce web application with authentication, cart, and payment integration for a virtual library.",
     technologies: [
       { icon: <FaReact className="text-blue-500" />, name: "React" },
@@ -36,7 +40,7 @@ const projects = [
     github: "https://github.com/Jefffer/RelatosDePapelFrontEnd",
   },
   {
-    name: "BackEnd Library App",
+    name: "Library App BackEnd",
     description: "Microservices-based backend of a functional e-commerce web application with a book catalog, shopping cart and payment integration for a virtual library using Eureka and an API Gateway.",
     technologies: [
       { icon: <FaJava className="text-red-600" />, name: "Java" },
@@ -50,6 +54,7 @@ const projects = [
     description: "A little demo API to handle representative currency exchange rate.",
     technologies: [
       { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 4.6" },
+      { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
       { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript" },
       { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
       { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
@@ -64,6 +69,7 @@ const projects = [
     technologies: [
       { icon: <SiDotnet  className="text-purple-800" />, name: ".Net Core 7.0" },
       { icon: <SiBlazor className="text-violet-600" />, name: "Blazor Server" },
+      { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
       { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
       { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
     ],
@@ -76,6 +82,7 @@ const projects = [
     technologies: [
       { icon: <SiDotnet  className="text-purple-800"/>, name: ".Net Core 6.0" },
       { icon: <SiBlazor className="text-violet-600" />, name: "Blazor Server" },
+      { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
       { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
       { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
       { icon: <SiMongodb className="text-green-600" />, name: "MongoDB" }
@@ -89,6 +96,7 @@ const projects = [
     technologies: [
       { icon: <SiDotnet  className="text-purple-800" />, name: ".Net Core 6.0" },
       { icon: <SiBlazor className="text-violet-600" />, name: "Blazor Server" },
+      { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
       { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
       { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
       { icon: <DiMsqlServer className="text-red-600" />, name: "SQL Server" },
@@ -97,19 +105,19 @@ const projects = [
     github: "https://github.com/Jefffer/BlazorDemoApp",
   },
   {
-    name: "BackEnd MoneyXchange App",
+    name: "MoneyXchange App BackEnd",
     description: "Web Api for the MoneyXchange project that consists of performing a currency exchange, the access to the data is controlled through EntityFramework. This application is consumed by the FrontEnd part made in Angular.",
     technologies: [
-      { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 4.6" },
-      { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
-      { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
+      { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 4.6" }, 
+      { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
+      { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript" },
       { icon: <DiMsqlServer className="text-red-600" />, name: "SQL Server" },
     ],
     client: "Personal Project",
     github: "https://github.com/Jefffer/WebApiMoneyXchange",
   },
   {
-    name: "FrontEnd MoneyXchange App",
+    name: "MoneyXchange App FrontEnd",
     description: "FrontEnd of the MoneyXchange project that consists of performing a currency exchange. This application consumes the Web Api made in .Net.",
     technologies: [
       { icon: <FaAngular className="text-red-600" />, name: "Angular" },
@@ -121,25 +129,79 @@ const projects = [
     github: "https://github.com/Jefffer/SuggestionApp",
   },
   {
-    name: "",
-    description: "A chatbot powered by machine learning and natural language processing.",
+    name: "WebClinic App BackEnd",
+    description: "Web Api for the WebClinic project that allows the management of patients, doctors, appointments.",
     technologies: [
-      { icon: <FaPython className="text-yellow-500" />, name: "Python" },
-      { icon: <SiMongodb className="text-green-600" />, name: "MongoDB" },
+      { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 4.6" },
+      { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
+      { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript" },
+      { icon: <DiMsqlServer className="text-red-700" />, name: "SQL Server" },
     ],
-    client: "Proyecto Personal",
-    github: "https://github.com/your-repo",
+    client: "Personal Project",
+    github: "https://github.com/Jefffer/ApiClinicGAP",
   },
   {
-    name: "Banking System API",
-    description: "A secure and scalable banking system API developed in Java.",
+    name: "WebClinic App FrontEnd",
+    description: "Little web application for a clinic that allows the management of patients, doctors and appointments. Conected to a Web Api made in .Net.",
     technologies: [
-      { icon: <SiDotnet  className="text-purple-800" />, name: ".Net Core" },
-      { icon: <SiBlazor className="text-violet-700" />, name: "PostgreSQL" },
+      { icon: <FaAngular className="text-red-600" />, name: "Angular 7" },
+      { icon: <SiTypescript className="text-sky-600" />, name: "TypeScript" },
+      { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
+      { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
     ],
-    client: "Finance Corp",
-    github: "https://github.com/your-repo",
-  }
+    client: "Personal Project",
+    github: "https://github.com/Jefffer/WebClinicGAP",
+  },
+  {
+    name: "Employee Management App BackEnd",
+    description: "Web Api for the Employee Management project that allows the management of employees, salaries positions, etc.",
+    technologies: [
+      { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 4.6" },
+      { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
+      { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript" },
+      { icon: <DiMsqlServer className="text-red-700" />, name: "SQL Server" },
+    ],
+    client: "Personal Project",
+    github: "https://github.com/Jefffer/WebApiOigaTech",
+  },
+  {
+    name: "Employee Management App FrontEnd",
+    description: "FrontEnd of the Employee Management project that allows the management of employees, salaries positions, etc. Conected to a Web Api made in .Net.",
+    technologies: [
+      { icon: <FaAngular className="text-red-600" />, name: "Angular 7" },
+      { icon: <SiTypescript className="text-sky-600" />, name: "TypeScript" },
+      { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
+      { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
+    ],
+    client: "Personal Project",
+    github: "https://github.com/Jefffer/EmployeesViewOigaTech",
+  },
+  {
+    name: "Pyramid: Viata Real State Website",
+    description: "Website for a real estate company that allows the management of properties, clients, etc. Data managed with phpMyAdmin and deployment with cPanel administration.",
+    technologies: [
+      { icon: <SiPhp className="text-sky-700" />, name: "PHP" },
+      { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript" },
+      { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
+      { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
+      { icon: <SiPhpmyadmin className="text-gray-400" />, name: "PhpMyAdmin" },
+      { icon: <SiCpanel className="text-orange-600" />, name: "cPanel" },
+    ],
+    client: "Pyramid: Viata Real State",
+    github: "https://github.com/Jefffer/Pyramid",
+  },
+  {
+    name: "Schedule Mobile App",
+    description: "Mobile application for timetable management at school or university. The application allows you to manage class hours, notifications, write notes, etc.",
+    technologies: [
+      { icon: <SiKotlin className="text-purple-600" />, name: "Kotlin" },
+      { icon: <FaJava className="text-red-600" />, name: "Java" },
+      { icon: <AiFillAndroid className="text-lime-500" />, name: "Android" },
+      { icon: <DiSqllite className="text-blue-900" />, name: "SQLite" },       
+    ],
+    client: "Personal Project",
+    github: "https://github.com/Jefffer/ScheduleTestV10",
+  },
 ];
 
 const Projects = () => {
@@ -156,7 +218,8 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-xl transition-transform hover:scale-105"
+              className="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-xl"
+              // className="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-xl transition-transform hover:scale-105"
               // whileHover={{ }}
             >
               <h5 className="text-2xl font-semibold mb-2 text-indigo-600">{project.name}</h5>
@@ -165,7 +228,7 @@ const Projects = () => {
                 {project.technologies.map((tech, i) => (
                   <Tooltip.Root key={i}>
                     <Tooltip.Trigger asChild>
-                      <div className="cursor-pointer text-2xl">{tech.icon}</div>
+                      <div className="cursor-pointer text-2xl transition-transform hover:scale-150">{tech.icon}</div>
                     </Tooltip.Trigger>
                     <Tooltip.Portal>
                       <Tooltip.Content
@@ -184,7 +247,7 @@ const Projects = () => {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800"
+                className="mt-4 inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 transition-transform hover:scale-105"
               >
                 <FaGithub className="text-2xl" /> View Code
               </a>
