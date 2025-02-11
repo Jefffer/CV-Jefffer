@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaGithub, FaReact, FaNodeJs, FaPython, FaAngular, FaJava, FaCss3Alt, FaHtml5, FaJsSquare } from 'react-icons/fa';
-import { SiMongodb, SiPostgresql, SiMysql, SiTailwindcss, SiVercel, SiVite, SiBlazor   } from 'react-icons/si';
+import { SiMongodb, SiPostgresql, SiMysql, SiTailwindcss, SiVercel, SiVite, SiBlazor, SiTypescript, SiDotnet  } from 'react-icons/si';
 import { DiDotnet, DiMsqlServer } from "react-icons/di";
 import { TbBrandVite } from "react-icons/tb";
 
@@ -12,7 +12,7 @@ const projects = [
     name: "Portfolio System",
     description: "Requirements gathering, architectural design, database design, backend development and deployment of the State Insurance Portfolio System, complying with legal collection regulations for debtors of various insurance policies acquired with the company.",
     technologies: [
-      { icon: <DiDotnet className="text-purple-500" />, name: ".Net Core" },
+      { icon: <SiDotnet  className="text-purple-800" />, name: ".Net Core 5.0" },
       { icon: <FaAngular className="text-red-600" />, name: "Angular" },
       { icon: <DiMsqlServer className="text-red-600" />, name: "SQL Server" },
     ],
@@ -23,7 +23,9 @@ const projects = [
     description: "FrontEnd of functional e-commerce web application with authentication, cart, and payment integration for a virtual library.",
     technologies: [
       { icon: <FaReact className="text-blue-500" />, name: "React" },
+      { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript" },
       { icon: <TbBrandVite className="text-purple-500" />, name: "Vite" },
+      { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
       { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
       { icon: <SiVercel className="text-gray-700" />, name: "Vercel" },
       // { icon: <SiTailwindcss className="text-teal-400" />, name: "Tailwind CSS" },
@@ -44,13 +46,14 @@ const projects = [
     github: "https://github.com/Jefffer/RelatosDePapelFrontEnd",
   },
   {
-    name: "Authentication Demo Api",
-    description: "Demo API to handle user authentication.",
+    name: "Demo Api",
+    description: "A little demo API to handle representative currency exchange rate.",
     technologies: [
-      { icon: <DiDotnet className="text-purple-500" />, name: ".Net Framework 4.6" },
+      { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 4.6" },
       { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript" },
-      { icon: <FaHtml5 className="text-orange-500" />, name: "CSHTML" },
+      { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
       { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
+      { icon: <DiMsqlServer className="text-red-600" />, name: "SQL Server" },
     ],
     client: "Personal Project",
     github: "https://github.com/Jefffer/DemoApiAuthentication",
@@ -59,13 +62,63 @@ const projects = [
     name: "Bogus Data Generator",
     description: "A simple and sane data generator for populating objects that supports different locales. A delightful port of the famed faker.js and inspired by FluentValidation. Use Bogus to create UIs with fake data or seed databases.",
     technologies: [
-      { icon: <DiDotnet className="text-purple-500" />, name: ".Net Core 7.0" },
-      { icon: <SiBlazor className="text-purple-700" />, name: "Blazor Server" },
-      { icon: <FaHtml5 className="text-orange-500" />, name: "CSHTML" },
+      { icon: <SiDotnet  className="text-purple-800" />, name: ".Net Core 7.0" },
+      { icon: <SiBlazor className="text-violet-600" />, name: "Blazor Server" },
+      { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
       { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
     ],
     client: "Personal Project",
     github: "https://github.com/Jefffer/BogusDataApp",
+  },
+  {
+    name: "Suggestion App",
+    description: "An App to suggest new ideas within a website and save them in different categories to be taken into account later. Based on tutorial by IAmTimCorey",
+    technologies: [
+      { icon: <SiDotnet  className="text-purple-800"/>, name: ".Net Core 6.0" },
+      { icon: <SiBlazor className="text-violet-600" />, name: "Blazor Server" },
+      { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
+      { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
+      { icon: <SiMongodb className="text-green-600" />, name: "MongoDB" }
+    ],
+    client: "Personal Project",
+    github: "https://github.com/Jefffer/SuggestionApp",
+  },
+  {
+    name: "Blazor App with Dapper",
+    description: ".Net API using Blazor server and Dapper as ORM for data connection in the persistence layer.",
+    technologies: [
+      { icon: <SiDotnet  className="text-purple-800" />, name: ".Net Core 6.0" },
+      { icon: <SiBlazor className="text-violet-600" />, name: "Blazor Server" },
+      { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
+      { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
+      { icon: <DiMsqlServer className="text-red-600" />, name: "SQL Server" },
+    ],
+    client: "Personal Project",
+    github: "https://github.com/Jefffer/BlazorDemoApp",
+  },
+  {
+    name: "BackEnd MoneyXchange App",
+    description: "Web Api for the MoneyXchange project that consists of performing a currency exchange, the access to the data is controlled through EntityFramework. This application is consumed by the FrontEnd part made in Angular.",
+    technologies: [
+      { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 4.6" },
+      { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
+      { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
+      { icon: <DiMsqlServer className="text-red-600" />, name: "SQL Server" },
+    ],
+    client: "Personal Project",
+    github: "https://github.com/Jefffer/WebApiMoneyXchange",
+  },
+  {
+    name: "FrontEnd MoneyXchange App",
+    description: "FrontEnd of the MoneyXchange project that consists of performing a currency exchange. This application consumes the Web Api made in .Net.",
+    technologies: [
+      { icon: <FaAngular className="text-red-600" />, name: "Angular" },
+      { icon: <SiTypescript className="text-sky-600" />, name: "TypeScript" },
+      { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
+      { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
+    ],
+    client: "Personal Project",
+    github: "https://github.com/Jefffer/SuggestionApp",
   },
   {
     name: "",
@@ -81,8 +134,8 @@ const projects = [
     name: "Banking System API",
     description: "A secure and scalable banking system API developed in Java.",
     technologies: [
-      { icon: <DiDotnet className="text-purple-600" />, name: ".Net Core" },
-      { icon: <SiBlazor className="text-purple-700" />, name: "PostgreSQL" },
+      { icon: <SiDotnet  className="text-purple-800" />, name: ".Net Core" },
+      { icon: <SiBlazor className="text-violet-700" />, name: "PostgreSQL" },
     ],
     client: "Finance Corp",
     github: "https://github.com/your-repo",
@@ -106,7 +159,7 @@ const Projects = () => {
               className="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-xl transition-transform hover:scale-105"
               // whileHover={{ }}
             >
-              <h5 className="text-2xl font-semibold mb-2">{project.name}</h5>
+              <h5 className="text-2xl font-semibold mb-2 text-indigo-600">{project.name}</h5>
               <p className="text-sm text-gray-600 mb-4">{project.description}</p>
               <div className="flex items-center gap-3 mb-4">
                 {project.technologies.map((tech, i) => (
