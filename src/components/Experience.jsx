@@ -60,7 +60,7 @@ const experiences = [
     location: "Bogotá D.C",
     clients: [
       {
-        name: "Exsis Digital Angels Development Fabric",
+        name: "Exsis Digital Angels Software Fabric",
         logo: "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/et5zwmwaqsmtyao23keh",
         role: "FullStack Developer",
         period: "June 2019 - July 2020",
@@ -78,7 +78,7 @@ const experiences = [
       {
         period: "January 2018 - June 2019",
         logo: "https://seeklogo.com/images/S/Seguros_del_Estado_S_A_-logo-1C31DF4CFE-seeklogo.com.png",
-        name: "Seguros del Estado (ICSG)",
+        name: "State Insurance (Seguros del Estado ICSG)",
         role: ".Net Developer and DBA",
         activities:
           "Administered SQL Server databases, managed Windows Server and IIS, and supported/developed new modules for internal applications (Financing, Counter-guarantees, SARLAFT, etc.) using .NET Framework 3.5.",
