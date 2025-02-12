@@ -12,16 +12,30 @@ import * as Tooltip from '@radix-ui/react-tooltip';
 
 const projects = [
   {
-    name: "Portfolio Debt Collection System",
-    description: "Requirements gathering, architectural design, database design, backend development and deployment of the State Insurance Portfolio System, complying with legal collection regulations for debtors of various insurance policies acquired with the company.",
+    name: "Laboral Kutxa Online Banking",
+    description: "LK Online Banking is the website and mobile app service of Laboral Kutxa, a Basque financial institution. The service allows you to manage your accounts, cards, transfers, etc.",
     technologies: [
-      { icon: <SiDotnet  className="text-purple-800" />, name: ".Net Core 5.0" },
+      { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 4.8" },
+      { icon: <SiDotnet  className="text-purple-800" />, name: ".Net Core 6.0" },
       { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
-      { icon: <FaAngular className="text-red-600" />, name: "Angular" },
-      { icon: <DiMsqlServer className="text-red-600" />, name: "SQL Server" },
+      { icon: <DiMsqlServer className="text-red-700" />, name: "SQL Server" },   
     ],
-    client: "State Insurance Colombia (Seguros del Estado)",
+    client: "Laboral Kutxa Bank",
+    website: "https://www.laboralkutxa.com/es/",
   },
+  
+  {
+    name: "CAPTOR Sisteplant",
+    description: "Custom development and version migrations from CAPTOR 3 to CAPTOR 4 for the Gestamp client. CAPTOR is a software for the management of production processes in the industrial sector.",
+    technologies: [
+      { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 3.5 - 4.5" },
+      { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
+      { icon: <DiMsqlServer className="text-red-700" />, name: "SQL Server" },   
+    ],
+    client: "Sisteplant",
+    website: "https://sisteplant.com/que-ofrecemos/captor/",
+  },
+  
   {
     name: "Library App FrontEnd",
     description: "FrontEnd of functional e-commerce web application with authentication, cart, and payment integration for a virtual library.",
@@ -60,6 +74,18 @@ const projects = [
     ],
     client: "Personal Project",
     github: "https://github.com/Jefffer/DemoApiAuthentication",
+  },
+  {
+    name: "Schedule Mobile App",
+    description: "Mobile application for timetable management at school or university. The application allows you to manage class hours, notifications, write notes, etc.",
+    technologies: [
+      { icon: <SiKotlin className="text-purple-600" />, name: "Kotlin" },
+      { icon: <FaJava className="text-red-600" />, name: "Java" },
+      { icon: <AiFillAndroid className="text-lime-500" />, name: "Android" },
+      { icon: <DiSqllite className="text-blue-900" />, name: "SQLite" },       
+    ],
+    client: "Personal Project",
+    github: "https://github.com/Jefffer/ScheduleTestV10",
   },
   {
     name: "Bogus Data Generator",
@@ -103,6 +129,31 @@ const projects = [
     github: "https://github.com/Jefffer/BlazorDemoApp",
   },
   {
+    name: "Portfolio Debt Collection System",
+    description: "Requirements gathering, architectural design, database design, backend development and deployment of the State Insurance Portfolio System, complying with legal collection regulations for debtors of various insurance policies acquired with the company.",
+    technologies: [
+      { icon: <SiDotnet  className="text-purple-800" />, name: ".Net Core 5.0" },
+      { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
+      { icon: <FaAngular className="text-red-600" />, name: "Angular" },
+      { icon: <DiMsqlServer className="text-red-600" />, name: "SQL Server" },
+    ],
+    client: "State Insurance Colombia (Seguros del Estado)",    
+    website: "https://crediestado.com.co/polizas/",
+  },
+  {
+    name: "IDDEA Web App",
+    description: "Backend Support for Iddea, an innovation engine with web and mobile platforms, its function is to motivate and encourage members of an organization to propose ideas for a specific challenge, obtaining incentives.",
+    technologies: [
+      { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework" },
+      { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
+      { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
+      { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
+      { icon: <DiMsqlServer className="text-red-700" />, name: "SQL Server" },   
+    ],
+    client: "Exsis Digital Angels",
+    website: "https://exsis.co/services-software",
+  },
+  {
     name: "MoneyXchange App BackEnd",
     description: "Web Api for the MoneyXchange project that consists of performing a currency exchange, the access to the data is controlled through EntityFramework. This application is consumed by the FrontEnd part made in Angular.",
     technologies: [
@@ -125,6 +176,20 @@ const projects = [
     ],
     client: "Personal Project",
     github: "https://github.com/Jefffer/SuggestionApp",
+  },
+  {
+    name: "Pyramid: Viata Real State Website",
+    description: "Website for a real estate company that allows the management of properties, clients, etc. Data managed with phpMyAdmin and deployment with cPanel administration.",
+    technologies: [
+      { icon: <SiPhp className="text-sky-700" />, name: "PHP" },
+      { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript" },
+      { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
+      { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
+      { icon: <SiPhpmyadmin className="text-gray-400" />, name: "PhpMyAdmin" },
+      { icon: <SiCpanel className="text-orange-600" />, name: "cPanel" },
+    ],
+    client: "Pyramid: Viata Real State",
+    github: "https://github.com/Jefffer/Pyramid",
   },
   {
     name: "WebClinic App BackEnd",
@@ -174,80 +239,32 @@ const projects = [
     client: "Personal Project",
     github: "https://github.com/Jefffer/EmployeesViewOigaTech",
   },
-  {
-    name: "Pyramid: Viata Real State Website",
-    description: "Website for a real estate company that allows the management of properties, clients, etc. Data managed with phpMyAdmin and deployment with cPanel administration.",
-    technologies: [
-      { icon: <SiPhp className="text-sky-700" />, name: "PHP" },
-      { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript" },
-      { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
-      { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
-      { icon: <SiPhpmyadmin className="text-gray-400" />, name: "PhpMyAdmin" },
-      { icon: <SiCpanel className="text-orange-600" />, name: "cPanel" },
-    ],
-    client: "Pyramid: Viata Real State",
-    github: "https://github.com/Jefffer/Pyramid",
-  },
-  {
-    name: "Schedule Mobile App",
-    description: "Mobile application for timetable management at school or university. The application allows you to manage class hours, notifications, write notes, etc.",
-    technologies: [
-      { icon: <SiKotlin className="text-purple-600" />, name: "Kotlin" },
-      { icon: <FaJava className="text-red-600" />, name: "Java" },
-      { icon: <AiFillAndroid className="text-lime-500" />, name: "Android" },
-      { icon: <DiSqllite className="text-blue-900" />, name: "SQLite" },       
-    ],
-    client: "Personal Project",
-    github: "https://github.com/Jefffer/ScheduleTestV10",
-  },
-  {
-    name: "IDDEA Web App",
-    description: "Backend Support for Iddea, an innovation engine with web and mobile platforms, its function is to motivate and encourage members of an organization to propose ideas for a specific challenge, obtaining incentives.",
-    technologies: [
-      { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework" },
-      { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
-      { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
-      { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
-      { icon: <DiMsqlServer className="text-red-700" />, name: "SQL Server" },   
-    ],
-    client: "Exsis Digital Angels",
-    website: "https://exsis.co/services-software",
-  },
-  {
-    name: "CAPTOR Sisteplant",
-    description: "Custom development and version migrations from CAPTOR 3 to CAPTOR 4 for the Gestamp client. CAPTOR is a software for the management of production processes in the industrial sector.",
-    technologies: [
-      { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 3.5 - 4.5" },
-      { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
-      { icon: <DiMsqlServer className="text-red-700" />, name: "SQL Server" },   
-    ],
-    client: "Sisteplant",
-    website: "https://sisteplant.com/que-ofrecemos/captor/",
-  },
-  {
-    name: "Laboral Kutxa Online Banking",
-    description: "LK Online Banking is the website and mobile app service of Laboral Kutxa, a Basque financial institution. The service allows you to manage your accounts, cards, transfers, etc.",
-    technologies: [
-      { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 4.8" },
-      { icon: <SiDotnet  className="text-purple-800" />, name: ".Net Core 6.0" },
-      { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
-      { icon: <DiMsqlServer className="text-red-700" />, name: "SQL Server" },   
-    ],
-    client: "Versia",
-    website: "https://www.laboralkutxa.com/es/",
-  },
+  
+  
+  
+  
 ];
 
 const Projects = () => {
   return (
     <Tooltip.Provider delayDuration={200}>
-      <section id="projects" className="prose mx-auto p-6 my-8">
-        <h2 className="text-center text-5xl font-bold">
+      <section id="projects" className="prose mx-auto py-12">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-5xl font-extrabold text-center mb-6"
+        >
           My <span className="text-indigo-500">Projects</span>
-        </h2>
-        <p className="text-center text-lg text-gray-600 mb-12">
-          Here are some of the projects I've worked on:
-        </p>
+          </motion.h2>
+        <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="text-lg text-gray-600 text-center mb-10"
+                >
+                  <em>Here are some of the projects I've worked on:</em>
+                </motion.p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
