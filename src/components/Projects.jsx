@@ -6,7 +6,6 @@ import { SiMongodb, SiPostgresql, SiMysql, SiTailwindcss, SiVercel, SiVite, SiBl
 import { DiDotnet, DiMsqlServer, DiSqllite  } from "react-icons/di";
 import { TbBrandVite, TbBrandCSharp  } from "react-icons/tb";
 import { AiFillAndroid } from "react-icons/ai";
-
 import { motion } from 'framer-motion';
 import * as Tooltip from '@radix-ui/react-tooltip';
 
@@ -239,10 +238,6 @@ const projects = [
     client: "Personal Project",
     github: "https://github.com/Jefffer/EmployeesViewOigaTech",
   },
-  
-  
-  
-  
 ];
 
 const Projects = () => {
@@ -269,10 +264,10 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="p-6 bg-gray-50 rounded-lg shadow-lg hover:shadow-2xl transition-transform hover:scale-105"
+              className="p-6 bg-gray-50 rounded-lg shadow-lg hover:shadow-2xl"
             >
               <h5 className="text-2xl font-semibold mb-2 text-indigo-600">{project.name}</h5>
-              <p className="text-sm text-gray-700 mb-4">{project.description}</p>
+              <p className="text-sm text-gray-600 mb-4">{project.description}</p>
               <div className="flex items-center gap-3 mb-4">
                 {project.technologies.map((tech, i) => (
                   <Tooltip.Root key={i}>
@@ -295,14 +290,14 @@ const Projects = () => {
               </div>
               <span className="block text-sm font-semibold text-gray-500">{project.client}</span>
               <div className="flex gap-4 mt-4">
-                {project.github && (
+              {project.github && (
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 transition-transform hover:scale-105"
+                    className="flex items-center justify-center gap-2 w-1/2 border border-indigo-600 text-indigo-600 rounded-md py-2 transition-all duration-300 hover:bg-indigo-100 "
                   >
-                    <FaGithub className="text-xl" /> View Code
+                    <FaGithub className="text-lg" /> View Code
                   </a>
                 )}
                 {project.website && (
@@ -310,9 +305,9 @@ const Projects = () => {
                     href={project.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-green-600 hover:text-green-800 transition-transform hover:scale-105"
+                    className="flex items-center justify-center gap-2 w-1/2 border border-green-600 text-green-600 rounded-md py-2 transition-all duration-300 hover:bg-green-100"
                   >
-                    <FaExternalLinkAlt className="text-xl" /> Visit Site
+                    <FaExternalLinkAlt className="text-lg" /> Visit Site
                   </a>
                 )}
               </div>
