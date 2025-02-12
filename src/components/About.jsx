@@ -40,25 +40,25 @@ const About = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
       >
-        <ul className="list-disc prose text-gray-700 space-y-3 pl-5">
+        <ul className="list-disc prose text-gray-500 space-y-3 pl-5">
           <li>
-            <strong className="font-bold">Software Design & Backend Development</strong>{" "}
-            with expertise in <strong>C#, .NET, Java, Python, PHP</strong>.
+            <strong className="font-semibold text-gray-600">Software Design & Backend Development</strong>{" "}
+            with expertise in <strong className="font-semibold text-gray-600">C#, .NET, Java, Python, PHP</strong>.
           </li>
           <li>
-            <strong className="font-bold">Database Management</strong> (SQL,
+            <strong className="font-semibold text-gray-600">Database Management</strong> (SQL,
             MySQL, PostgreSQL, NoSQL, MongoDB).
           </li>
           <li>
-            <strong className="font-bold">Frontend Development</strong> with{" "}
+            <strong className="font-semibold text-gray-600">Frontend Development</strong> with{" "}
             React, Angular, and modern UI frameworks.
           </li>
           <li>
-            <strong className="font-bold">DevOps & Cloud</strong> experience
+            <strong className="font-semibold text-gray-600">DevOps & Cloud</strong> experience
             with Azure DevOps and AWS (ECS, EC2, S3).
           </li>
           <li>
-            Strong knowledge of <strong>Agile Methodologies</strong> (Scrum,
+            Strong knowledge of <strong className="font-semibold text-gray-600">Agile Methodologies</strong > (Scrum,
             Kanban) and version control (Git, Azure DevOps).
           </li>
         </ul>
@@ -74,15 +74,15 @@ const About = () => {
         <a
           // href="/path-to-your-cv.pdf"
           download="My_CV.pdf"
-          className="transition-transform transform hover:scale-105 flex items-center gap-2 bg-indigo-600 text-white font-bold py-2 px-5 rounded-md shadow-md hover:bg-indigo-700 hover:shadow-lg transition-all"
+          className="flex items-center justify-center font-semibold gap-2 pl-5 pr-5 border border-indigo-400 text-indigo-600 rounded-md py-2 transition-all duration-300 hover:bg-indigo-100"
         >
-          <FaDownload className="transition-transform transform hover:rotate-12" />
+          <FaDownload className="hover:rotate-12" />
           Download CV
         </a>
         <a
           // href="/path-to-your-cv.pdf"
           download="My_CV.pdf"
-          className="transition-transform transform hover:scale-105 flex items-center gap-2 bg-gray-800 text-white font-bold py-2 px-5 rounded-md shadow-md hover:bg-gray-900 hover:shadow-lg transition-all"
+          className="flex items-center justify-center font-semibold gap-2 pl-5 pr-5 border border-gray-400 text-gray-600 rounded-md py-2 transition-all duration-300 hover:bg-gray-100"
         >
           <FaDownload className="transition-transform transform hover:rotate-12"/>
           CV en Español

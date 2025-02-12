@@ -15,19 +15,20 @@ import { FaJsSquare, FaReact, FaDatabase, FaMicrosoft, FaHtml5,
     SiMysql,
     SiPostgresql,
     SiMongodb,
-    SiPhpmyadmin,    
+    SiPhpmyadmin, SiDotnet
   } from "react-icons/si";
+  import { DiMsqlServer, DiDotnet } from "react-icons/di";
 
   import { PiFileCSharpFill, PiMathOperationsFill  } from "react-icons/pi";
 
-  import { GrDocumentStore } from "react-icons/gr";
   import { VscAzureDevops } from "react-icons/vsc";
 
 const Skills = () => {
   const skills = [
-    { name: ".NET", icon: <FaMicrosoft className="text-purple-700 text-5xl" />, bg: "bg-purple-50" },
+    { name: ".Net Core", icon: <SiDotnet className="text-purple-700 text-5xl" />, bg: "bg-purple-50" },
+    { name: ".Net Framework", icon: <DiDotnet className="text-sky-500 text-5xl" />, bg: "bg-sky-50" },
     { name: "C#", icon: <PiFileCSharpFill className="text-blue-500 text-5xl" />, bg: "bg-blue-50" },
-    { name: "SQL", icon: <FaDatabase className="text-gray-600 text-5xl" />, bg: "bg-gray-50" },
+    { name: "SQL Server", icon: <DiMsqlServer className="text-red-600 text-5xl" />, bg: "bg-red-50" },
     { name: "Azure", icon: <VscAzureDevops className="text-blue-600 text-5xl" />, bg: "bg-blue-50" },
     { name: "Python", icon: <FaPython className="text-yellow-500 text-5xl" />, bg: "bg-yellow-50" },
     { name: "Java", icon: <FaJava className="text-red-600 text-5xl" />, bg: "bg-red-50" },
