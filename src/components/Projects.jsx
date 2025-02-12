@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaReact, FaNodeJs, FaPython, FaAngular, FaJava, FaCss3Alt, FaHtml5, FaJsSquare } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaReact, FaNodeJs, FaPython, FaAngular, FaJava, FaCss3Alt, FaHtml5, FaJsSquare } from 'react-icons/fa';
 import { SiMongodb, SiPostgresql, SiMysql, SiTailwindcss, SiVercel, SiVite, SiBlazor, SiTypescript, SiDotnet,
   SiPhp, SiPhpmyadmin, SiCpanel, SiKotlin 
   } from 'react-icons/si';
@@ -20,7 +20,7 @@ const projects = [
       { icon: <FaAngular className="text-red-600" />, name: "Angular" },
       { icon: <DiMsqlServer className="text-red-600" />, name: "SQL Server" },
     ],
-    client: "State Insurance Colombia (Seguros del Estado)"
+    client: "State Insurance Colombia (Seguros del Estado)",
   },
   {
     name: "Library App FrontEnd",
@@ -32,12 +32,10 @@ const projects = [
       { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
       { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
       { icon: <SiVercel className="text-gray-700" />, name: "Vercel" },
-      // { icon: <SiTailwindcss className="text-teal-400" />, name: "Tailwind CSS" },
-      // { icon: <FaNodeJs className="text-green-500" />, name: "Node.js" },
-      // { icon: <SiPostgresql className="text-blue-700" />, name: "PostgreSQL" },
     ],
     client: "Personal Project",
     github: "https://github.com/Jefffer/RelatosDePapelFrontEnd",
+    website: "https://relatos-de-papel-front-end.vercel.app/",
   },
   {
     name: "Library App BackEnd",
@@ -47,7 +45,7 @@ const projects = [
       { icon: <SiMysql className="text-teal-600" />, name: "MySQL" },
     ],
     client: "Personal Project",
-    github: "https://github.com/Jefffer/RelatosDePapelFrontEnd",
+    github: "https://github.com/Jefffer/ms-book-catalogue",
   },
   {
     name: "Demo Api",
@@ -202,6 +200,42 @@ const projects = [
     client: "Personal Project",
     github: "https://github.com/Jefffer/ScheduleTestV10",
   },
+  {
+    name: "IDDEA Web App",
+    description: "Backend Support for Iddea, an innovation engine with web and mobile platforms, its function is to motivate and encourage members of an organization to propose ideas for a specific challenge, obtaining incentives.",
+    technologies: [
+      { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework" },
+      { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
+      { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
+      { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
+      { icon: <DiMsqlServer className="text-red-700" />, name: "SQL Server" },   
+    ],
+    client: "Exsis Digital Angels",
+    website: "https://exsis.co/services-software",
+  },
+  {
+    name: "CAPTOR Sisteplant",
+    description: "Custom development and version migrations from CAPTOR 3 to CAPTOR 4 for the Gestamp client. CAPTOR is a software for the management of production processes in the industrial sector.",
+    technologies: [
+      { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 3.5 - 4.5" },
+      { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
+      { icon: <DiMsqlServer className="text-red-700" />, name: "SQL Server" },   
+    ],
+    client: "Sisteplant",
+    website: "https://sisteplant.com/que-ofrecemos/captor/",
+  },
+  {
+    name: "Laboral Kutxa Online Banking",
+    description: "LK Online Banking is the website and mobile app service of Laboral Kutxa, a Basque financial institution. The service allows you to manage your accounts, cards, transfers, etc.",
+    technologies: [
+      { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 4.8" },
+      { icon: <SiDotnet  className="text-purple-800" />, name: ".Net Core 6.0" },
+      { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
+      { icon: <DiMsqlServer className="text-red-700" />, name: "SQL Server" },   
+    ],
+    client: "Versia",
+    website: "https://www.laboralkutxa.com/es/",
+  },
 ];
 
 const Projects = () => {
@@ -218,39 +252,53 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-xl"
-              // className="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-xl transition-transform hover:scale-105"
-              // whileHover={{ }}
+              className="p-6 bg-gray-50 rounded-lg shadow-lg hover:shadow-2xl transition-transform hover:scale-105"
             >
               <h5 className="text-2xl font-semibold mb-2 text-indigo-600">{project.name}</h5>
-              <p className="text-sm text-gray-600 mb-4">{project.description}</p>
+              <p className="text-sm text-gray-700 mb-4">{project.description}</p>
               <div className="flex items-center gap-3 mb-4">
                 {project.technologies.map((tech, i) => (
                   <Tooltip.Root key={i}>
                     <Tooltip.Trigger asChild>
-                      <div className="cursor-pointer text-2xl transition-transform hover:scale-150">{tech.icon}</div>
+                      <div className="cursor-pointer text-2xl transition-transform hover:scale-125 hover:text-indigo-500">
+                        {tech.icon}
+                      </div>
                     </Tooltip.Trigger>
                     <Tooltip.Portal>
                       <Tooltip.Content
-                        className="bg-black text-white text-sm px-2 py-1 rounded-md shadow-md"
+                        className="bg-indigo-700 text-white text-sm px-3 py-2 rounded-md shadow-md"
                         side="top"
                       >
                         {tech.name}
-                        <Tooltip.Arrow className="fill-black" />
+                        <Tooltip.Arrow className="fill-indigo-800" />
                       </Tooltip.Content>
                     </Tooltip.Portal>
                   </Tooltip.Root>
                 ))}
               </div>
               <span className="block text-sm font-semibold text-gray-500">{project.client}</span>
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 transition-transform hover:scale-105"
-              >
-                <FaGithub className="text-2xl" /> View Code
-              </a>
+              <div className="flex gap-4 mt-4">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 transition-transform hover:scale-105"
+                  >
+                    <FaGithub className="text-xl" /> View Code
+                  </a>
+                )}
+                {project.website && (
+                  <a
+                    href={project.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-green-600 hover:text-green-800 transition-transform hover:scale-105"
+                  >
+                    <FaExternalLinkAlt className="text-xl" /> Visit Site
+                  </a>
+                )}
+              </div>
             </motion.div>
           ))}
         </div>
