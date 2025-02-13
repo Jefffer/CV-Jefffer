@@ -11,7 +11,7 @@ const Footer = () => {
           <p className="text-lg font-semibold">Follow me on:</p>
           <div className="flex justify-center gap-6 mt-4">
             <a
-              href="https://github.com/tu-usuario"
+              href="https://github.com/Jefffer"
               aria-label="GitHub Profile"
               target="_blank"
               rel="noopener noreferrer"
@@ -20,7 +20,7 @@ const Footer = () => {
               <FaGithub className="text-3xl" />
             </a>
             <a
-              href="https://linkedin.com/in/tu-perfil"
+              href="https://www.linkedin.com/in/jefferson-rodr%C3%ADguez-rodr%C3%ADguez-354759155/"
               aria-label="LinkedIn Profile"
               target="_blank"
               rel="noopener noreferrer"
@@ -29,7 +29,7 @@ const Footer = () => {
               <FaLinkedin className="text-3xl" />
             </a>
             <a
-              href="https://instagram.com/tu-usuario"
+              href="https://instagram.com/vida__triste"
               aria-label="Instagram Profile"
               target="_blank"
               rel="noopener noreferrer"

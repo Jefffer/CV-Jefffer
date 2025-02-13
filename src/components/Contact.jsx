@@ -37,7 +37,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-12 bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100"
+      className="py-12"
     >
       <div className="prose container mx-auto px-6">
         <h2 className="text-5xl font-bold text-center mb-6 text-gray-800">
@@ -100,9 +100,9 @@ const Contact = () => {
             </a>
           </div>
         </div>
-        <div className="mt-12 max-w-xl mx-auto bg-white shadow-lg rounded-lg p-8 transform transition hover:scale-105 hover:shadow-xl">
+        <div className="mt-12 max-w-xl mx-auto bg-white shadow-lg rounded-xl p-8 transform transition hover:scale-105 hover:shadow-xl">
           <h5 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-            Send Me a Message
+            Send me a message
           </h5>
           {/* <form action="#" method="POST"> */}
           <form ref={form} onSubmit={sendEmail}>
@@ -118,7 +118,7 @@ const Contact = () => {
                 id="name"
                 name="name"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300"
               />
             </div>
             <div className="mb-6">
@@ -133,7 +133,7 @@ const Contact = () => {
                 id="email"
                 name="email"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300"
               />
             </div>
             <div className="mb-6">
@@ -148,12 +148,12 @@ const Contact = () => {
                 name="message"
                 rows="4"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300"
               ></textarea>
             </div>
             <button
               type="submit"
-              className="w-full bg-indigo-500 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-600 hover:shadow-lg transition duration-300"
+              className="w-full bg-indigo-500 text-white font-semibold py-3 px-6 rounded-xl shadow-md hover:bg-indigo-600 hover:shadow-lg transition duration-300"
             >
               Send Message
             </button>

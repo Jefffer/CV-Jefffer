@@ -30,7 +30,7 @@ const languages = [
 
 const Education = () => {
   return (
-    <section className="py-12 bg-gradient-to-r from-indigo-50 to-purple-100">
+    <section className="py-12">
       <div className="prose container mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}

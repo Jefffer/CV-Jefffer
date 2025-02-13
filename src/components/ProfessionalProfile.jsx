@@ -4,10 +4,8 @@ import { FaCode, FaAward } from "react-icons/fa";
 
 const ProfessionalProfile = () => {
   return (
-    <section className="mx-auto py-12 bg-gray-50">
+    <section className="mx-auto py-12">
       <div className="prose container mx-auto px-6">
-        {/* <h2 className="text-5xl font-extrabold text-center mb-6 text-gray-800"> */}
-        {/* <h2 className="text-5xl font-extrabold text-center mb-6 text-gray-800"> */}
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}

@@ -60,7 +60,7 @@ const experiences = [
     location: "Bogotá D.C",
     clients: [
       {
-        name: "Exsis Digital Angels Software Fabric",
+        name: "Exsis Software Fabric",
         logo: "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/et5zwmwaqsmtyao23keh",
         role: "FullStack Developer",
         period: "June 2019 - July 2020",
@@ -120,7 +120,7 @@ const Experience = () => {
   };
 
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-12">
       <div className="prose container mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}

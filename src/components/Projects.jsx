@@ -264,7 +264,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="p-6 bg-gray-50 rounded-lg shadow-lg hover:shadow-2xl"
+              className="p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-2xl"
             >
               <h5 className="text-2xl font-semibold mb-2 text-indigo-600">{project.name}</h5>
               <p className="text-sm text-gray-600 mb-4">{project.description}</p>
@@ -288,14 +288,23 @@ const Projects = () => {
                   </Tooltip.Root>
                 ))}
               </div>
-              <span className="block text-sm font-semibold text-gray-500">{project.client}</span>
+              {/* <span className="block text-sm font-semibold text-gray-500">{project.client}</span> */}
+
+              <div className="flex items-center gap-3 my-5">
+                <div className="flex-grow h-px bg-gray-300"></div>
+                <span className="text-sm font-semibold text-gray-500 whitespace-nowrap">
+                  {project.client}
+                </span>
+                <div className="flex-grow h-px bg-gray-300"></div>
+              </div>
+
               <div className="flex gap-4 mt-4">
               {project.github && (
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-1/2 border border-indigo-600 text-indigo-600 rounded-md py-2 transition-all duration-300 hover:bg-indigo-100 "
+                    className="flex items-center font-semibold justify-center gap-2 w-1/2 border border-indigo-400 text-indigo-600 rounded-lg py-1 transition-all duration-300 hover:bg-indigo-100 "
                   >
                     <FaGithub className="text-lg" /> View Code
                   </a>
@@ -305,7 +314,7 @@ const Projects = () => {
                     href={project.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-1/2 border border-green-600 text-green-600 rounded-md py-2 transition-all duration-300 hover:bg-green-100"
+                    className="flex items-center font-semibold justify-center gap-2 w-1/2 border border-green-400 text-green-600 rounded-lg py-1 transition-all duration-300 hover:bg-green-100"
                   >
                     <FaExternalLinkAlt className="text-lg" /> Visit Site
                   </a>

@@ -100,7 +100,7 @@ const futureGoals = [
 
 const PersonalProfile = () => {
   return (
-    <section className="mx-auto py-12 bg-gradient-to-r from-gray-50 via-indigo-50 to-gray-100">
+    <section className="mx-auto py-12">
       <div className="prose container mx-auto px-6">
         {/* Título */}
         <motion.h2
