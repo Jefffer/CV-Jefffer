@@ -3,7 +3,19 @@
 @tailwind utilities;
 
 body {
-  @apply font-sans text-gray-900; /* Estilo base del proyecto */
+  @apply font-sans bg-white text-gray-800 transition-colors duration-500 dark:bg-gray-900 dark:text-gray-100;
+}
+
+h2 {
+  @apply text-gray-800 transition-colors duration-500 dark:text-gray-200;
+}
+
+h5{
+  @apply text-gray-700 transition-colors duration-500 dark:text-gray-200;
+}
+
+p {
+  @apply text-gray-600 transition-colors duration-500 dark:text-gray-300;
 }
 
 /* 

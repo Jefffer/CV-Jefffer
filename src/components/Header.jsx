@@ -11,10 +11,13 @@ import {
   FaTimes,
   FaHome,
 } from "react-icons/fa";
+import { useTheme } from "../context/ThemeContext";
+import { BsSun, BsMoon } from "react-icons/bs";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMiniHeaderVisible, setIsMiniHeaderVisible] = useState(false);
+  const { darkMode, setDarkMode } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,18 +45,26 @@ const Header = () => {
       {/* Header principal */}
       <header
         id="main-header"
-        className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white py-8"
+        className="bg-gradient-to-r from-cyan-600 via-indigo-600 to-fuchsia-600 text-gray-100 py-8 dark:from-cyan-950 dark:via-indigo-950 dark:to-fuchsia-950 dark:text-gray-200"
       >
-        <div className="container mx-auto px-6">
-          <h1 className="text-5xl font-extrabold text-center tracking-tight drop-shadow-md">
+        <div className="container mx-auto px-6 flex flex-col items-center">
+          <h1 className="text-5xl font-extrabold text-center tracking-tight drop-shadow-md ">
             Jefferson Rodríguez
           </h1>
-          <h2 className="text-xl font-medium text-center mt-2 opacity-90">
+          <h2 className="text-xl font-medium text-center mt-2 opacity-90 text-gray-100">
             Senior .NET Developer
           </h2>
-          <p className="text-md font-light text-center mt-2 opacity-80 italic">
+          <p className="text-md font-light text-center mt-2 opacity-80 italic text-gray-100 dark:text-gray-200">
             Building Scalable Solutions with .NET and Modern Technologies
           </p>
+
+          {/* Botón de modo oscuro */}
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="absolute top-6 right-6 p-2 rounded-lg transition duration-300 text-white dark:text-white hover:bg-fuchsia-700 dark:hover:bg-fuchsia-900"
+          >
+            {darkMode ? <BsSun size={24} /> : <BsMoon size={24} />}
+          </button>
 
           {/* Menú hamburguesa para dispositivos móviles */}
           <div className="flex justify-center md:hidden mt-4">
@@ -68,30 +79,23 @@ const Header = () => {
 
           {/* Menú en pantalla completa para móviles */}
           {isMenuOpen && (
-            <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-lg z-50 flex items-center justify-center">
+            <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-lg z-50 flex flex-col items-center justify-center">
               <nav className="flex flex-col items-center space-y-6 text-xl text-white">
-                <Link to="/" onClick={closeMenu} className="flex items-center gap-2 hover:text-gray-300 transition duration-300">
-                  <FaHome /> Home
-                </Link>
-                <Link to="/profile" onClick={closeMenu} className="flex items-center gap-2 hover:text-gray-300 transition duration-300">
-                  <FaTools /> Profile
-                </Link>
-                <Link to="/about" onClick={closeMenu} className="flex items-center gap-2 hover:text-gray-300 transition duration-300">
-                  <FaUserAlt /> About me
-                </Link>
-                <Link to="/projects" onClick={closeMenu} className="flex items-center gap-2 hover:text-gray-300 transition duration-300">
-                  <FaProjectDiagram /> Projects
-                </Link>
-                <Link to="/experience" onClick={closeMenu} className="flex items-center gap-2 hover:text-gray-300 transition duration-300">
-                  <FaBriefcase /> Experience
-                </Link>
-                <Link to="/education" onClick={closeMenu} className="flex items-center gap-2 hover:text-gray-300 transition duration-300">
-                  <FaGraduationCap /> Education
-                </Link>
-                <Link to="/contact" onClick={closeMenu} className="flex items-center gap-2 hover:text-gray-300 transition duration-300">
-                  <FaEnvelope /> Get In Touch
-                </Link>
+                {[
+                  { to: "/", icon: <FaHome />, label: "Home" },
+                  { to: "/profile", icon: <FaTools />, label: "Profile" },
+                  { to: "/about", icon: <FaUserAlt />, label: "About me" },
+                  { to: "/projects", icon: <FaProjectDiagram />, label: "Projects" },
+                  { to: "/experience", icon: <FaBriefcase />, label: "Experience" },
+                  { to: "/education", icon: <FaGraduationCap />, label: "Education" },
+                  { to: "/contact", icon: <FaEnvelope />, label: "Get In Touch" },
+                ].map(({ to, icon, label }) => (
+                  <Link key={to} to={to} onClick={closeMenu} className="flex items-center gap-2 hover:text-gray-300 transition duration-300">
+                    {icon} {label}
+                  </Link>
+                ))}
               </nav>
+              
               <button
                 onClick={closeMenu}
                 className="absolute top-6 right-6 text-white text-3xl hover:text-gray-300 transition duration-300"
@@ -103,58 +107,48 @@ const Header = () => {
 
           {/* Navegación principal para pantallas grandes */}
           <nav className="hidden md:flex justify-center mt-6 space-x-6 text-lg">
-            <Link to="/" className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
-              <FaHome /> Home
-            </Link>
-            <Link to="/profile" className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
-              <FaTools /> Profile
-            </Link>
-            <Link to="/about" className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
-              <FaUserAlt /> About me
-            </Link>
-            <Link to="/projects" className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
-              <FaProjectDiagram /> Projects
-            </Link>
-            <Link to="/experience" className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
-              <FaBriefcase /> Experience
-            </Link>
-            <Link to="/education" className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
-              <FaGraduationCap /> Education
-            </Link>
-            <Link to="/contact" className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
-              <FaEnvelope /> Get In Touch
-            </Link>
+            {[
+              { to: "/", icon: <FaHome />, label: "Home" },
+              { to: "/profile", icon: <FaTools />, label: "Profile" },
+              { to: "/about", icon: <FaUserAlt />, label: "About me" },
+              { to: "/projects", icon: <FaProjectDiagram />, label: "Projects" },
+              { to: "/experience", icon: <FaBriefcase />, label: "Experience" },
+              { to: "/education", icon: <FaGraduationCap />, label: "Education" },
+              { to: "/contact", icon: <FaEnvelope />, label: "Get In Touch" },
+            ].map(({ to, icon, label }) => (
+              <Link key={to} to={to} className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
+                {icon} {label}
+              </Link>
+            ))}
           </nav>
         </div>
       </header>
 
       {/* Mini Header fijo cuando se hace scroll */}
       {isMiniHeaderVisible && (
-        // <div className="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-opacity-80 z-50 backdrop-blur-md shadow-lg transition-all duration-300">
-        <div className="fixed top-0 left-0 w-full bg-indigo-500 bg-opacity-20 z-50 backdrop-blur-md shadow-lg transition-all duration-300">
-          <nav className="container mx-auto px-6 py-3 flex justify-center space-x-6 text-lg text-black-500 mt-1 mb-1">
-            <Link to="/" className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
-              <FaHome />
-            </Link>
-            <Link to="/profile" className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
-              <FaTools />
-            </Link>
-            <Link to="/about" className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
-              <FaUserAlt />
-            </Link>
-            <Link to="/projects" className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
-              <FaProjectDiagram />
-            </Link>
-            <Link to="/experience" className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
-              <FaBriefcase />
-            </Link>
-            <Link to="/education" className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
-              <FaGraduationCap />
-            </Link>
-            <Link to="/contact" className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
-              <FaEnvelope />
-            </Link>
+        <div className="fixed top-0 left-0 w-full bg-indigo-500 bg-opacity-20 dark:bg-gray-900 dark:bg-opacity-90 z-50 backdrop-blur-md shadow-lg transition-all duration-300">
+          <nav className="container mx-auto px-6 py-3 flex justify-center space-x-6 text-lg text-black dark:text-white">
+            {[
+              { to: "/", icon: <FaHome /> },
+              { to: "/profile", icon: <FaTools /> },
+              { to: "/about", icon: <FaUserAlt /> },
+              { to: "/projects", icon: <FaProjectDiagram /> },
+              { to: "/experience", icon: <FaBriefcase /> },
+              { to: "/education", icon: <FaGraduationCap /> },
+              { to: "/contact", icon: <FaEnvelope /> },
+            ].map(({ to, icon }) => (
+              <Link key={to} to={to} className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
+                {icon}
+              </Link>
+            ))}
           </nav>
+          {/* Botón modo oscuro en el miniheader */}
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="absolute top-2 right-6 p-1 rounded-lg text-black dark:bg-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 transition duration-300"
+          >
+            {darkMode ? <BsSun size={20} /> : <BsMoon size={20} />}
+          </button>
         </div>
       )}
     </>

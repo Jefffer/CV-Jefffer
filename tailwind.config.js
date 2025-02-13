@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
@@ -11,12 +12,12 @@ export default {
         DEFAULT: {
           css: {
             maxWidth: "120ch",
-            color: "#4a4a4a",
+            // color: "#4a4a4a",
             h1: {
               color: "#1a202c",
             },
             h2: {
-              color: "#2d3748",
+              // color: "#2d3748",
             },
             p: {
               fontSize: "1.1rem",

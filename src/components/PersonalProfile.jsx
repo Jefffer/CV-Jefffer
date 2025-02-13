@@ -124,7 +124,7 @@ const PersonalProfile = () => {
           {/* <h5 className="text-2xl font-semibold mb-4 text-gray-700 flex items-center gap-2">
             <FaGuitar className="text-red-700" /> Hobbies & Interests
           </h5> */}
-          <h5 className="text-3xl font-semibold text-gray-800 flex items-center gap-3 mb-10 relative">
+          <h5 className="text-3xl font-semibold flex items-center gap-3 mb-10 relative">
             <FaGuitar className="text-indigo-500 text-4xl" />
             Hobbies & Interests
             <span className="absolute left-0 -bottom-2 w-24 h-1 bg-indigo-400 rounded-full"></span>
