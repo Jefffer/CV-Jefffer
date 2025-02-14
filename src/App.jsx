@@ -16,7 +16,7 @@ function App() {
     <Router>
       <div className="flex flex-col min-h-screen">
         <Header />
-        <main className="flex-grow bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800">
+        <main className="flex-grow bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 dark:from-indigo-950 dark:via-indigo-950 dark:to-indigo-950">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<ContactPage />} />
