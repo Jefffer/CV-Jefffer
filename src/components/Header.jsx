@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   FaUserAlt,
   FaTools,
@@ -18,6 +18,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMiniHeaderVisible, setIsMiniHeaderVisible] = useState(false);
   const { darkMode, setDarkMode } = useTheme();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,12 +41,22 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  const navLinks = [
+    { to: "/", icon: <FaHome />, label: "Home" },
+    { to: "/profile", icon: <FaTools />, label: "Profile" },
+    { to: "/about", icon: <FaUserAlt />, label: "About me" },
+    { to: "/projects", icon: <FaProjectDiagram />, label: "Projects" },
+    { to: "/experience", icon: <FaBriefcase />, label: "Experience" },
+    { to: "/education", icon: <FaGraduationCap />, label: "Education" },
+    { to: "/contact", icon: <FaEnvelope />, label: "Get In Touch" },
+  ];
+
   return (
     <>
       {/* Header principal */}
       <header
         id="main-header"
-        className="bg-gradient-to-r from-cyan-600 via-indigo-600 to-fuchsia-600 text-gray-100 py-8 dark:from-cyan-950 dark:via-indigo-950 dark:to-fuchsia-950 dark:text-gray-200"
+        className="pb-0 bg-gradient-to-r from-cyan-600 via-indigo-600 to-fuchsia-600 text-gray-100 py-8 dark:from-cyan-950 dark:via-indigo-950 dark:to-fuchsia-950 dark:text-gray-200 border-b border-gray-100 dark:border-gray-700"
       >
         <div className="container mx-auto px-6 flex flex-col items-center">
           <h1 className="text-5xl font-extrabold text-center tracking-tight drop-shadow-md ">
@@ -67,7 +78,7 @@ const Header = () => {
           </button>
 
           {/* Menú hamburguesa para dispositivos móviles */}
-          <div className="flex justify-center md:hidden mt-4">
+          <div className="mb-4 flex justify-center md:hidden mt-4">
             <button
               onClick={toggleMenu}
               className="text-2xl focus:outline-none hover:text-gray-200 transition duration-300"
@@ -106,29 +117,29 @@ const Header = () => {
           )}
 
           {/* Navegación principal para pantallas grandes */}
-          <nav className="hidden md:flex justify-center mt-6 space-x-6 text-lg">
-            {[
-              { to: "/", icon: <FaHome />, label: "Home" },
-              { to: "/profile", icon: <FaTools />, label: "Profile" },
-              { to: "/about", icon: <FaUserAlt />, label: "About me" },
-              { to: "/projects", icon: <FaProjectDiagram />, label: "Projects" },
-              { to: "/experience", icon: <FaBriefcase />, label: "Experience" },
-              { to: "/education", icon: <FaGraduationCap />, label: "Education" },
-              { to: "/contact", icon: <FaEnvelope />, label: "Get In Touch" },
-            ].map(({ to, icon, label }) => (
-              <Link key={to} to={to} className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
+          <div className="hidden md:flex justify-center mt-6 space-x-6 text-lg">
+            {navLinks.map(({ to, icon, label }) => (
+              <Link
+                key={to}
+                to={to}
+                className={`flex items-center gap-2 transition duration-300 px-2 py-1 border-b-4 ${
+                  location.pathname === to
+                    ? "text-gray-100 border-gray-100 "
+                    : "text-gray-300 border-transparent hover:text-gray-100 hover:bg-opacity-100"
+                }`}
+              >
                 {icon} {label}
               </Link>
             ))}
-          </nav>
+          </div>
         </div>
       </header>
 
       {/* Mini Header fijo cuando se hace scroll */}
       {isMiniHeaderVisible && (
         <div className="fixed top-0 left-0 w-full bg-indigo-500 bg-opacity-20 dark:bg-gray-900 dark:bg-opacity-90 z-50 backdrop-blur-md shadow-lg transition-all duration-300">
-          <nav className="container mx-auto px-6 py-3 flex justify-center space-x-6 text-lg text-black dark:text-white">
-            {[
+          <nav className="container mx-auto px-6 py-3 flex justify-center space-x-6 text-lg ">
+            {/* {[
               { to: "/", icon: <FaHome /> },
               { to: "/profile", icon: <FaTools /> },
               { to: "/about", icon: <FaUserAlt /> },
@@ -137,7 +148,20 @@ const Header = () => {
               { to: "/education", icon: <FaGraduationCap /> },
               { to: "/contact", icon: <FaEnvelope /> },
             ].map(({ to, icon }) => (
-              <Link key={to} to={to} className="flex items-center gap-2 hover:text-gray-200 transition duration-300">
+              <Link key={to} to={to} className="flex items-center gap-2 hover:text-gray-200 transition duration-100">
+                {icon}
+              </Link>
+            ))} */}
+            {navLinks.map(({ to, icon }) => (
+              <Link
+                key={to}
+                to={to}
+                className={`flex items-center gap-2 transition duration-300 pb-1 border-b-2 transition duration-100 ${
+                  location.pathname === to
+                    ? "text-gray-800 border-gray-800 dark:text-gray-100 dark:border-gray-100"
+                    : "text-gray-600 border-transparent hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"
+                }`}
+              >
                 {icon}
               </Link>
             ))}

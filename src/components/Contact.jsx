@@ -53,54 +53,54 @@ const Contact = () => {
         <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
           {/* Location */}
           <div className="flex items-center space-x-4">
-            <FaMapMarkerAlt className="text-blue-500 text-2xl" />
-            <p className="text-lg text-gray-700 mb-0 mt-0">Bilbao, Spain</p>
+            <FaMapMarkerAlt className="text-blue-500 text-xl dark:text-gray-300" />
+            <p className="text-lg text-gray-700 mb-0 mt-0 dark:text-gray-400">Bilbao, Spain</p>
           </div>
           {/* Email */}
           <div className="flex items-center space-x-4">
-            <FaEnvelope className="text-blue-500 text-2xl" />
+            <FaEnvelope className="text-blue-500 text-xl dark:text-gray-300" />
             <a
               href="mailto:jefre123@hotmail.com"
-              className="text-lg text-gray-700 hover:text-blue-600 transition"
+              className="text-lg text-gray-700 hover:text-blue-600 transition dark:text-gray-400 dark:hover:text-gray-300"
             >
               jefre123@hotmail.com
             </a>
           </div>
           <div className="flex items-center space-x-4">
-            <FaPhoneAlt className="text-blue-500 text-2xl" />
+            <FaPhoneAlt className="text-blue-500 text-xl dark:text-gray-300" />
             <a
               href="tel:+34646217559"
-              className="text-lg text-gray-700 hover:text-blue-600 transition"
+              className="text-lg text-gray-700 hover:text-blue-600 transition dark:text-gray-400 dark:hover:text-gray-300"
             >
               +34 646 217 559
             </a>
           </div>
           {/* GitHub */}
           <div className="flex items-center space-x-4">
-            <FaGithub className="text-blue-500 text-2xl" />
+            <FaGithub className="text-blue-500 text-xl dark:text-gray-300" />
             <a
               href="https://github.com/Jefffer"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lg text-gray-700 hover:text-blue-600 transition"
+              className="text-lg text-gray-700 hover:text-blue-600 transition dark:text-gray-400 dark:hover:text-gray-300"
             >
               GitHub
             </a>
           </div>
           {/* LinkedIn */}
           <div className="flex items-center space-x-4">
-            <FaLinkedin className="text-blue-500 text-2xl" />
+            <FaLinkedin className="text-blue-500 text-xl dark:text-gray-300" />
             <a
               href="https://www.linkedin.com/in/jefferson-rodr%C3%ADguez-rodr%C3%ADguez-354759155/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lg text-gray-700 hover:text-blue-600 transition"
+              className="text-lg text-gray-700 hover:text-blue-600 transition dark:text-gray-400 dark:hover:text-gray-300"
             >
               LinkedIn
             </a>
           </div>
         </div>
-        <div className="mt-12 max-w-xl mx-auto bg-white shadow-lg rounded-xl p-8 transform transition hover:scale-105 hover:shadow-xl">
+        <div className="mt-12 max-w-xl mx-auto bg-white shadow-lg rounded-xl p-8 transform transitionhover:shadow-xl border border-gray-200 dark:border-gray-600 dark:bg-transparent">
           <h5 className="text-2xl font-bold text-gray-800 mb-6 text-center">
             Send me a message
           </h5>
@@ -109,7 +109,7 @@ const Contact = () => {
             <div className="mb-6">
               <label
                 htmlFor="name"
-                className="block text-gray-700 font-medium mb-2"
+                className="block text-gray-700 font-medium mb-2 dark:text-gray-200"
               >
                 Name
               </label>
@@ -118,13 +118,13 @@ const Contact = () => {
                 id="name"
                 name="name"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300"
+                className="w-full px-4 py-3 border border-gray-200 rounded-xl shadow-sm focus:ring-1 focus:ring-gray-300 focus:outline-none transition duration-300 dark:bg-transparent dark:text-gray-200 dark:border-gray-600"
               />
             </div>
             <div className="mb-6">
               <label
                 htmlFor="email"
-                className="block text-gray-700 font-medium mb-2"
+                className="block text-gray-700 font-medium mb-2 dark:text-gray-200"
               >
                 Email
               </label>
@@ -133,13 +133,13 @@ const Contact = () => {
                 id="email"
                 name="email"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300"
+                className="w-full px-4 py-3 border border-gray-200 rounded-xl shadow-sm focus:ring-1 focus:ring-gray-300 focus:outline-none transition duration-300 dark:bg-transparent dark:text-gray-200 dark:border-gray-600"
               />
             </div>
             <div className="mb-6">
               <label
                 htmlFor="message"
-                className="block text-gray-700 font-medium mb-2"
+                className="block text-gray-700 font-medium mb-2 dark:text-gray-200"
               >
                 Message
               </label>
@@ -148,12 +148,12 @@ const Contact = () => {
                 name="message"
                 rows="4"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-1 focus:ring-gray-300 focus:outline-none transition duration-300 dark:bg-transparent dark:text-gray-200 dark:border-gray-600"
               ></textarea>
             </div>
             <button
               type="submit"
-              className="w-full bg-indigo-500 text-white font-semibold py-3 px-6 rounded-xl shadow-md hover:bg-indigo-600 hover:shadow-lg transition duration-300"
+              className="w-full bg-indigo-600 text-white font-semibold py-3 px-6 rounded-xl shadow-md hover:bg-indigo-500 hover:shadow-lg transition duration-300 dark:text-indigo-950 dark:bg-indigo-200 dark:hover:bg-indigo-300"
             >
               Send Message
             </button>

@@ -74,7 +74,7 @@ const About = () => {
         <a
           // href="/path-to-your-cv.pdf"
           download="My_CV.pdf"
-          className="flex items-center justify-center font-semibold gap-2 pl-5 pr-5 border border-indigo-400 text-indigo-600 rounded-lg py-2 transition-all duration-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 dark:text-indigo-500 dark:border-indigo-700"
+          className="flex items-center justify-center font-semibold gap-2 pl-5 pr-5 border border-indigo-400 text-indigo-600 rounded-lg py-2 transition-all duration-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 dark:text-indigo-300 dark:border-indigo-700"
         >
           <FaDownload className="hover:rotate-12" />
           Download CV

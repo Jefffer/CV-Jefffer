@@ -59,7 +59,7 @@ return (
       {skills.map((skill, index) => (
         <div
           key={index}
-          className={`w-full flex flex-col items-center gap-2 p-4 ${skill.bg} rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform hover:scale-110 dark:bg-transparent border dark:border-indigo-900 dark:hover:bg-indigo-900`}
+          className={`w-full flex flex-col items-center gap-2 p-4 ${skill.bg} rounded-2xl shadow-lg hover:shadow-2xl transition-transform transform border-gray-100 hover:border-gray-200 dark:bg-transparent border dark:border-gray-700 dark:hover:bg-gray-800`}
         >
           <div className="transition-transform transform hover:rotate-12">{skill.icon}</div>
           <span className="text-m font-semibold dark:text-gray-300 ">{skill.name}</span>
