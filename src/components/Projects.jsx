@@ -15,9 +15,9 @@ const projects = [
     description: "LK Online Banking is the website and mobile app service of Laboral Kutxa, a Basque financial institution. The service allows you to manage your accounts, cards, transfers, etc.",
     technologies: [
       { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 4.8" },
-      { icon: <SiDotnet  className="text-purple-800" />, name: ".Net Core 6.0" },
+      { icon: <SiDotnet  className="text-purple-800 dark:text-purple-300" />, name: ".Net Core 6.0" },
       { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
-      { icon: <DiMsqlServer className="text-red-700" />, name: "SQL Server" },   
+      { icon: <DiMsqlServer className="text-red-700 dark:text-red-400" />, name: "SQL Server" },   
     ],
     client: "Laboral Kutxa Bank",
     website: "https://www.laboralkutxa.com/es/",
@@ -29,7 +29,7 @@ const projects = [
     technologies: [
       { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 3.5 - 4.5" },
       { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
-      { icon: <DiMsqlServer className="text-red-700" />, name: "SQL Server" },   
+      { icon: <DiMsqlServer className="text-red-700 dark:text-red-400" />, name: "SQL Server" },   
     ],
     client: "Sisteplant",
     website: "https://sisteplant.com/que-ofrecemos/captor/",
@@ -44,7 +44,7 @@ const projects = [
       { icon: <TbBrandVite className="text-purple-500" />, name: "Vite" },
       { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
       { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
-      { icon: <SiVercel className="text-gray-700" />, name: "Vercel" },
+      { icon: <SiVercel className="text-gray-700 dark:text-gray-300" />, name: "Vercel" },
     ],
     client: "Personal Project",
     github: "https://github.com/Jefffer/RelatosDePapelFrontEnd",
@@ -55,7 +55,7 @@ const projects = [
     description: "Microservices-based backend of a functional e-commerce web application with a book catalog, shopping cart and payment integration for a virtual library using Eureka and an API Gateway.",
     technologies: [
       { icon: <FaJava className="text-red-600" />, name: "Java" },
-      { icon: <SiMysql className="text-teal-600" />, name: "MySQL" },
+      { icon: <SiMysql className="text-teal-600 dark:text-teal-300" />, name: "MySQL" },
     ],
     client: "Personal Project",
     github: "https://github.com/Jefffer/ms-book-catalogue",
@@ -69,7 +69,7 @@ const projects = [
       { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript" },
       { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
       { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
-      { icon: <DiMsqlServer className="text-red-600" />, name: "SQL Server" },
+      { icon: <DiMsqlServer className="text-red-700 dark:text-red-400" />, name: "SQL Server" },
     ],
     client: "Personal Project",
     github: "https://github.com/Jefffer/DemoApiAuthentication",
@@ -81,7 +81,7 @@ const projects = [
       { icon: <SiKotlin className="text-purple-600" />, name: "Kotlin" },
       { icon: <FaJava className="text-red-600" />, name: "Java" },
       { icon: <AiFillAndroid className="text-lime-500" />, name: "Android" },
-      { icon: <DiSqllite className="text-blue-900" />, name: "SQLite" },       
+      { icon: <DiSqllite className="text-blue-900 dark:text-blue-500" />, name: "SQLite" },       
     ],
     client: "Personal Project",
     github: "https://github.com/Jefffer/ScheduleTestV10",
@@ -90,7 +90,7 @@ const projects = [
     name: "Bogus Data Generator",
     description: "A simple and sane data generator for populating objects that supports different locales. A delightful port of the famed faker.js and inspired by FluentValidation. Use Bogus to create UIs with fake data or seed databases.",
     technologies: [
-      { icon: <SiDotnet  className="text-purple-800" />, name: ".Net Core 7.0" },
+      { icon: <SiDotnet  className="text-purple-800 dark:text-purple-300" />, name: ".Net Core 7.0" },
       { icon: <SiBlazor className="text-violet-600" />, name: "Blazor Server" },
       { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
       { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
@@ -103,7 +103,7 @@ const projects = [
     name: "Suggestion App",
     description: "An App to suggest new ideas within a website and save them in different categories to be taken into account later. Based on tutorial by IAmTimCorey",
     technologies: [
-      { icon: <SiDotnet  className="text-purple-800"/>, name: ".Net Core 6.0" },
+      { icon: <SiDotnet  className="text-purple-800 dark:text-purple-300"/>, name: ".Net Core 6.0" },
       { icon: <SiBlazor className="text-violet-600" />, name: "Blazor Server" },
       { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
       { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
@@ -117,12 +117,12 @@ const projects = [
     name: "Blazor App with Dapper",
     description: ".Net API using Blazor server and Dapper as ORM for data connection in the persistence layer.",
     technologies: [
-      { icon: <SiDotnet  className="text-purple-800" />, name: ".Net Core 6.0" },
+      { icon: <SiDotnet  className="text-purple-800 dark:text-purple-300" />, name: ".Net Core 6.0" },
       { icon: <SiBlazor className="text-violet-600" />, name: "Blazor Server" },
       { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
       { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
       { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
-      { icon: <DiMsqlServer className="text-red-600" />, name: "SQL Server" },
+      { icon: <DiMsqlServer className="text-red-700 dark:text-red-400" />, name: "SQL Server" },
     ],
     client: "Personal Project",
     github: "https://github.com/Jefffer/BlazorDemoApp",
@@ -131,10 +131,10 @@ const projects = [
     name: "Portfolio Debt Collection System",
     description: "Requirements gathering, architectural design, database design, backend development and deployment of the State Insurance Portfolio System, complying with legal collection regulations for debtors of various insurance policies acquired with the company.",
     technologies: [
-      { icon: <SiDotnet  className="text-purple-800" />, name: ".Net Core 5.0" },
+      { icon: <SiDotnet  className="text-purple-800 dark:text-purple-300" />, name: ".Net Core 5.0" },
       { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
       { icon: <FaAngular className="text-red-600" />, name: "Angular" },
-      { icon: <DiMsqlServer className="text-red-600" />, name: "SQL Server" },
+      { icon: <DiMsqlServer className="text-red-700 dark:text-red-400" />, name: "SQL Server" },
     ],
     client: "State Insurance Colombia (Seguros del Estado)",    
     website: "https://crediestado.com.co/polizas/",
@@ -147,7 +147,7 @@ const projects = [
       { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
       { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
       { icon: <FaCss3Alt className="text-blue-600" />, name: "CSS" },
-      { icon: <DiMsqlServer className="text-red-700" />, name: "SQL Server" },   
+      { icon: <DiMsqlServer className="text-red-700 dark:text-red-400" />, name: "SQL Server" },   
     ],
     client: "Exsis Digital Angels",
     website: "https://exsis.co/services-software",
@@ -159,7 +159,7 @@ const projects = [
       { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 4.6" }, 
       { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
       { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript" },
-      { icon: <DiMsqlServer className="text-red-600" />, name: "SQL Server" },
+      { icon: <DiMsqlServer className="text-red-700 dark:text-red-400" />, name: "SQL Server" },
     ],
     client: "Personal Project",
     github: "https://github.com/Jefffer/WebApiMoneyXchange",
@@ -197,7 +197,7 @@ const projects = [
       { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 4.6" },
       { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
       { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript" },
-      { icon: <DiMsqlServer className="text-red-700" />, name: "SQL Server" },
+      { icon: <DiMsqlServer className="text-red-700 dark:text-red-400" />, name: "SQL Server" },
     ],
     client: "Personal Project",
     github: "https://github.com/Jefffer/ApiClinicGAP",
@@ -221,7 +221,7 @@ const projects = [
       { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 4.6" },
       { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
       { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript" },
-      { icon: <DiMsqlServer className="text-red-700" />, name: "SQL Server" },
+      { icon: <DiMsqlServer className="text-red-700 dark:text-red-400" />, name: "SQL Server" },
     ],
     client: "Personal Project",
     github: "https://github.com/Jefffer/WebApiOigaTech",
@@ -264,9 +264,9 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-2xl"
+              className="p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-2xl transition-all border-gray-200 dark:bg-transparent border dark:border-gray-600"
             >
-              <h5 className="text-2xl font-semibold mb-2 text-indigo-600">{project.name}</h5>
+              <h5 className="text-2xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">{project.name}</h5>
               <p className="text-sm text-gray-600 mb-4">{project.description}</p>
               <div className="flex items-center gap-3 mb-4">
                 {project.technologies.map((tech, i) => (
@@ -304,7 +304,7 @@ const Projects = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center font-semibold justify-center gap-2 w-1/2 border border-indigo-400 text-indigo-600 rounded-lg py-1 transition-all duration-300 hover:bg-indigo-100 "
+                    className="flex items-center font-semibold justify-center gap-2 w-1/2 border border-indigo-400 text-indigo-600 rounded-lg py-1 transition-all duration-300 hover:bg-indigo-100 dark:border-indigo-700 dark:text-indigo-300 dark:hover:bg-indigo-900"
                   >
                     <FaGithub className="text-lg" /> View Code
                   </a>
@@ -314,7 +314,7 @@ const Projects = () => {
                     href={project.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center font-semibold justify-center gap-2 w-1/2 border border-green-400 text-green-600 rounded-lg py-1 transition-all duration-300 hover:bg-green-100"
+                    className="flex items-center font-semibold justify-center gap-2 w-1/2 border border-green-400 text-green-600 rounded-lg py-1 transition-all duration-300 hover:bg-green-100 dark:border-green-700 dark:text-green-300 dark:hover:bg-green-900"
                   >
                     <FaExternalLinkAlt className="text-lg" /> Visit Site
                   </a>
