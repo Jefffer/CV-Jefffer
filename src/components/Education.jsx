@@ -50,7 +50,7 @@ const Education = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
             //   whileHover={{ scale: 1.05, boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.1)" }}
-              className="bg-white shadow-xl rounded-2xl p-6 border border-gray-200 flex items-center space-x-4 transition-transform duration-300"
+              className="bg-white shadow-xl rounded-2xl p-6 border border-gray-200 flex items-center space-x-4 transition-transform duration-300 dark:bg-transparent dark:border-gray-600"
             >
               <img
                 src={edu.logo}
@@ -58,14 +58,14 @@ const Education = () => {
                 className="w-20 h-20 object-contain rounded-md border border-gray-300 transition-transform transform hover:scale-110"
               />
               <div>
-                <h5 className="text-2xl font-bold text-indigo-600">
+                <h5 className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
                   {edu.university}
                 </h5>
-                <p className="text-gray-500 font-semibold text-sm mb-1 mt-1">
+                <p className="text-gray-500 font-semibold text-sm mb-1 mt-1 dark:text-gray-400">
                   {edu.degree}
                 </p>
-                <p className="text-gray-500 text-sm mb-1 mt-1"> {edu.location}{" · "} <Flag code={edu.flag} className="m-0 w-8 h-6 inline-block rotate-12 transition-transform transform hover:rotate-0" /> </p>
-                <p className="text-gray-500 text-sm mb-1 mt-1">{edu.period}</p>
+                <p className="text-gray-500 text-sm mb-1 mt-1 dark:text-gray-400"> {edu.location}{" · "} <Flag code={edu.flag} className="m-0 w-8 h-6 inline-block rotate-12 transition-transform transform hover:rotate-0" /> </p>
+                <p className="text-gray-500 text-sm mb-1 mt-1 dark:text-gray-400">{edu.period}</p>
               </div>
             </motion.div>
           ))}
@@ -76,7 +76,7 @@ const Education = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-12 bg-white shadow-lg rounded-xl p-6 border border-gray-200"
+          className="mt-12 bg-white shadow-lg rounded-xl p-6 border border-gray-200 dark:bg-transparent dark:border-gray-600"
         >
           <h5 className="text-3xl font-semibold text-gray-800 flex items-center gap-3 mb-10 relative">
             <FaLanguage className="text-violet-500 text-4xl" />
@@ -87,7 +87,7 @@ const Education = () => {
             {languages.map((lang, index) => (
               <li key={index} className="flex items-center gap-4">
                 <Flag code={lang.flag} className="w-8 h-6 m-0" />
-                <span className="text-lg text-gray-700 font-medium w-32">{lang.name}</span>
+                <span className="text-lg text-gray-700 font-medium w-32 dark:text-gray-300">{lang.name}</span>
                 <div className="relative w-full bg-gray-200 h-3 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
