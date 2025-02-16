@@ -134,7 +134,7 @@ const Experience = () => {
         <div className="space-y-6 relative">
           <div className="absolute left-4 top-0 bottom-0 w-1 bg-indigo-400 rounded-full"></div>
           {experiences.map((exp, index) => (
-            <div key={index} className="relative bg-white shadow-lg rounded-xl p-6 border border-gray-200">
+            <div key={index} className="relative bg-white shadow-lg rounded-xl p-6 border border-gray-200 dark:border-gray-600 dark:bg-indigo-950">
               <div className="absolute left-0 top-7 w-4 h-4 bg-indigo-400 rounded-full transform -translate-x-1/2"></div>
               <div
                 className="flex items-center justify-between cursor-pointer"
@@ -144,12 +144,12 @@ const Experience = () => {
                   <img
                     src={exp.consultantLogo}
                     alt={exp.consultant}
-                    className="w-16 h-16 object-contain rounded-full border border-gray-300 p-1"
+                    className="w-20 h-20 object-contain rounded-full border border-gray-300 p-1 dark:border-gray-600 dark:bg-white"
                   />
                   <div>
-                    <h3 className="text-2xl text-indigo-600 font-bold mt-0">{exp.consultant}</h3>
+                    <h3 className="text-2xl text-indigo-600 font-bold mt-0 dark:text-indigo-400">{exp.consultant}</h3>
                     <p className="text-gray-500 font-semibold text-sm mb-0">{exp.period}</p>
-                    <p className="text-gray-500 text-sm mb-0 mt-1">{exp.location}</p>
+                    <p className="text-gray-500 text-sm mb-0 mt-1 dark:text-gray-400">{exp.location}</p>
                   </div>
                 </div>
                 {expanded.includes(index) ? (
@@ -169,18 +169,18 @@ const Experience = () => {
                   {exp.clients.map((client, idx) => (
                     <div
                       key={idx}
-                      className="bg-gray-100 p-4 rounded-lg shadow-sm flex items-start space-x-4 border border-gray-300"
+                      className="bg-gray-100 p-4 rounded-lg shadow-sm flex items-start space-x-4 border border-gray-300 dark:border-gray-600 dark:bg-gray-800"
                     >
                       <img
                         src={client.logo}
                         alt={client.name}
-                        className="w-16 h-16 object-contain rounded-md border border-gray-300 p-1"
+                        className="w-16 h-16 object-contain rounded-md border border-gray-300 p-1 dark:border-gray-600 dark:bg-gray-200"
                       />
                       <div>
-                        <h4 className="text-xl font-semibold text-gray-700 mt-3">{client.name}</h4>
-                        <p className="text-sm text-gray-500">{client.period}</p>
-                        <p className="text-m text-gray-500 font-semibold mb-0">{client.role}</p>
-                        <p className="mt-2 text-gray-600 leading-relaxed font-light text-sm">{client.activities}</p>
+                        <h4 className="text-xl font-semibold text-gray-700 mt-3 dark:text-gray-200">{client.name}</h4>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">{client.period}</p>
+                        <p className="text-m text-gray-500 font-semibold mb-0 mt-0 dark:text-gray-300">{client.role}</p>
+                        <p className="mt-1 text-gray-600 leading-relaxed font-light text-sm dark:text-gray-400">{client.activities}</p>
                       </div>
                     </div>
                   ))}
