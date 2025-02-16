@@ -24,7 +24,7 @@ const ProfessionalProfile = () => {
         </motion.p>
         <div className="grid md:grid-cols-2 gap-8">
           {/* Technical Skills */}
-          <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all">
+          <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all border-gray-200 dark:bg-transparent dark:border dark:border-gray-600">
             {/* <h5 className="text-2xl font-semibold mb-4 text-gray-700 flex items-center gap-2">
               <FaCode className="text-blue-600" /> Tech Stack & Skills
             </h5> */}
@@ -33,19 +33,19 @@ const ProfessionalProfile = () => {
                     Tech Stack & Skills
                     <span className="absolute left-0 -bottom-2 w-24 h-1 bg-blue-500 rounded-full"></span>
                   </h5>
-            <ul className="space-y-3 text-gray-600 list-none pl-0">
-              <li><strong>Backend:</strong> C#, .NET Core, ASP.NET, Entity Framework</li>
-              <li><strong>Databases:</strong> SQL Server, MySQL, PostgreSQL, MongoDB</li>
-              <li><strong>Frontend:</strong> JavaScript, React, Angular</li>
-              <li><strong>Languages:</strong> Python, PHP, Java, Kotlin</li>
-              <li><strong>Cloud & DevOps:</strong> Azure, AWS, Docker, Kubernetes</li>
-              <li><strong>Tools:</strong> Git, VS Code, Azure DevOps, Jira</li>
-              <li><strong>Agile & Methodologies:</strong> SCRUM, Kanban, Waterfall</li>
+            <ul className="space-y-3 text-gray-600 list-none pl-0 dark:text-gray-400">
+              <li><strong className="font-semibold dark:text-gray-300">Backend:</strong> C#, .NET Core, ASP.NET, Entity Framework</li>
+              <li><strong className="font-semibold dark:text-gray-300">Databases:</strong> SQL Server, MySQL, PostgreSQL, MongoDB</li>
+              <li><strong className="font-semibold dark:text-gray-300">Frontend:</strong> JavaScript, React, Angular</li>
+              <li><strong className="font-semibold dark:text-gray-300">Languages:</strong> Python, PHP, Java, Kotlin</li>
+              <li><strong className="font-semibold dark:text-gray-300">Cloud & DevOps:</strong> Azure, AWS, Docker, Kubernetes</li>
+              <li><strong className="font-semibold dark:text-gray-300">Tools:</strong> Git, VS Code, Azure DevOps, Jira</li>
+              <li><strong className="font-semibold dark:text-gray-300">Agile & Methodologies:</strong> SCRUM, Kanban, Waterfall</li>
             </ul>
           </div>          
 
           {/* Certifications & Experience */}
-          <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all">
+          <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all border-gray-200 dark:bg-transparent dark:border dark:border-gray-600">
             {/* <h5 className="text-2xl font-semibold mb-4 text-gray-700 flex items-center gap-2">
               <FaAward className="text-yellow-500" /> Certifications & Achievements
             </h5> */}
@@ -54,13 +54,13 @@ const ProfessionalProfile = () => {
                     Certifications & Achievements
                     <span className="absolute left-0 -bottom-2 w-24 h-1 bg-yellow-400 rounded-full"></span>
                   </h5>
-            <ul className="list-none space-y-3 text-gray-600 pl-0">
+            <ul className="list-none space-y-3 text-gray-600 pl-0 dark:text-gray-400">
               <li>✅ Microsoft Certified: AZ-900 Azure Fundamentals</li>
               <li>🎓 Master's Degree in Software Engineering (in progress)</li>
               <li>📜 7+ years of experience in software development</li>
               <li>📝 Published Paper: 
                 <a href="https://www.ijimai.org/journal/node/3276"
-                   className="ml-1 text-blue-600 hover:underline font-medium">
+                   className="ml-1 text-blue-600 hover:underline font-medium dark:text-blue-400 dark:hover:text-blue-300">
                    Genetic Operators in Cryptography
                 </a>
               </li>
