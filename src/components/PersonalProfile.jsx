@@ -55,7 +55,7 @@ const hobbies = [
   {
     icon: <BiSolidCoffeeBean />,
     text: "Enjoy a good 100% Arabica coffee",
-    color: "bg-red-100 text-red-800",
+    color: "bg-red-100 text-red-800 ",
   },
 ];
 
@@ -121,9 +121,6 @@ const PersonalProfile = () => {
 
         {/* Hobbies Section con Carrusel */}
         <div>
-          {/* <h5 className="text-2xl font-semibold mb-4 text-gray-700 flex items-center gap-2">
-            <FaGuitar className="text-red-700" /> Hobbies & Interests
-          </h5> */}
           <h5 className="text-3xl font-semibold flex items-center gap-3 mb-10 relative">
             <FaGuitar className="text-indigo-500 text-4xl" />
             Hobbies & Interests
@@ -149,14 +146,14 @@ const PersonalProfile = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
-                  className="flex flex-col items-center p-6 rounded-xl shadow-md hover:shadow-lg transition-all bg-white text-center mx-3"
+                  className="flex flex-col items-center p-6 rounded-xl shadow-md hover:shadow-lg transition-all bg-white text-center mx-3 dark:bg-gray-800 dark:border dark:border-gray-600"
                 >
                   <div
-                    className={`w-20 h-20 flex items-center justify-center rounded-full ${hobby.color} text-5xl`}
+                    className={`w-20 h-20 flex items-center justify-center rounded-full ${hobby.color} text-5xl dark:bg-gray-300 dark:border dark:border-gray-600`}
                   >
                     {hobby.icon}
                   </div>
-                  <span className="text-gray-700 mt-4 text-lg font-medium">
+                  <span className="text-gray-700 mt-4 text-lg font-medium dark:text-gray-300">
                     {hobby.text}
                   </span>
                 </motion.div>
@@ -191,12 +188,12 @@ const PersonalProfile = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
-                className={`p-6 rounded-xl shadow-md hover:shadow-xl transition-all flex flex-col items-center text-center ${goal.color}`}
+                className={`p-6 rounded-xl shadow-md hover:shadow-xl transition-all flex flex-col items-center text-center ${goal.color} dark:bg-transparent dark:border dark:border-gray-600 dark:hover:bg-gray-800`}
               >
-                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-white text-4xl">
+                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-white text-4xl border dark:border-gray-600 dark:bg-gray-300">
                   {goal.icon}
                 </div>
-                <h3 className="text-xl font-semibold">{goal.title}</h3>
+                <h3 className="text-xl font-semibold dark:text-gray-200">{goal.title}</h3>
                 <p className="text-gray-700 mt-2">{goal.text}</p>
               </motion.div>
             ))}
