@@ -139,19 +139,6 @@ const Header = () => {
       {isMiniHeaderVisible && (
         <div className="fixed top-0 left-0 w-full bg-indigo-500 bg-opacity-20 dark:bg-gray-900 dark:bg-opacity-90 z-50 backdrop-blur-md shadow-lg transition-all duration-300">
           <nav className="container mx-auto px-6 py-3 flex justify-center space-x-6 text-lg ">
-            {/* {[
-              { to: "/", icon: <FaHome /> },
-              { to: "/profile", icon: <FaTools /> },
-              { to: "/about", icon: <FaUserAlt /> },
-              { to: "/projects", icon: <FaProjectDiagram /> },
-              { to: "/experience", icon: <FaBriefcase /> },
-              { to: "/education", icon: <FaGraduationCap /> },
-              { to: "/contact", icon: <FaEnvelope /> },
-            ].map(({ to, icon }) => (
-              <Link key={to} to={to} className="flex items-center gap-2 hover:text-gray-200 transition duration-100">
-                {icon}
-              </Link>
-            ))} */}
             {navLinks.map(({ to, icon }) => (
               <Link
                 key={to}
@@ -159,7 +146,7 @@ const Header = () => {
                 className={`flex items-center gap-2 transition duration-300 pb-1 border-b-2 transition duration-100 ${
                   location.pathname === to
                     ? "text-gray-800 border-gray-800 dark:text-gray-100 dark:border-gray-100"
-                    : "text-gray-600 border-transparent hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"
+                    : "text-gray-500 border-transparent hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-100"
                 }`}
               >
                 {icon}
