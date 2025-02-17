@@ -1,0 +1,25 @@
+/* custom-scrollbar.css */
+.simplebar-scrollbar::before { /* Estilos para el "pulgar" */
+  background-color: #a0a0a0; /* Color gris */
+  border-radius: 4px;
+  opacity: 0.7; /* Transparencia */
+  transition: opacity 0.2s ease; /* Transición para la opacidad */
+}
+
+.simplebar-scrollbar:hover::before {
+  opacity: 1; /* Opacidad completa al pasar el mouse */
+}
+
+.simplebar-track { /* Estilos para la "pista" */
+  background-color: transparent; /* Pista transparente */
+}
+
+/* Estilos para el modo oscuro (ejemplo) */
+body.dark .simplebar-scrollbar::before {
+  background-color: #555; /* Color más claro en modo oscuro */
+}
+
+/* Ancho del scrollbar */
+.simplebar-scrollbar {
+  width: 10px;
+}
