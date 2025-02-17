@@ -125,7 +125,7 @@ const Header = () => {
                 className={`flex items-center gap-2 transition duration-300 px-2 py-1 border-b-4 ${
                   location.pathname === to
                     ? "text-gray-100 border-gray-100 "
-                    : "text-gray-300 border-transparent hover:text-gray-100 hover:bg-opacity-100"
+                    : "text-gray-300 border-transparent hover:text-gray-100 dark:text-gray-400 dark:hover:text-gray-100"
                 }`}
               >
                 {icon} {label}
