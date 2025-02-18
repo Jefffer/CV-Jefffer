@@ -137,7 +137,7 @@ const Header = () => {
 
       {/* Mini Header fijo cuando se hace scroll */}
       {isMiniHeaderVisible && (
-        <div className="fixed top-0 left-0 w-full bg-indigo-500 bg-opacity-20 dark:bg-gray-900 dark:bg-opacity-90 z-50 backdrop-blur-md shadow-lg transition-all duration-300">
+        <div className="fixed top-0 left-0 w-full bg-gray-200 bg-opacity-50 dark:bg-gray-900 dark:bg-opacity-70 z-50 backdrop-blur-md shadow-lg transition-all duration-300">
           <nav className="container mx-auto px-6 py-3 flex justify-center space-x-6 text-lg ">
             {navLinks.map(({ to, icon }) => (
               <Link

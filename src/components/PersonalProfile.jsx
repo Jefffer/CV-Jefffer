@@ -137,7 +137,7 @@ const PersonalProfile = () => {
             }}
             navigation
             pagination={{ clickable: true }}
-            autoplay={{ delay: 2500, disableOnInteraction: false }}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
             className="pb-8"
           >
             {hobbies.map((hobby, index) => (
@@ -146,7 +146,7 @@ const PersonalProfile = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
-                  className="flex flex-col items-center p-6 rounded-xl shadow-md hover:shadow-lg transition-all bg-white text-center mx-3 dark:bg-gray-800 dark:border dark:border-gray-600"
+                  className="flex flex-col items-center p-6 rounded-xl shadow-md hover:shadow-lg transition-all bg-white text-center mx-3 h-52 dark:bg-gray-800 dark:border dark:border-gray-600"
                 >
                   <div
                     className={`w-20 h-20 flex items-center justify-center rounded-full ${hobby.color} text-5xl dark:bg-gray-300 dark:border dark:border-gray-600`}
@@ -169,17 +169,6 @@ const PersonalProfile = () => {
             Future Goals
             <span className="absolute left-0 -bottom-2 w-24 h-1 bg-red-500 rounded-full"></span>
           </h5>
-
-{/* <motion.h5 
-  initial={{ opacity: 0, y: -10 }} 
-  animate={{ opacity: 1, y: 0 }} 
-  transition={{ duration: 0.5 }}
-  className="text-3xl font-extrabold text-gray-800 text-center flex flex-col items-center mb-6"
->
-  <TbTargetArrow className="text-red-600 text-5xl mb-2" />
-  Future Goals
-  <span className="mt-2 w-20 h-1 bg-red-500 rounded-full"></span>
-</motion.h5> */}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {futureGoals.map((goal, index) => (
