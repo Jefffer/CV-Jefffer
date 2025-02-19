@@ -144,7 +144,7 @@ const Experience = () => {
                   <img
                     src={exp.consultantLogo}
                     alt={exp.consultant}
-                    className="w-20 h-20 object-contain rounded-full border border-gray-300 p-1 dark:border-gray-600 dark:bg-white"
+                    className="w-20 h-20 object-contain rounded-full border border-gray-300 p-1 my-4 dark:border-gray-600 dark:bg-white"
                   />
                   <div>
                     <h3 className="text-2xl text-indigo-600 font-bold mt-0 dark:text-indigo-400">{exp.consultant}</h3>

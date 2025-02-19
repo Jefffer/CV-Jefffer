@@ -86,7 +86,7 @@ const About = () => {
             <img
               src={skill.image}
               alt={skill.title}
-              className="absolute top-0 left-0 w-full h-full object-cover opacity-90"
+              className="absolute top-0 left-0 w-full h-full object-cover opacity-70"
             />
             <div className="relative z-10 bg-black/50 p-8 rounded-xl text-center max-w-lg mx-4">
               <h3 className="text-3xl font-bold text-gray-100 dark:text-gray-200">{skill.title}</h3>

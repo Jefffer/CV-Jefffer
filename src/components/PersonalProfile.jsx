@@ -183,7 +183,7 @@ const PersonalProfile = () => {
                   {goal.icon}
                 </div>
                 <h3 className="text-xl font-semibold dark:text-gray-200">{goal.title}</h3>
-                <p className="text-gray-700 mt-2">{goal.text}</p>
+                <p className="text-gray-700 mb-0 dark:text-gray-400">{goal.text}</p>
               </motion.div>
             ))}
           </div>
