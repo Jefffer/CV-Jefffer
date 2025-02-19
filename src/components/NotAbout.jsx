@@ -14,25 +14,25 @@ const skills = [
     title: "Frontend Development",
     description: "Building modern UIs with React, Angular, and more",
     // image: "https://img.freepik.com/free-vector/coding-concept-illustration_114360-22486.jpg?t=st=1739885189~exp=1739888789~hmac=3f96e1c0f88a6376d561206361922e8a9298cce144de8c0697ad4f05871914d4&w=826",
-    image: "./database2.webp",
+    image: "./frontend2.webp",
   },
   {
     title: "DevOps & Cloud",
     description: "Experience with Azure DevOps, AWS (ECS, EC2, S3)",
     // image: "https://img.freepik.com/free-vector/gradient-devops-illustration_23-2149370940.jpg?t=st=1739885266~exp=1739888866~hmac=6ff8276b323a2b8e5f04824f55bce1b26bdec002655407ea23071b48b17f78ca&w=1380",
-    image: "./database.webp",
+    image: "./devops2.webp",
   },
   {
     title: "Database Management",
     description: "SQL, MySQL, PostgreSQL, NoSQL, MongoDB",
     // image: "./5357389_2794206.svg",
-    image: "./test.webp",
+    image: "./database.webp",
   },
   {
     title: "Agile Methodologies",
     description: "Scrum, Kanban, Git, and Azure DevOps",
     // image: "https://img.freepik.com/free-vector/flat-scrum-task-board-with-hands-team-members-color-paper-stickers-group-software-developers-create-work-project-schedule-with-sticky-notes-teamwork-development-sprint-planning-concept_88138-909.jpg?t=st=1739891419~exp=1739895019~hmac=d7a9f5c53c8cc8f9aa6c88459c6cfd87f02001d3b2e76f4cabc905f0dbbceaa0&w=1380",
-    image: "./test2.webp",
+    image: "./agile2.webp",
   },
 ];
 
@@ -86,10 +86,10 @@ const About = () => {
             <img
               src={skill.image}
               alt={skill.title}
-              className="absolute top-0 left-0 w-full h-full object-cover opacity-80"
+              className="absolute top-0 left-0 w-full h-full object-cover opacity-90"
             />
-            <div className="relative z-10 bg-black/60 p-8 rounded-xl text-center max-w-lg mx-4">
-              <h3 className="text-3xl font-bold text-gray-200 dark:text-gray-300">{skill.title}</h3>
+            <div className="relative z-10 bg-black/50 p-8 rounded-xl text-center max-w-lg mx-4">
+              <h3 className="text-3xl font-bold text-gray-100 dark:text-gray-200">{skill.title}</h3>
               <p className="text-lg text-indigo-200 mt-2 dark:text-indigo-300">{skill.description}</p>
             </div>
           </motion.div>
