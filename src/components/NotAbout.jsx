@@ -83,14 +83,15 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: index * 0.2 }}
           >
+            <div className="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"></div>
             <img
               src={skill.image}
               alt={skill.title}
-              className="absolute top-0 left-0 w-full h-full object-cover opacity-70"
+              className="absolute top-0 left-0 w-full h-full object-cover opacity-80"
             />
-            <div className="relative z-10 bg-black/50 p-8 rounded-xl text-center max-w-lg mx-4">
-              <h3 className="text-3xl font-bold text-gray-100 dark:text-gray-200">{skill.title}</h3>
-              <p className="text-lg text-indigo-200 mt-2 dark:text-indigo-300">{skill.description}</p>
+            <div className="relative z-10 bg-black/30 backdrop-blur-sm p-8 rounded-xl text-center max-w-lg mx-4">
+              <h3 className="text-3xl font-semibold text-gray-100 dark:text-gray-200">{skill.title}</h3>
+              <p className="text-lg text-indigo-100 mt-2 dark:text-indigo-200">{skill.description}</p>
             </div>
           </motion.div>
         ))}

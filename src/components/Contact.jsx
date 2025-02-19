@@ -35,26 +35,27 @@ const Contact = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="py-12"
-    >
-      <div className="prose container mx-auto px-6">
+    <section id="contact" className="py-12">
+      <div className="prose container mx-auto ">
         <h2 className="text-5xl font-bold text-center mb-6 text-gray-800">
           Get <span className="text-indigo-500">in Touch</span>
         </h2>
-        <p className="text-lg font-light text-gray-600 text-center mb-8 text-lg">
+        <p className="text-lg font-light text-gray-950 text-center mb-8 text-base bg-indigo-300 p-10 dark:bg-indigo-900 dark:text-gray-300">
           Feel free to reach out to me through any of the platforms below or
           send me a direct message 🙃 I am always open to exciting new
           opportunities and collaborations. Whether it's a remote position or
           one that requires relocation, I am eager to bring my skills and
           experience to new challenges and environments!!
         </p>
+      </div>
+      <div className="prose container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
           {/* Location */}
           <div className="flex items-center space-x-4">
             <FaMapMarkerAlt className="text-blue-500 text-xl dark:text-gray-300" />
-            <p className="text-lg text-gray-700 mb-0 mt-0 dark:text-gray-400">Bilbao, Spain</p>
+            <p className="text-lg text-gray-700 mb-0 mt-0 dark:text-gray-400">
+              Bilbao, Spain
+            </p>
           </div>
           {/* Email */}
           <div className="flex items-center space-x-4">
