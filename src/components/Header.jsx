@@ -156,7 +156,7 @@ const Header = () => {
           {/* Botón modo oscuro en el miniheader */}
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="absolute top-2 right-6 p-1 rounded-lg text-black dark:bg-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 transition duration-300"
+            className="absolute top-2 right-1 p-1 rounded-lg text-black dark:bg-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 transition duration-300"
           >
             {darkMode ? <BsSun size={20} /> : <BsMoon size={20} />}
           </button>

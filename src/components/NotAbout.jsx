@@ -8,7 +8,7 @@ const skills = [
     title: "Software Design & Backend Development",
     description: "Expertise in C#, .NET, Java, Python, PHP",
     // image: "https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?t=st=1739881200~exp=1739884800~hmac=0fe28d2d1d4c35b9dd50c6e829a665faf9ca86f82f7c8c4683e1e9ad0bd9ac9b&w=1060",
-    image: "./software1.webp",
+    image: "./backend2.webp",
   },
   {
     title: "Frontend Development",
@@ -26,13 +26,20 @@ const skills = [
     title: "Database Management",
     description: "SQL, MySQL, PostgreSQL, NoSQL, MongoDB",
     // image: "./5357389_2794206.svg",
-    image: "./database.webp",
+    image: "./database4.webp",
   },
   {
     title: "Agile Methodologies",
     description: "Scrum, Kanban, Git, and Azure DevOps",
     // image: "https://img.freepik.com/free-vector/flat-scrum-task-board-with-hands-team-members-color-paper-stickers-group-software-developers-create-work-project-schedule-with-sticky-notes-teamwork-development-sprint-planning-concept_88138-909.jpg?t=st=1739891419~exp=1739895019~hmac=d7a9f5c53c8cc8f9aa6c88459c6cfd87f02001d3b2e76f4cabc905f0dbbceaa0&w=1380",
     image: "./agile2.webp",
+  },
+  {
+    title: "Artificial Intelligence Enthusiast",
+    description: "Machine Learning, Deep Learning, Neural Networks, Promp and GPT-3 models",
+    // description: "Scrum, Kanban, Git, and Azure DevOps",
+    // image: "https://img.freepik.com/free-vector/flat-scrum-task-board-with-hands-team-members-color-paper-stickers-group-software-developers-create-work-project-schedule-with-sticky-notes-teamwork-development-sprint-planning-concept_88138-909.jpg?t=st=1739891419~exp=1739895019~hmac=d7a9f5c53c8cc8f9aa6c88459c6cfd87f02001d3b2e76f4cabc905f0dbbceaa0&w=1380",
+    image: "./ia1.webp",
   },
 ];
 

@@ -34,10 +34,10 @@ const ProfessionalProfile = () => {
                     <span className="absolute left-0 -bottom-2 w-24 h-1 bg-blue-500 rounded-full"></span>
                   </h5>
             <ul className="space-y-3 text-gray-600 list-none pl-0 dark:text-gray-400">
-              <li><strong className="font-semibold dark:text-gray-300">Backend:</strong> C#, .NET Core, ASP.NET, Entity Framework</li>
-              <li><strong className="font-semibold dark:text-gray-300">Databases:</strong> SQL Server, MySQL, PostgreSQL, MongoDB</li>
-              <li><strong className="font-semibold dark:text-gray-300">Frontend:</strong> JavaScript, React, Angular</li>
-              <li><strong className="font-semibold dark:text-gray-300">Languages:</strong> Python, PHP, Java, Kotlin</li>
+              <li><strong className="font-semibold dark:text-gray-300">Backend:</strong> C#, .NET Core, ASP.NET, Java, Python, PHP</li>
+              <li><strong className="font-semibold dark:text-gray-300">Databases:</strong> SQL Server, MySQL, PostgreSQL, MongoDB, Entity Framework</li>
+              <li><strong className="font-semibold dark:text-gray-300">Frontend:</strong> React, Angular, CSS, HTML, JavaScript, Typescript</li>
+              <li><strong className="font-semibold dark:text-gray-300">Mobile:</strong> Java, Kotlin, Android</li>
               <li><strong className="font-semibold dark:text-gray-300">Cloud & DevOps:</strong> Azure, AWS, Docker, Kubernetes</li>
               <li><strong className="font-semibold dark:text-gray-300">Tools:</strong> Git, VS Code, Azure DevOps, Jira</li>
               <li><strong className="font-semibold dark:text-gray-300">Agile & Methodologies:</strong> SCRUM, Kanban, Waterfall</li>
@@ -55,7 +55,13 @@ const ProfessionalProfile = () => {
                     <span className="absolute left-0 -bottom-2 w-24 h-1 bg-yellow-400 rounded-full"></span>
                   </h5>
             <ul className="list-none space-y-3 text-gray-600 pl-0 dark:text-gray-400">
-              <li>✅ Microsoft Certified: AZ-900 Azure Fundamentals</li>
+              <li>✅ Microsoft Certified: 
+              <a href="https://www.credly.com/badges/fef56564-2602-4102-8fa2-4c6188113a63/linked_in?t=sqwocc"
+                   className="ml-1 text-blue-600 hover:underline font-medium dark:text-blue-400 dark:hover:text-blue-300">
+                   AZ-900 Azure Fundamentals
+                </a>
+              </li> 
+              
               <li>🎓 Master's Degree in Software Engineering (in progress)</li>
               <li>📜 7+ years of experience in software development</li>
               <li>📝 Published Paper: 
