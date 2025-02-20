@@ -8,6 +8,7 @@ import {
   FaPhoneAlt,
 } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const form = useRef();
@@ -40,13 +41,43 @@ const Contact = () => {
         <h2 className="text-5xl font-bold text-center mb-6 text-gray-800">
           Get <span className="text-indigo-500">in Touch</span>
         </h2>
-        <p className="text-lg font-light text-gray-950 text-center mb-8 text-base bg-indigo-300 p-10 dark:bg-indigo-900 dark:text-gray-300">
+        {/* <p className="font-light text-gray-950 text-center mb-8 text-base bg-indigo-300 p-10 dark:bg-indigo-900 dark:text-gray-300">
+          Feel free to reach out to me through any of the platforms below or
+          send me a direct message 🙃 I am always open to exciting new
+          opportunities and collaborations. Whether it's a remote position or
+          one that requires relocation, I am eager to bring my skills and
+          experience to new challenges and environments!!
+        </p> */}
+      <div className="relative flex justify-center items-center mb-8">
+      {/* Contenedor principal con "agujeros" */}
+      <motion.div
+        className="relative bg-indigo-300 dark:bg-indigo-900 py-10 ml-12 mr-8 pl-16 pr-5 dark:text-gray-300 font-light"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        {/* "Agujeros" en el fondo */}
+        <div className="absolute w-10 h-10 bg-gray-100  top-16 left-0 z-0 dark:bg-indigo-950"></div>
+        <div className="absolute w-6 h-6 bg-gray-100  top-26 left-10 dark:bg-indigo-950"></div>
+        <div className="absolute w-3 h-3 bg-gray-100 top-7 left-16 dark:bg-indigo-950"></div>
+        <div className="absolute w-5 h-5 bg-gray-100  top-1/4 right-1/3 z-0 dark:bg-indigo-950"></div>
+        <div className="absolute w-5 h-12 bg-gray-100  bottom-0 right-0 dark:bg-indigo-950"></div>
+        <div className="absolute w-16 h-5 bg-gray-100  bottom-16 right-20 dark:bg-indigo-950"></div>
+        
+        <p className="m-0 text-base text-gray-950 z-10 relative">
           Feel free to reach out to me through any of the platforms below or
           send me a direct message 🙃 I am always open to exciting new
           opportunities and collaborations. Whether it's a remote position or
           one that requires relocation, I am eager to bring my skills and
           experience to new challenges and environments!!
         </p>
+      </motion.div>
+
+      {/* Piezas faltantes a los lados */}
+      <div className="absolute top-1/2 -translate-y-1/2 left-0 w-12 h-12 bg-indigo-300 dark:bg-indigo-900"></div>
+      <div className="absolute top-1/3 -translate-y-1/2 right-0 w-5 h-16 bg-indigo-300 dark:bg-indigo-900 "></div>
+      <div className="absolute bottom-0  right-0 w-8 h-8 bg-indigo-300 dark:bg-indigo-900 "></div>
+    </div>
       </div>
       <div className="prose container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
