@@ -1,10 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Pagination, Autoplay, EffectCoverflow  } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/effect-coverflow";
 import {
   FaMusic,
   FaGuitar,
@@ -63,13 +64,13 @@ const futureGoals = [
   {
     icon: <FaLaptopCode />,
     title: "Software Architect",
-    text: "Design scalable & innovative systems.",
+    text: "Design scalable & innovative systems as a senior software architect.",
     color: "bg-blue-100 text-blue-600",
   },
   {
     icon: <FaGlobeAmericas />,
     title: "Travel the World",
-    text: "Explore new places and cultures.",
+    text: "Explore new places and cultures around the world.",
     color: "bg-green-100 text-green-600",
   },
   {
@@ -81,19 +82,19 @@ const futureGoals = [
   {
     icon: <FaDog />,
     title: "Animal Refuge",
-    text: "Help animals by building a shelter.",
+    text: "Help animals by building a refuge for them.",
     color: "bg-yellow-100 text-yellow-600",
   },
   {
     icon: <FaLanguage />,
     title: "Learn Languages",
-    text: "Currently learning French.",
+    text: "Speak fluently in different languages, currently learning French.",
     color: "bg-red-100 text-red-600",
   },
   {
     icon: <FaChalkboardTeacher />,
     title: "Mentorship",
-    text: "Help aspiring developers grow.",
+    text: "Help aspiring developers grow their careers.",
     color: "bg-pink-100 text-pink-600",
   },
 ];
@@ -107,19 +108,16 @@ const PersonalProfile = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl font-extrabold text-center mb-6 text-gray-800"
+          className="text-5xl font-extrabold text-center mb-6 text-gray-800 dark:text-gray-200"
         >
           About <span className="text-indigo-500">Me</span>
         </motion.h2>
 
-        <p className="text-lg text-gray-600 text-center mb-8">
-          <em>
-            Here's a little glimpse into who I am outside of work and what I do
-            in my life.
-          </em>
+        <p className="text-lg text-gray-600 dark:text-gray-400 text-center mb-8">
+          <em>Here's a little glimpse into who I am outside of work and what I do in my life.</em>
         </p>
 
-        {/* Hobbies Section con Carrusel */}
+        {/* Hobbies Section con Carrusel Mejorado */}
         <div>
           <h5 className="text-3xl font-semibold flex items-center gap-3 mb-10 relative">
             <FaGuitar className="text-indigo-500 text-4xl" />
@@ -128,25 +126,36 @@ const PersonalProfile = () => {
           </h5>
 
           <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={20}
-            slidesPerView={1}
+            modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
+            grabCursor={true}
+            spaceBetween={30}
+            slidesPerView={1.2}
+            centeredSlides={true}
+            loop={true}
+            effect="coverflow"
+            coverflowEffect={{
+              rotate: 15,
+              stretch: 0,
+              depth: 150,
+              modifier: 2,
+              slideShadows: false,
+            }}
             breakpoints={{
               640: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
             navigation
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            className="pb-8"
+            pagination={{ clickable: true, dynamicBullets: true }}
+            autoplay={{ delay: 2500, disableOnInteraction: false }}
+            className="mySwiper"
           >
             {hobbies.map((hobby, index) => (
-              <SwiperSlide key={index}>
+              <SwiperSlide key={index} className="relative">
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.1, duration: 0.4 }}
-                  className="flex flex-col items-center p-6 rounded-xl shadow-md hover:shadow-lg transition-all bg-white text-center mx-3 h-52 dark:bg-gray-800 dark:border dark:border-gray-600"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1.1 }}
+                  transition={{ duration: 0.5 }}
+                  className="flex flex-col items-center p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all bg-white text-center m-3 dark:bg-gray-800 dark:border dark:border-gray-600"
                 >
                   <div
                     className={`w-20 h-20 flex items-center justify-center rounded-full ${hobby.color} text-5xl dark:bg-gray-300 dark:border dark:border-gray-600`}
@@ -177,13 +186,15 @@ const PersonalProfile = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
-                className={`p-6 rounded-xl shadow-md hover:shadow-xl transition-all flex flex-col items-center text-center ${goal.color} dark:bg-transparent dark:border dark:border-gray-600 dark:hover:bg-gray-800`}
+                className={`p-6 rounded-xl shadow-md hover:shadow-xl transition-all flex flex-col items-center text-center bg-white dark:bg-transparent dark:border dark:border-gray-600 dark:hover:bg-gray-800`}
               >
-                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-white text-4xl border dark:border-gray-600 dark:bg-gray-300">
+                <div className={`m-0 p-0 flex flex-col items-center w-full h-auto ${goal.color} dark:bg-transparent`}>
+                <div className="w-16 h-16 mt-4 flex items-center justify-center rounded-full bg-transparent text-4xl border border-white dark:border-gray-600 dark:bg-gray-300">
                   {goal.icon}
                 </div>
-                <h3 className="text-xl font-semibold dark:text-gray-200">{goal.title}</h3>
-                <p className="text-gray-700 mb-0 dark:text-gray-400">{goal.text}</p>
+                <h3 className="text-xl font-semibold dark:text-gray-200 mt-5 mb-5">{goal.title}</h3>
+                </div>
+                <p className="text-gray-600 text-base mb-0 mt-3 dark:text-gray-400">{goal.text}</p>
               </motion.div>
             ))}
           </div>

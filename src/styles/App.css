@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities; */
 
+.swiper {
+  width: 100%;
+  padding-top: 1rem!important;
+  padding-bottom: 2.5rem!important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #4400ff!important;
+}
+
+.dark .swiper-pagination-bullet {
+  background: #d6cefc!important;
+}
+
+.dark .swiper-pagination-bullet-active {
+  background: #c8c9f3!important;
+}
+
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;
