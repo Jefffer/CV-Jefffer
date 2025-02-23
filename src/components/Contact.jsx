@@ -74,9 +74,9 @@ const Contact = () => {
       </motion.div>
 
       {/* Piezas faltantes a los lados */}
-      <div className="absolute top-1/2 -translate-y-1/2 left-0 w-12 h-12 bg-indigo-300 dark:bg-indigo-900"></div>
-      <div className="absolute top-1/3 -translate-y-1/2 right-0 w-5 h-16 bg-indigo-300 dark:bg-indigo-900 "></div>
-      <div className="absolute bottom-0  right-0 w-8 h-8 bg-indigo-300 dark:bg-indigo-900 "></div>
+      <div className="absolute top-1/2 -translate-y-1/2 left-0 w-11 h-11 bg-indigo-300 dark:bg-indigo-900  border-indigo-500 border"></div>
+      <div className="absolute top-1/3 -translate-y-1/2 right-0 w-5 h-16 bg-indigo-300 dark:bg-indigo-900  border-indigo-500 border"></div>
+      <div className="absolute bottom-0  right-0 w-8 h-8 bg-indigo-300 dark:bg-indigo-900  border-indigo-500 border"></div>
     </div>
       </div>
       <div className="prose container mx-auto px-6">
