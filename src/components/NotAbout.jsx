@@ -72,7 +72,8 @@ const About = () => {
           <FaDownload className="hover:rotate-12" /> Download CV
         </a>
         <a
-          download="My_CV.pdf"
+          href="/cv-es.pdf"
+          download
           className="flex items-center justify-center font-semibold gap-2 px-5 py-3 border border-gray-400 text-gray-600 rounded-xl transition-all duration-300 hover:bg-gray-200 dark:hover:bg-gray-900 dark:text-gray-200 dark:border-gray-600"
         >
           <FaDownload className="transition-transform transform hover:rotate-12" /> CV en Español
