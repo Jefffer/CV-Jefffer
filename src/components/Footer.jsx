@@ -100,7 +100,7 @@ const Footer = () => {
   
           {/* Derechos reservados */}
           <p className="mt-6 text-sm text-gray-400">
-            &copy; Last update: January 2025. Developed by Jefferson Rodríguez <br />
+            &copy; Last update: May 2025. Developed by Jefferson Rodríguez <br />
             All rights reserved
           </p>         
         </div>
