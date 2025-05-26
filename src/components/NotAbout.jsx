@@ -65,12 +65,13 @@ const About = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1 }}
       >
-        {/* <a
-          download="My_CV.pdf"
+        <a
+          href="/cv-en.pdf"
+          download
           className="flex items-center justify-center font-semibold gap-2 px-5 py-2 border border-indigo-400 text-indigo-600 rounded-xl transition-all duration-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 dark:text-indigo-300 dark:border-indigo-700"
         >
           <FaDownload className="hover:rotate-12" /> Download CV
-        </a> */}
+        </a>
         <a
           href="/cv-es.pdf"
           download
