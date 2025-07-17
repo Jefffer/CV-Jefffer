@@ -53,7 +53,7 @@ const About = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        Hi there! I'm a <strong className="font-semibold">Software Developer</strong> currently living in <strong className="font-semibold">Bilbao</strong>{" "}
+        Hi there! I'm a <strong className="font-semibold">Software Developer</strong> with <strong className="font-semibold">8 years of experience</strong> currently living in <strong className="font-semibold">Bilbao</strong>{" "}
         <Flag code="ES" className="w-8 h-6 inline-block transition-transform transform hover:rotate-12" />
         <br />I am passionate about creating robust, scalable, and efficient software solutions.
       </motion.p>
@@ -68,16 +68,16 @@ const About = () => {
         <a
           href="/cv-en.pdf"
           download
-          className="flex items-center justify-center font-semibold gap-2 px-5 py-2 border border-indigo-400 text-indigo-600 rounded-xl transition-all duration-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 dark:text-indigo-300 dark:border-indigo-700"
+          className="group flex items-center justify-center font-semibold gap-2 px-5 py-2 border border-indigo-400 text-indigo-600 rounded-xl transition-all duration-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 dark:text-indigo-300 dark:border-indigo-700"
         >
-          <FaDownload className="hover:rotate-12" /> Download CV
+          <FaDownload className="transition-transform transform group-hover:rotate-12" /> Download CV
         </a>
         <a
           href="/cv-es.pdf"
           download
-          className="flex items-center justify-center font-semibold gap-2 px-5 py-3 border border-gray-400 text-gray-600 rounded-xl transition-all duration-300 hover:bg-gray-200 dark:hover:bg-gray-900 dark:text-gray-200 dark:border-gray-600"
+          className="group flex items-center justify-center font-semibold gap-2 px-5 py-3 border border-gray-400 text-gray-600 rounded-xl transition-all duration-300 hover:bg-gray-200 dark:hover:bg-gray-900 dark:text-gray-200 dark:border-gray-600"
         >
-          <FaDownload className="transition-transform transform hover:rotate-12" /> CV en Español
+          <FaDownload className="transition-transform transform group-hover:rotate-12" /> CV en Español
         </a>
       </motion.div>
 

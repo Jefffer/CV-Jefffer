@@ -29,7 +29,7 @@ const About = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        Hi there! I'm a Software Developer currently living in <strong>Bilbao</strong> <Flag code="ES" className="w-8 h-6 inline-block transition-transform transform hover:rotate-12" />
+        Hi there! I'm a Software Developer with <strong>8 years of experience</strong> currently living in <strong>Bilbao</strong> <Flag code="ES" className="w-8 h-6 inline-block transition-transform transform hover:rotate-12" />
         <br />I am passionate about creating robust, scalable, and efficient software solutions.
       </motion.p>
 
