@@ -45,7 +45,7 @@ const skills = [
 
 const About = () => {
   return (
-    <section className="w-full min-h-screen flex flex-col items-center dark:bg-indigo-950">
+    <section className="w-full min-h-screen flex flex-col items-center">
       {/* Introducción */}
       <motion.p
         className="text-xl text-indigo-500 dark:text-gray-300 text-center mt-14 px-6"
