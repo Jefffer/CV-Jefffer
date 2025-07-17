@@ -48,15 +48,61 @@ const About = () => {
     <section className="w-full min-h-screen flex flex-col items-center dark:bg-indigo-950">
       {/* Introducción */}
       <motion.p
-        className="text-lg text-indigo-500 dark:text-gray-300 text-center mt-14 px-6"
+        className="text-xl text-indigo-500 dark:text-gray-300 text-center mt-14 px-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        Hi there! I'm a <strong className="font-semibold">Software Developer</strong> with <strong className="font-semibold">8 years of experience</strong> currently living in <strong className="font-semibold">Bilbao</strong>{" "}
+        Hi there! I'm a{" "}
+        {/* <strong className="font-semibold">Software Developer</strong> */}
+        <span className="font-bold bg-gradient-to-r from-indigo-500 to-purple-500 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
+                Software Developer
+              </span>{" "}
+         with{" "}
+         {/* <strong className="font-semibold">8 years of experience</strong> */}
+         <span className="font-bold bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-400 dark:to-cyan-400 bg-clip-text text-transparent">
+                8 years of experience
+              </span>{" "}
+          currently living in{" "}
+          {/* <strong className="font-semibold">Bilbao</strong>{" "} */}
+          <span className="font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                Bilbao
+              </span>{" "}
         <Flag code="ES" className="w-8 h-6 inline-block transition-transform transform hover:rotate-12" />
-        <br />I am passionate about creating robust, scalable, and efficient software solutions.
+        {/* <br /> */}
+        {/* I am passionate about creating robust, scalable, and efficient software solutions. */}
+        <span className="text-lg text-indigo-500/90 dark:text-gray-300/90 mt-2 block">
+                I am passionate about creating robust, scalable, and efficient software solutions.
+              </span>
       </motion.p>
+
+      {/* <motion.div
+            className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl" />
+            <p className="relative text-xl md:text-2xl text-white/90 leading-relaxed">
+              Hi there! I'm a{" "}
+              <span className="font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+                Software Developer
+              </span>{" "}
+              with{" "}
+              <span className="font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+                8 years of experience
+              </span>{" "}
+              currently living in{" "}
+              <span className="font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                Bilbao
+              </span>{" "}
+              <Flag code="ES" className="w-10 h-7 inline-block transition-transform transform hover:rotate-12 hover:scale-110" />
+              <br />
+              <span className="text-lg text-white/70 mt-4 block">
+                I am passionate about creating robust, scalable, and efficient software solutions.
+              </span>
+            </p>
+          </motion.div> */}
 
       {/* Botones de descarga */}
       <motion.div

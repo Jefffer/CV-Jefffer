@@ -63,7 +63,7 @@ const ProfessionalProfile = () => {
               </li> 
               
               <li>🎓 Master's Degree in Software Engineering (in progress)</li>
-              <li>📜 7+ years of experience in software development</li>
+              <li>📜 8+ years of experience in software development</li>
               <li>📝 Published Paper: 
                 <a href="https://www.ijimai.org/journal/node/3276"
                    className="ml-1 text-blue-600 hover:underline font-medium dark:text-blue-400 dark:hover:text-blue-300">

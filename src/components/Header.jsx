@@ -63,7 +63,7 @@ const Header = () => {
             Jefferson Rodríguez
           </h1>
           <h2 className="text-xl font-medium text-center mt-2 opacity-90 text-gray-100">
-            Senior .NET Developer | IA Enthusiast 
+            Senior .NET Developer | React | Azure DevOps | IA Enthusiast 
           </h2>
           <p className="text-md font-light text-center mt-2 opacity-80 italic text-gray-100 dark:text-gray-200">
             Building Scalable Solutions with .NET and Modern Technologies
