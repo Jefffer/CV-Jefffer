@@ -51,7 +51,7 @@ const Skills = () => {
 
 return (
   <section id="skills" className="prose mx-auto p-6 my-8">
-    <h2 className="text-center text-5xl font-bold">Tech <span className="text-indigo-500">Skills</span></h2>
+    <h2 className="text-center text-5xl font-bold">Tech <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-400 dark:to-cyan-400 bg-clip-text text-transparent">Skills</span></h2>
     <p className="text-center text-lg text-gray-600 mb-12">
         These are the technologies, languages and tools I am proficient in:
     </p>

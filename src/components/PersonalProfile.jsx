@@ -110,7 +110,7 @@ const PersonalProfile = () => {
           transition={{ duration: 0.6 }}
           className="text-5xl font-extrabold text-center mb-6 text-gray-800 dark:text-gray-200"
         >
-          About <span className="text-indigo-500">Me</span>
+          About <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-400 dark:to-cyan-400 bg-clip-text text-transparent">Me</span>
         </motion.h2>
 
         <p className="text-lg text-gray-600 dark:text-gray-400 text-center mb-8">

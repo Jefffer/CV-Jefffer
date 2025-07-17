@@ -250,7 +250,7 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
           className="text-5xl font-extrabold text-center mb-6"
         >
-          My <span className="text-indigo-500">Projects</span>
+          My <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-400 dark:to-cyan-400 bg-clip-text text-transparent">Projects</span>
           </motion.h2>
         <motion.p
                   initial={{ opacity: 0 }}

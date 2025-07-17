@@ -38,7 +38,7 @@ const Education = () => {
           transition={{ duration: 0.6 }}
           className="text-5xl font-extrabold text-center mb-10 text-gray-800"
         >
-          Education <span className="text-indigo-500">& Languages</span>
+          Education <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-400 dark:to-cyan-400 bg-clip-text text-transparent">& Languages</span>
         </motion.h2>
 
         {/* Education Section */}

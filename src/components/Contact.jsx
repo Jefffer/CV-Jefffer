@@ -39,7 +39,7 @@ const Contact = () => {
     <section id="contact" className="py-12">
       <div className="prose container mx-auto ">
         <h2 className="text-5xl font-bold text-center mb-6 text-gray-800">
-          Get <span className="text-indigo-500">in Touch</span>
+          Get <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-400 dark:to-cyan-400 bg-clip-text text-transparent">in Touch</span>
         </h2>
         {/* <p className="font-light text-gray-950 text-center mb-8 text-base bg-indigo-300 p-10 dark:bg-indigo-900 dark:text-gray-300">
           Feel free to reach out to me through any of the platforms below or
