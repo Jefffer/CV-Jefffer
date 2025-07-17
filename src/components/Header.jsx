@@ -63,7 +63,7 @@ const Header = () => {
       hoverColors: "hover:bg-gray-800 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-200 dark:hover:text-gray-900 light:hover:bg-gray-900 light:hover:border-gray-800 light:hover:text-white"
     },
     { 
-      href: "https://linkedin.com/in/jefferson-rodriguez", 
+      href: "https://www.linkedin.com/in/jefffer/", 
       icon: <FaLinkedin />, 
       label: "LinkedIn",
       hoverColors: "hover:bg-blue-600 hover:border-blue-500 hover:text-white dark:hover:bg-blue-600 dark:hover:border-blue-500 dark:hover:text-white light:hover:bg-blue-600 light:hover:border-blue-500 light:hover:text-white"

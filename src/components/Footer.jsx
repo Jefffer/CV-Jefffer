@@ -20,7 +20,7 @@ const Footer = () => {
               <FaGithub className="text-3xl" />
             </a>
             <a
-              href="https://www.linkedin.com/in/jefferson-rodr%C3%ADguez-rodr%C3%ADguez-354759155/"
+              href="https://www.linkedin.com/in/jefffer/"
               aria-label="LinkedIn Profile"
               target="_blank"
               rel="noopener noreferrer"
@@ -98,10 +98,8 @@ const Footer = () => {
             </button>
           </div>
   
-          {/* Derechos reservados */}
           <p className="mt-6 text-sm text-gray-400">
-            &copy; Last update: May 2025. Developed by Jefferson Rodríguez <br />
-            All rights reserved
+            Last update: July 2025. Developed by Jefferson Rodríguez <br />
           </p>         
         </div>
       </footer>

@@ -123,7 +123,7 @@ const Contact = () => {
           <div className="flex items-center space-x-4">
             <FaLinkedin className="text-blue-500 text-xl dark:text-gray-300" />
             <a
-              href="https://www.linkedin.com/in/jefferson-rodr%C3%ADguez-rodr%C3%ADguez-354759155/"
+              href="https://www.linkedin.com/in/jefffer/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-lg text-gray-700 hover:text-blue-600 transition dark:text-gray-400 dark:hover:text-gray-300"
