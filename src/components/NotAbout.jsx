@@ -1,6 +1,9 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { FaDownload, FaCode, FaCloud, FaDatabase, FaUsers, FaBrain, FaPalette } from "react-icons/fa";
+import { FaDownload, FaCode, FaCloud, FaDatabase, FaUsers, FaBrain, FaPalette, FaEye, FaHandPointer, FaArrowDown, FaStar } from "react-icons/fa";
+import { HiOutlineSparkles, HiOutlineCursorClick } from "react-icons/hi";
+import { LiaHandPointDownSolid, LiaHandPointDown } from "react-icons/lia";
+
 import Flag from "react-world-flags";
 
 const skills = [
@@ -241,28 +244,257 @@ const About = () => {
               </span>
       </motion.p>
 
-      {/* Botones de descarga */}
-      <motion.div
-        className="flex justify-center gap-4 mt-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1 }}
-      >
-        <a
-          href="/cv-en.pdf"
-          download
-          className="group flex items-center justify-center font-semibold gap-2 px-5 py-2 border border-indigo-400 text-indigo-600 rounded-xl transition-all duration-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 dark:text-indigo-300 dark:border-indigo-700"
+      {/* Botones de descarga mejorados */}
+      <div className="relative flex flex-col items-center mt-10">
+        {/* Indicadores animados que llaman la atención */}
+        {/* <motion.div
+          className="absolute -top-16 left-1/2 -translate-x-1/2"
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
         >
-          <FaDownload className="transition-transform transform group-hover:rotate-12" /> Download CV
-        </a>
-        <a
-          href="/cv-es.pdf"
-          download
-          className="group flex items-center justify-center font-semibold gap-2 px-5 py-3 border border-gray-400 text-gray-600 rounded-xl transition-all duration-300 hover:bg-gray-200 dark:hover:bg-gray-900 dark:text-gray-200 dark:border-gray-600"
+          <motion.div
+            className="relative flex items-center justify-center"
+            animate={{ 
+              rotate: [0, 10, -10, 0],
+              scale: [1, 1.1, 1] 
+            }}
+            transition={{ 
+              duration: 2, 
+              repeat: Infinity,
+              repeatDelay: 1 
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full blur-lg opacity-30 animate-pulse" />
+            <div className="relative bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg border border-indigo-200 dark:border-indigo-700">
+              <HiOutlineCursorClick className="text-2xl text-indigo-600 dark:text-indigo-400" />
+            </div>
+          </motion.div>
+        </motion.div> */}
+
+        {/* Flechas animadas que apuntan a los botones */}
+        {/* <motion.div
+          className="absolute -top-8 left-1/4 -translate-x-1/2"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.4 }}
         >
-          <FaDownload className="transition-transform transform group-hover:rotate-12" /> CV en Español
-        </a>
-      </motion.div>
+          <motion.div
+            animate={{ 
+              y: [0, -5, 0],
+              rotate: [0, 5, -5, 0]
+            }}
+            transition={{ 
+              duration: 1.5, 
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            <FaArrowDown className="text-indigo-500 dark:text-indigo-400 text-xl opacity-70" />
+          </motion.div>
+        </motion.div> */}
+
+        {/* <motion.div
+          className="absolute -top-8 right-1/4 translate-x-1/2"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.6 }}
+        >
+          <motion.div
+            animate={{ 
+              y: [0, -5, 0],
+              rotate: [0, -5, 5, 0]
+            }}
+            transition={{ 
+              duration: 1.5, 
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.3
+            }}
+          >
+            <FaArrowDown className="text-gray-500 dark:text-gray-400 text-xl opacity-70" />
+          </motion.div>
+        </motion.div> */}
+
+        {/* Texto animado de llamada a la acción */}
+        <motion.div
+          className="mb-6 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.1 }}
+        >
+          <motion.div
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-full border border-indigo-200 dark:border-indigo-700"
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 2, repeat: Infinity, repeatDelay: 2 }}
+          >
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            >
+              {/* <HiOutlineSparkles className="text-indigo-600 dark:text-indigo-400" /> */}
+            </motion.div>
+            <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">
+              Click to view my CV
+            </span>
+            <motion.div
+              animate={{ 
+                x: [0, 3, 0],
+                scale: [1, 1.2, 1] 
+              }}
+              transition={{ 
+                duration: 1, 
+                repeat: Infinity,
+                repeatDelay: 1 
+              }}
+            >
+              <LiaHandPointDownSolid className="text-indigo-600 dark:text-indigo-400 text-base" />
+            </motion.div>
+          </motion.div>
+        </motion.div>
+
+        {/* Contenedor de botones mejorado */}
+        <motion.div
+          className="flex justify-center gap-6 relative"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1 }}
+        >
+          {/* Botón CV en inglés */}
+          <motion.div
+            className="relative group"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {/* Efecto de brillo de fondo */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl blur opacity-30 group-hover:opacity-60 transition duration-300" />
+            
+            {/* Partículas flotantes alrededor del botón */}
+            {/* <motion.div
+              className="absolute -top-2 -right-2"
+              animate={{ 
+                scale: [1, 1.5, 1],
+                rotate: [0, 180, 360]
+              }}
+              transition={{ 
+                duration: 3, 
+                repeat: Infinity,
+                repeatDelay: 2 
+              }}
+            >
+              <FaStar className="text-indigo-400 text-xs opacity-60" />
+            </motion.div> */}
+
+            <a
+              href="/cv-en.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative group flex items-center justify-center font-semibold gap-3 px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-xl transition-all duration-300 hover:from-indigo-600 hover:to-purple-700 shadow-lg hover:shadow-xl overflow-hidden"
+            >
+              {/* Brillo animado */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                initial={{ x: '-100%', opacity: 0 }}
+                whileHover={{ x: '100%', opacity: 1 }}
+                transition={{ duration: 0.6 }}
+              />
+              
+              <motion.div
+                className="relative flex items-center gap-3"
+                whileHover={{ x: 2 }}
+                transition={{ duration: 0.2 }}
+              >
+                <FaEye className="transition-transform transform group-hover:scale-110" />
+                <span>View CV</span>
+                <motion.div
+                  className="w-2 h-2 bg-green-400 rounded-full"
+                  animate={{ 
+                    scale: [1, 1.5, 1],
+                    opacity: [1, 0.5, 1]
+                  }}
+                  transition={{ 
+                    duration: 1.5, 
+                    repeat: Infinity 
+                  }}
+                />
+              </motion.div>
+            </a>
+          </motion.div>
+
+          {/* Botón CV en español */}
+          <motion.div
+            className="relative group"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {/* Efecto de brillo de fondo */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-gray-500 to-gray-700 rounded-xl blur opacity-30 group-hover:opacity-60 transition duration-300" />
+            
+            {/* Partículas flotantes alrededor del botón */}
+            {/* <motion.div
+              className="absolute -top-2 -left-2"
+              animate={{ 
+                scale: [1, 1.5, 1],
+                rotate: [360, 180, 0]
+              }}
+              transition={{ 
+                duration: 3, 
+                repeat: Infinity,
+                repeatDelay: 2,
+                delay: 1
+              }}
+            >
+              <FaStar className="text-gray-400 text-xs opacity-60" />
+            </motion.div> */}
+
+            <a
+              href="/cv-es.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative group flex items-center justify-center font-semibold gap-3 px-6 py-3 bg-gradient-to-r from-gray-500 to-gray-700 text-white rounded-xl transition-all duration-300 hover:from-gray-600 hover:to-gray-800 shadow-lg hover:shadow-xl overflow-hidden"
+            >
+              {/* Brillo animado */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                initial={{ x: '-100%', opacity: 0 }}
+                whileHover={{ x: '100%', opacity: 1 }}
+                transition={{ duration: 0.6 }}
+              />
+              
+              <motion.div
+                className="relative flex items-center gap-3"
+                whileHover={{ x: 2 }}
+                transition={{ duration: 0.2 }}
+              >
+                <FaEye className="transition-transform transform group-hover:scale-110" />
+                <span>Ver CV</span>
+                <motion.div
+                  className="w-2 h-2 bg-orange-400 rounded-full"
+                  animate={{ 
+                    scale: [1, 1.5, 1],
+                    opacity: [1, 0.5, 1]
+                  }}
+                  transition={{ 
+                    duration: 1.5, 
+                    repeat: Infinity,
+                    delay: 0.5 
+                  }}
+                />
+              </motion.div>
+            </a>
+          </motion.div>
+        </motion.div>
+
+        {/* Texto informativo sutil */}
+        {/* <motion.p
+          className="text-sm text-gray-500 dark:text-gray-400 mt-4 text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.8 }}
+        >
+          Click to open PDF in new tab
+        </motion.p> */}
+      </div>
 
       {/* Sección de habilidades */}
       <div ref={containerRef} className="w-full mt-20 relative">

@@ -69,14 +69,14 @@ const Contact = () => {
       gradient: "from-blue-500 to-cyan-500",
       bgGradient: "from-blue-500/10 to-cyan-500/10"
     },
-    {
-      icon: <FaPhoneAlt className="text-2xl" />,
-      label: "Phone",
-      value: "+34 646 217 559",
-      link: "tel:+34646217559",
-      gradient: "from-violet-500 to-purple-500",
-      bgGradient: "from-violet-500/10 to-purple-500/10"
-    },
+    // {
+    //   icon: <FaPhoneAlt className="text-2xl" />,
+    //   label: "Phone",
+    //   value: "+34 646 217 559",
+    //   link: "tel:+34646217559",
+    //   gradient: "from-violet-500 to-purple-500",
+    //   bgGradient: "from-violet-500/10 to-purple-500/10"
+    // },
     {
       icon: <FaGithub className="text-2xl" />,
       label: "GitHub",
@@ -125,7 +125,7 @@ const Contact = () => {
           </motion.div>
 
           <motion.h2 
-            className="text-7xl md:text-8xl font-black mb-8"
+            className="text-6xl md:text-7xl font-black mb-8"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={isInView ? { scale: 1, opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -195,7 +195,7 @@ const Contact = () => {
 
         {/* Contact Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-20"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.9 }}
@@ -440,8 +440,8 @@ const Contact = () => {
           transition={{ duration: 0.8, delay: 2.2 }}
         >
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20">
-            <HiOutlineLightningBolt className="text-purple-600 dark:text-purple-400" />
-            <span className="text-purple-600 dark:text-purple-400 font-medium">
+            <HiOutlineLightningBolt className="text-indigo-600 dark:text-indigo-400" />
+            <span className="text-indigo-600 dark:text-indigo-400 font-medium">
               Usually responds within 24 hours
             </span>
           </div>
