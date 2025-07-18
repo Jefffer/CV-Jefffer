@@ -358,7 +358,7 @@ const Skills = () => {
       {/* Partículas flotantes */}
       <FloatingParticles />
 
-      <div className="relative z-10 container mx-auto px-6">
+      <div className="relative z-10 container mx-auto px-6 max-w-[120ch]">
         {/* Header */}
         <motion.div
           className="text-center mb-16"
@@ -375,19 +375,18 @@ const Skills = () => {
             <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent">
               Tech
             </span>{" "}
-            <span className="bg-gradient-to-r from-emerald-600 via-cyan-600 to-blue-600 dark:from-emerald-400 dark:via-cyan-400 dark:to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-500 dark:from-emerald-400 dark:via-cyan-400 dark:to-blue-400 bg-clip-text text-transparent">
               Skills
             </span>
           </motion.h2>
           
           <motion.p
-            className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto"
+            className="text-lg text-gray-700 dark:text-gray-300/90 leading-relaxed max-w-2xl mx-auto tracking-wide"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            These are the technologies, languages and tools I am proficient in - 
-            each representing years of experience and continuous learning in the ever-evolving world of software development.
+            These are the technologies, languages and tools I am proficient in.
           </motion.p>
         </motion.div>
 
