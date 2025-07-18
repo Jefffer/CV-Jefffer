@@ -85,7 +85,7 @@ const About = () => {
     return (
       <motion.div
         ref={sectionRef}
-        className="relative h-screen w-full flex items-center justify-center overflow-hidden"
+        className="relative h-[50vh] w-full flex items-center justify-center overflow-hidden"
         style={{ y, scale, opacity }}
       >
         {/* Imagen de fondo con parallax */}
@@ -286,24 +286,6 @@ const About = () => {
             ))}
           </div>
         </motion.div>
-
-        {/* Título de sección */}
-        {/* <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-5xl md:text-6xl font-black text-gray-800 dark:text-white mb-4">
-            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              My Expertise
-            </span>
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Discover the technologies and methodologies I use to create exceptional digital experiences
-          </p>
-        </motion.div> */}
 
         {/* Skills sections */}
         {skills.map((skill, index) => (
