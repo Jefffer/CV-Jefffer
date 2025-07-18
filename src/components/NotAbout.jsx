@@ -1,49 +1,214 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { FaDownload } from "react-icons/fa";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { FaDownload, FaCode, FaCloud, FaDatabase, FaUsers, FaBrain, FaPalette } from "react-icons/fa";
 import Flag from "react-world-flags";
 
 const skills = [
   {
     title: "Software Design & Backend Development",
     description: "Expertise in C#, .NET, Java, Python, PHP",
-    // image: "https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?t=st=1739881200~exp=1739884800~hmac=0fe28d2d1d4c35b9dd50c6e829a665faf9ca86f82f7c8c4683e1e9ad0bd9ac9b&w=1060",
     image: "./backend2.webp",
+    icon: <FaCode className="text-4xl" />,
+    gradient: "from-blue-300 via-purple-400 to-indigo-500",
+    color: "text-blue-400"
   },
   {
     title: "Frontend Development",
     description: "Building modern UIs with React, Angular, and more",
-    // image: "https://img.freepik.com/free-vector/coding-concept-illustration_114360-22486.jpg?t=st=1739885189~exp=1739888789~hmac=3f96e1c0f88a6376d561206361922e8a9298cce144de8c0697ad4f05871914d4&w=826",
     image: "./frontend2.webp",
+    icon: <FaPalette className="text-4xl" />,
+    gradient: "from-red-500 via-orange-500 to-amber-400",
+    color: "text-pink-400"
   },
   {
     title: "DevOps & Cloud",
     description: "Experience with Azure DevOps, AWS (ECS, EC2, S3)",
-    // image: "https://img.freepik.com/free-vector/gradient-devops-illustration_23-2149370940.jpg?t=st=1739885266~exp=1739888866~hmac=6ff8276b323a2b8e5f04824f55bce1b26bdec002655407ea23071b48b17f78ca&w=1380",
     image: "./devops2.webp",
+    icon: <FaCloud className="text-4xl" />,
+    gradient: "from-cyan-300 via-teal-300 to-emerald-400",
+    color: "text-cyan-400"
   },
   {
     title: "Database Management",
     description: "SQL, MySQL, PostgreSQL, NoSQL, MongoDB",
-    // image: "./5357389_2794206.svg",
     image: "./database4.webp",
+    icon: <FaDatabase className="text-4xl" />,
+    gradient: "from-emerald-400 via-green-400 to-lime-400",
+    color: "text-emerald-400"
   },
   {
     title: "Agile Methodologies",
     description: "Scrum, Kanban, Git, and Azure DevOps",
-    // image: "https://img.freepik.com/free-vector/flat-scrum-task-board-with-hands-team-members-color-paper-stickers-group-software-developers-create-work-project-schedule-with-sticky-notes-teamwork-development-sprint-planning-concept_88138-909.jpg?t=st=1739891419~exp=1739895019~hmac=d7a9f5c53c8cc8f9aa6c88459c6cfd87f02001d3b2e76f4cabc905f0dbbceaa0&w=1380",
     image: "./agile2.webp",
+    icon: <FaUsers className="text-4xl" />,
+    gradient: "from-purple-400 via-violet-500 to-indigo-300",
+    color: "text-purple-400"
   },
   {
     title: "Artificial Intelligence Enthusiast",
     description: "Machine Learning, Deep Learning, Neural Networks, Promp and GPT-3 models",
-    // description: "Scrum, Kanban, Git, and Azure DevOps",
-    // image: "https://img.freepik.com/free-vector/flat-scrum-task-board-with-hands-team-members-color-paper-stickers-group-software-developers-create-work-project-schedule-with-sticky-notes-teamwork-development-sprint-planning-concept_88138-909.jpg?t=st=1739891419~exp=1739895019~hmac=d7a9f5c53c8cc8f9aa6c88459c6cfd87f02001d3b2e76f4cabc905f0dbbceaa0&w=1380",
     image: "./ia1.webp",
+    icon: <FaBrain className="text-4xl" />,
+    gradient: "from-fuchsia-200 via-pink-300 to-rose-400",
+    color: "text-orange-400"
   },
 ];
 
 const About = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Componente individual para cada skill con animaciones avanzadas
+  const SkillSection = ({ skill, index }) => {
+    const sectionRef = useRef(null);
+    const isInView = useInView(sectionRef, { 
+      threshold: 0.3,
+      margin: "-100px"
+    });
+
+    const { scrollYProgress: sectionProgress } = useScroll({
+      target: sectionRef,
+      offset: ["start end", "end start"]
+    });
+
+    const y = useTransform(sectionProgress, [0, 1], [100, -100]);
+    const scale = useTransform(sectionProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
+    const opacity = useTransform(sectionProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+    const imageScale = useTransform(sectionProgress, [0, 0.5, 1], [1.2, 1, 1.2]);
+    const rotate = useTransform(sectionProgress, [0, 1], [index % 2 === 0 ? -5 : 5, index % 2 === 0 ? 5 : -5]);
+
+    const isEven = index % 2 === 0;
+
+    return (
+      <motion.div
+        ref={sectionRef}
+        className="relative h-screen w-full flex items-center justify-center overflow-hidden"
+        style={{ y, scale, opacity }}
+      >
+        {/* Imagen de fondo con parallax */}
+        <motion.div
+          className="absolute inset-0 w-full h-full"
+          style={{ scale: imageScale }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60 z-10" />
+          <motion.img
+            src={skill.image}
+            alt={skill.title}
+            className="w-full h-full object-cover"
+            style={{ rotate }}
+          />
+        </motion.div>
+
+        {/* Efectos de partículas */}
+        <div className="absolute inset-0 z-20">
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className={`absolute w-1 h-1 bg-gradient-to-r ${skill.gradient} rounded-full opacity-60`}
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -30, 0],
+                x: [0, Math.random() * 20 - 10, 0],
+                opacity: [0.6, 1, 0.6],
+                scale: [1, 1.5, 1],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Contenido principal */}
+        <motion.div
+          className={`relative z-30 w-full max-w-7xl mx-auto px-6 flex items-center ${
+            isEven ? 'justify-start' : 'justify-end'
+          }`}
+          initial={{ x: isEven ? -100 : 100, opacity: 0 }}
+          animate={isInView ? { x: 0, opacity: 1 } : { x: isEven ? -100 : 100, opacity: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <div className={`max-w-lg ${isEven ? 'text-left' : 'text-right'}`}>
+            {/* Icono flotante */}
+            <motion.div
+              className={`inline-flex p-4 rounded-2xl bg-gradient-to-r ${skill.gradient} text-white mb-6 shadow-2xl`}
+              animate={isInView ? { 
+                rotateY: [0, 360],
+                scale: [1, 1.1, 1]
+              } : {}}
+              transition={{ 
+                rotateY: { duration: 2, repeat: Infinity, repeatDelay: 3 },
+                scale: { duration: 1, repeat: Infinity, repeatType: "reverse" }
+              }}
+            >
+              {skill.icon}
+            </motion.div>
+
+            {/* Título con efecto de texto */}
+            <motion.h3
+              className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight"
+              initial={{ y: 50, opacity: 0 }}
+              animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <span className={`bg-gradient-to-r ${skill.gradient} bg-clip-text text-transparent`}>
+                {skill.title}
+              </span>
+            </motion.h3>
+
+            {/* Descripción */}
+            <motion.p
+              className="text-xl text-gray-200 leading-relaxed mb-6"
+              initial={{ y: 30, opacity: 0 }}
+              animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              {skill.description}
+            </motion.p>
+
+            {/* Línea decorativa animada */}
+            <motion.div
+              className={`h-1 bg-gradient-to-r ${skill.gradient} rounded-full`}
+              initial={{ width: 0 }}
+              animate={isInView ? { width: "100%" } : { width: 0 }}
+              transition={{ duration: 1, delay: 0.8 }}
+            />
+
+            {/* Número de índice grande */}
+            <motion.div
+              className={`absolute ${isEven ? '-right-20' : '-left-20'} top-1/2 -translate-y-1/2 opacity-40`}
+              initial={{ scale: 0, rotate: -45 }}
+              animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -45 }}
+              transition={{ duration: 0.8, delay: 1 }}
+            >
+              <span className={`text-9xl font-black ${skill.color}`}>
+                {String(index + 1).padStart(2, '0')}
+              </span>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Efectos de borde glassmorphism */}
+        <div className="absolute inset-0 z-25 border border-white/10 pointer-events-none" />
+        
+        {/* Brillo lateral */}
+        <motion.div
+          className={`absolute ${isEven ? 'left-0' : 'right-0'} top-0 w-1 h-full bg-gradient-to-b ${skill.gradient} opacity-60`}
+          initial={{ scaleY: 0 }}
+          animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+        />
+      </motion.div>
+    );
+  };
   return (
     <section className="w-full min-h-screen flex flex-col items-center">
       {/* Introducción */}
@@ -76,34 +241,6 @@ const About = () => {
               </span>
       </motion.p>
 
-      {/* <motion.div
-            className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl" />
-            <p className="relative text-xl md:text-2xl text-white/90 leading-relaxed">
-              Hi there! I'm a{" "}
-              <span className="font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                Software Developer
-              </span>{" "}
-              with{" "}
-              <span className="font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-                8 years of experience
-              </span>{" "}
-              currently living in{" "}
-              <span className="font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
-                Bilbao
-              </span>{" "}
-              <Flag code="ES" className="w-10 h-7 inline-block transition-transform transform hover:rotate-12 hover:scale-110" />
-              <br />
-              <span className="text-lg text-white/70 mt-4 block">
-                I am passionate about creating robust, scalable, and efficient software solutions.
-              </span>
-            </p>
-          </motion.div> */}
-
       {/* Botones de descarga */}
       <motion.div
         className="flex justify-center gap-4 mt-10"
@@ -128,31 +265,62 @@ const About = () => {
       </motion.div>
 
       {/* Sección de habilidades */}
-      <div className="w-full flex flex-col mt-12">
-        {skills.map((skill, index) => (
-          <motion.div
-            key={index}
-            className="relative w-full h-[50vh] flex items-center justify-center overflow-hidden"
-            initial={{ y: index % 2 === 0 ? -100 : 100, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: index * 0.2 }}
-          >
-            <div className="absolute inset-0 bg-black bg-opacity-40 backdrop-blur-sm"></div>
-            <img
-              src={skill.image}
-              alt={skill.title}
-              className="absolute top-0 left-0 w-full h-full object-cover opacity-80"
-            />
-            <div className="relative z-10 bg-black/30 backdrop-blur-sm p-8 rounded-xl text-center max-w-lg mx-4">
-              <h3 className="text-3xl font-semibold text-gray-100 dark:text-gray-200">{skill.title}</h3>
-              <p className="text-lg text-indigo-100 mt-2 dark:text-indigo-200">{skill.description}</p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+      <div ref={containerRef} className="w-full mt-20 relative">
+        {/* Indicador de progreso */}
+        <motion.div
+          className="fixed left-8 top-1/2 -translate-y-1/2 z-50 hidden lg:block"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 1.5 }}
+        >
+          <div className="flex flex-col gap-4">
+            {skills.map((skill, index) => (
+              <motion.div
+                key={index}
+                className="w-3 h-3 rounded-full border-2 border-white/30 backdrop-blur-sm"
+                whileHover={{ scale: 1.5 }}
+                style={{
+                  background: `linear-gradient(45deg, ${skill.gradient.replace('from-', '').replace(' via-', ', ').replace(' to-', ', ')})`,
+                }}
+              />
+            ))}
+          </div>
+        </motion.div>
 
-      
+        {/* Título de sección */}
+        {/* <motion.div
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-5xl md:text-6xl font-black text-gray-800 dark:text-white mb-4">
+            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              My Expertise
+            </span>
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Discover the technologies and methodologies I use to create exceptional digital experiences
+          </p>
+        </motion.div> */}
+
+        {/* Skills sections */}
+        {skills.map((skill, index) => (
+          <SkillSection key={index} skill={skill} index={index} />
+        ))}
+
+        {/* Separador final elegante */}
+        <motion.div
+          className="w-full h-8 flex items-center justify-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <div className="w-32 h-1 bg-gradient-to-r from-transparent via-gray-400 to-transparent dark:via-gray-600 rounded-full" />
+        </motion.div>
+      </div>
     </section>
   );
 };
