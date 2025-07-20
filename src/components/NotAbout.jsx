@@ -1,6 +1,18 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { FaDownload, FaCode, FaCloud, FaDatabase, FaUsers, FaBrain, FaPalette, FaEye, FaHandPointer, FaArrowDown, FaStar } from "react-icons/fa";
+import {
+  FaDownload,
+  FaCode,
+  FaCloud,
+  FaDatabase,
+  FaUsers,
+  FaBrain,
+  FaPalette,
+  FaEye,
+  FaHandPointer,
+  FaArrowDown,
+  FaStar,
+} from "react-icons/fa";
 import { HiOutlineSparkles, HiOutlineCursorClick } from "react-icons/hi";
 import { LiaHandPointDownSolid, LiaHandPointDown } from "react-icons/lia";
 
@@ -13,7 +25,7 @@ const skills = [
     image: "./backend2.webp",
     icon: <FaCode className="text-4xl" />,
     gradient: "from-blue-300 via-purple-400 to-indigo-500",
-    color: "text-blue-400"
+    color: "text-blue-400",
   },
   {
     title: "Frontend Development",
@@ -21,7 +33,7 @@ const skills = [
     image: "./frontend2.webp",
     icon: <FaPalette className="text-4xl" />,
     gradient: "from-red-500 via-orange-500 to-amber-400",
-    color: "text-pink-400"
+    color: "text-pink-400",
   },
   {
     title: "DevOps & Cloud",
@@ -29,7 +41,7 @@ const skills = [
     image: "./devops2.webp",
     icon: <FaCloud className="text-4xl" />,
     gradient: "from-cyan-300 via-teal-300 to-emerald-400",
-    color: "text-cyan-400"
+    color: "text-cyan-400",
   },
   {
     title: "Database Management",
@@ -37,7 +49,7 @@ const skills = [
     image: "./database4.webp",
     icon: <FaDatabase className="text-4xl" />,
     gradient: "from-emerald-400 via-green-400 to-lime-400",
-    color: "text-emerald-400"
+    color: "text-emerald-400",
   },
   {
     title: "Agile Methodologies",
@@ -45,15 +57,16 @@ const skills = [
     image: "./agile2.webp",
     icon: <FaUsers className="text-4xl" />,
     gradient: "from-purple-400 via-violet-500 to-indigo-300",
-    color: "text-purple-400"
+    color: "text-purple-400",
   },
   {
     title: "Artificial Intelligence Enthusiast",
-    description: "Machine Learning, Deep Learning, Neural Networks, Promp and GPT-3 models",
+    description:
+      "Machine Learning, Deep Learning, Neural Networks, Promp and GPT-3 models",
     image: "./ia1.webp",
     icon: <FaBrain className="text-4xl" />,
     gradient: "from-fuchsia-200 via-pink-300 to-rose-400",
-    color: "text-orange-400"
+    color: "text-orange-400",
   },
 ];
 
@@ -61,27 +74,39 @@ const About = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   });
 
   // Componente individual para cada skill con animaciones avanzadas
   const SkillSection = ({ skill, index }) => {
     const sectionRef = useRef(null);
-    const isInView = useInView(sectionRef, { 
+    const isInView = useInView(sectionRef, {
       threshold: 0.3,
-      margin: "-100px"
+      margin: "-100px",
     });
 
     const { scrollYProgress: sectionProgress } = useScroll({
       target: sectionRef,
-      offset: ["start end", "end start"]
+      offset: ["start end", "end start"],
     });
 
     const y = useTransform(sectionProgress, [0, 1], [100, -100]);
     const scale = useTransform(sectionProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
-    const opacity = useTransform(sectionProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-    const imageScale = useTransform(sectionProgress, [0, 0.5, 1], [1.2, 1, 1.2]);
-    const rotate = useTransform(sectionProgress, [0, 1], [index % 2 === 0 ? -5 : 5, index % 2 === 0 ? 5 : -5]);
+    const opacity = useTransform(
+      sectionProgress,
+      [0, 0.2, 0.8, 1],
+      [0, 1, 1, 0]
+    );
+    const imageScale = useTransform(
+      sectionProgress,
+      [0, 0.5, 1],
+      [1.2, 1, 1.2]
+    );
+    const rotate = useTransform(
+      sectionProgress,
+      [0, 1],
+      [index % 2 === 0 ? -5 : 5, index % 2 === 0 ? 5 : -5]
+    );
 
     const isEven = index % 2 === 0;
 
@@ -133,23 +158,31 @@ const About = () => {
         {/* Contenido principal */}
         <motion.div
           className={`relative z-30 w-full max-w-7xl mx-auto px-6 flex items-center ${
-            isEven ? 'justify-start' : 'justify-end'
+            isEven ? "justify-start" : "justify-end"
           }`}
           initial={{ x: isEven ? -100 : 100, opacity: 0 }}
-          animate={isInView ? { x: 0, opacity: 1 } : { x: isEven ? -100 : 100, opacity: 0 }}
+          animate={
+            isInView
+              ? { x: 0, opacity: 1 }
+              : { x: isEven ? -100 : 100, opacity: 0 }
+          }
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className={`max-w-lg ${isEven ? 'text-left' : 'text-right'}`}>
+          <div className={`max-w-lg ${isEven ? "text-left" : "text-right"}`}>
             {/* Icono flotante */}
             <motion.div
               className={`inline-flex p-4 rounded-2xl bg-gradient-to-r ${skill.gradient} text-white mb-6 shadow-2xl`}
-              animate={isInView ? { 
-                rotateY: [0, 360],
-                scale: [1, 1.1, 1]
-              } : {}}
-              transition={{ 
+              animate={
+                isInView
+                  ? {
+                      rotateY: [0, 360],
+                      scale: [1, 1.1, 1],
+                    }
+                  : {}
+              }
+              transition={{
                 rotateY: { duration: 2, repeat: Infinity, repeatDelay: 3 },
-                scale: { duration: 1, repeat: Infinity, repeatType: "reverse" }
+                scale: { duration: 1, repeat: Infinity, repeatType: "reverse" },
               }}
             >
               {skill.icon}
@@ -162,7 +195,9 @@ const About = () => {
               animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <span className={`bg-gradient-to-r ${skill.gradient} bg-clip-text text-transparent`}>
+              <span
+                className={`bg-gradient-to-r ${skill.gradient} bg-clip-text text-transparent`}
+              >
                 {skill.title}
               </span>
             </motion.h3>
@@ -187,13 +222,17 @@ const About = () => {
 
             {/* Número de índice grande */}
             <motion.div
-              className={`absolute ${isEven ? '-right-20' : '-left-20'} top-1/2 -translate-y-1/2 opacity-40`}
+              className={`absolute ${
+                isEven ? "-right-20" : "-left-20"
+              } top-1/2 -translate-y-1/2 opacity-40`}
               initial={{ scale: 0, rotate: -45 }}
-              animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -45 }}
+              animate={
+                isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -45 }
+              }
               transition={{ duration: 0.8, delay: 1 }}
             >
               <span className={`text-9xl font-black ${skill.color}`}>
-                {String(index + 1).padStart(2, '0')}
+                {String(index + 1).padStart(2, "0")}
               </span>
             </motion.div>
           </div>
@@ -201,10 +240,12 @@ const About = () => {
 
         {/* Efectos de borde glassmorphism */}
         <div className="absolute inset-0 z-25 border border-white/10 pointer-events-none" />
-        
+
         {/* Brillo lateral */}
         <motion.div
-          className={`absolute ${isEven ? 'left-0' : 'right-0'} top-0 w-1 h-full bg-gradient-to-b ${skill.gradient} opacity-60`}
+          className={`absolute ${
+            isEven ? "left-0" : "right-0"
+          } top-0 w-1 h-full bg-gradient-to-b ${skill.gradient} opacity-60`}
           initial={{ scaleY: 0 }}
           animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
@@ -224,98 +265,32 @@ const About = () => {
         Hi there! I'm a{" "}
         {/* <strong className="font-semibold">Software Developer</strong> */}
         <span className="font-bold bg-gradient-to-r from-indigo-500 to-purple-500 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
-                Software Developer
-              </span>{" "}
-         with{" "}
-         {/* <strong className="font-semibold">8 years of experience</strong> */}
-         <span className="font-bold bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-400 dark:to-cyan-400 bg-clip-text text-transparent">
-                8 years of experience
-              </span>{" "}
-          currently living in{" "}
-          {/* <strong className="font-semibold">Bilbao</strong>{" "} */}
-          <span className="font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
-                Bilbao
-              </span>{" "}
-        <Flag code="ES" className="w-8 h-6 inline-block transition-transform transform hover:rotate-12" />
+          Software Developer
+        </span>{" "}
+        with{" "}
+        {/* <strong className="font-semibold">8 years of experience</strong> */}
+        <span className="font-bold bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-400 dark:to-cyan-400 bg-clip-text text-transparent">
+          8 years of experience
+        </span>{" "}
+        currently living in{" "}
+        {/* <strong className="font-semibold">Bilbao</strong>{" "} */}
+        <span className="font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+          Bilbao
+        </span>{" "}
+        <Flag
+          code="ES"
+          className="w-8 h-6 inline-block transition-transform transform hover:rotate-12"
+        />
         {/* <br /> */}
         {/* I am passionate about creating robust, scalable, and efficient software solutions. */}
         <span className="text-lg text-indigo-500/90 dark:text-gray-300/90 mt-2 block">
-                I am passionate about creating robust, scalable, and efficient software solutions.
-              </span>
+          I am passionate about creating robust, scalable, and efficient
+          software solutions.
+        </span>
       </motion.p>
 
       {/* Botones de descarga mejorados */}
       <div className="relative flex flex-col items-center mt-10">
-        {/* Indicadores animados que llaman la atención */}
-        {/* <motion.div
-          className="absolute -top-16 left-1/2 -translate-x-1/2"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-        >
-          <motion.div
-            className="relative flex items-center justify-center"
-            animate={{ 
-              rotate: [0, 10, -10, 0],
-              scale: [1, 1.1, 1] 
-            }}
-            transition={{ 
-              duration: 2, 
-              repeat: Infinity,
-              repeatDelay: 1 
-            }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full blur-lg opacity-30 animate-pulse" />
-            <div className="relative bg-white dark:bg-gray-800 rounded-full p-3 shadow-lg border border-indigo-200 dark:border-indigo-700">
-              <HiOutlineCursorClick className="text-2xl text-indigo-600 dark:text-indigo-400" />
-            </div>
-          </motion.div>
-        </motion.div> */}
-
-        {/* Flechas animadas que apuntan a los botones */}
-        {/* <motion.div
-          className="absolute -top-8 left-1/4 -translate-x-1/2"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.4 }}
-        >
-          <motion.div
-            animate={{ 
-              y: [0, -5, 0],
-              rotate: [0, 5, -5, 0]
-            }}
-            transition={{ 
-              duration: 1.5, 
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            <FaArrowDown className="text-indigo-500 dark:text-indigo-400 text-xl opacity-70" />
-          </motion.div>
-        </motion.div> */}
-
-        {/* <motion.div
-          className="absolute -top-8 right-1/4 translate-x-1/2"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.6 }}
-        >
-          <motion.div
-            animate={{ 
-              y: [0, -5, 0],
-              rotate: [0, -5, 5, 0]
-            }}
-            transition={{ 
-              duration: 1.5, 
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 0.3
-            }}
-          >
-            <FaArrowDown className="text-gray-500 dark:text-gray-400 text-xl opacity-70" />
-          </motion.div>
-        </motion.div> */}
-
         {/* Texto animado de llamada a la acción */}
         <motion.div
           className="mb-6 text-center"
@@ -338,14 +313,14 @@ const About = () => {
               Click to view my CV
             </span>
             <motion.div
-              animate={{ 
+              animate={{
                 x: [0, 3, 0],
-                scale: [1, 1.2, 1] 
+                scale: [1, 1.2, 1],
               }}
-              transition={{ 
-                duration: 1, 
+              transition={{
+                duration: 1,
                 repeat: Infinity,
-                repeatDelay: 1 
+                repeatDelay: 1,
               }}
             >
               <LiaHandPointDownSolid className="text-indigo-600 dark:text-indigo-400 text-base" />
@@ -368,22 +343,6 @@ const About = () => {
           >
             {/* Efecto de brillo de fondo */}
             <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl blur opacity-30 group-hover:opacity-60 transition duration-300" />
-            
-            {/* Partículas flotantes alrededor del botón */}
-            {/* <motion.div
-              className="absolute -top-2 -right-2"
-              animate={{ 
-                scale: [1, 1.5, 1],
-                rotate: [0, 180, 360]
-              }}
-              transition={{ 
-                duration: 3, 
-                repeat: Infinity,
-                repeatDelay: 2 
-              }}
-            >
-              <FaStar className="text-indigo-400 text-xs opacity-60" />
-            </motion.div> */}
 
             <a
               href="/cv-en.pdf"
@@ -394,11 +353,11 @@ const About = () => {
               {/* Brillo animado */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                initial={{ x: '-100%', opacity: 0 }}
-                whileHover={{ x: '100%', opacity: 1 }}
+                initial={{ x: "-100%", opacity: 0 }}
+                whileHover={{ x: "100%", opacity: 1 }}
                 transition={{ duration: 0.6 }}
               />
-              
+
               <motion.div
                 className="relative flex items-center gap-3"
                 whileHover={{ x: 2 }}
@@ -408,13 +367,13 @@ const About = () => {
                 <span>View CV</span>
                 <motion.div
                   className="w-2 h-2 bg-green-400 rounded-full"
-                  animate={{ 
+                  animate={{
                     scale: [1, 1.5, 1],
-                    opacity: [1, 0.5, 1]
+                    opacity: [1, 0.5, 1],
                   }}
-                  transition={{ 
-                    duration: 1.5, 
-                    repeat: Infinity 
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
                   }}
                 />
               </motion.div>
@@ -429,23 +388,6 @@ const About = () => {
           >
             {/* Efecto de brillo de fondo */}
             <div className="absolute -inset-1 bg-gradient-to-r from-gray-500 to-gray-700 rounded-xl blur opacity-30 group-hover:opacity-60 transition duration-300" />
-            
-            {/* Partículas flotantes alrededor del botón */}
-            {/* <motion.div
-              className="absolute -top-2 -left-2"
-              animate={{ 
-                scale: [1, 1.5, 1],
-                rotate: [360, 180, 0]
-              }}
-              transition={{ 
-                duration: 3, 
-                repeat: Infinity,
-                repeatDelay: 2,
-                delay: 1
-              }}
-            >
-              <FaStar className="text-gray-400 text-xs opacity-60" />
-            </motion.div> */}
 
             <a
               href="/cv-es.pdf"
@@ -456,11 +398,11 @@ const About = () => {
               {/* Brillo animado */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                initial={{ x: '-100%', opacity: 0 }}
-                whileHover={{ x: '100%', opacity: 1 }}
+                initial={{ x: "-100%", opacity: 0 }}
+                whileHover={{ x: "100%", opacity: 1 }}
                 transition={{ duration: 0.6 }}
               />
-              
+
               <motion.div
                 className="relative flex items-center gap-3"
                 whileHover={{ x: 2 }}
@@ -470,30 +412,20 @@ const About = () => {
                 <span>Ver CV</span>
                 <motion.div
                   className="w-2 h-2 bg-orange-400 rounded-full"
-                  animate={{ 
+                  animate={{
                     scale: [1, 1.5, 1],
-                    opacity: [1, 0.5, 1]
+                    opacity: [1, 0.5, 1],
                   }}
-                  transition={{ 
-                    duration: 1.5, 
+                  transition={{
+                    duration: 1.5,
                     repeat: Infinity,
-                    delay: 0.5 
+                    delay: 0.5,
                   }}
                 />
               </motion.div>
             </a>
           </motion.div>
         </motion.div>
-
-        {/* Texto informativo sutil */}
-        {/* <motion.p
-          className="text-sm text-gray-500 dark:text-gray-400 mt-4 text-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.8 }}
-        >
-          Click to open PDF in new tab
-        </motion.p> */}
       </div>
 
       {/* Sección de habilidades */}
@@ -512,7 +444,10 @@ const About = () => {
                 className="w-3 h-3 rounded-full border-2 border-white/30 backdrop-blur-sm"
                 whileHover={{ scale: 1.5 }}
                 style={{
-                  background: `linear-gradient(45deg, ${skill.gradient.replace('from-', '').replace(' via-', ', ').replace(' to-', ', ')})`,
+                  background: `linear-gradient(45deg, ${skill.gradient
+                    .replace("from-", "")
+                    .replace(" via-", ", ")
+                    .replace(" to-", ", ")})`,
                 }}
               />
             ))}
