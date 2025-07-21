@@ -9,9 +9,6 @@ import {
   FaBrain,
   FaPalette,
   FaEye,
-  FaHandPointer,
-  FaArrowDown,
-  FaStar,
 } from "react-icons/fa";
 import { HiOutlineSparkles, HiOutlineCursorClick } from "react-icons/hi";
 import { LiaHandPointDownSolid, LiaHandPointDown } from "react-icons/lia";
