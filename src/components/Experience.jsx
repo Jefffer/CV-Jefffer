@@ -1,8 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
-import { FaCaretDown, FaCaretUp, FaBriefcase, FaMapMarkerAlt, FaCalendarAlt, FaCode, FaRocket, FaBuilding } from "react-icons/fa";
-import { HiOutlineOfficeBuilding, HiOutlineClock } from "react-icons/hi";
+import { FaCaretDown, FaCaretUp, FaBriefcase, FaMapMarkerAlt, FaCalendarAlt, FaCode, FaRocket, FaBuilding, FaClock } from "react-icons/fa";
+import { HiOutlineClock } from "react-icons/hi2";
 
 const experiences = [
   
@@ -120,6 +119,107 @@ const experiences = [
   },
 ];
 
+// Función para calcular la duración del trabajo
+const calculateWorkDuration = (period) => {
+  try {
+    // Limpiar el período y manejar casos especiales
+    const cleanPeriod = period.trim();
+    
+    // Casos especiales
+    if (cleanPeriod.toLowerCase().includes('indefinite') || 
+        cleanPeriod.toLowerCase().includes('indefinido') ||
+        cleanPeriod === '') {
+      return null;
+    }
+    
+    // Extraer fechas del período
+    const datePattern = /(\w+)\s+(\d{4})/g;
+    const matches = [...cleanPeriod.matchAll(datePattern)];
+    
+    if (matches.length < 2) {
+      return null;
+    }
+    
+    const startMatch = matches[0];
+    const endMatch = matches[matches.length - 1];
+    
+    // Mapeo de meses
+    const monthMap = {
+      'january': 0, 'jan': 0, 'enero': 0,
+      'february': 1, 'feb': 1, 'febrero': 1,
+      'march': 2, 'mar': 2, 'marzo': 2,
+      'april': 3, 'apr': 3, 'abril': 3,
+      'may': 4, 'mayo': 4,
+      'june': 5, 'jun': 5, 'junio': 5,
+      'july': 6, 'jul': 6, 'julio': 6,
+      'august': 7, 'aug': 7, 'agosto': 7,
+      'september': 8, 'sep': 8, 'septiembre': 8,
+      'october': 9, 'oct': 9, 'octubre': 9,
+      'november': 10, 'nov': 10, 'noviembre': 10,
+      'december': 11, 'dec': 11, 'diciembre': 11
+    };
+    
+    const startMonth = monthMap[startMatch[1].toLowerCase()];
+    const startYear = parseInt(startMatch[2]);
+    const endMonth = monthMap[endMatch[1].toLowerCase()];
+    const endYear = parseInt(endMatch[2]);
+    
+    if (startMonth === undefined || endMonth === undefined || 
+        isNaN(startYear) || isNaN(endYear)) {
+      return null;
+    }
+    
+    // Crear fechas
+    const startDate = new Date(startYear, startMonth, 1);
+    let endDate;
+    
+    // Si contiene "Present" o "Presente", usar fecha actual
+    if (cleanPeriod.toLowerCase().includes('present') || 
+        cleanPeriod.toLowerCase().includes('presente')) {
+      endDate = new Date();
+    } else {
+      endDate = new Date(endYear, endMonth, 1);
+    }
+    
+    // Calcular diferencia en meses
+    let months = (endDate.getFullYear() - startDate.getFullYear()) * 12;
+    months += endDate.getMonth() - startDate.getMonth();
+    
+    // Si la fecha de fin es anterior a la de inicio
+    if (months < 0) {
+      return null;
+    }
+    
+    const years = Math.floor(months / 12);
+    const remainingMonths = months % 12;
+    
+    return { years, months: remainingMonths, totalMonths: months };
+  } catch (error) {
+    return null;
+  }
+};
+
+// Función para formatear la duración
+const formatDuration = (duration) => {
+  if (!duration) return null;
+  
+  const { years, months } = duration;
+  
+  if (years === 0 && months === 0) {
+    return "Less than 1 month";
+  }
+  
+  const parts = [];
+  if (years > 0) {
+    parts.push(`${years} ${years === 1 ? 'year' : 'years'}`);
+  }
+  if (months > 0) {
+    parts.push(`${months} ${months === 1 ? 'month' : 'months'}`);
+  }
+  
+  return parts.join(', ');
+};
+
 const Experience = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -136,6 +236,10 @@ const Experience = () => {
     const toggleExpand = useCallback(() => {
       setIsExpanded(prev => !prev);
     }, []);
+
+    // Calcular duración del trabajo
+    const workDuration = calculateWorkDuration(exp.period);
+    const formattedDuration = formatDuration(workDuration);
     
     return (
       <motion.div
@@ -216,6 +320,14 @@ const Experience = () => {
                         <FaCalendarAlt className="text-indigo-500 w-3 h-3 flex-shrink-0" />
                         <span className="font-medium truncate">{exp.period}</span>
                       </div>
+                      {formattedDuration && (
+                        <div className="flex items-center gap-2">
+                          <FaClock className="text-emerald-500 w-3 h-3 flex-shrink-0" />
+                          <span className="text-emerald-600 dark:text-emerald-400 font-medium truncate">
+                            {formattedDuration}
+                          </span>
+                        </div>
+                      )}
                       <div className="flex items-center gap-2">
                         <FaMapMarkerAlt className="text-purple-500 w-3 h-3 flex-shrink-0" />
                         <span className="truncate">{exp.location}</span>
