@@ -1,12 +1,12 @@
-import React from 'react';
-import { FaGithub, FaExternalLinkAlt, FaReact, FaNodeJs, FaPython, FaAngular, FaJava, FaCss3Alt, FaHtml5, FaJsSquare } from 'react-icons/fa';
+import React, { useState, useRef, useCallback } from 'react';
+import { FaGithub, FaExternalLinkAlt, FaReact, FaNodeJs, FaPython, FaAngular, FaJava, FaCss3Alt, FaHtml5, FaJsSquare, FaRocket, FaLaptopCode, FaEye } from 'react-icons/fa';
 import { SiMongodb, SiPostgresql, SiMysql, SiTailwindcss, SiVercel, SiVite, SiBlazor, SiTypescript, SiDotnet,
   SiPhp, SiPhpmyadmin, SiCpanel, SiKotlin 
   } from 'react-icons/si';
 import { DiDotnet, DiMsqlServer, DiSqllite  } from "react-icons/di";
 import { TbBrandVite, TbBrandCSharp  } from "react-icons/tb";
 import { AiFillAndroid } from "react-icons/ai";
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import * as Tooltip from '@radix-ui/react-tooltip';
 
 const projects = [
@@ -241,40 +241,171 @@ const projects = [
 ];
 
 const Projects = () => {
-  return (
-    <Tooltip.Provider delayDuration={200}>
-      <section id="projects" className="prose mx-auto py-12">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-5xl font-extrabold text-center mb-6"
+  const [activeFilter, setActiveFilter] = useState('all');
+  const containerRef = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Filtros para categorías
+  const categories = [
+    { id: 'all', name: 'All Projects', icon: <FaLaptopCode /> },
+    { id: 'web', name: 'Web Apps', icon: <FaReact /> },
+    { id: 'mobile', name: 'Mobile', icon: <AiFillAndroid /> },
+    { id: 'api', name: 'APIs', icon: <FaNodeJs /> }
+  ];
+
+  // Asignar categorías a proyectos
+  const categorizedProjects = projects.map(project => ({
+    ...project,
+    category: project.name.toLowerCase().includes('mobile') || project.name.toLowerCase().includes('android') ? 'mobile' :
+             project.name.toLowerCase().includes('api') || project.name.toLowerCase().includes('backend') ? 'api' : 'web'
+  }));
+
+  const filteredProjects = activeFilter === 'all' 
+    ? categorizedProjects 
+    : categorizedProjects.filter(project => project.category === activeFilter);
+
+  // Componente para cada tarjeta de proyecto
+  const ProjectCard = React.memo(({ project, index }) => {
+    const [isHovered, setIsHovered] = useState(false);
+    const cardRef = useRef(null);
+    const isInView = useInView(cardRef, { 
+      once: true, 
+      margin: "-100px 0px -100px 0px" 
+    });
+
+    const handleMouseEnter = useCallback(() => {
+      setIsHovered(true);
+    }, []);
+
+    const handleMouseLeave = useCallback(() => {
+      setIsHovered(false);
+    }, []);
+
+    return (
+      <motion.div
+        ref={cardRef}
+        initial={{ opacity: 0, y: 100, scale: 0.8 }}
+        animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 100, scale: 0.8 }}
+        transition={{ 
+          duration: 0.6, 
+          delay: index * 0.1,
+          type: "spring",
+          stiffness: 100
+        }}
+        className="group relative flex flex-col min-h-full"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <motion.div
+          className="relative min-h-full bg-transparent border border-gray-200 dark:border-gray-600 rounded-xl shadow-lg overflow-hidden"
+          whileHover={{ 
+            y: -8,
+            boxShadow: "0 25px 50px rgba(0,0,0,0.15)"
+          }}
+          transition={{ duration: 0.3 }}
         >
-          My <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-400 dark:to-cyan-400 bg-clip-text text-transparent">Projects</span>
-          </motion.h2>
-        <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-lg text-gray-600 text-center mb-10"
+          <div className="relative p-6 min-h-full flex flex-col">
+            {/* Header */}
+            <div className="mb-4">
+              <div className="flex items-start justify-between mb-3">
+                <motion.div
+                  className="flex-1"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  transition={{ delay: index * 0.1 + 0.2 }}
                 >
-                  <em>Here are some of the projects I've worked on:</em>
-                </motion.p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-2xl transition-all border-gray-200 dark:bg-transparent border dark:border-gray-600"
+                  <h3 className="text-lg md:text-xl font-bold text-gray-800 dark:text-white mb-2 line-clamp-2">
+                    {project.name}
+                  </h3>
+                  <motion.div
+                    className="inline-flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/50 dark:to-purple-900/50 rounded-full border border-indigo-200 dark:border-indigo-700"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
+                    transition={{ delay: index * 0.1 + 0.3 }}
+                  >
+                    <FaRocket className="text-indigo-600 dark:text-indigo-400 w-3 h-3" />
+                    <span className="text-xs font-medium text-indigo-700 dark:text-indigo-300">
+                      {project.client}
+                    </span>
+                  </motion.div>
+                </motion.div>
+                
+                <motion.div
+                  className="flex items-center gap-2 ml-3"
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                  transition={{ delay: index * 0.1 + 0.4 }}
+                >
+                  {project.github && (
+                    <motion.a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-gray-100 dark:bg-gray-700 rounded-full text-gray-600 dark:text-gray-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-all duration-300"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <FaGithub className="w-4 h-4" />
+                    </motion.a>
+                  )}
+                  {project.website && (
+                    <motion.a
+                      href={project.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-gray-100 dark:bg-gray-700 rounded-full text-gray-600 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-emerald-900 transition-all duration-300"
+                      whileHover={{ scale: 1.1, rotate: -5 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <FaExternalLinkAlt className="w-4 h-4" />
+                    </motion.a>
+                  )}
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Description */}
+            <motion.p 
+              className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4 flex-grow"
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ delay: index * 0.1 + 0.5 }}
             >
-              <h5 className="text-2xl font-semibold mb-2 text-indigo-600 dark:text-indigo-400">{project.name}</h5>
-              <p className="text-sm text-gray-600 mb-4">{project.description}</p>
-              <div className="flex items-center gap-3 mb-4">
+              {project.description}
+            </motion.p>
+
+            {/* Technologies - Con línea de Tech Stack */}
+            <motion.div
+              className="space-y-3"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: index * 0.1 + 0.6 }}
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-8 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full" />
+                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                  Tech Stack
+                </span>
+                <div className="flex-1 h-0.5 bg-gradient-to-r from-purple-600 to-indigo-500 rounded-full" />
+              </div>
+              
+              <div className="flex items-center gap-3">
                 {project.technologies.map((tech, i) => (
                   <Tooltip.Root key={i}>
                     <Tooltip.Trigger asChild>
-                      <div className="cursor-pointer text-2xl transition-transform hover:scale-125 hover:text-indigo-500">
+                      <motion.div
+                        className="cursor-pointer text-2xl transition-transform hover:scale-125 hover:text-indigo-500"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                        transition={{ delay: index * 0.1 + 0.7 + i * 0.05 }}
+                        whileHover={{ scale: 1.25 }}
+                      >
                         {tech.icon}
-                      </div>
+                      </motion.div>
                     </Tooltip.Trigger>
                     <Tooltip.Portal>
                       <Tooltip.Content
@@ -288,40 +419,187 @@ const Projects = () => {
                   </Tooltip.Root>
                 ))}
               </div>
-              {/* <span className="block text-sm font-semibold text-gray-500">{project.client}</span> */}
-
-              <div className="flex items-center gap-3 my-5">
-                <div className="flex-grow h-px bg-gray-300"></div>
-                <span className="text-sm font-semibold text-gray-500 whitespace-nowrap">
-                  {project.client}
-                </span>
-                <div className="flex-grow h-px bg-gray-300"></div>
-              </div>
-
-              <div className="flex gap-4 mt-4">
-              {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center font-semibold justify-center gap-2 w-1/2 border border-indigo-400 text-indigo-600 rounded-lg py-1 transition-all duration-300 hover:bg-indigo-100 dark:border-indigo-700 dark:text-indigo-300 dark:hover:bg-indigo-900"
-                  >
-                    <FaGithub className="text-lg" /> View Code
-                  </a>
-                )}
-                {project.website && (
-                  <a
-                    href={project.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center font-semibold justify-center gap-2 w-1/2 border border-green-400 text-green-600 rounded-lg py-1 transition-all duration-300 hover:bg-green-100 dark:border-green-700 dark:text-green-300 dark:hover:bg-green-900"
-                  >
-                    <FaExternalLinkAlt className="text-lg" /> Visit Site
-                  </a>
-                )}
-              </div>
             </motion.div>
-          ))}
+
+            {/* Línea divisoria sutil */}
+            <motion.div
+              className="my-4 border-t border-gray-200/50 dark:border-gray-700/50"
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={isInView ? { opacity: 1, scaleX: 1 } : { opacity: 0, scaleX: 0 }}
+              transition={{ delay: index * 0.1 + 0.8, duration: 0.3 }}
+            />
+
+            {/* Action buttons - Original Style */}
+            <motion.div
+              className="flex gap-4 mt-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: index * 0.1 + 0.9 }}
+            >
+              {project.github && (
+                <motion.a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center font-semibold justify-center gap-2 w-1/2 border border-indigo-400 text-indigo-600 rounded-lg py-1 transition-all duration-300 hover:bg-indigo-100 dark:border-indigo-700 dark:text-indigo-300 dark:hover:bg-indigo-900"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <FaGithub className="text-lg" /> View Code
+                </motion.a>
+              )}
+              {project.website && (
+                <motion.a
+                  href={project.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center font-semibold justify-center gap-2 w-1/2 border border-green-400 text-green-600 rounded-lg py-1 transition-all duration-300 hover:bg-green-100 dark:border-green-700 dark:text-green-300 dark:hover:bg-green-900"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <FaExternalLinkAlt className="text-lg" /> Visit Site
+                </motion.a>
+              )}
+            </motion.div>
+          </div>
+        </motion.div>
+      </motion.div>
+    );
+  });
+
+  return (
+    <Tooltip.Provider delayDuration={200}>
+      <section ref={containerRef} className="py-12 md:py-20 min-h-screen overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12 md:mb-16"
+          >
+            <motion.div
+              className="inline-flex items-center gap-3 px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-full border border-indigo-200 dark:border-indigo-700 mb-4 md:mb-6"
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              <FaLaptopCode className="text-indigo-600 dark:text-indigo-400" />
+              <span className="text-xs md:text-sm font-medium text-indigo-700 dark:text-indigo-300">
+                Portfolio Showcase
+              </span>
+            </motion.div>
+            
+            <h2 className="text-4xl md:text-6xl font-extrabold mb-4 md:mb-6 text-gray-800 dark:text-white">
+              Featured{" "}
+              <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-400 dark:to-cyan-400 bg-clip-text text-transparent">
+                Projects
+              </span>
+            </h2>
+            
+            <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
+              Discover the projects that showcase my expertise in modern development technologies and innovative solutions.
+            </p>
+          </motion.div>
+
+          {/* Filter Tabs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-12"
+          >
+            {categories.map((category, index) => (
+              <motion.button
+                key={category.id}
+                onClick={() => setActiveFilter(category.id)}
+                className={`
+                  flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 rounded-full font-medium text-sm md:text-base transition-all duration-300
+                  ${activeFilter === category.id
+                    ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg'
+                    : 'bg-white/80 dark:bg-gray-800/80 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-indigo-50 dark:hover:bg-indigo-900/20'
+                  }
+                `}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <span className="text-lg">{category.icon}</span>
+                <span className="hidden sm:inline">{category.name}</span>
+                <span className="sm:hidden">{category.name.split(' ')[0]}</span>
+                <motion.span
+                  className="ml-1 px-2 py-0.5 bg-white/20 rounded-full text-xs"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: index * 0.1 + 0.2 }}
+                >
+                  {category.id === 'all' ? projects.length : categorizedProjects.filter(p => p.category === category.id).length}
+                </motion.span>
+              </motion.button>
+            ))}
+          </motion.div>
+
+          {/* Projects Grid */}
+          <motion.div
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+            style={{ gridAutoRows: 'max-content' }}
+          >
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.name}
+                layout
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <ProjectCard project={project} index={index} />
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Stats Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mt-16 md:mt-20 text-center"
+          >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+              {[
+                { number: projects.length, label: "Total Projects" },
+                { number: [...new Set(projects.flatMap(p => p.technologies.map(t => t.name)))].length, label: "Technologies" },
+                { number: projects.filter(p => p.website).length, label: "Live Sites" },
+                { number: projects.filter(p => p.github).length, label: "Open Source" }
+              ].map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  className="p-4 md:p-6 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                >
+                  <motion.div
+                    className="text-2xl md:text-4xl font-bold text-indigo-600 dark:text-indigo-400 mb-2"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ delay: index * 0.1 + 0.3, type: "spring", stiffness: 200 }}
+                    viewport={{ once: true }}
+                  >
+                    {stat.number}
+                  </motion.div>
+                  <div className="text-sm md:text-base text-gray-600 dark:text-gray-300 font-medium">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
     </Tooltip.Provider>
