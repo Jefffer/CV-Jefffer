@@ -361,14 +361,14 @@ const Experience = () => {
           
           <h2 className="text-4xl md:text-6xl font-extrabold mb-4 md:mb-6 text-gray-800 dark:text-white">
             Professional{" "}
-            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 dark:from-indigo-400 dark:via-purple-400 dark:to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-400 dark:to-cyan-400 bg-clip-text text-transparent">
               Experience
             </span>
           </h2>
           
-          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
+          {/* <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
             Discover my professional journey through innovative projects and meaningful collaborations with industry-leading companies.
-          </p>
+          </p> */}
         </motion.div>
 
         {/* Timeline */}
