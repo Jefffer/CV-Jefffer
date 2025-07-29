@@ -132,17 +132,6 @@ const calculateWorkDuration = (period) => {
       return null;
     }
     
-    // Extraer fechas del período
-    const datePattern = /(\w+)\s+(\d{4})/g;
-    const matches = [...cleanPeriod.matchAll(datePattern)];
-    
-    if (matches.length < 2) {
-      return null;
-    }
-    
-    const startMatch = matches[0];
-    const endMatch = matches[matches.length - 1];
-    
     // Mapeo de meses
     const monthMap = {
       'january': 0, 'jan': 0, 'enero': 0,
@@ -158,27 +147,49 @@ const calculateWorkDuration = (period) => {
       'november': 10, 'nov': 10, 'noviembre': 10,
       'december': 11, 'dec': 11, 'diciembre': 11
     };
+
+    // Verificar si contiene "Present" o "Presente"
+    const isPresent = cleanPeriod.toLowerCase().includes('present') || 
+                     cleanPeriod.toLowerCase().includes('presente');
     
-    const startMonth = monthMap[startMatch[1].toLowerCase()];
-    const startYear = parseInt(startMatch[2]);
-    const endMonth = monthMap[endMatch[1].toLowerCase()];
-    const endYear = parseInt(endMatch[2]);
+    // Extraer fechas del período
+    const datePattern = /(\w+)\s+(\d{4})/g;
+    const matches = [...cleanPeriod.matchAll(datePattern)];
     
-    if (startMonth === undefined || endMonth === undefined || 
-        isNaN(startYear) || isNaN(endYear)) {
+    if (matches.length < 1) {
       return null;
     }
     
-    // Crear fechas
+    // Obtener fecha de inicio
+    const startMatch = matches[0];
+    const startMonth = monthMap[startMatch[1].toLowerCase()];
+    const startYear = parseInt(startMatch[2]);
+    
+    if (startMonth === undefined || isNaN(startYear)) {
+      return null;
+    }
+    
+    // Crear fecha de inicio
     const startDate = new Date(startYear, startMonth, 1);
     let endDate;
     
-    // Si contiene "Present" o "Presente", usar fecha actual
-    if (cleanPeriod.toLowerCase().includes('present') || 
-        cleanPeriod.toLowerCase().includes('presente')) {
+    if (isPresent) {
+      // Si contiene "Present" o "Presente", usar fecha actual
       endDate = new Date();
-    } else {
+    } else if (matches.length >= 2) {
+      // Si hay fecha de fin específica
+      const endMatch = matches[matches.length - 1];
+      const endMonth = monthMap[endMatch[1].toLowerCase()];
+      const endYear = parseInt(endMatch[2]);
+      
+      if (endMonth === undefined || isNaN(endYear)) {
+        return null;
+      }
+      
       endDate = new Date(endYear, endMonth, 1);
+    } else {
+      // No hay suficiente información
+      return null;
     }
     
     // Calcular diferencia en meses
@@ -368,13 +379,36 @@ const Experience = () => {
             {/* Expanded content */}
             {isExpanded && (
               <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="border-t border-gray-200/50 dark:border-gray-700/50 bg-gray-50/80 dark:bg-gray-900/80"
+                initial={{ opacity: 0, height: 0, scaleY: 0 }}
+                animate={{ 
+                  opacity: 1, 
+                  height: "auto", 
+                  scaleY: 1 
+                }}
+                exit={{ 
+                  opacity: 0, 
+                  height: 0, 
+                  scaleY: 0 
+                }}
+                transition={{ 
+                  duration: 0.3, 
+                  ease: "easeInOut",
+                  opacity: { duration: 0.2 },
+                  scaleY: { duration: 0.3 }
+                }}
+                style={{ originY: 0 }}
+                className="border-t border-gray-200/50 dark:border-gray-700/50 bg-gray-50/80 dark:bg-gray-900/80 overflow-hidden"
               >
-                <div className="p-4 md:p-6 space-y-4">
+                <motion.div 
+                  className="p-4 md:p-6 space-y-4"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ 
+                    delay: 0.1, 
+                    duration: 0.2 
+                  }}
+                >
                   {exp.clients.map((client, idx) => (
                     <motion.div
                       key={`${exp.consultant}-${client.name}-${idx}`}
@@ -431,7 +465,7 @@ const Experience = () => {
                       </motion.div>
                     </motion.div>
                   ))}
-                </div>
+                </motion.div>
               </motion.div>
             )}
           </motion.div>
