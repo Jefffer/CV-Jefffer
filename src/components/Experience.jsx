@@ -287,7 +287,7 @@ const Experience = () => {
 
         {/* Experience Card */}
         <motion.div
-          className={`w-full md:w-5/12 ${
+          className={`w-full md:w-[45%] ${
             index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'
           } px-4 md:px-0`}
           whileHover={{ scale: 1.02, y: -5 }}
@@ -475,7 +475,7 @@ const Experience = () => {
         <motion.div
           className={`hidden md:block absolute top-1/2 ${
             index % 2 === 0 ? "right-1/2 mr-3" : "left-1/2 ml-3"
-          } w-12 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-500 opacity-30`}
+          } w-6 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-500 opacity-30`}
           initial={{ scaleX: 0 }}
           animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
           transition={{ delay: index * 0.2 + 0.5, duration: 0.5 }}
