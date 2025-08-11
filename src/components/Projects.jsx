@@ -13,6 +13,7 @@ const projects = [
   {
     name: "Laboral Kutxa Online Banking",
     description: "LK Online Banking is the website and mobile app service of Laboral Kutxa, a Basque financial institution. The service allows you to manage your accounts, cards, transfers, etc.",
+    image: "lk.PNG",
     technologies: [
       { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 4.8" },
       { icon: <SiDotnet  className="text-purple-800 dark:text-purple-300" />, name: ".Net Core 6.0" },
@@ -26,6 +27,7 @@ const projects = [
   {
     name: "CAPTOR Sisteplant",
     description: "Custom development and version migrations from CAPTOR 3 to CAPTOR 4 for the Gestamp client. CAPTOR is a software for the management of production processes in the industrial sector.",
+    image: "captor.PNG",
     technologies: [
       { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 3.5 - 4.5" },
       { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
@@ -38,6 +40,7 @@ const projects = [
   {
     name: "PK4U Smart Parking Frontend",
     description: "Frontend web application for PK4U, an intelligent parking management system for Smart Cities. Built with modern technologies to provide citizens with real-time parking availability information and efficient urban mobility solutions.",
+    image: "pk4u.PNG",
     technologies: [
       { icon: <FaReact className="text-blue-500" />, name: "React" },
       { icon: <SiVite className="text-purple-500" />, name: "Vite" },
@@ -52,6 +55,7 @@ const projects = [
   {
     name: "PK4U Smart Parking Backend",
     description: "Microservices-based backend for PK4U parking management system. Provides robust API services for real-time parking data processing, user management, and integration with IoT sensors in urban environments.",
+    image: "backend1.webp",
     technologies: [
       { icon: <FaJava className="text-red-600" />, name: "Java 21" },
       { icon: <SiSpring className="text-green-600" />, name: "Spring Cloud" },
@@ -63,6 +67,7 @@ const projects = [
   {
     name: "PK4U Database Scripts",
     description: "Database population and management scripts for the PK4U parking system. Includes data seeding, migration scripts, and utilities for MongoDB database administration and maintenance.",
+    image: "database.webp",
     technologies: [
       { icon: <FaNodeJs className="text-green-600" />, name: "Node.js" },
       { icon: <SiMongodb className="text-green-600" />, name: "MongoDB" },
@@ -75,6 +80,7 @@ const projects = [
   {
     name: "PK4U Eureka Service Registry",
     description: "Service discovery and registry server for the PK4U microservices architecture. Enables dynamic service discovery and load balancing across the distributed parking management system.",
+    image: "devops1.webp",    
     technologies: [
       { icon: <FaJava className="text-red-600" />, name: "Java 21" },
       { icon: <SiSpring className="text-green-600" />, name: "Spring Cloud" },
@@ -86,6 +92,7 @@ const projects = [
   {
     name: "PK4U IoT Sensor Simulator",
     description: "IoT sensor simulation system for testing and development of the PK4U parking platform. Simulates real-world parking sensor data using message queuing for realistic testing scenarios.",
+    image: "pk4u2.jpg",    
     technologies: [
       { icon: <FaJava className="text-red-600" />, name: "Java 21" },
       { icon: <SiSpring className="text-green-600" />, name: "Spring Boot" },
@@ -98,6 +105,7 @@ const projects = [
   {
     name: "Modern Suitcase Store",
     description: "Modern e-commerce catalog website for a suitcase company showcasing products with an elegant and responsive design. Features product browsing, detailed views, and contemporary user interface elements.",
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=200&fit=crop&crop=center",
     technologies: [
       { icon: <FaReact className="text-blue-500" />, name: "React" },
       { icon: <SiVite className="text-purple-500" />, name: "Vite" },
@@ -112,6 +120,7 @@ const projects = [
   {
     name: "Library App FrontEnd",
     description: "FrontEnd of functional e-commerce web application with authentication, cart, and payment integration for a virtual library.",
+    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=200&fit=crop&crop=center",
     technologies: [
       { icon: <FaReact className="text-blue-500" />, name: "React" },
       { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript" },
@@ -127,6 +136,7 @@ const projects = [
   {
     name: "Library App BackEnd",
     description: "Microservices-based backend of a functional e-commerce web application with a book catalog, shopping cart and payment integration for a virtual library using Eureka and an API Gateway.",
+    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=200&fit=crop&crop=center",
     technologies: [
       { icon: <FaJava className="text-red-600" />, name: "Java" },
       { icon: <SiMysql className="text-teal-600 dark:text-teal-300" />, name: "MySQL" },
@@ -137,6 +147,7 @@ const projects = [
   {
     name: "Demo Api",
     description: "A little demo API to handle representative currency exchange rate.",
+    image: "money.jpg",
     technologies: [
       { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 4.6" },
       { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
@@ -151,6 +162,7 @@ const projects = [
   {
     name: "Schedule Mobile App",
     description: "Mobile application for timetable management at school or university. The application allows you to manage class hours, notifications, write notes, etc.",
+    image: "agenda.jpg",
     technologies: [
       { icon: <SiKotlin className="text-purple-600" />, name: "Kotlin" },
       { icon: <FaJava className="text-red-600" />, name: "Java" },
@@ -163,6 +175,7 @@ const projects = [
   {
     name: "Bogus Data Generator",
     description: "A simple and sane data generator for populating objects that supports different locales. A delightful port of the famed faker.js and inspired by FluentValidation. Use Bogus to create UIs with fake data or seed databases.",
+    image: "test.png",
     technologies: [
       { icon: <SiDotnet  className="text-purple-800 dark:text-purple-300" />, name: ".Net Core 7.0" },
       { icon: <SiBlazor className="text-violet-600" />, name: "Blazor Server" },
@@ -176,6 +189,7 @@ const projects = [
   {
     name: "Suggestion App",
     description: "An App to suggest new ideas within a website and save them in different categories to be taken into account later. Based on tutorial by IAmTimCorey",
+    image: "test.png",
     technologies: [
       { icon: <SiDotnet  className="text-purple-800 dark:text-purple-300"/>, name: ".Net Core 6.0" },
       { icon: <SiBlazor className="text-violet-600" />, name: "Blazor Server" },
@@ -190,6 +204,7 @@ const projects = [
   {
     name: "Blazor App with Dapper",
     description: ".Net API using Blazor server and Dapper as ORM for data connection in the persistence layer.",
+    image: "blazor.png",
     technologies: [
       { icon: <SiDotnet  className="text-purple-800 dark:text-purple-300" />, name: ".Net Core 6.0" },
       { icon: <SiBlazor className="text-violet-600" />, name: "Blazor Server" },
@@ -204,6 +219,7 @@ const projects = [
   {
     name: "Portfolio Debt Collection System",
     description: "Requirements gathering, architectural design, database design, backend development and deployment of the State Insurance Portfolio System, complying with legal collection regulations for debtors of various insurance policies acquired with the company.",
+    image: "sangerman.PNG",
     technologies: [
       { icon: <SiDotnet  className="text-purple-800 dark:text-purple-300" />, name: ".Net Core 5.0" },
       { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
@@ -375,119 +391,197 @@ const Projects = () => {
         onMouseLeave={handleMouseLeave}
       >
         <motion.div
-          className="relative min-h-full bg-transparent border border-gray-200 dark:border-gray-600 rounded-xl shadow-lg overflow-hidden"
+          className="relative min-h-full bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700"
           whileHover={{ 
-            // y: -8,
-            boxShadow: "0 25px 50px rgba(0,0,0,0.15)"
+            // y: -12,
+            boxShadow: "0 32px 64px rgba(0,0,0,0.12)"
           }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         >
-          <div className="relative p-6 min-h-full flex flex-col">
-            {/* Header */}
-            <div className="mb-4">
-              <div className="flex items-start justify-between mb-3">
-                <motion.div
-                  className="flex-1"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                  transition={{ delay: index * 0.1 + 0.2 }}
-                >
-                  <h3 className="text-lg md:text-xl font-bold text-gray-800 dark:text-white mb-2 line-clamp-2">
-                    {project.name}
-                  </h3>
-                  <motion.div
-                    className="inline-flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/50 dark:to-purple-900/50 rounded-full border border-indigo-200 dark:border-indigo-700"
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
-                    transition={{ delay: index * 0.1 + 0.3 }}
+          {/* Image Header */}
+          {project.image ? (
+            <motion.div 
+              className="relative h-48 overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ delay: index * 0.1 + 0.2 }}
+            >
+              <motion.img
+                src={project.image}
+                alt={project.name}
+                className="w-full h-full object-cover"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.6 }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              
+              {/* Floating Action Buttons */}
+              <motion.div
+                className="absolute top-4 right-4 flex gap-2"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                transition={{ delay: index * 0.1 + 0.5 }}
+              >
+                {project.github && (
+                  <motion.a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2.5 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 transition-all duration-300 shadow-lg"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    <FaRocket className="text-indigo-600 dark:text-indigo-400 w-3 h-3" />
-                    <span className="text-xs font-medium text-indigo-700 dark:text-indigo-300">
-                      {project.client}
-                    </span>
-                  </motion.div>
-                </motion.div>
-                
-                <motion.div
-                  className="flex items-center gap-2 ml-3"
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-                  transition={{ delay: index * 0.1 + 0.4 }}
-                >
-                  {project.github && (
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-gray-100 dark:bg-gray-700 rounded-full text-gray-600 dark:text-gray-300 hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-all duration-300"
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <FaGithub className="w-4 h-4" />
-                    </motion.a>
-                  )}
-                  {project.website && (
-                    <motion.a
-                      href={project.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-gray-100 dark:bg-gray-700 rounded-full text-gray-600 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-emerald-900 transition-all duration-300"
-                      whileHover={{ scale: 1.1, rotate: -5 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <FaExternalLinkAlt className="w-4 h-4" />
-                    </motion.a>
-                  )}
-                </motion.div>
-              </div>
-            </div>
+                    <FaGithub className="w-4 h-4" />
+                  </motion.a>
+                )}
+                {project.website && (
+                  <motion.a
+                    href={project.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2.5 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 transition-all duration-300 shadow-lg"
+                    whileHover={{ scale: 1.1, rotate: -5 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <FaExternalLinkAlt className="w-4 h-4" />
+                  </motion.a>
+                )}
+              </motion.div>
+
+              {/* Client Badge */}
+              <motion.div
+                className="absolute bottom-4 left-4"
+                initial={{ opacity: 0, x: -20 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                transition={{ delay: index * 0.1 + 0.4 }}
+              >
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-full border border-white/50 dark:border-gray-700/50 shadow-lg">
+                  <FaRocket className="text-indigo-600 dark:text-indigo-400 w-3 h-3" />
+                  <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">
+                    {project.client}
+                  </span>
+                </div>
+              </motion.div>
+            </motion.div>
+          ) : (
+            /* Fallback gradient header for projects without images */
+            <motion.div 
+              className="relative h-32 bg-gradient-to-br from-indigo-500 via-purple-600 to-cyan-500 overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ delay: index * 0.1 + 0.2 }}
+            >
+              <div className="absolute inset-0 bg-black/20" />
+              
+              {/* Client Badge for non-image cards */}
+              <motion.div
+                className="absolute bottom-4 left-4"
+                initial={{ opacity: 0, x: -20 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                transition={{ delay: index * 0.1 + 0.4 }}
+              >
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-full shadow-lg">
+                  <FaRocket className="text-indigo-600 w-3 h-3" />
+                  <span className="text-xs font-semibold text-gray-700">
+                    {project.client}
+                  </span>
+                </div>
+              </motion.div>
+
+              {/* Action buttons for non-image cards */}
+              <motion.div
+                className="absolute top-4 right-4 flex gap-2"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                transition={{ delay: index * 0.1 + 0.5 }}
+              >
+                {project.github && (
+                  <motion.a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2.5 bg-white/90 backdrop-blur-sm rounded-full text-gray-700 hover:bg-white transition-all duration-300 shadow-lg"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <FaGithub className="w-4 h-4" />
+                  </motion.a>
+                )}
+                {project.website && (
+                  <motion.a
+                    href={project.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2.5 bg-white/90 backdrop-blur-sm rounded-full text-gray-700 hover:bg-white transition-all duration-300 shadow-lg"
+                    whileHover={{ scale: 1.1, rotate: -5 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <FaExternalLinkAlt className="w-4 h-4" />
+                  </motion.a>
+                )}
+              </motion.div>
+            </motion.div>
+          )}
+
+          {/* Content */}
+          <div className="p-6 flex flex-col flex-grow">
+            {/* Title */}
+            <motion.h3 
+              className="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: index * 0.1 + 0.3 }}
+            >
+              {project.name}
+            </motion.h3>
 
             {/* Description */}
             <motion.p 
-              className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4 flex-grow"
+              className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6 flex-grow"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ delay: index * 0.1 + 0.5 }}
+              transition={{ delay: index * 0.1 + 0.4 }}
             >
               {project.description}
             </motion.p>
 
-            {/* Technologies - Con línea de Tech Stack */}
+            {/* Technologies */}
             <motion.div
-              className="space-y-3"
+              className="space-y-4"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: index * 0.1 + 0.6 }}
+              transition={{ delay: index * 0.1 + 0.5 }}
             >
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-8 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full" />
-                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full" />
+                <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                   Tech Stack
                 </span>
                 <div className="flex-1 h-0.5 bg-gradient-to-r from-purple-600 to-indigo-500 rounded-full" />
               </div>
               
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech, i) => (
                   <Tooltip.Root key={i}>
                     <Tooltip.Trigger asChild>
                       <motion.div
-                        className="cursor-pointer text-2xl transition-transform hover:scale-125 hover:text-indigo-500"
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 dark:bg-gray-700/50 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 cursor-pointer"
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                        transition={{ delay: index * 0.1 + 0.7 + i * 0.05 }}
-                        whileHover={{ scale: 1.25 }}
+                        transition={{ delay: index * 0.1 + 0.6 + i * 0.05 }}
+                        whileHover={{ scale: 1.05 }}
                       >
-                        {tech.icon}
+                        <span className="text-lg">{tech.icon}</span>
+                        <span className="text-xs font-semibold">{tech.name}</span>
                       </motion.div>
                     </Tooltip.Trigger>
                     <Tooltip.Portal>
                       <Tooltip.Content
-                        className="bg-indigo-700 text-white text-sm px-3 py-2 rounded-md shadow-md"
+                        className="bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-xl"
                         side="top"
                       >
                         {tech.name}
-                        <Tooltip.Arrow className="fill-indigo-800" />
+                        <Tooltip.Arrow className="fill-gray-900" />
                       </Tooltip.Content>
                     </Tooltip.Portal>
                   </Tooltip.Root>
@@ -495,31 +589,24 @@ const Projects = () => {
               </div>
             </motion.div>
 
-            {/* Línea divisoria sutil */}
+            {/* Action Buttons */}
             <motion.div
-              className="my-4 border-t border-gray-200/50 dark:border-gray-700/50"
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={isInView ? { opacity: 1, scaleX: 1 } : { opacity: 0, scaleX: 0 }}
-              transition={{ delay: index * 0.1 + 0.8, duration: 0.3 }}
-            />
-
-            {/* Action buttons */}
-            <motion.div
-              className="flex gap-4 mt-auto"
+              className="flex gap-3 mt-6"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: index * 0.1 + 0.9 }}
+              transition={{ delay: index * 0.1 + 0.7 }}
             >
               {project.github && (
                 <motion.a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center font-semibold justify-center gap-2 w-1/2 border border-indigo-400 text-indigo-600 rounded-lg py-1 transition-all duration-300 hover:bg-indigo-100 dark:border-indigo-700 dark:text-indigo-300 dark:hover:bg-indigo-900"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-900 dark:bg-gray-700 text-white rounded-xl font-semibold text-sm hover:bg-gray-800 dark:hover:bg-gray-600 transition-all duration-300 shadow-lg"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <FaGithub className="text-lg" /> View Code
+                  <FaGithub className="w-4 h-4" />
+                  <span>Code</span>
                 </motion.a>
               )}
               {project.website && (
@@ -527,11 +614,12 @@ const Projects = () => {
                   href={project.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center font-semibold justify-center gap-2 w-1/2 border border-green-400 text-green-600 rounded-lg py-1 transition-all duration-300 hover:bg-green-100 dark:border-green-700 dark:text-green-300 dark:hover:bg-green-900"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-xl font-semibold text-sm hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-lg"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <FaExternalLinkAlt className="text-lg" /> Visit Site
+                  <FaExternalLinkAlt className="w-4 h-4" />
+                  <span>Live Demo</span>
                 </motion.a>
               )}
             </motion.div>
