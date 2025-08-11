@@ -96,6 +96,20 @@ const projects = [
   },
   
   {
+    name: "Modern Suitcase Store",
+    description: "Modern e-commerce catalog website for a suitcase company showcasing products with an elegant and responsive design. Features product browsing, detailed views, and contemporary user interface elements.",
+    technologies: [
+      { icon: <FaReact className="text-blue-500" />, name: "React" },
+      { icon: <SiVite className="text-purple-500" />, name: "Vite" },
+      { icon: <SiTailwindcss className="text-cyan-500" />, name: "Tailwind CSS" },
+      { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript" },
+    ],
+    client: "Personal Project",
+    github: "https://github.com/Jefffer/modern-suitcase-store",
+    website: "https://modern-suitcase-store.vercel.app/",
+  },
+  
+  {
     name: "Library App FrontEnd",
     description: "FrontEnd of functional e-commerce web application with authentication, cart, and payment integration for a virtual library.",
     technologies: [
