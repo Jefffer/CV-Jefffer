@@ -232,6 +232,7 @@ const projects = [
   {
     name: "IDDEA Web App",
     description: "Backend Support for Iddea, an innovation engine with web and mobile platforms, its function is to motivate and encourage members of an organization to propose ideas for a specific challenge, obtaining incentives.",
+    image: "iddea.PNG",
     technologies: [
       { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework" },
       { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
@@ -245,6 +246,7 @@ const projects = [
   {
     name: "MoneyXchange App BackEnd",
     description: "Web Api for the MoneyXchange project that consists of performing a currency exchange, the access to the data is controlled through EntityFramework. This application is consumed by the FrontEnd part made in Angular.",
+    image: "money.jpg",
     technologies: [
       { icon: <DiDotnet className="text-sky-500" />, name: ".Net Framework 4.6" }, 
       { icon: <TbBrandCSharp className="text-fuchsia-600" />, name: "C#" },
@@ -257,6 +259,7 @@ const projects = [
   {
     name: "MoneyXchange App FrontEnd",
     description: "FrontEnd of the MoneyXchange project that consists of performing a currency exchange. This application consumes the Web Api made in .Net.",
+    image: "money.jpg",
     technologies: [
       { icon: <FaAngular className="text-red-600" />, name: "Angular" },
       { icon: <SiTypescript className="text-sky-600" />, name: "TypeScript" },
@@ -269,6 +272,7 @@ const projects = [
   {
     name: "Pyramid: Viata Real State Website",
     description: "Website for a real estate company that allows the management of properties, clients, etc. Data managed with phpMyAdmin and deployment with cPanel administration.",
+    image: "viata.jpg",
     technologies: [
       { icon: <SiPhp className="text-sky-700" />, name: "PHP" },
       { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript" },
