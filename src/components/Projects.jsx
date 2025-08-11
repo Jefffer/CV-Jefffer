@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { FaGithub, FaExternalLinkAlt, FaReact, FaNodeJs, FaPython, FaAngular, FaJava, FaCss3Alt, FaHtml5, FaJsSquare, FaRocket, FaLaptopCode, FaEye } from 'react-icons/fa';
 import { SiMongodb, SiPostgresql, SiMysql, SiTailwindcss, SiVercel, SiVite, SiBlazor, SiTypescript, SiDotnet,
-  SiPhp, SiPhpmyadmin, SiCpanel, SiKotlin 
+  SiPhp, SiPhpmyadmin, SiCpanel, SiKotlin, SiSpring, SiRabbitmq 
   } from 'react-icons/si';
 import { DiDotnet, DiMsqlServer, DiSqllite  } from "react-icons/di";
 import { TbBrandVite, TbBrandCSharp  } from "react-icons/tb";
@@ -33,6 +33,66 @@ const projects = [
     ],
     client: "Sisteplant",
     website: "https://sisteplant.com/que-ofrecemos/captor/",
+  },
+  
+  {
+    name: "PK4U Smart Parking Frontend",
+    description: "Frontend web application for PK4U, an intelligent parking management system for Smart Cities. Built with modern technologies to provide citizens with real-time parking availability information and efficient urban mobility solutions.",
+    technologies: [
+      { icon: <FaReact className="text-blue-500" />, name: "React" },
+      { icon: <SiVite className="text-purple-500" />, name: "Vite" },
+      { icon: <SiTailwindcss className="text-cyan-500" />, name: "Tailwind CSS" },
+      { icon: <FaNodeJs className="text-green-600" />, name: "Node.js" },
+    ],
+    client: "Master's Thesis Project (TFM)",
+    github: "https://github.com/Jefffer/pk4u-frontend",
+    website: "https://pk4u-frontend.vercel.app/",
+  },
+
+  {
+    name: "PK4U Smart Parking Backend",
+    description: "Microservices-based backend for PK4U parking management system. Provides robust API services for real-time parking data processing, user management, and integration with IoT sensors in urban environments.",
+    technologies: [
+      { icon: <FaJava className="text-red-600" />, name: "Java 21" },
+      { icon: <SiSpring className="text-green-600" />, name: "Spring Cloud" },
+    ],
+    client: "Master's Thesis Project (TFM)",
+    github: "https://github.com/Jefffer/PK4U-backend",
+  },
+
+  {
+    name: "PK4U Database Scripts",
+    description: "Database population and management scripts for the PK4U parking system. Includes data seeding, migration scripts, and utilities for MongoDB database administration and maintenance.",
+    technologies: [
+      { icon: <FaNodeJs className="text-green-600" />, name: "Node.js" },
+      { icon: <SiMongodb className="text-green-600" />, name: "MongoDB" },
+      { icon: <FaJsSquare className="text-yellow-500" />, name: "JavaScript" },
+    ],
+    client: "Master's Thesis Project (TFM)",
+    github: "https://github.com/Jefffer/pk4u-db-scripts",
+  },
+
+  {
+    name: "PK4U Eureka Service Registry",
+    description: "Service discovery and registry server for the PK4U microservices architecture. Enables dynamic service discovery and load balancing across the distributed parking management system.",
+    technologies: [
+      { icon: <FaJava className="text-red-600" />, name: "Java 21" },
+      { icon: <SiSpring className="text-green-600" />, name: "Spring Cloud" },
+    ],
+    client: "Master's Thesis Project (TFM)",
+    github: "https://github.com/Jefffer/pk4u-eureka",
+  },
+
+  {
+    name: "PK4U IoT Sensor Simulator",
+    description: "IoT sensor simulation system for testing and development of the PK4U parking platform. Simulates real-world parking sensor data using message queuing for realistic testing scenarios.",
+    technologies: [
+      { icon: <FaJava className="text-red-600" />, name: "Java 21" },
+      { icon: <SiSpring className="text-green-600" />, name: "Spring Boot" },
+      { icon: <SiRabbitmq className="text-orange-600" />, name: "RabbitMQ" },
+    ],
+    client: "Master's Thesis Project (TFM)",
+    github: "https://github.com/Jefffer/pk4u-simulator",
   },
   
   {
@@ -303,7 +363,7 @@ const Projects = () => {
         <motion.div
           className="relative min-h-full bg-transparent border border-gray-200 dark:border-gray-600 rounded-xl shadow-lg overflow-hidden"
           whileHover={{ 
-            y: -8,
+            // y: -8,
             boxShadow: "0 25px 50px rgba(0,0,0,0.15)"
           }}
           transition={{ duration: 0.3 }}
