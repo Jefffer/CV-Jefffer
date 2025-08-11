@@ -429,7 +429,7 @@ const Projects = () => {
               transition={{ delay: index * 0.1 + 0.8, duration: 0.3 }}
             />
 
-            {/* Action buttons - Original Style */}
+            {/* Action buttons */}
             <motion.div
               className="flex gap-4 mt-auto"
               initial={{ opacity: 0, y: 20 }}
