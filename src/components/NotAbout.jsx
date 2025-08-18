@@ -34,7 +34,7 @@ const skills = [
   },
   {
     title: "DevOps & Cloud",
-    description: "Experience with Azure DevOps, AWS (ECS, EC2, S3)",
+    description: "Experience with Docker, Kubernetes, Azure DevOps, AWS (ECS, EC2, S3)",
     image: "./devops2.webp",
     icon: <FaCloud className="text-4xl" />,
     gradient: "from-cyan-300 via-teal-300 to-emerald-400",
