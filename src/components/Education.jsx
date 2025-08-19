@@ -115,17 +115,13 @@ const EducationCard = React.memo(({ edu, index }) => {
         type: "spring",
         stiffness: 100
       }}
-      whileHover={{ 
-        y: -8,
-        boxShadow: "0 20px 40px rgba(0,0,0,0.15)"
-      }}
-      className="group relative h-full"
+      className="group relative h-full transition-transform duration-300"
     >
-      <div className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-3xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-2xl h-full">
+      <div className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-3xl overflow-hidden border border-gray-200/50 dark:border-gray-700/50 shadow-2xl h-full transition-all duration-500 hover:shadow-[0_15px_30px_rgba(0,0,0,0.2)] group-hover:border-emerald-500/30">
         
         {/* University Image Header with Creative Overlay */}
         <motion.div 
-          className="relative h-56 overflow-hidden"
+          className="relative h-56 overflow-hidden bg-gray-100 dark:bg-gray-700"
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           {/* Main university image */}
@@ -133,13 +129,14 @@ const EducationCard = React.memo(({ edu, index }) => {
             src={edu.image}
             alt={edu.university}
             className="w-full h-full object-cover object-center filter brightness-90 contrast-110"
-            initial={{ scale: 1.3, opacity: 0 }}
-            animate={isInView ? { scale: 1, opacity: 1 } : { scale: 1.3, opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 1 }}
             transition={{ duration: 1.2, delay: index * 0.3 + 0.2 }}
           />
           
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/30 via-cyan-500/20 to-blue-500/30 z-10" />
+          
           
           {/* Creative logo placement - floating in corner */}
           <motion.div
