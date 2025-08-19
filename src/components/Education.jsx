@@ -116,10 +116,8 @@ const EducationCard = React.memo(({ edu, index }) => {
         stiffness: 100
       }}
       whileHover={{ 
-        y: -12,
-        scale: 1.02,
-        rotateY: 5,
-        boxShadow: "0 25px 50px rgba(0,0,0,0.25)"
+        y: -8,
+        boxShadow: "0 20px 40px rgba(0,0,0,0.15)"
       }}
       className="group relative h-full"
     >
@@ -128,7 +126,6 @@ const EducationCard = React.memo(({ edu, index }) => {
         {/* University Image Header with Creative Overlay */}
         <motion.div 
           className="relative h-56 overflow-hidden"
-          whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           {/* Main university image */}
@@ -162,9 +159,9 @@ const EducationCard = React.memo(({ edu, index }) => {
               </div>
               {/* Rotating glow effect */}
               <motion.div
-                className="absolute -inset-2 bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-500 rounded-3xl opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-500"
+                className="absolute -inset-2 bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-500 rounded-3xl opacity-0 group-hover:opacity-20 blur-md transition-opacity duration-500"
                 animate={{ rotate: 360 }}
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
               />
             </div>
           </motion.div>
@@ -272,35 +269,9 @@ const EducationCard = React.memo(({ edu, index }) => {
 
         {/* Hover Effect Overlay */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-cyan-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
+          className="absolute inset-0 bg-gradient-to-br from-emerald-500/3 via-cyan-500/3 to-blue-500/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
           initial={false}
         />
-
-        {/* Floating particles on hover */}
-        <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
-          {[...Array(8)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full opacity-0 group-hover:opacity-60"
-              style={{
-                left: `${20 + (i * 10)}%`,
-                top: `${30 + (i * 8)}%`,
-              }}
-              animate={{
-                y: [0, -20, 0],
-                x: [0, Math.random() * 10 - 5, 0],
-                scale: [0, 1, 0],
-                opacity: [0, 0.6, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                delay: i * 0.2,
-                ease: "easeInOut",
-              }}
-            />
-          ))}
-        </div>
       </div>
     </motion.div>
   );
