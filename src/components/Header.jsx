@@ -13,6 +13,7 @@ import {
   FaGithub,
   FaLinkedin,
   FaFolderOpen,
+  FaPaperPlane 
 } from "react-icons/fa";
 import { useTheme } from "../context/ThemeContext";
 import { BsSun, BsMoon } from "react-icons/bs";
@@ -52,7 +53,7 @@ const Header = () => {
     { to: "/education", icon: <FaGraduationCap />, label: "Education" },
     { to: "/profile", icon: <FaTools />, label: "Profile" },
     { to: "/about", icon: <FaUserAlt />, label: "About me" },
-    { to: "/contact", icon: <FaEnvelope />, label: "Get In Touch" },
+    { to: "/contact", icon: <FaPaperPlane />, label: "Get In Touch" },
   ];
 
   const socialLinks = [
