@@ -16,7 +16,12 @@ import { FaJsSquare, FaReact, FaDatabase, FaMicrosoft, FaHtml5,
     SiMysql,
     SiPostgresql,
     SiMongodb,
-    SiPhpmyadmin, SiDotnet
+    SiPhpmyadmin, 
+    SiDotnet,
+    SiKubernetes,
+    SiSpring,
+    SiRabbitmq,
+    SiElasticsearch
   } from "react-icons/si";
   import { DiMsqlServer, DiDotnet } from "react-icons/di";
 
@@ -93,13 +98,31 @@ const Skills = () => {
       delay: 0.4
     },
     { 
+      name: "Spring Boot", 
+      icon: <SiSpring className="text-5xl" />, 
+      category: "Framework",
+      gradient: "from-green-600 to-emerald-700",
+      hoverGradient: "from-green-500 to-emerald-600",
+      iconColor: "text-green-400",
+      delay: 0.45
+    },
+    { 
       name: "Docker", 
       icon: <FaDocker className="text-5xl" />, 
       category: "DevOps",
       gradient: "from-cyan-600 to-cyan-800",
       hoverGradient: "from-cyan-500 to-cyan-700",
       iconColor: "text-cyan-400",
-      delay: 0.45
+      delay: 0.5
+    },
+    { 
+      name: "Kubernetes", 
+      icon: <SiKubernetes className="text-5xl" />, 
+      category: "DevOps",
+      gradient: "from-blue-600 to-indigo-800",
+      hoverGradient: "from-blue-500 to-indigo-700",
+      iconColor: "text-blue-400",
+      delay: 0.55
     },
     { 
       name: "PHP", 
@@ -108,7 +131,7 @@ const Skills = () => {
       gradient: "from-violet-600 to-violet-800",
       hoverGradient: "from-violet-500 to-violet-700",
       iconColor: "text-violet-400",
-      delay: 0.5
+      delay: 0.6
     },
     { 
       name: "React", 
@@ -117,7 +140,7 @@ const Skills = () => {
       gradient: "from-blue-600 to-cyan-600",
       hoverGradient: "from-blue-500 to-cyan-500",
       iconColor: "text-cyan-400",
-      delay: 0.55
+      delay: 0.65
     },
     { 
       name: "JavaScript", 
@@ -126,7 +149,7 @@ const Skills = () => {
       gradient: "from-yellow-600 to-amber-600",
       hoverGradient: "from-yellow-500 to-amber-500",
       iconColor: "text-yellow-400",
-      delay: 0.6
+      delay: 0.7
     },
     { 
       name: "HTML 5", 
@@ -226,6 +249,24 @@ const Skills = () => {
       hoverGradient: "from-green-500 to-teal-500",
       iconColor: "text-green-400",
       delay: 1.15
+    },
+    { 
+      name: "RabbitMQ", 
+      icon: <SiRabbitmq className="text-5xl" />, 
+      category: "Message Broker",
+      gradient: "from-orange-600 to-amber-700",
+      hoverGradient: "from-orange-500 to-amber-600",
+      iconColor: "text-orange-400",
+      delay: 1.3
+    },
+    { 
+      name: "Elasticsearch", 
+      icon: <SiElasticsearch className="text-5xl" />, 
+      category: "Search Engine",
+      gradient: "from-yellow-600 to-yellow-800",
+      hoverGradient: "from-yellow-500 to-yellow-700",
+      iconColor: "text-yellow-400",
+      delay: 1.35
     },
   ];
 
@@ -411,9 +452,9 @@ const Skills = () => {
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
-              { number: "22+", label: "Technologies", color: "from-blue-600 to-cyan-600" },
+              { number: "26+", label: "Technologies", color: "from-blue-600 to-cyan-600" },
               { number: "8+", label: "Years Experience", color: "from-purple-600 to-pink-600" },
-              { number: "5+", label: "Specializations", color: "from-emerald-600 to-teal-600" }
+              { number: "6+", label: "Specializations", color: "from-emerald-600 to-teal-600" }
             ].map((stat, index) => (
               <motion.div
                 key={index}
