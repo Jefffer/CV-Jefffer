@@ -51,7 +51,7 @@ const Footer = () => {
     },
     {
       icon: <FaEnvelope />,
-      href: "mailto:jeffferrodriguez@gmail.com",
+      href: "mailto:jefre123@hotmail.com",
       label: "Email",
       color: "hover:text-emerald-400",
     },
@@ -128,7 +128,7 @@ const Footer = () => {
                       onClick={() => {
                         navigator.clipboard.writeText("jefre123@hotmail.com");
                       }}
-                      className="ml-1 text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
+                      className="p-1 hover:bg-gray-600 hover:text-gray-300 transition-colors"
                       title="Copy email"
                       >
                       <FaRegCopy className="text-xs" />
@@ -228,8 +228,7 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               {/* Copyright */}
               <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-                <span> Jeffer.</span>
-                <span className="hidden md:inline">Built with</span>
+                <span className="hidden md:inline">Built by Jeffer with</span>
                 <FaHeart className="text-red-500 text-xs animate-pulse hidden md:inline" />
                 <span className="hidden md:inline">
                   using React & Tailwind CSS
