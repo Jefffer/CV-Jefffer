@@ -17,7 +17,11 @@ import {
   FaChartLine,
   FaShieldAlt,
   FaRocket,
-  FaJava
+  FaJava,
+  FaBrain,
+  FaRobot,
+  FaExternalLinkAlt,
+  FaEye
 } from "react-icons/fa";
 import { 
   SiDotnet,
@@ -34,7 +38,9 @@ import {
   SiDocker, 
   SiKubernetes,
   SiAndroid,
-  SiGit
+  SiGit,
+  SiOpenai,
+  SiMake
 } from "react-icons/si";
 
   import { VscAzureDevops } from "react-icons/vsc";
@@ -42,54 +48,58 @@ import {
 
 const techStackData = [
   {
-    category: "Backend Development",
+    category: "Languages & Frameworks",
     icon: <FaCode />,
     color: "from-blue-500 to-indigo-600",
     bgColor: "from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20",
     skills: [
-      { name: "C#", icon: <PiFileCSharpFill />, level: 95 },
-      { name: ".NET Core", icon: <SiDotnet />, level: 95 },
-      { name: "Java", icon: <FaJava />, level: 85 },
-      { name: "Python", icon: <SiPython />, level: 80 },
-      { name: "PHP", icon: <SiPhp />, level: 75 }
+      { name: "C#", icon: <PiFileCSharpFill /> },
+      { name: ".NET Core", icon: <SiDotnet /> },
+      { name: "React", icon: <SiReact /> },
+      { name: "TypeScript", icon: <SiTypescript /> },
+      { name: "JavaScript", icon: <SiJavascript /> },
+      { name: "Angular", icon: <SiAngular /> },
+      { name: "Java", icon: <FaJava /> },
+      { name: "Python", icon: <SiPython /> },
+      { name: "PHP", icon: <SiPhp /> },
+      { name: "Android", icon: <SiAndroid /> }
     ]
   },
   {
-    category: "Frontend Development",
-    icon: <FaReact />,
-    color: "from-cyan-500 to-blue-500",
-    bgColor: "from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20",
-    skills: [
-      { name: "React", icon: <SiReact />, level: 90 },
-      { name: "Angular", icon: <SiAngular />, level: 85 },
-      { name: "TypeScript", icon: <SiTypescript />, level: 90 },
-      { name: "JavaScript", icon: <SiJavascript />, level: 95 }
-    ]
-  },
-  {
-    category: "Database & Cloud",
+    category: "Databases",
     icon: <FaDatabase />,
     color: "from-emerald-500 to-teal-600",
     bgColor: "from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20",
     skills: [
-      { name: "SQL Server", icon: <FaDatabase />, level: 90 },
-      { name: "MySQL", icon: <SiMysql />, level: 85 },
-      { name: "PostgreSQL", icon: <SiPostgresql />, level: 80 },
-      { name: "MongoDB", icon: <SiMongodb />, level: 75 },
-      { name: "Azure", icon: <VscAzureDevops />, level: 85 },
-      { name: "AWS", icon: <SiAmazonwebservices  />, level: 70 }
+      { name: "SQL Server", icon: <FaDatabase /> },
+      { name: "MySQL", icon: <SiMysql /> },
+      { name: "PostgreSQL", icon: <SiPostgresql /> },
+      { name: "MongoDB", icon: <SiMongodb /> }
     ]
   },
   {
-    category: "DevOps & Mobile",
-    icon: <FaTools />,
+    category: "DevOps & Cloud",
+    icon: <FaCloud />,
+    color: "from-cyan-500 to-blue-500",
+    bgColor: "from-cyan-50 to-blue-50 dark:from-cyan-900/20 dark:to-blue-900/20",
+    skills: [
+      { name: "Azure", icon: <VscAzureDevops /> },
+      { name: "Git", icon: <SiGit /> },
+      { name: "Docker", icon: <SiDocker /> },
+      { name: "Kubernetes", icon: <SiKubernetes /> },
+      { name: "AWS", icon: <SiAmazonwebservices /> }      
+    ]
+  },
+  {
+    category: "AI & Automation",
+    icon: <FaBrain />,
     color: "from-purple-500 to-pink-600",
     bgColor: "from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20",
     skills: [
-      { name: "Docker", icon: <SiDocker />, level: 80 },
-      { name: "Kubernetes", icon: <SiKubernetes />, level: 70 },
-      { name: "Android", icon: <SiAndroid />, level: 85 },
-      { name: "Git", icon: <SiGit />, level: 95 }
+      { name: "MCP Servers", icon: <FaRobot /> },
+      { name: "LLMs Integration", icon: <SiOpenai /> },
+      { name: "Make.com", icon: <SiMake /> },
+      { name: "AI Workflows", icon: <FaCogs /> }
     ]
   }
 ];
@@ -102,7 +112,7 @@ const achievementsData = [
     color: "from-blue-500 to-cyan-500",
     link: "https://www.credly.com/badges/fef56564-2602-4102-8fa2-4c6188113a63/linked_in?t=sqwocc",
     type: "certification",
-    year: "2024"
+    year: "2025"
   },
   {
     title: "Master's in Software Engineering",
@@ -118,7 +128,7 @@ const achievementsData = [
     icon: <FaChartLine />,
     color: "from-orange-500 to-red-500",
     type: "experience",
-    year: "2016-2024"
+    year: ""
   },
   {
     title: "Published Research Paper",
@@ -127,7 +137,7 @@ const achievementsData = [
     color: "from-purple-500 to-indigo-500",
     link: "https://www.ijimai.org/journal/node/3276",
     type: "research",
-    year: "2023"
+    year: "2019"
   }
 ];
 
@@ -163,13 +173,13 @@ const ProfessionalProfile = () => {
           
           <h2 className="text-4xl md:text-6xl font-extrabold mb-4 md:mb-6 text-gray-800 dark:text-white">
             Professional{" "}
-            <span className="bg-gradient-to-r from-indigo-500 to-purple-500 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-400 dark:to-cyan-400 bg-clip-text text-transparent">
               Profile
             </span>
           </h2>
           
           <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
-            Discover my technical expertise, certifications, and professional achievements that drive innovation in software development.
+            Discover my technical expertise, certifications, and professional achievements.
           </p>
         </motion.div>
 
@@ -278,36 +288,28 @@ const TechStackCard = React.memo(({ category, index }) => {
 
         {/* Skills List */}
         <div className="p-6">
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 gap-3">
             {category.skills.map((skill, skillIndex) => (
               <motion.div
                 key={skillIndex}
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                 transition={{ delay: index * 0.2 + skillIndex * 0.1 }}
-                className="flex items-center gap-3"
+                className="group flex items-center gap-3 p-3 rounded-xl transition-all duration-300 hover:scale-105 bg-white/70 dark:bg-gray-700/70 border border-gray-200/50 dark:border-gray-600/50 shadow-md hover:shadow-lg"
               >
-                <span className="text-lg text-gray-600 dark:text-gray-400">
-                  {skill.icon}
+                <motion.div
+                  className={`p-2 rounded-lg bg-gradient-to-r ${category.color} text-white shadow-sm`}
+                  whileHover={{ rotate: 15, scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <span className="text-sm">
+                    {skill.icon}
+                  </span>
+                </motion.div>
+                
+                <span className="text-sm font-medium text-gray-800 dark:text-white">
+                  {skill.name}
                 </span>
-                <div className="flex-1">
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                      {skill.name}
-                    </span>
-                    <span className="text-xs text-gray-500 dark:text-gray-400">
-                      {skill.level}%
-                    </span>
-                  </div>
-                  <div className="h-2 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
-                    <motion.div
-                      className={`h-full bg-gradient-to-r ${category.color} rounded-full`}
-                      initial={{ width: 0 }}
-                      animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
-                      transition={{ duration: 1.5, delay: index * 0.2 + skillIndex * 0.1 + 0.5 }}
-                    />
-                  </div>
-                </div>
               </motion.div>
             ))}
           </div>
@@ -349,9 +351,22 @@ const AchievementCard = React.memo(({ achievement, index }) => {
           >
             <span className="text-2xl">{achievement.icon}</span>
           </motion.div>
-          <span className="text-xs font-bold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">
-            {achievement.year}
-          </span>
+          <div className="flex items-center gap-2">
+            {achievement.link && (
+              <motion.div
+                className="flex items-center justify-center w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full border border-blue-200 dark:border-blue-700"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <FaExternalLinkAlt className="text-blue-600 dark:text-blue-400 text-xs" />
+              </motion.div>
+            )}
+            {achievement.year && (
+              <span className="text-xs font-bold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">
+                {achievement.year}
+              </span>
+            )}
+          </div>
         </div>
 
         {/* Content */}
@@ -370,15 +385,6 @@ const AchievementCard = React.memo(({ achievement, index }) => {
             {achievement.type}
           </span>
         </div>
-
-        {/* Link Indicator */}
-        {achievement.link && (
-          <motion.div
-            className="absolute top-4 right-4 w-3 h-3 bg-green-500 rounded-full shadow-lg"
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-        )}
       </div>
     </motion.div>
   );
