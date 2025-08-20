@@ -193,7 +193,7 @@ const ProfessionalProfile = () => {
 
         {/* Tech Stack Section */}
         <div className="mb-16 md:mb-20">
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -205,7 +205,7 @@ const ProfessionalProfile = () => {
                 Stack
               </span>
             </h3>
-          </motion.div>
+          </motion.div> */}
 
           {/* Creative Mosaic Layout */}
           <div className="relative">
@@ -248,7 +248,7 @@ const ProfessionalProfile = () => {
                           Languages & Frameworks
                         </h4>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                          Full-stack development expertise
+                          Fullstack development expertise
                         </p>
                       </div>
                     </div>
@@ -256,7 +256,7 @@ const ProfessionalProfile = () => {
 
                   {/* Skills Grid */}
                   <div className="p-6">
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                       {techStackData[0].skills.map((skill, index) => (
                         <SkillBadge
                           key={index}
@@ -390,7 +390,7 @@ const ProfessionalProfile = () => {
                       </motion.div> */}
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                       {techStackData[3].skills.map((skill, index) => (
                         <SkillBadge
                           key={index}
