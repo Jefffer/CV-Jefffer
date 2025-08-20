@@ -68,7 +68,7 @@ const Education = () => {
           </h2>
           
           <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
-            My academic background and linguistic skills that drive my passion for technology and global communication.
+            My academic background and linguistic skills.
           </p>
         </motion.div>
 
@@ -263,12 +263,6 @@ const EducationCard = React.memo(({ edu, index }) => {
             transition={{ duration: 1, delay: index * 0.3 + 1 }}
           />
         </div>
-
-        {/* Hover Effect Overlay */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-emerald-500/3 via-cyan-500/3 to-blue-500/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
-          initial={false}
-        />
       </div>
     </motion.div>
   );
