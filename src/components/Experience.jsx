@@ -290,15 +290,9 @@ const Experience = () => {
           className={`w-full md:w-[45%] ${
             index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'
           } px-4 md:px-0`}
-          whileHover={{ scale: 1.02, y: -5 }}
-          transition={{ duration: 0.3 }}
         >
           <motion.div
-            className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden cursor-pointer"
-            onClick={toggleExpand}
-            whileHover={{
-              boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
-            }}
+            className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl shadow-xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden transition-shadow duration-300 hover:shadow-2xl"
             layout
           >
             {/* Gradient overlay */}
@@ -348,8 +342,9 @@ const Experience = () => {
                 </div>
 
                 {/* Expand button */}
-                <motion.div
-                  className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full text-white shadow-lg flex-shrink-0 ml-2"
+                <motion.button
+                  onClick={toggleExpand}
+                  className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full text-white shadow-lg flex-shrink-0 ml-2 cursor-pointer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -359,7 +354,7 @@ const Experience = () => {
                   >
                     <FaCaretDown className="w-3 h-3 md:w-4 md:h-4" />
                   </motion.div>
-                </motion.div>
+                </motion.button>
               </div>
 
               {/* Clients count badge */}
@@ -418,11 +413,7 @@ const Experience = () => {
                       className="group"
                     >
                       <motion.div
-                        className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl p-3 md:p-4 border border-gray-200/50 dark:border-gray-700/50 shadow-sm"
-                        whileHover={{
-                          scale: 1.02,
-                          boxShadow: "0 8px 25px rgba(0,0,0,0.1)"
-                        }}
+                        className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl p-3 md:p-4 border border-gray-200/50 dark:border-gray-700/50 shadow-sm transition-shadow duration-300 hover:shadow-md"
                         transition={{ duration: 0.2 }}
                       >
                         <div className="flex flex-col md:flex-row md:items-start space-y-3 md:space-y-0 md:space-x-3">

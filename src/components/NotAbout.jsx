@@ -56,9 +56,9 @@ const skills = [
     color: "text-purple-400",
   },
   {
-    title: "Artificial Intelligence Enthusiast",
+    title: "Artificial Intelligence & Automation",
     description:
-      "Machine Learning, Deep Learning, Neural Networks, Promp and GPT-3 models",
+      "Machine Learning, Neural Networks, Make, Prompt Engineering and GPT-3 models",
     image: "./ia1.webp",
     icon: <PiBrainDuotone className="text-4xl" />,
     gradient: "from-fuchsia-200 via-pink-300 to-rose-400",
