@@ -58,7 +58,7 @@ const experiences = [
     clients: [
       {
         name: "AON",
-        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ5seiuluH7Tp2HPnNshe9luEaqK6b7-NHnA&s",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Aon_Corporation_logo.svg/2560px-Aon_Corporation_logo.svg.png",
         role: ".Net Developer and DBA",
         period: "April 2021 - January 2022",
         activities:
@@ -111,7 +111,7 @@ const experiences = [
   {
     consultant: "Freelance",
     period: "Indefinite",
-    consultantLogo: "viata1.jpg",
+    consultantLogo: "dev.svg",
     location: "Remote",
     backgroundImage: "database.webp",
     gradient: "from-orange-600/20 via-amber-600/20 to-yellow-600/20",
@@ -326,7 +326,7 @@ const Experience = () => {
                   <img
                     src={exp.consultantLogo}
                     alt={exp.consultant}
-                    className="relative w-24 h-24 object-contain rounded-full border-4 border-white/20 bg-white/10 backdrop-blur-sm p-2 shadow-2xl"
+                    className="relative w-24 h-24 object-contain rounded-full border-4 border-white/20 bg-white p-2 shadow-2xl"
                   />
                 </motion.div>
                 
@@ -414,11 +414,13 @@ const Experience = () => {
                       >
                         <div className="absolute -inset-1 bg-gradient-to-r from-white/20 to-white/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         <div className="relative bg-white/5 rounded-lg p-3 border border-white/10">
-                          <img
-                            src={client.logo}
-                            alt={client.name}
-                            className="w-full h-12 object-contain mb-2"
-                          />
+                          <div className="bg-white rounded-lg p-2 mb-2">
+                            <img
+                              src={client.logo}
+                              alt={client.name}
+                              className="w-full h-12 object-contain"
+                            />
+                          </div>
                           <p className="text-xs text-white/80 font-medium text-center truncate">
                             {client.name}
                           </p>
@@ -450,7 +452,7 @@ const Experience = () => {
                             <img
                               src={client.logo}
                               alt={client.name}
-                              className="w-16 h-16 object-contain rounded-lg bg-white/10 p-2"
+                              className="w-16 h-16 object-contain rounded-lg bg-white p-2"
                             />
                             <div className="flex-1">
                               <h4 className="text-lg font-semibold text-white mb-1">
