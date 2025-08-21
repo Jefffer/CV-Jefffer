@@ -15,6 +15,23 @@ import {
   FaFolderOpen,
   FaPaperPlane 
 } from "react-icons/fa";
+import { PiHouseDuotone,
+  PiHouseFill,
+  PiBriefcaseDuotone,
+  PiBriefcaseFill,
+  PiGitBranch,
+  PiGitBranchDuotone,
+  PiGitBranchFill,
+  PiGraduationCapDuotone,
+  PiGraduationCapFill,
+  PiUserDuotone,
+  PiUserFill,
+  PiInfoDuotone,
+  PiInfoFill,
+  PiPaperPlaneTiltDuotone,
+  PiPaperPlaneTiltFill
+ } from "react-icons/pi";
+
 import { useTheme } from "../context/ThemeContext";
 import { BsSun, BsMoon } from "react-icons/bs";
 import { motion } from "framer-motion";
@@ -47,13 +64,13 @@ const Header = () => {
   };
 
   const navLinks = [
-    { to: "/", icon: <FaHome />, label: "Home" },
-    { to: "/experience", icon: <FaBriefcase />, label: "Experience" },
-    { to: "/projects", icon: <FaProjectDiagram />, label: "Projects" },
-    { to: "/education", icon: <FaGraduationCap />, label: "Education" },
-    { to: "/profile", icon: <FaTools />, label: "Profile" },
-    { to: "/about", icon: <FaUserAlt />, label: "About me" },
-    { to: "/contact", icon: <FaPaperPlane />, label: "Get In Touch" },
+    { to: "/", icon: <PiHouseDuotone />, label: "Home" },
+    { to: "/experience", icon: <PiBriefcaseDuotone />, label: "Experience" },
+    { to: "/projects", icon: <PiGitBranchDuotone />, label: "Projects" },
+    { to: "/education", icon: <PiGraduationCapDuotone />, label: "Education" },
+    { to: "/profile", icon: <PiUserDuotone />, label: "Profile" },
+    { to: "/about", icon: <PiInfoDuotone />, label: "About me" },
+    { to: "/contact", icon: <PiPaperPlaneTiltDuotone  />, label: "Get In Touch" },
   ];
 
   const socialLinks = [
@@ -112,7 +129,7 @@ const Header = () => {
       {/* Header principal */}
       <header
         id="main-header"
-        className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 dark:from-slate-950 dark:via-indigo-950 dark:to-purple-950 light:from-indigo-50 light:via-blue-50 light:to-purple-50 text-white dark:text-white light:text-gray-900 py-12 md:py-10 border-b border-gray-700 dark:border-gray-700 light:border-gray-200"
+        className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 dark:from-slate-950 dark:via-indigo-950 dark:to-purple-950 light:from-indigo-50 light:via-blue-50 light:to-purple-50 text-white dark:text-white light:text-gray-900 py-10 md:pb-5 border-b border-gray-700 dark:border-gray-700 light:border-gray-200"
       >
         {/* Fondo animado */}
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/20 via-indigo-600/20 to-fuchsia-600/20 dark:from-cyan-600/20 dark:via-indigo-600/20 dark:to-fuchsia-600/20 light:from-indigo-200/30 light:via-purple-200/30 light:to-pink-200/30" />
@@ -125,7 +142,7 @@ const Header = () => {
         <div className="relative z-10 container mx-auto px-6 flex flex-col items-center">
           {/* Información personal principal */}
           <motion.div
-            className="text-center mb-6"
+            className="text-center mb-3"
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
