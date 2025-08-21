@@ -2,7 +2,7 @@ import React, { useState, useRef, useCallback } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { FaCaretDown, FaCaretUp, FaBriefcase, FaMapMarkerAlt, FaCalendarAlt, FaCode, FaRocket, FaBuilding, FaClock } from "react-icons/fa";
 import { HiOutlineClock } from "react-icons/hi2";
-import { PiBriefcase, PiCalendar, PiMapPin, PiClock, PiBuildings, PiCode, PiRocket } from "react-icons/pi";
+import { PiBriefcase, PiCalendar, PiCalendarFill, PiCalendarDuotone, PiMapPinLineFill , PiClock, PiClockAfternoonFill , PiBuildingsFill , PiCode, PiRocket } from "react-icons/pi";
 
 const experiences = [
   
@@ -326,7 +326,7 @@ const Experience = () => {
                   <img
                     src={exp.consultantLogo}
                     alt={exp.consultant}
-                    className="relative w-24 h-24 object-contain rounded-full border-4 border-white/20 bg-white p-2 shadow-2xl"
+                    className="relative w-24 h-24 object-contain rounded-full border-2 border-white/20 bg-white p-1 shadow-2xl"
                   />
                 </motion.div>
                 
@@ -336,19 +336,19 @@ const Experience = () => {
                 
                 <div className="space-y-3 text-white/80">
                   <div className="flex items-center justify-center lg:justify-start gap-3">
-                    <PiCalendar className="text-blue-400 text-xl" />
+                    <PiCalendarFill className="text-blue-400 text-xl" />
                     <span className="text-lg font-medium">{exp.period}</span>
                   </div>
                   
                   {formattedDuration && (
                     <div className="flex items-center justify-center lg:justify-start gap-3">
-                      <PiClock className="text-emerald-400 text-xl" />
+                      <PiClockAfternoonFill className="text-emerald-400 text-xl" />
                       <span className="text-emerald-300 font-medium">{formattedDuration}</span>
                     </div>
                   )}
                   
                   <div className="flex items-center justify-center lg:justify-start gap-3">
-                    <PiMapPin className="text-purple-400 text-xl" />
+                    <PiMapPinLineFill  className="text-purple-400 text-xl" />
                     <span className="text-lg">{exp.location}</span>
                   </div>
                 </div>
@@ -360,7 +360,7 @@ const Experience = () => {
                   animate={isInView ? { scale: 1 } : { scale: 0 }}
                   transition={{ delay: 0.8, duration: 0.5 }}
                 >
-                  <PiBuildings className="text-indigo-400 text-xl" />
+                  <PiBuildingsFill className="text-indigo-400 text-xl" />
                   <span className="text-white font-semibold">
                     {exp.clients.length} {exp.clients.length === 1 ? 'Client' : 'Clients'}
                   </span>
@@ -546,24 +546,31 @@ const Experience = () => {
         className="relative z-10 text-center py-20"
       >
         <motion.div
-          className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8"
+          className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-4 md:mb-6"
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 3, repeat: Infinity }}
         >
           <PiBriefcase className="text-indigo-400 text-xl" />
-          <span className="text-white font-medium">
+          <span className="text-xs md:text-sm font-medium text-indigo-700 dark:text-indigo-300">
             Professional Journey
           </span>
         </motion.div>
         
-        <h1 className="text-6xl md:text-8xl font-black text-white mb-6 tracking-tight">
+        {/* <h1 className="text-6xl md:text-8xl font-black text-white mb-6 tracking-tight">
           Experience{" "}
           <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
             Timeline
           </span>
-        </h1>
+        </h1> */}
+
+        <h2 className="text-4xl md:text-6xl font-extrabold mb-4 md:mb-6 text-gray-800 dark:text-white">
+              Experience{" "}
+              <span className="bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-400 dark:to-cyan-400 bg-clip-text text-transparent">
+                Timeline
+              </span>
+            </h2>
         
-        <p className="text-xl text-white/70 max-w-3xl mx-auto leading-relaxed px-6">
+        <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
           Discover my professional evolution through immersive experiences and transformative projects
         </p>
       </motion.div>
