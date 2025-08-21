@@ -39,6 +39,7 @@ import { motion } from "framer-motion";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMiniHeaderVisible, setIsMiniHeaderVisible] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState(null);
   const { darkMode, setDarkMode } = useTheme();
   const location = useLocation();
 
@@ -64,13 +65,13 @@ const Header = () => {
   };
 
   const navLinks = [
-    { to: "/", icon: <PiHouseDuotone />, label: "Home" },
-    { to: "/experience", icon: <PiBriefcaseDuotone />, label: "Experience" },
-    { to: "/projects", icon: <PiGitBranchDuotone />, label: "Projects" },
-    { to: "/education", icon: <PiGraduationCapDuotone />, label: "Education" },
-    { to: "/profile", icon: <PiUserDuotone />, label: "Profile" },
-    { to: "/about", icon: <PiInfoDuotone />, label: "About me" },
-    { to: "/contact", icon: <PiPaperPlaneTiltDuotone  />, label: "Get In Touch" },
+    { to: "/", iconDuotone: <PiHouseDuotone />, iconFill: <PiHouseFill />, label: "Home" },
+    { to: "/experience", iconDuotone: <PiBriefcaseDuotone />, iconFill: <PiBriefcaseFill />, label: "Experience" },
+    { to: "/projects", iconDuotone: <PiGitBranchDuotone />, iconFill: <PiGitBranchFill />, label: "Projects" },
+    { to: "/education", iconDuotone: <PiGraduationCapDuotone />, iconFill: <PiGraduationCapFill />, label: "Education" },
+    { to: "/profile", iconDuotone: <PiUserDuotone />, iconFill: <PiUserFill />, label: "Profile" },
+    { to: "/about", iconDuotone: <PiInfoDuotone />, iconFill: <PiInfoFill />, label: "About me" },
+    { to: "/contact", iconDuotone: <PiPaperPlaneTiltDuotone />, iconFill: <PiPaperPlaneTiltFill />, label: "Get In Touch" },
   ];
 
   const socialLinks = [
@@ -265,7 +266,7 @@ const Header = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.4, delay: 0.1 }}
               >
-                {navLinks.map(({ to, icon, label }, index) => (
+                {navLinks.map(({ to, iconDuotone, iconFill, label }, index) => (
                   <motion.div
                     key={to}
                     initial={{ x: -20, opacity: 0 }}
@@ -276,9 +277,11 @@ const Header = () => {
                       to={to}
                       onClick={closeMenu}
                       className="group flex items-center gap-4 hover:text-indigo-300 transition-all duration-150 px-4 py-2 rounded-lg hover:bg-white/10"
+                      onMouseEnter={() => setHoveredItem(to)}
+                      onMouseLeave={() => setHoveredItem(null)}
                     >
                       <span className="text-2xl group-hover:scale-110 transition-transform duration-150">
-                        {icon}
+                        {location.pathname === to || hoveredItem === to ? iconFill : iconDuotone}
                       </span>
                       <span className="font-medium">{label}</span>
                     </Link>
@@ -309,7 +312,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            {navLinks.map(({ to, icon, label }, index) => (
+            {navLinks.map(({ to, iconDuotone, iconFill, label }, index) => (
               <motion.div
                 key={to}
                 initial={{ opacity: 0, y: 20 }}
@@ -324,9 +327,11 @@ const Header = () => {
                       ? "bg-white/20 dark:bg-white/20 light:bg-white/90 border-white/40 dark:border-white/40 light:border-gray-300 text-white dark:text-white light:text-gray-800 shadow-lg backdrop-blur-sm"
                       : "border-transparent text-white/70 dark:text-white/70 light:text-gray-600 hover:text-white dark:hover:text-white light:hover:text-gray-800 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-white/50 hover:border-white/20 dark:hover:border-white/20 light:hover:border-gray-300 backdrop-blur-sm"
                   }`}
+                  onMouseEnter={() => setHoveredItem(to)}
+                  onMouseLeave={() => setHoveredItem(null)}
                 >
                   <span className="group-hover:scale-110 transition-transform duration-150">
-                    {icon}
+                    {location.pathname === to || hoveredItem === to ? iconFill : iconDuotone}
                   </span>
                   <span className="font-medium">{label}</span>
                 </Link>
@@ -346,7 +351,7 @@ const Header = () => {
           transition={{ duration: 0.3 }}
         >
           <nav className="container mx-auto px-6 py-3 flex justify-center space-x-3">
-            {navLinks.map(({ to, icon, label }) => (
+            {navLinks.map(({ to, iconDuotone, iconFill, label }) => (
               <motion.div
                 key={to}
                 whileHover={{ y: -2 }}
@@ -360,9 +365,11 @@ const Header = () => {
                       : "text-white/60 dark:text-white/60 light:text-gray-500 hover:text-white dark:hover:text-white light:hover:text-indigo-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-gray-100 border border-transparent hover:border-white/20 dark:hover:border-white/20 light:hover:border-gray-300"
                   }`}
                   title={label}
+                  onMouseEnter={() => setHoveredItem(to)}
+                  onMouseLeave={() => setHoveredItem(null)}
                 >
                   <span className="group-hover:scale-110 transition-transform duration-150 text-sm">
-                    {icon}
+                    {location.pathname === to || hoveredItem === to ? iconFill : iconDuotone}
                   </span>
                 </Link>
               </motion.div>
