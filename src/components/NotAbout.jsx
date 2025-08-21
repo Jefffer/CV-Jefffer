@@ -1,15 +1,14 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import {
-  FaDownload,
-  FaCode,
-  FaCloud,
-  FaDatabase,
-  FaUsers,
-  FaBrain,
-  FaPalette,
-  FaEye,
-} from "react-icons/fa";
+import { 
+  PiEyesFill,
+  PiCodeDuotone,
+  PiCloudDuotone,
+  PiDatabaseDuotone,
+  PiUsersDuotone,
+  PiBrainDuotone,
+  PiPaletteDuotone
+} from "react-icons/pi";
 import { HiOutlineSparkles, HiOutlineCursorClick } from "react-icons/hi";
 import { LiaHandPointDownSolid, LiaHandPointDown } from "react-icons/lia";
 
@@ -20,7 +19,7 @@ const skills = [
     title: "Software Design & Backend Development",
     description: "Expertise in C#, .NET, Java, Python, PHP",
     image: "./backend2.webp",
-    icon: <FaCode className="text-4xl" />,
+    icon: <PiCodeDuotone className="text-4xl" />,
     gradient: "from-blue-300 via-purple-400 to-indigo-500",
     color: "text-blue-400",
   },
@@ -28,7 +27,7 @@ const skills = [
     title: "Frontend Development",
     description: "Building modern UIs with React, Angular, and more",
     image: "./frontend2.webp",
-    icon: <FaPalette className="text-4xl" />,
+    icon: <PiPaletteDuotone className="text-4xl" />,
     gradient: "from-red-500 via-orange-500 to-amber-400",
     color: "text-pink-400",
   },
@@ -36,7 +35,7 @@ const skills = [
     title: "DevOps & Cloud",
     description: "Experience with Docker, Kubernetes, Azure DevOps, AWS (ECS, EC2, S3)",
     image: "./devops2.webp",
-    icon: <FaCloud className="text-4xl" />,
+    icon: <PiCloudDuotone className="text-4xl" />,
     gradient: "from-cyan-300 via-teal-300 to-emerald-400",
     color: "text-cyan-400",
   },
@@ -44,7 +43,7 @@ const skills = [
     title: "Database Management",
     description: "SQL, MySQL, PostgreSQL, NoSQL, MongoDB",
     image: "./database4.webp",
-    icon: <FaDatabase className="text-4xl" />,
+    icon: <PiDatabaseDuotone className="text-4xl" />,
     gradient: "from-emerald-400 via-green-400 to-lime-400",
     color: "text-emerald-400",
   },
@@ -52,7 +51,7 @@ const skills = [
     title: "Agile Methodologies",
     description: "Scrum, Kanban, Git, and Azure DevOps",
     image: "./agile2.webp",
-    icon: <FaUsers className="text-4xl" />,
+    icon: <PiUsersDuotone className="text-4xl" />,
     gradient: "from-purple-400 via-violet-500 to-indigo-300",
     color: "text-purple-400",
   },
@@ -61,7 +60,7 @@ const skills = [
     description:
       "Machine Learning, Deep Learning, Neural Networks, Promp and GPT-3 models",
     image: "./ia1.webp",
-    icon: <FaBrain className="text-4xl" />,
+    icon: <PiBrainDuotone className="text-4xl" />,
     gradient: "from-fuchsia-200 via-pink-300 to-rose-400",
     color: "text-orange-400",
   },
@@ -360,7 +359,7 @@ const About = () => {
                 whileHover={{ x: 2 }}
                 transition={{ duration: 0.2 }}
               >
-                <FaEye className="transition-transform transform group-hover:scale-110" />
+                <PiEyesFill className="transition-transform transform group-hover:scale-110 -scale-x-100" />
                 <span>View CV</span>
                 <motion.div
                   className="w-2 h-2 bg-green-400 rounded-full"
@@ -405,7 +404,7 @@ const About = () => {
                 whileHover={{ x: 2 }}
                 transition={{ duration: 0.2 }}
               >
-                <FaEye className="transition-transform transform group-hover:scale-110" />
+                <PiEyesFill className="transition-transform transform group-hover:scale-110 -scale-x-100" />
                 <span>Ver CV</span>
                 <motion.div
                   className="w-2 h-2 bg-orange-400 rounded-full"
