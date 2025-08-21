@@ -1,19 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
   FaArrowUp,
   FaHeart,
-  FaMapMarkerAlt,
-  FaPhone,
-  FaDownload,
-  FaCode,
-  FaFolderOpen,
-  FaCopy,
   FaRegCopy 
 } from "react-icons/fa";
+import { PiLinkedinLogoFill,
+  PiGithubLogoFill ,
+  PiMapPinLineFill ,
+  PiMailboxFill ,
+  PiDownloadFill ,
+ } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import Flag from "react-world-flags";
 import { IoMdCopy } from "react-icons/io";
@@ -38,22 +35,22 @@ const Footer = () => {
 
   const socialLinks = [
     {
-      icon: <FaGithub />,
+      icon: <PiGithubLogoFill />,
       href: "https://github.com/Jefffer",
       label: "GitHub",
-      color: "hover:text-gray-300",
+      color: "hover:text-gray-600 dark:hover:text-gray-300",
     },
     {
-      icon: <FaLinkedin />,
+      icon: <PiLinkedinLogoFill />,
       href: "https://www.linkedin.com/in/jefffer/",
       label: "LinkedIn",
-      color: "hover:text-blue-400",
+      color: "hover:text-blue-600 dark:hover:text-blue-400",
     },
     {
-      icon: <FaEnvelope />,
+      icon: <PiMailboxFill />,
       href: "mailto:jefre123@hotmail.com",
       label: "Email",
-      color: "hover:text-emerald-400",
+      color: "hover:text-emerald-600 dark:hover:text-emerald-400",
     },
   ];
 
@@ -112,11 +109,11 @@ const Footer = () => {
 
                     <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                     <div className="flex items-center gap-2">
-                      <FaMapMarkerAlt className="text-xs text-gray-500 dark:text-gray-500" />
+                      <PiMapPinLineFill className="text-xs text-gray-500 dark:text-gray-500" />
                       <span>Bilbao, Spain</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <FaEnvelope className="text-xs text-gray-500 dark:text-gray-500" />
+                      <PiMailboxFill className="text-xs text-gray-500 dark:text-gray-500" />
                       <a
                       href="mailto:jefre123@hotmail.com"
                       className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
@@ -179,7 +176,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors group"
                 >
-                  <FaDownload className="text-xs group-hover:translate-y-0.5 transition-transform" />
+                  <PiDownloadFill className="text-xs group-hover:translate-y-0.5 transition-transform" />
                   <span>Download CV (English)</span>
                 </a>
                 <a
@@ -188,7 +185,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors group"
                 >
-                  <FaDownload className="text-xs group-hover:translate-y-0.5 transition-transform" />
+                  <PiDownloadFill className="text-xs group-hover:translate-y-0.5 transition-transform" />
                   <span>Descargar CV (Español)</span>
                 </a>
               </div>
@@ -205,8 +202,8 @@ const Footer = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`text-gray-500 dark:text-gray-400 ${social.color} transition-all duration-200 hover:scale-110`}
-                      whileHover={{ y: -2 }}
+                      className={`text-gray-500 dark:text-gray-400 ${social.color} transition-all`}
+                      whileHover={{ y: -2, scale: 1.5 }}
                       whileTap={{ scale: 0.95 }}
                       aria-label={social.label}
                     >

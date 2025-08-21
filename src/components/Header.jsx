@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
-  FaUserAlt,
-  FaTools,
-  FaProjectDiagram,
-  FaEnvelope,
-  FaBriefcase,
-  FaGraduationCap,
   FaBars,
   FaTimes,
-  FaHome,
   FaGithub,
   FaLinkedin,
   FaFolderOpen,
-  FaPaperPlane 
 } from "react-icons/fa";
 import { PiHouseDuotone,
   PiHouseFill,
