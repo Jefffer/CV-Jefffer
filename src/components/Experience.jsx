@@ -433,7 +433,7 @@ const Experience = () => {
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
-                    className="border-t border-white/20 bg-gradient-to-b from-black/30 to-black/50"
+                    className="border-t border-white/20"
                   >
                     <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-h-96 overflow-y-auto custom-scrollbar">
                       {exp.clients.map((client, idx) => (
@@ -449,7 +449,7 @@ const Experience = () => {
                           className="group relative"
                         >
                           {/* Modern Card Container */}
-                          <div className="relative bg-gradient-to-br from-white/8 to-white/4 backdrop-blur-lg rounded-2xl border border-white/15 overflow-hidden transition-all duration-500">
+                          <div className="relative rounded-2xl bg-gray-800/20 border border-white/15 overflow-hidden transition-all duration-500">
                             {/* Subtle pattern background */}
                             <div className="absolute top-0 right-0 w-20 h-20 sm:w-28 sm:h-28 opacity-[0.02] overflow-hidden">
                               <img 
