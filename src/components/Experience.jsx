@@ -402,11 +402,12 @@ const Experience = () => {
                     {exp.clients.slice(0, 6).map((client, idx) => (
                       <motion.div
                         key={idx}
+                        onClick={toggleExpand}
                         className="relative group"
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                         transition={{ delay: 0.8 + idx * 0.1 }}
-                        whileHover={{ scale: 1.05 }}
+                        // whileHover={{ scale: 1.05 }}
                       >
                         <div className="absolute -inset-1 bg-gradient-to-r from-white/20 to-white/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         <div className="relative bg-white/5 rounded-lg p-3 border border-white/10">
@@ -502,7 +503,7 @@ const Experience = () => {
                                 
                                 {/* Period Badge - Full Width on Mobile */}
                                 <motion.div
-                                  className="flex items-center justify-center sm:justify-start gap-2 px-4 py-2.5 bg-gradient-to-r from-emerald-500/15 to-teal-500/15 backdrop-blur-sm rounded-xl border border-emerald-400/25"
+                                  className="flex items-center justify-center sm:justify-start gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500/15 to-teal-500/15 backdrop-blur-sm rounded-xl border border-emerald-400/25"
                                   initial={{ scale: 0.9, opacity: 0 }}
                                   animate={{ scale: 1, opacity: 1 }}
                                   transition={{ delay: 0.3 + idx * 0.1 }}
