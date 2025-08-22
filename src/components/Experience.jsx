@@ -446,31 +446,61 @@ const Experience = () => {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: idx * 0.1 }}
-                          className="bg-white/5 rounded-xl p-4 border border-white/10"
+                          className="relative bg-white/5 rounded-xl border border-white/10 overflow-hidden"
                         >
-                          <div className="flex items-start gap-4">
-                            <img
-                              src={client.logo}
-                              alt={client.name}
-                              className="w-16 h-16 object-contain rounded-lg bg-white p-2"
-                            />
-                            <div className="flex-1">
-                              <h4 className="text-lg font-semibold text-white mb-1">
-                                {client.name}
-                              </h4>
-                              <div className="flex items-center gap-2 mb-2">
-                                <PiCode className="text-blue-400" />
-                                <span className="text-sm text-blue-300 font-medium">
-                                  {client.role}
-                                </span>
+                          {/* Background Logo */}
+                          <div 
+                            className="absolute top-0 right-0 w-32 h-32 opacity-5 bg-contain bg-no-repeat bg-center"
+                            style={{ 
+                              backgroundImage: `url(${client.logo})`,
+                              filter: 'grayscale(100%) brightness(200%)'
+                            }}
+                          />
+                          
+                          {/* Content */}
+                          <div className="relative p-6">
+                            {/* Header with company name and small logo */}
+                            <div className="flex items-start justify-between mb-4">
+                              <div className="flex-1">
+                                <div className="flex items-center gap-3 mb-2">
+                                  <div className="w-10 h-10 bg-white rounded-lg p-1.5 flex-shrink-0">
+                                    <img
+                                      src={client.logo}
+                                      alt={client.name}
+                                      className="w-full h-full object-contain"
+                                    />
+                                  </div>
+                                  <h4 className="text-lg font-semibold text-white">
+                                    {client.name}
+                                  </h4>
+                                </div>
+                                
+                                {/* Role Badge */}
+                                <motion.div
+                                  className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-full border border-blue-400/30 mb-3"
+                                  initial={{ scale: 0.8, opacity: 0 }}
+                                  animate={{ scale: 1, opacity: 1 }}
+                                  transition={{ delay: 0.2 + idx * 0.1 }}
+                                >
+                                  <PiCode className="text-blue-400 text-sm" />
+                                  <span className="text-sm text-blue-300 font-medium">
+                                    {client.role}
+                                  </span>
+                                </motion.div>
                               </div>
-                              <div className="flex items-center gap-2 mb-3">
-                                <PiClock className="text-emerald-400" />
-                                <span className="text-sm text-emerald-300">
+                              
+                              {/* Period in top right */}
+                              <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-500/20 rounded-full border border-emerald-400/30">
+                                <PiClock className="text-emerald-400 text-sm" />
+                                <span className="text-xs text-emerald-300 font-medium">
                                   {client.period}
                                 </span>
                               </div>
-                              <p className="text-sm text-white/70 leading-relaxed">
+                            </div>
+                            
+                            {/* Activities Description */}
+                            <div className="relative">
+                              <p className="text-sm text-white/80 leading-relaxed">
                                 {client.activities}
                               </p>
                             </div>
