@@ -335,18 +335,16 @@ const Experience = () => {
                 </h2>
                 
                 <div className="space-y-3 text-white/80">
-                  <div className="flex items-center justify-center lg:justify-start gap-3">
-                    <PiCalendarFill className="text-blue-400 text-xl" />
-                    <span className="text-lg font-medium">{exp.period}</span>
-                  </div>
-                  
                   {formattedDuration && (
                     <div className="flex items-center justify-center lg:justify-start gap-3">
                       <PiClockAfternoonFill className="text-emerald-400 text-xl" />
                       <span className="text-emerald-300 font-medium">{formattedDuration}</span>
                     </div>
                   )}
-                  
+                  <div className="flex items-center justify-center lg:justify-start gap-3">
+                    <PiCalendarFill className="text-indigo-400 text-xl" />
+                    <span className="text-lg font-medium">{exp.period}</span>
+                  </div>
                   <div className="flex items-center justify-center lg:justify-start gap-3">
                     <PiMapPinLineFill  className="text-purple-400 text-xl" />
                     <span className="text-lg">{exp.location}</span>
@@ -360,7 +358,7 @@ const Experience = () => {
                   animate={isInView ? { scale: 1 } : { scale: 0 }}
                   transition={{ delay: 0.8, duration: 0.5 }}
                 >
-                  <PiBuildingsFill className="text-indigo-400 text-xl" />
+                  <PiBuildingsFill className="text-white text-xl" />
                   <span className="text-white font-semibold">
                     {exp.clients.length} {exp.clients.length === 1 ? 'Client' : 'Clients'}
                   </span>
@@ -510,7 +508,7 @@ const Experience = () => {
                                   transition={{ delay: 0.3 + idx * 0.1 }}
                                 >
                                   <PiClock className="text-emerald-400 text-sm sm:text-base" />
-                                  <span className="text-sm sm:text-base text-emerald-300 font-semibold">
+                                  <span className="text-sm sm:text-base text-emerald-300 tracking-wide">
                                     {client.period}
                                   </span>
                                 </motion.div>
