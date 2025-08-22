@@ -662,7 +662,7 @@ const Projects = () => {
               </span>
             </h2>
             
-            <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
+            <p className="text-base md:text-lg text-gray-600 dark:text-white/60 max-w-3xl mx-auto leading-relaxed tracking-wide px-4">
               Discover the projects that showcase my expertise in modern development technologies and innovative solutions.
             </p>
           </motion.div>

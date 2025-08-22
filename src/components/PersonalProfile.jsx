@@ -26,16 +26,14 @@ import {
   PiRocket,
   PiMagicWand,
   PiSparkle,
-  PiUserDuotone
+  PiUserDuotone,
+  PiInfoDuotone,
+  PiHeartDuotone,
+  PiRocketDuotone
 } from "react-icons/pi";
 import { FaDumbbell } from "react-icons/fa";
 
 const personalData = {
-  intro: {
-    title: "Beyond the Code",
-    subtitle: "Exploring life's passions and future aspirations",
-    description: "Life is more than just writing code. Here's a glimpse into my world of creativity, ambitions, and the things that fuel my passion for innovation."
-  },
   hobbies: [
     {
       icon: FaDumbbell,
@@ -92,7 +90,7 @@ const personalData = {
       icon: PiCode,
       title: "Software Architect",
       description: "Leading architectural decisions and designing scalable, innovative systems that shape the future of technology",
-      timeline: "3-5 years",
+      timeline: "1 - 2 years",
       priority: "high",
       gradient: "from-blue-600 to-cyan-500"
     },
@@ -108,7 +106,7 @@ const personalData = {
       icon: PiWaveform,
       title: "Music Producer",
       description: "Crafting original soundscapes and bringing musical visions to life in the digital realm",
-      timeline: "2-3 years",
+      timeline: "2 - 3 years",
       priority: "medium",
       gradient: "from-purple-600 to-indigo-500"
     },
@@ -194,7 +192,7 @@ const PersonalProfile = () => {
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            <PiUserDuotone className="text-emerald-600 dark:text-emerald-400" />
+            <PiInfoDuotone className="text-emerald-600 dark:text-emerald-400" />
             <span className="text-xs md:text-sm font-medium text-emerald-700 dark:text-emerald-300">
               Beyond the Code
             </span>
@@ -273,25 +271,25 @@ const HobbiesSection = () => {
       className="mb-32"
     >
       {/* Section Header */}
-      <div className="text-center mb-16">
+      <div className="text-center mb-5">
         <motion.div
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
           className="inline-flex items-center gap-3 px-6 py-3 bg-black/5 dark:bg-white/10 backdrop-blur-sm rounded-full border border-pink-200 dark:border-white/20 mb-6"
         >
-          <PiHeart className="text-pink-600 dark:text-pink-400 text-xl" />
-          <span className="text-sm font-medium text-pink-700 dark:text-white/80">Passions & Interests</span>
+          <PiHeartDuotone className="text-red-600 dark:text-red-400 text-xl" />
+          <span className="text-sm font-medium text-red-700 dark:text-white/80">Passions & Interests</span>
         </motion.div>
 
-        <motion.h2
+        {/* <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ delay: 0.3, duration: 0.8 }}
           className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
         >
           Life's <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Passions</span>
-        </motion.h2>
+        </motion.h2> */}
       </div>
 
       {/* Hobbies Carousel */}
@@ -304,7 +302,7 @@ const HobbiesSection = () => {
         loop={true}
         navigation
         pagination={{ clickable: true, dynamicBullets: true }}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
         className="w-full max-w-sm mx-auto h-96"
         style={{
           '--swiper-navigation-color': '#fff',
@@ -381,7 +379,7 @@ const GoalsSection = () => {
       transition={{ duration: 0.8 }}
     >
       {/* Section Header */}
-      <div className="text-center mb-16">
+      <div className="text-center mb-8">
         <motion.div
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
@@ -392,14 +390,14 @@ const GoalsSection = () => {
           <span className="text-sm font-medium text-cyan-700 dark:text-white/80">Future Vision</span>
         </motion.div>
 
-        <motion.h2
+        {/* <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ delay: 0.3, duration: 0.8 }}
           className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
         >
           Future <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Aspirations</span>
-        </motion.h2>
+        </motion.h2> */}
       </div>
 
       {/* Goals Grid */}
@@ -452,14 +450,14 @@ const GoalCard = ({ goal, index }) => {
               <IconComponent className="text-xl text-gray-700 dark:text-white" />
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, scale: 0 }}
               animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
               transition={{ delay: index * 0.1 + 0.4, duration: 0.4 }}
               className={`px-2 py-1 rounded-full text-xs font-semibold ${getPriorityColor(goal.priority)}`}
             >
               {goal.priority}
-            </motion.div>
+            </motion.div> */}
           </div>
 
           {/* Title */}
@@ -479,7 +477,7 @@ const GoalCard = ({ goal, index }) => {
             transition={{ delay: index * 0.1 + 0.4, duration: 0.6 }}
             className="flex items-center gap-2 mb-3"
           >
-            <PiRocket className="text-blue-400 text-sm" />
+            <PiRocketDuotone className="text-indigo-500" />
             <span className="text-sm text-gray-600 dark:text-white/60">{goal.timeline}</span>
           </motion.div>
 

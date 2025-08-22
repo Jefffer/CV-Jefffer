@@ -174,9 +174,8 @@ const ProfessionalProfile = () => {
             </span>
           </h2>
 
-          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-4">
-            Discover my technical expertise, certifications, and professional
-            achievements.
+          <p className="text-base md:text-lg text-gray-600 dark:text-white/60 max-w-3xl mx-auto leading-relaxed tracking-wide px-4">
+            Discover my technical expertise, certifications and achievements.
           </p>
         </motion.div>
 
