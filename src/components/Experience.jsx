@@ -377,8 +377,6 @@ const Experience = () => {
             >
               <motion.div
                 className="relative bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden"
-                whileHover={{ y: -10 }}
-                transition={{ duration: 0.3 }}
               >
                 {/* Header */}
                 <div className="p-6 border-b border-white/20">
@@ -430,80 +428,110 @@ const Experience = () => {
                   </div>
                 </div>
 
-                {/* Expanded Content */}
+                {/* Expanded Content - Modern Design */}
                 {isExpanded && (
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="border-t border-white/20 bg-black/20"
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className="border-t border-white/20 bg-gradient-to-b from-black/30 to-black/50"
                   >
-                    <div className="p-6 space-y-6 max-h-96 overflow-y-auto">
+                    <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-h-96 overflow-y-auto custom-scrollbar">
                       {exp.clients.map((client, idx) => (
                         <motion.div
                           key={idx}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: idx * 0.1 }}
-                          className="relative bg-white/5 rounded-xl border border-white/10 overflow-hidden"
+                          initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          transition={{ 
+                            delay: idx * 0.15, 
+                            duration: 0.6,
+                            ease: "easeOut"
+                          }}
+                          className="group relative"
                         >
-                          {/* Background Logo */}
-                          <div 
-                            className="absolute top-0 right-0 w-32 h-32 opacity-5 bg-contain bg-no-repeat bg-center"
-                            style={{ 
-                              backgroundImage: `url(${client.logo})`,
-                              filter: 'grayscale(100%) brightness(200%)'
-                            }}
-                          />
-                          
-                          {/* Content */}
-                          <div className="relative p-6">
-                            {/* Header with company name and small logo */}
-                            <div className="flex items-start justify-between mb-4">
-                              <div className="flex-1">
-                                <div className="flex items-center gap-3 mb-2">
-                                  <div className="w-10 h-10 bg-white rounded-lg p-1.5 flex-shrink-0">
+                          {/* Modern Card Container */}
+                          <div className="relative bg-gradient-to-br from-white/8 to-white/4 backdrop-blur-lg rounded-2xl border border-white/15 overflow-hidden transition-all duration-500">
+                            {/* Subtle pattern background */}
+                            <div className="absolute top-0 right-0 w-20 h-20 sm:w-28 sm:h-28 opacity-[0.02] overflow-hidden">
+                              <img 
+                                src={client.logo}
+                                alt=""
+                                className="w-full h-full object-contain grayscale brightness-200"
+                              />
+                            </div>
+                            
+                            {/* Main Content */}
+                            <div className="relative p-4 sm:p-6">
+                              {/* Header Section - Mobile First */}
+                              <div className="flex flex-col space-y-4 mb-6">
+                                {/* Company Identity Row */}
+                                <div className="flex items-center gap-3 sm:gap-4">
+                                  {/* Logo */}
+                                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-xl p-2 flex-shrink-0 shadow-lg ring-1 ring-black/5">
                                     <img
                                       src={client.logo}
                                       alt={client.name}
                                       className="w-full h-full object-contain"
                                     />
                                   </div>
-                                  <h4 className="text-lg font-semibold text-white">
-                                    {client.name}
-                                  </h4>
+                                  
+                                  {/* Company Info */}
+                                  <div className="flex-1 min-w-0">
+                                    <h4 className="text-lg sm:text-xl font-bold text-white leading-tight">
+                                      {client.name}
+                                    </h4>
+                                    <div className="flex items-center gap-2 mt-1">
+                                      <motion.div
+                                        animate={{ 
+                                          opacity: [0.4, 1, 0.4],
+                                          scale: [0.8, 1, 0.8]
+                                        }}
+                                        transition={{ 
+                                          duration: 2,
+                                          repeat: Infinity,
+                                          repeatType: "reverse"
+                                        }}
+                                      >
+                                        <PiCode className="text-indigo-300 text-base sm:text-lg" />
+                                      </motion.div>
+                                      <span className="text-sm sm:text-base text-white/80 font-medium">
+                                        {client.role}
+                                      </span>
+                                    </div>
+                                  </div>
                                 </div>
                                 
-                                {/* Role Badge */}
+                                {/* Period Badge - Full Width on Mobile */}
                                 <motion.div
-                                  className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-full border border-blue-400/30 mb-3"
-                                  initial={{ scale: 0.8, opacity: 0 }}
+                                  className="flex items-center justify-center sm:justify-start gap-2 px-4 py-2.5 bg-gradient-to-r from-emerald-500/15 to-teal-500/15 backdrop-blur-sm rounded-xl border border-emerald-400/25"
+                                  initial={{ scale: 0.9, opacity: 0 }}
                                   animate={{ scale: 1, opacity: 1 }}
-                                  transition={{ delay: 0.2 + idx * 0.1 }}
+                                  transition={{ delay: 0.3 + idx * 0.1 }}
                                 >
-                                  <PiCode className="text-blue-400 text-sm" />
-                                  <span className="text-sm text-blue-300 font-medium">
-                                    {client.role}
+                                  <PiClock className="text-emerald-400 text-sm sm:text-base" />
+                                  <span className="text-sm sm:text-base text-emerald-300 font-semibold">
+                                    {client.period}
                                   </span>
                                 </motion.div>
                               </div>
                               
-                              {/* Period in top right */}
-                              <div className="flex items-center gap-2 px-3 py-1.5 bg-emerald-500/20 rounded-full border border-emerald-400/30">
-                                <PiClock className="text-emerald-400 text-sm" />
-                                <span className="text-xs text-emerald-300 font-medium">
-                                  {client.period}
-                                </span>
+                              {/* Activities Section */}
+                              <div className="relative">
+                                {/* Decorative line */}
+                                <div className="absolute -left-2 sm:-left-4 top-0 w-1 h-full bg-gradient-to-b from-blue-400/60 via-purple-400/60 to-pink-400/60 rounded-full" />
+                                
+                                {/* Content */}
+                                <div className="pl-4 sm:pl-6">
+                                  <p className="text-xs sm:text-sm text-white/85 leading-relaxed font-light tracking-wide">
+                                    {client.activities}
+                                  </p>
+                                </div>
                               </div>
                             </div>
                             
-                            {/* Activities Description */}
-                            <div className="relative">
-                              <p className="text-sm text-white/80 leading-relaxed">
-                                {client.activities}
-                              </p>
-                            </div>
+                            {/* Bottom accent line */}
+                            <div className="h-1 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                           </div>
                         </motion.div>
                       ))}
