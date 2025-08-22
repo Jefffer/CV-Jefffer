@@ -1,11 +1,9 @@
 import React, { useState, useRef, useCallback } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { FaCaretDown, FaCaretUp, FaBriefcase, FaMapMarkerAlt, FaCalendarAlt, FaCode, FaRocket, FaBuilding, FaClock } from "react-icons/fa";
-import { HiOutlineClock } from "react-icons/hi2";
-import { PiBriefcase, PiCalendar, PiCalendarFill, PiCalendarDuotone, PiMapPinLineFill , PiClock, PiClockAfternoonFill , PiBuildingsFill , PiCode, PiRocket } from "react-icons/pi";
+import { FaCaretDown } from "react-icons/fa";
+import { PiBriefcase, PiCalendarFill, PiMapPinLineFill , PiClock, PiClockAfternoonFill , PiBuildingsFill , PiCode, PiRocket } from "react-icons/pi";
 
-const experiences = [
-  
+const experiences = [  
   {
     consultant: "Ditech Group",
     consultantLogo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnJWQ9jFRpq96bx2aVkT7rirbNJ9Uc-C6vXQ&s",

@@ -2,26 +2,14 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import {
   FaCode,
-  FaAward,
   FaDatabase,
-  FaReact,
-  FaMobile,
   FaCloud,
-  FaTools,
   FaCogs,
-  FaMicrosoft,
-  FaCertificate,
-  FaGraduationCap,
-  FaNewspaper,
   FaStar,
-  FaChartLine,
-  FaShieldAlt,
-  FaRocket,
   FaJava,
   FaBrain,
   FaRobot,
   FaExternalLinkAlt,
-  FaEye,
 } from "react-icons/fa";
 import {
   SiDotnet,
@@ -42,6 +30,7 @@ import {
   SiOpenai,
   SiMake,
 } from "react-icons/si";
+import { PiUserDuotone, PiWindowsLogoFill, PiGraduationCapFill, PiChartLineUp, PiNewspaperFill } from "react-icons/pi";
 
 import { VscAzureDevops } from "react-icons/vsc";
 import { PiFileCSharpFill } from "react-icons/pi";
@@ -112,7 +101,7 @@ const achievementsData = [
   {
     title: "Microsoft Azure Certified",
     subtitle: "AZ-900 Azure Fundamentals",
-    icon: <FaMicrosoft />,
+    icon: <PiWindowsLogoFill />,
     color: "from-blue-500 to-cyan-500",
     link: "https://www.credly.com/badges/fef56564-2602-4102-8fa2-4c6188113a63/linked_in?t=sqwocc",
     type: "certification",
@@ -121,7 +110,7 @@ const achievementsData = [
   {
     title: "Master's in Software Engineering",
     subtitle: "International University of La Rioja (UNIR)",
-    icon: <FaGraduationCap />,
+    icon: <PiGraduationCapFill />,
     color: "from-emerald-500 to-teal-500",
     type: "education",
     year: "2024-2025",
@@ -129,7 +118,7 @@ const achievementsData = [
   {
     title: "8+ Years Experience",
     subtitle: "Software Development & Architecture",
-    icon: <FaChartLine />,
+    icon: <PiChartLineUp />,
     color: "from-orange-500 to-red-500",
     type: "experience",
     year: "",
@@ -137,7 +126,7 @@ const achievementsData = [
   {
     title: "Published Research Paper",
     subtitle: "Genetic Operators in Cryptography",
-    icon: <FaNewspaper />,
+    icon: <PiNewspaperFill />,
     color: "from-purple-500 to-indigo-500",
     link: "https://www.ijimai.org/journal/node/3276",
     type: "research",
@@ -172,7 +161,7 @@ const ProfessionalProfile = () => {
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            <FaRocket className="text-indigo-600 dark:text-indigo-400" />
+            <PiUserDuotone className="text-indigo-600 dark:text-indigo-400"/>
             <span className="text-xs md:text-sm font-medium text-indigo-700 dark:text-indigo-300">
               Professional Excellence
             </span>

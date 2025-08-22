@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { FaGraduationCap, FaLanguage, FaMapMarkerAlt, FaCalendarAlt, FaUniversity, FaAward, FaGlobe } from "react-icons/fa";
 import Flag from "react-world-flags";
+import { PiGraduationCapDuotone, PiCalendarDotsFill, PiMedalDuotone, PiMapPinLineDuotone, PiGlobeDuotone } from "react-icons/pi";
 
 const educationData = [
   {
@@ -54,7 +54,7 @@ const Education = () => {
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            <FaGraduationCap className="text-emerald-600 dark:text-emerald-400" />
+            <PiGraduationCapDuotone className="text-emerald-600 dark:text-emerald-400" />
             <span className="text-xs md:text-sm font-medium text-emerald-700 dark:text-emerald-300">
               Academic Journey
             </span>
@@ -171,7 +171,7 @@ const EducationCard = React.memo(({ edu, index }) => {
             transition={{ delay: index * 0.3 + 0.8 }}
           >
             <div className="flex items-center gap-2 px-4 py-2 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm rounded-full border border-emerald-200 dark:border-emerald-700 shadow-lg">
-              <FaCalendarAlt className="text-emerald-600 dark:text-emerald-400 w-3 h-3" />
+              <PiCalendarDotsFill className="text-emerald-600 dark:text-emerald-400" />
               <span className="text-xs font-bold text-emerald-700 dark:text-emerald-300">
                 {edu.period}
               </span>
@@ -217,7 +217,7 @@ const EducationCard = React.memo(({ edu, index }) => {
               whileHover={{ rotate: 15, scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <FaAward className="text-emerald-600 dark:text-emerald-400 w-4 h-4" />
+              <PiMedalDuotone className="text-emerald-600 dark:text-emerald-400" />
             </motion.div>
             <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 font-medium leading-relaxed flex-1">
               {edu.degree}
@@ -236,7 +236,7 @@ const EducationCard = React.memo(({ edu, index }) => {
               whileHover={{ rotate: 15, scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <FaMapMarkerAlt className="text-gray-600 dark:text-gray-400 w-4 h-4" />
+              <PiMapPinLineDuotone className="text-gray-600 dark:text-gray-400 w-4 h-4" />
             </motion.div>
             <span className="text-sm text-gray-600 dark:text-gray-400 font-medium flex-1">
               {edu.location}
@@ -306,7 +306,7 @@ const LanguagesSection = React.memo(({ languages }) => {
               whileHover={{ rotate: 15, scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <FaGlobe className="w-6 h-6" />
+              <PiGlobeDuotone className="w-6 h-6" />
             </motion.div>
             <div>
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
