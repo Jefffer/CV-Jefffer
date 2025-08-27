@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import {
   FaArrowUp,
   FaHeart,
-  FaRegCopy 
+  FaRegCopy,
+  FaGithub
 } from "react-icons/fa";
 import { PiLinkedinLogoFill,
   PiGithubLogoFill ,
@@ -13,7 +14,6 @@ import { PiLinkedinLogoFill,
  } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import Flag from "react-world-flags";
-import { IoMdCopy } from "react-icons/io";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -223,13 +223,21 @@ const Footer = () => {
             className="border-t border-gray-200/50 dark:border-gray-700/50 pt-8"
           >
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              {/* Copyright */}
-              <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-                <span className="hidden md:inline">Built by Jeffer with</span>
+              <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400">
+                <span className="hidden md:inline">Built with</span>
                 <FaHeart className="text-red-500 text-xs animate-pulse hidden md:inline" />
                 <span className="hidden md:inline">
-                  using React & Tailwind CSS
+                  using React & Tailwind CSS. By
                 </span>
+                 <a
+    href="https://github.com/Jefffer"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-1 ml-0 text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-medium transition-colors duration-200 group"
+  >
+    <span>Jeffer</span>
+    <FaGithub className="text-xs group-hover:scale-110 transition-transform" />
+  </a>
               </div>
 
               {/* Back to Top Button */}
