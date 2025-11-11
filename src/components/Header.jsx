@@ -174,24 +174,25 @@ const Header = () => {
         {/* Contenido principal alineado a la izquierda - Ancho completo */}
         <div className="relative z-10 container mx-auto px-6 md:px-8 lg:px-12">
           <div className="flex flex-col items-center md:items-start text-center md:text-left w-full">
-            {/* Nombre con efecto impactante */}
             <motion.div
-              className="mb-8 w-full"
+              className="mb-6 w-full"
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
               <motion.h1
-                className="text-5xl md:text-6xl lg:text-7xl font-black mb-2 tracking-tight leading-tight drop-shadow-[0_0_30px_rgba(99,102,241,0.3)] dark:drop-shadow-[0_0_30px_rgba(99,102,241,0.5)] light:drop-shadow-none"
+                className="text-3xl md:text-4xl lg:text-5xl font-black mb-2 tracking-wider leading-tight drop-shadow-[0_0_30px_rgba(99,102,241,0.3)] dark:drop-shadow-[0_0_30px_rgba(99,102,241,0.5)] light:drop-shadow-none "
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 style={{
+                  fontFamily: "'Orbitron', sans-serif",
                   background:
-                    "linear-gradient(to right, rgba(255,255,255,0.98), rgba(224,231,255,0.95), rgba(199,210,254,0.92))",
+                    "linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(199,210,254,1) 50%, rgba(165,180,252,0.9) 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
+                  letterSpacing: "0.05em",
                 }}
               >
                 jefferson rodríguez
@@ -200,7 +201,7 @@ const Header = () => {
 
             {/* Ventana tipo Browser/Terminal - Diseño moderno y atrevido */}
             <motion.div
-              className="relative w-full md:max-w-3xl backdrop-blur-2xl bg-gradient-to-br from-slate-800/40 via-slate-900/50 to-indigo-950/60 dark:from-slate-900/40 dark:via-slate-950/50 dark:to-indigo-950/60 light:from-white/95 light:via-indigo-50/95 light:to-purple-50/95 border border-white/20 dark:border-white/20 light:border-indigo-300/50 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.6)] light:shadow-[0_8px_32px_rgba(99,102,241,0.3)] overflow-hidden mb-8"
+              className="relative w-full md:max-w-3xl backdrop-blur-2xl bg-gradient-to-br from-slate-800/40 via-slate-900/50 to-indigo-950/60 dark:from-slate-900/40 dark:via-slate-950/50 dark:to-indigo-950/60 light:from-white/95 light:via-indigo-50/95 light:to-purple-50/95 border border-white/20 dark:border-white/20 light:border-indigo-300/50 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.6)] light:shadow-[0_8px_32px_rgba(99,102,241,0.3)] overflow-hidden mb-4"
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
