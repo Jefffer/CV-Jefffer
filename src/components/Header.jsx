@@ -23,6 +23,8 @@ import {
   PiPaperPlaneTiltDuotone,
   PiPaperPlaneTiltFill,
 } from "react-icons/pi";
+import { HiMinus, HiSquare2Stack } from "react-icons/hi2";
+import { IoClose } from "react-icons/io5";
 
 import { useTheme } from "../context/ThemeContext";
 import { BsSun, BsMoon } from "react-icons/bs";
@@ -125,7 +127,7 @@ const Header = () => {
           <div className="flex flex-col items-center md:items-start text-center md:text-left w-full">
             {/* Nombre con efecto impactante */}
             <motion.div
-              className="mb-6 w-full"
+              className="mb-8 w-full"
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -147,64 +149,116 @@ const Header = () => {
               </motion.h1>
             </motion.div>
 
-            {/* Título profesional minimalista */}
+            {/* Ventana tipo Browser/Terminal - Diseño moderno y atrevido */}
             <motion.div
-              className="relative backdrop-blur-xl bg-white/5 dark:bg-white/5 light:bg-white/80 border border-white/10 dark:border-white/10 light:border-indigo-200/50 rounded-2xl px-8 py-6 mb-8 shadow-2xl w-full md:max-w-2xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative w-full md:max-w-3xl backdrop-blur-2xl bg-gradient-to-br from-slate-800/40 via-slate-900/50 to-indigo-950/60 dark:from-slate-900/40 dark:via-slate-950/50 dark:to-indigo-950/60 light:from-white/95 light:via-indigo-50/95 light:to-purple-50/95 border border-white/20 dark:border-white/20 light:border-indigo-300/50 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.6)] light:shadow-[0_8px_32px_rgba(99,102,241,0.3)] overflow-hidden mb-8"
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <div className="relative">
-                <h2 className="text-xl md:text-2xl font-bold text-indigo-200 dark:text-indigo-200 light:text-indigo-700 mb-3 leading-tight">
-                  Senior .NET Developer | React | Cloud
-                </h2>
-                <p className="text-sm md:text-base text-indigo-100/90 dark:text-indigo-100/90 light:text-indigo-600 font-medium">
-                  Azure DevOps • Cloud Architecture • AI Enthusiast
-                </p>
-              </div>
-            </motion.div>
+              {/* Barra superior tipo Mac con botones de control */}
+              <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-slate-700/80 via-slate-800/80 to-slate-900/80 dark:from-slate-800/80 dark:via-slate-900/80 dark:to-slate-950/80 light:from-indigo-100/90 light:via-purple-100/90 light:to-pink-100/90 border-b border-white/10 dark:border-white/10 light:border-indigo-200">
+                {/* Botones estilo Mac */}
+                <div className="flex items-center gap-2">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="w-3 h-3 rounded-full bg-red-500 shadow-lg cursor-pointer hover:bg-red-400 transition-colors"
+                  />
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="w-3 h-3 rounded-full bg-yellow-500 shadow-lg cursor-pointer hover:bg-yellow-400 transition-colors"
+                  />
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="w-3 h-3 rounded-full bg-green-500 shadow-lg cursor-pointer hover:bg-green-400 transition-colors"
+                  />
+                </div>
 
-            {/* Enlaces sociales con animación de relleno */}
-            <motion.div
-              className="flex justify-center md:justify-start gap-3 mb-8 w-full flex-wrap"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              {socialLinks.map(({ href, to, icon, label }) => (
+                {/* Título de la ventana - más minimalista */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-2">
+                  <span className="text-xs font-mono text-white/60 dark:text-white/60 light:text-gray-500">
+                    ~/professional-profile
+                  </span>
+                </div>
+
+                {/* Enlaces sociales integrados en la barra */}
+                <div className="flex items-center gap-2">
+                  {socialLinks.map(({ href, to, icon, label }) => (
+                    <motion.div
+                      key={label}
+                      whileHover={{ y: -2, scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      transition={{ duration: 0.15 }}
+                    >
+                      {href ? (
+                        <a
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group relative p-2 bg-white/10 dark:bg-white/10 light:bg-indigo-200/50 hover:bg-white/20 dark:hover:bg-white/20 light:hover:bg-indigo-300/70 rounded-lg backdrop-blur-sm transition-all duration-200 block"
+                          title={label}
+                        >
+                          <span className="text-indigo-200 dark:text-indigo-200 light:text-indigo-700 group-hover:text-white dark:group-hover:text-white light:group-hover:text-indigo-900 text-base transition-colors duration-200 block">
+                            {icon}
+                          </span>
+                        </a>
+                      ) : (
+                        <Link
+                          to={to}
+                          className="group relative p-2 bg-white/10 dark:bg-white/10 light:bg-indigo-200/50 hover:bg-white/20 dark:hover:bg-white/20 light:hover:bg-indigo-300/70 rounded-lg backdrop-blur-sm transition-all duration-200 block"
+                          title={label}
+                        >
+                          <span className="text-indigo-200 dark:text-indigo-200 light:text-indigo-700 group-hover:text-white dark:group-hover:text-white light:group-hover:text-indigo-900 text-base transition-colors duration-200 block">
+                            {icon}
+                          </span>
+                        </Link>
+                      )}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Contenido de la ventana */}
+              <div className="p-6 md:p-8">
+                {/* Título profesional con efecto terminal */}
                 <motion.div
-                  key={label}
-                  whileHover={{ y: -3, scale: 1.08 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ duration: 0.15 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className="mb-4"
                 >
-                  {href ? (
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group relative overflow-hidden p-3.5 bg-slate-700/30 dark:bg-slate-700/30 light:bg-white/80 border border-slate-600/30 dark:border-slate-600/30 light:border-indigo-200/50 rounded-xl backdrop-blur-sm transition-all duration-200 shadow-lg hover:shadow-indigo-500/30 dark:hover:shadow-indigo-500/30 light:hover:shadow-indigo-500/50 block"
-                      title={label}
-                    >
-                      <div className="absolute inset-x-0 bottom-0 h-0 bg-gradient-to-t from-indigo-600 via-purple-600 to-indigo-600 group-hover:h-full transition-all duration-300 ease-out"></div>
-                      <span className="relative z-10 text-indigo-200 dark:text-indigo-200 light:text-indigo-700 group-hover:text-white dark:group-hover:text-white light:group-hover:text-white text-xl transition-colors duration-200 block">
-                        {icon}
-                      </span>
-                    </a>
-                  ) : (
-                    <Link
-                      to={to}
-                      className="group relative overflow-hidden p-3.5 bg-slate-700/30 dark:bg-slate-700/30 light:bg-white/80 border border-slate-600/30 dark:border-slate-600/30 light:border-indigo-200/50 rounded-xl backdrop-blur-sm transition-all duration-200 shadow-lg hover:shadow-indigo-500/30 dark:hover:shadow-indigo-500/30 light:hover:shadow-indigo-500/50 block"
-                      title={label}
-                    >
-                      <div className="absolute inset-x-0 bottom-0 h-0 bg-gradient-to-t from-indigo-600 via-purple-600 to-indigo-600 group-hover:h-full transition-all duration-300 ease-out"></div>
-                      <span className="relative z-10 text-indigo-200 dark:text-indigo-200 light:text-indigo-700 group-hover:text-white dark:group-hover:text-white light:group-hover:text-white text-xl transition-colors duration-200 block">
-                        {icon}
-                      </span>
-                    </Link>
-                  )}
+                  <div className="flex items-start gap-2 mb-2">
+                    <span className="text-green-400 dark:text-green-400 light:text-green-600 font-mono text-sm mt-1">❯</span>
+                    <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 dark:from-indigo-200 dark:via-purple-200 dark:to-pink-200 light:from-indigo-700 light:via-purple-700 light:to-pink-700 bg-clip-text text-transparent leading-tight">
+                      Senior .NET Developer | React | Cloud
+                    </h2>
+                  </div>
                 </motion.div>
-              ))}
+
+                {/* Skills con diseño tipo tags */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  className="flex flex-wrap gap-2"
+                >
+                  {["Azure DevOps", "Cloud Architecture", "AI Enthusiast"].map((skill, index) => (
+                    <motion.span
+                      key={skill}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      className="px-3 py-1.5 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 dark:from-indigo-500/20 dark:to-purple-500/20 light:from-indigo-200/80 light:to-purple-200/80 border border-indigo-400/30 dark:border-indigo-400/30 light:border-indigo-400/50 rounded-lg text-sm font-medium text-indigo-100 dark:text-indigo-100 light:text-indigo-800 backdrop-blur-sm hover:border-indigo-400/50 dark:hover:border-indigo-400/50 light:hover:border-indigo-500/70 transition-all cursor-default"
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
+                </motion.div>
+              </div>
             </motion.div>
 
             {/* Navegación principal para desktop - Centrada */}
