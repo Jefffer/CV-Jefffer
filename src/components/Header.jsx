@@ -39,7 +39,7 @@ const Header = () => {
   const { darkMode, setDarkMode } = useTheme();
   const location = useLocation();
 
-  const fullText = "Senior .NET Developer · React · Cloud";
+  const fullText = "Senior .NET Developer · React · Cloud · IA";
 
   // Efecto de parpadeo del cursor (más rápido y realista)
   useEffect(() => {
@@ -140,7 +140,7 @@ const Header = () => {
       {/* Header principal con foto de fondo integrada */}
       <header
         id="main-header"
-        className="relative overflow-hidden bg-gradient-to-br from-slate-800 via-slate-900 to-indigo-950 dark:from-slate-900 dark:via-slate-950 dark:to-indigo-950 light:from-slate-50 light:via-indigo-50 light:to-purple-50 text-white dark:text-white light:text-gray-900 py-16 md:py-20 border-b-2 border-indigo-500/20 dark:border-indigo-500/20 light:border-indigo-200"
+        className="relative overflow-hidden bg-gradient-to-br from-slate-800 via-slate-900 to-indigo-950 dark:from-slate-900 dark:via-slate-950 dark:to-indigo-950 light:from-slate-50 light:via-indigo-50 light:to-purple-50 text-white dark:text-white light:text-gray-900 pt-16 md:pt-20 pb-8 md:pb-10 border-b-2 border-indigo-500/20 dark:border-indigo-500/20 light:border-indigo-200"
       >
         {/* Foto de fondo con desvanecido - Desktop (derecha con fade a izquierda) */}
         <div className="hidden md:block absolute inset-y-0 right-0 w-1/3 pointer-events-none">
@@ -181,7 +181,7 @@ const Header = () => {
               transition={{ duration: 0.6 }}
             >
               <motion.h1
-                className="text-3xl md:text-4xl lg:text-5xl font-black mb-2 tracking-wider leading-tight drop-shadow-[0_0_30px_rgba(99,102,241,0.3)] dark:drop-shadow-[0_0_30px_rgba(99,102,241,0.5)] light:drop-shadow-none "
+                className="text-5xl md:text-6xl lg:text-7xl font-black  pb-2 tracking-wider leading-relaxed drop-shadow-[0_0_30px_rgba(99,102,241,0.3)] dark:drop-shadow-[0_0_30px_rgba(99,102,241,0.5)] light:drop-shadow-none "
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
@@ -201,7 +201,7 @@ const Header = () => {
 
             {/* Ventana tipo Browser/Terminal - Diseño moderno y atrevido */}
             <motion.div
-              className="relative w-full md:max-w-3xl backdrop-blur-2xl bg-gradient-to-br from-slate-800/40 via-slate-900/50 to-indigo-950/60 dark:from-slate-900/40 dark:via-slate-950/50 dark:to-indigo-950/60 light:from-white/95 light:via-indigo-50/95 light:to-purple-50/95 border border-white/20 dark:border-white/20 light:border-indigo-300/50 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.6)] light:shadow-[0_8px_32px_rgba(99,102,241,0.3)] overflow-hidden mb-4"
+              className="relative w-full md:max-w-3xl backdrop-blur-2xl bg-gradient-to-br from-slate-800/40 via-slate-900/50 to-indigo-950/60 dark:from-slate-900/40 dark:via-slate-950/50 dark:to-indigo-950/60 light:from-white/95 light:via-indigo-50/95 light:to-purple-50/95 border border-white/20 dark:border-white/20 light:border-indigo-300/50 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.6)] light:shadow-[0_8px_32px_rgba(99,102,241,0.3)] overflow-hidden mb-6"
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
@@ -271,7 +271,7 @@ const Header = () => {
               </div>
 
               {/* Contenido de la ventana */}
-              <div className="p-6 md:p-8">
+              <div className="p-6 md:p-7">
                 {/* Título profesional con efecto terminal y escritura */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
@@ -280,10 +280,10 @@ const Header = () => {
                   className="mb-6"
                 >
                   <div className="flex items-start gap-2 mb-4">
-                    <span className="text-green-400 dark:text-green-400 light:text-green-600 font-mono text-sm mt-1">❯</span>
-                    <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 dark:from-indigo-200 dark:via-purple-200 dark:to-pink-200 light:from-indigo-700 light:via-purple-700 light:to-pink-700 bg-clip-text text-transparent leading-tight font-mono">
+                    <span className="text-green-400 dark:text-green-400 light:text-green-600 font-mono text-sm mt-2">❯</span>
+                    <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 dark:from-indigo-200 dark:via-purple-200 dark:to-pink-200 light:from-indigo-700 light:via-purple-700 light:to-pink-700 bg-clip-text text-transparent leading-tight font-mono">
                       {displayedText}
-                      <span className={`inline-block w-0.5 h-6 md:h-7 ml-0.5 bg-gradient-to-r from-indigo-300 to-purple-300 dark:from-indigo-300 dark:to-purple-300 light:from-indigo-700 light:to-purple-700 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}></span>
+                      <span className={`inline-block w-0.5 h-4 md:h-5 ml-0.5 bg-gradient-to-r from-indigo-300 to-purple-300 dark:from-indigo-300 dark:to-purple-300 light:from-indigo-700 light:to-purple-700 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}></span>
                     </h2>
                   </div>
                 </motion.div>
