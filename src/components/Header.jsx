@@ -34,8 +34,57 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMiniHeaderVisible, setIsMiniHeaderVisible] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
+  const [displayedText, setDisplayedText] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
   const { darkMode, setDarkMode } = useTheme();
   const location = useLocation();
+
+  const fullText = "Senior .NET Developer · React · Cloud";
+
+  // Efecto de parpadeo del cursor (más rápido y realista)
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 530); // Parpadeo cada 530ms (más realista)
+
+    return () => clearInterval(cursorInterval);
+  }, []);
+
+  // Efecto de escritura y borrado
+  useEffect(() => {
+    let currentIndex = 0;
+    let isDeleting = false;
+    let timeout;
+
+    const typeWriter = () => {
+      if (!isDeleting && currentIndex <= fullText.length) {
+        // Escribiendo
+        setDisplayedText(fullText.slice(0, currentIndex));
+        currentIndex++;
+        timeout = setTimeout(typeWriter, 80); // Velocidad de escritura
+      } else if (!isDeleting && currentIndex > fullText.length) {
+        // Esperar 10 segundos antes de empezar a borrar
+        timeout = setTimeout(() => {
+          isDeleting = true;
+          typeWriter();
+        }, 10000);
+      } else if (isDeleting && currentIndex > 0) {
+        // Borrando
+        currentIndex--;
+        setDisplayedText(fullText.slice(0, currentIndex));
+        timeout = setTimeout(typeWriter, 50); // Velocidad de borrado (más rápido)
+      } else if (isDeleting && currentIndex === 0) {
+        // Reiniciar el ciclo
+        isDeleting = false;
+        currentIndex = 0;
+        timeout = setTimeout(typeWriter, 500); // Pequeña pausa antes de reescribir
+      }
+    };
+
+    typeWriter();
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -145,7 +194,7 @@ const Header = () => {
                   backgroundClip: "text",
                 }}
               >
-                JEFFERSON RODRIGUEZ
+                jefferson rodríguez
               </motion.h1>
             </motion.div>
 
@@ -177,8 +226,8 @@ const Header = () => {
                   />
                 </div>
 
-                {/* Título de la ventana - más minimalista */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-2">
+                {/* Título de la ventana - más minimalista - Oculto en mobile */}
+                <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center gap-2">
                   <span className="text-xs font-mono text-white/60 dark:text-white/60 light:text-gray-500">
                     ~/professional-profile
                   </span>
@@ -187,75 +236,93 @@ const Header = () => {
                 {/* Enlaces sociales integrados en la barra */}
                 <div className="flex items-center gap-2">
                   {socialLinks.map(({ href, to, icon, label }) => (
-                    <motion.div
-                      key={label}
-                      whileHover={{ y: -2, scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      transition={{ duration: 0.15 }}
-                    >
+                    <div key={label}>
                       {href ? (
                         <a
                           href={href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group relative p-2 bg-white/10 dark:bg-white/10 light:bg-indigo-200/50 hover:bg-white/20 dark:hover:bg-white/20 light:hover:bg-indigo-300/70 rounded-lg backdrop-blur-sm transition-all duration-200 block"
+                          className="group relative p-2 bg-white/10 dark:bg-white/10 light:bg-indigo-200/50 rounded-lg backdrop-blur-sm overflow-hidden block"
                           title={label}
                         >
-                          <span className="text-indigo-200 dark:text-indigo-200 light:text-indigo-700 group-hover:text-white dark:group-hover:text-white light:group-hover:text-indigo-900 text-base transition-colors duration-200 block">
+                          {/* Efecto de relleno de izquierda a derecha */}
+                          <div className="absolute inset-0 w-0 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-full transition-all duration-300 ease-out"></div>
+                          <span className="relative z-10 text-indigo-200 dark:text-indigo-200 light:text-indigo-700 group-hover:text-white dark:group-hover:text-white light:group-hover:text-white text-base transition-colors duration-200 block">
                             {icon}
                           </span>
                         </a>
                       ) : (
                         <Link
                           to={to}
-                          className="group relative p-2 bg-white/10 dark:bg-white/10 light:bg-indigo-200/50 hover:bg-white/20 dark:hover:bg-white/20 light:hover:bg-indigo-300/70 rounded-lg backdrop-blur-sm transition-all duration-200 block"
+                          className="group relative p-2 bg-white/10 dark:bg-white/10 light:bg-indigo-200/50 rounded-lg backdrop-blur-sm overflow-hidden block"
                           title={label}
                         >
-                          <span className="text-indigo-200 dark:text-indigo-200 light:text-indigo-700 group-hover:text-white dark:group-hover:text-white light:group-hover:text-indigo-900 text-base transition-colors duration-200 block">
+                          {/* Efecto de relleno de izquierda a derecha */}
+                          <div className="absolute inset-0 w-0 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-full transition-all duration-300 ease-out"></div>
+                          <span className="relative z-10 text-indigo-200 dark:text-indigo-200 light:text-indigo-700 group-hover:text-white dark:group-hover:text-white light:group-hover:text-white text-base transition-colors duration-200 block">
                             {icon}
                           </span>
                         </Link>
                       )}
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
 
               {/* Contenido de la ventana */}
               <div className="p-6 md:p-8">
-                {/* Título profesional con efecto terminal */}
+                {/* Título profesional con efecto terminal y escritura */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  className="mb-4"
+                  className="mb-6"
                 >
-                  <div className="flex items-start gap-2 mb-2">
+                  <div className="flex items-start gap-2 mb-4">
                     <span className="text-green-400 dark:text-green-400 light:text-green-600 font-mono text-sm mt-1">❯</span>
-                    <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 dark:from-indigo-200 dark:via-purple-200 dark:to-pink-200 light:from-indigo-700 light:via-purple-700 light:to-pink-700 bg-clip-text text-transparent leading-tight">
-                      Senior .NET Developer | React | Cloud
+                    <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 dark:from-indigo-200 dark:via-purple-200 dark:to-pink-200 light:from-indigo-700 light:via-purple-700 light:to-pink-700 bg-clip-text text-transparent leading-tight font-mono">
+                      {displayedText}
+                      <span className={`inline-block w-0.5 h-6 md:h-7 ml-0.5 bg-gradient-to-r from-indigo-300 to-purple-300 dark:from-indigo-300 dark:to-purple-300 light:from-indigo-700 light:to-purple-700 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}></span>
                     </h2>
                   </div>
                 </motion.div>
 
-                {/* Skills con diseño tipo tags */}
+                {/* Skills con diseño tipo código/terminal */}
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
-                  className="flex flex-wrap gap-2"
+                  transition={{ duration: 0.5, delay: 0.9 }}
+                  className="space-y-2"
                 >
-                  {["Azure DevOps", "Cloud Architecture", "AI Enthusiast"].map((skill, index) => (
-                    <motion.span
-                      key={skill}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      className="px-3 py-1.5 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 dark:from-indigo-500/20 dark:to-purple-500/20 light:from-indigo-200/80 light:to-purple-200/80 border border-indigo-400/30 dark:border-indigo-400/30 light:border-indigo-400/50 rounded-lg text-sm font-medium text-indigo-100 dark:text-indigo-100 light:text-indigo-800 backdrop-blur-sm hover:border-indigo-400/50 dark:hover:border-indigo-400/50 light:hover:border-indigo-500/70 transition-all cursor-default"
+                  {[
+                    { key: "azureDevOps", value: "Azure DevOps", icon: "☁️" },
+                    { key: "cloudArch", value: "Cloud Architecture", icon: "🏗️" },
+                    { key: "aiEnthusiast", value: "AI Enthusiast", icon: "🤖" }
+                  ].map((skill, index) => (
+                    <motion.div
+                      key={skill.key}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: 1 + index * 0.15 }}
+                      className="flex items-center gap-3 group"
                     >
-                      {skill}
-                    </motion.span>
+                      <span className="text-cyan-400 dark:text-cyan-400 light:text-cyan-600 font-mono text-xs">
+                        const
+                      </span>
+                      <span className="text-purple-300 dark:text-purple-300 light:text-purple-700 font-mono text-sm">
+                        {skill.key}
+                      </span>
+                      <span className="text-white/40 dark:text-white/40 light:text-gray-400 font-mono text-sm">
+                        =
+                      </span>
+                      <span className="flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 dark:from-indigo-500/10 dark:to-purple-500/10 light:from-indigo-100/50 light:to-purple-100/50 border border-indigo-400/20 dark:border-indigo-400/20 light:border-indigo-300/40 rounded font-mono text-xs text-emerald-300 dark:text-emerald-300 light:text-emerald-700 group-hover:border-indigo-400/40 dark:group-hover:border-indigo-400/40 light:group-hover:border-indigo-400/60 transition-all">
+                        <span>{skill.icon}</span>
+                        <span>"{skill.value}"</span>
+                      </span>
+                      <span className="text-white/40 dark:text-white/40 light:text-gray-400 font-mono text-sm">
+                        ;
+                      </span>
+                    </motion.div>
                   ))}
                 </motion.div>
               </div>
