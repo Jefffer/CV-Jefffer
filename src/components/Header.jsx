@@ -284,35 +284,35 @@ const Header = () => {
 
             {/* Ventana tipo Browser/Terminal - Diseño moderno y atrevido */}
             <motion.div
-              className="relative w-full md:max-w-3xl backdrop-blur-2xl bg-gradient-to-br from-slate-800/40 via-slate-900/50 to-indigo-950/60 dark:from-slate-900/40 dark:via-slate-950/50 dark:to-indigo-950/60 light:from-white/95 light:via-indigo-50/95 light:to-purple-50/95 border border-white/20 dark:border-white/20 light:border-indigo-300/50 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.6)] light:shadow-[0_8px_32px_rgba(99,102,241,0.3)] overflow-hidden mb-6 text-left"
+              className="relative w-full md:max-w-3xl backdrop-blur-2xl bg-gradient-to-br from-slate-800/40 via-slate-900/50 to-indigo-950/60 dark:from-slate-900/40 dark:via-slate-950/50 dark:to-indigo-950/60 light:from-white/98 light:via-slate-50/98 light:to-indigo-50/95 border border-white/20 dark:border-white/20 light:border-indigo-200/60 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.6)] light:shadow-[0_20px_60px_rgba(99,102,241,0.15)] overflow-hidden mb-6 text-left"
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
               {/* Barra superior tipo Mac con botones de control */}
-              <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-slate-700/80 via-slate-800/80 to-slate-900/80 dark:from-slate-800/80 dark:via-slate-900/80 dark:to-slate-950/80 light:from-indigo-100/90 light:via-purple-100/90 light:to-pink-100/90 border-b border-white/10 dark:border-white/10 light:border-indigo-200">
+              <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-slate-700/80 via-slate-800/80 to-slate-900/80 dark:from-slate-800/80 dark:via-slate-900/80 dark:to-slate-950/80 light:from-gradient-to-r light:from-slate-100/95 light:via-slate-50/95 light:to-indigo-100/90 border-b border-white/10 dark:border-white/10 light:border-indigo-200/40">
                 {/* Botones estilo Mac */}
                 <div className="flex items-center gap-2">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-3 h-3 rounded-full bg-red-500 shadow-lg cursor-pointer hover:bg-red-400 transition-colors"
+                    className="w-3 h-3 rounded-full bg-red-500 light:bg-red-400 shadow-lg cursor-pointer hover:bg-red-400 light:hover:bg-red-500 transition-colors"
                   />
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-3 h-3 rounded-full bg-yellow-500 shadow-lg cursor-pointer hover:bg-yellow-400 transition-colors"
+                    className="w-3 h-3 rounded-full bg-yellow-500 light:bg-yellow-400 shadow-lg cursor-pointer hover:bg-yellow-400 light:hover:bg-yellow-500 transition-colors"
                   />
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-3 h-3 rounded-full bg-green-500 shadow-lg cursor-pointer hover:bg-green-400 transition-colors"
+                    className="w-3 h-3 rounded-full bg-green-500 light:bg-green-400 shadow-lg cursor-pointer hover:bg-green-400 light:hover:bg-green-500 transition-colors"
                   />
                 </div>
 
                 {/* Título de la ventana - más minimalista - Oculto en mobile */}
                 <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center gap-2">
-                  <span className="text-xs font-mono text-white/60 dark:text-white/60 light:text-gray-500">
+                  <span className="text-xs font-mono text-white/60 dark:text-white/60 light:text-slate-500 light:font-semibold">
                     ~/professional-profile
                   </span>
                 </div>
@@ -326,24 +326,24 @@ const Header = () => {
                           href={href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group relative p-2 bg-white/10 dark:bg-white/10 light:bg-indigo-200/50 rounded-lg backdrop-blur-sm overflow-hidden block"
+                          className="group relative p-2 bg-white/10 dark:bg-white/10 light:bg-indigo-100/60 rounded-lg backdrop-blur-sm overflow-hidden block"
                           title={label}
                         >
                           {/* Efecto de relleno de izquierda a derecha */}
-                          <div className="absolute inset-0 w-0 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-full transition-all duration-300 ease-out"></div>
-                          <span className="relative z-10 text-indigo-200 dark:text-indigo-200 light:text-indigo-700 group-hover:text-white dark:group-hover:text-white light:group-hover:text-white text-base transition-colors duration-200 block">
+                          <div className="absolute inset-0 w-0 bg-gradient-to-r from-indigo-500 to-purple-500 light:from-indigo-400 light:to-purple-400 group-hover:w-full transition-all duration-300 ease-out"></div>
+                          <span className="relative z-10 text-indigo-200 dark:text-indigo-200 light:text-indigo-600 group-hover:text-white dark:group-hover:text-white light:group-hover:text-white text-base transition-colors duration-200 block">
                             {icon}
                           </span>
                         </a>
                       ) : (
                         <Link
                           to={to}
-                          className="group relative p-2 bg-white/10 dark:bg-white/10 light:bg-indigo-200/50 rounded-lg backdrop-blur-sm overflow-hidden block"
+                          className="group relative p-2 bg-white/10 dark:bg-white/10 light:bg-indigo-100/60 rounded-lg backdrop-blur-sm overflow-hidden block"
                           title={label}
                         >
                           {/* Efecto de relleno de izquierda a derecha */}
-                          <div className="absolute inset-0 w-0 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-full transition-all duration-300 ease-out"></div>
-                          <span className="relative z-10 text-indigo-200 dark:text-indigo-200 light:text-indigo-700 group-hover:text-white dark:group-hover:text-white light:group-hover:text-white text-base transition-colors duration-200 block">
+                          <div className="absolute inset-0 w-0 bg-gradient-to-r from-indigo-500 to-purple-500 light:from-indigo-400 light:to-purple-400 group-hover:w-full transition-all duration-300 ease-out"></div>
+                          <span className="relative z-10 text-indigo-200 dark:text-indigo-200 light:text-indigo-600 group-hover:text-white dark:group-hover:text-white light:group-hover:text-white text-base transition-colors duration-200 block">
                             {icon}
                           </span>
                         </Link>
@@ -354,7 +354,7 @@ const Header = () => {
               </div>
 
               {/* Contenido de la ventana - Altura fija - Efecto editor de texto */}
-              <div className="p-6 md:p-7 min-h-[160px] md:min-h-[140px]">
+              <div className="p-6 md:p-7 min-h-[160px] md:min-h-[140px] bg-transparent dark:bg-transparent light:bg-gradient-to-br light:from-white/50 light:to-slate-50/50">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -363,12 +363,12 @@ const Header = () => {
                 >
                   {/* Línea 1: Título con cursor */}
                   <div className="flex items-start gap-2">
-                    <span className="text-green-400 dark:text-green-400 light:text-green-600 text-sm mt-1">❯</span>
+                    <span className="text-green-400 dark:text-green-400 light:text-emerald-600 text-sm mt-1 font-bold">❯</span>
                     <div className="flex-1">
-                      <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 dark:from-indigo-200 dark:via-purple-200 dark:to-pink-200 light:from-indigo-700 light:via-purple-700 light:to-pink-700 bg-clip-text text-transparent leading-tight">
+                      <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 dark:from-indigo-200 dark:via-purple-200 dark:to-pink-200 light:from-indigo-600 light:via-purple-600 light:to-pink-600 bg-clip-text text-transparent leading-tight">
                         {displayedTitle}
                         {cursorPosition === "title" && (
-                          <span className={`inline-block w-0.5 h-5 md:h-6 ml-0.5 bg-white ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}></span>
+                          <span className={`inline-block w-0.5 h-5 md:h-6 ml-0.5 bg-white dark:bg-white light:bg-indigo-600 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}></span>
                         )}
                       </h2>
                     </div>
@@ -379,7 +379,7 @@ const Header = () => {
                     <div className="ml-4 text-sm md:text-base leading-relaxed">
                       {/* const */}
                       {displayedConstPrefix.length > 0 && (
-                        <span className="text-cyan-400 dark:text-cyan-400 light:text-cyan-600">
+                        <span className="text-cyan-400 dark:text-cyan-400 light:text-blue-600 font-semibold">
                           {displayedConstPrefix.slice(0, Math.min(5, displayedConstPrefix.length))}
                         </span>
                       )}
@@ -387,7 +387,7 @@ const Header = () => {
                       {displayedConstPrefix.length > 5 && <span> </span>}
                       {/* extraSkills */}
                       {displayedConstPrefix.length > 6 && (
-                        <span className="text-purple-300 dark:text-purple-300 light:text-purple-700">
+                        <span className="text-purple-300 dark:text-purple-300 light:text-indigo-700 font-semibold">
                           {displayedConstPrefix.slice(6, Math.min(17, displayedConstPrefix.length))}
                         </span>
                       )}
@@ -395,7 +395,7 @@ const Header = () => {
                       {displayedConstPrefix.length > 17 && <span> </span>}
                       {/* = */}
                       {displayedConstPrefix.length > 18 && (
-                        <span className="text-white/40 dark:text-white/40 light:text-gray-400">
+                        <span className="text-white/40 dark:text-white/40 light:text-slate-500">
                           {displayedConstPrefix.slice(18, Math.min(19, displayedConstPrefix.length))}
                         </span>
                       )}
@@ -404,17 +404,17 @@ const Header = () => {
                       
                       {/* Cursor al escribir "const extraSkills = " */}
                       {cursorPosition === "const" && (
-                        <span className={`inline-block w-0.5 h-4 ml-0.5 bg-cyan-400 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}></span>
+                        <span className={`inline-block w-0.5 h-4 ml-0.5 bg-cyan-400 dark:bg-cyan-400 light:bg-blue-600 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}></span>
                       )}
                       
                       {/* Habilidad con comillas en verde esmeralda */}
                       {displayedConstPrefix.length >= constPrefixText.length && (
                         <>
-                          <span className="text-emerald-300 dark:text-emerald-300 light:text-emerald-700">
+                          <span className="text-emerald-300 dark:text-emerald-300 light:text-green-700 font-medium">
                             {displayedSkill}
                           </span>
                           {/* Cursor siempre visible después de la habilidad */}
-                          <span className={`inline-block w-0.5 h-4 ml-0.5 bg-emerald-400 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}></span>
+                          <span className={`inline-block w-0.5 h-4 ml-0.5 bg-emerald-400 dark:bg-emerald-400 light:bg-green-600 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}></span>
                         </>
                       )}
                     </div>
