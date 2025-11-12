@@ -7,12 +7,79 @@ import {
   PiDatabaseDuotone,
   PiUsersDuotone,
   PiBrainDuotone,
-  PiPaletteDuotone
+  PiPaletteDuotone,
+  PiFileCSharpFill
 } from "react-icons/pi";
-import { HiOutlineSparkles, HiOutlineCursorClick } from "react-icons/hi";
-import { LiaHandPointDownSolid, LiaHandPointDown } from "react-icons/lia";
+import { LiaHandPointDownSolid, LiaHandPointDown, LiaAws } from "react-icons/lia";
+import {
+  SiDotnet, 
+  SiReact, 
+  SiAngular, 
+  SiJavascript,
+  SiDocker, 
+  SiKubernetes, 
+  SiMongodb,
+  SiPostgresql,
+  SiMysql,
+  SiPython,
+  SiSpringboot,
+  SiNodedotjs,
+  SiGraphql,
+  SiKotlin,
+  SiGit,
+  SiGooglegemini
+} from "react-icons/si";
+import { TbBrandReactNative, TbApi, TbCloud, TbRobot } from "react-icons/tb";
+import { VscAzureDevops } from "react-icons/vsc";
+import { FaJava } from 'react-icons/fa';
+import { DiMsqlServer, DiDotnet } from "react-icons/di";
 
 import Flag from "react-world-flags";
+
+// Iconos de tecnologías por categoría de habilidad
+const techIcons = {
+  backend: [
+    { Icon: PiFileCSharpFill, color: "text-purple-400" },
+    { Icon: SiDotnet, color: "text-purple-400" },
+    { Icon: DiDotnet, color: "text-sky-400" },
+    { Icon: FaJava, color: "text-orange-400" },
+    { Icon: SiPython, color: "text-yellow-400" },
+    { Icon: SiSpringboot, color: "text-green-400" },
+    { Icon: DiMsqlServer, color: "text-red-400" },
+  ],
+  frontend: [
+    { Icon: SiReact, color: "text-cyan-400" },
+    { Icon: SiAngular, color: "text-red-500" },
+    { Icon: SiJavascript, color: "text-yellow-300" },
+    { Icon: TbBrandReactNative, color: "text-blue-400" },
+    { Icon: TbApi, color: "text-pink-400" },
+  ],
+  devops: [
+    { Icon: SiDocker, color: "text-blue-400" },
+    { Icon: SiKubernetes, color: "text-blue-500" },
+    { Icon: VscAzureDevops, color: "text-cyan-400" },
+    { Icon: TbCloud, color: "text-indigo-400" },
+    { Icon: LiaAws, color: "text-orange-400" },
+    { Icon: SiGit, color: "text-orange-500" },
+  ],
+  database: [
+    { Icon: DiMsqlServer, color: "text-red-400" },
+    { Icon: SiMongodb, color: "text-green-500" },
+    { Icon: SiPostgresql, color: "text-blue-400" },
+    { Icon: SiMysql, color: "text-blue-500" },
+  ],
+  agile: [
+    { Icon: VscAzureDevops, color: "text-cyan-400" },
+    { Icon: SiGit, color: "text-orange-500" },
+    { Icon: TbApi, color: "text-purple-400" },
+  ],
+  ai: [
+    { Icon: TbRobot, color: "text-pink-400" },
+    { Icon: SiPython, color: "text-yellow-400" },
+    { Icon: TbApi, color: "text-fuchsia-400" },
+    { Icon: SiGooglegemini, color: "text-blue-400" },
+  ],
+};
 
 const skills = [
   {
@@ -22,6 +89,7 @@ const skills = [
     icon: <PiCodeDuotone className="text-4xl" />,
     gradient: "from-blue-300 via-purple-400 to-indigo-500",
     color: "text-blue-400",
+    techCategory: "backend",
   },
   {
     title: "Frontend Development",
@@ -30,6 +98,7 @@ const skills = [
     icon: <PiPaletteDuotone className="text-4xl" />,
     gradient: "from-red-500 via-orange-500 to-amber-400",
     color: "text-pink-400",
+    techCategory: "frontend",
   },
   {
     title: "DevOps & Cloud",
@@ -38,6 +107,7 @@ const skills = [
     icon: <PiCloudDuotone className="text-4xl" />,
     gradient: "from-cyan-300 via-teal-300 to-emerald-400",
     color: "text-cyan-400",
+    techCategory: "devops",
   },
   {
     title: "Database Management",
@@ -46,6 +116,7 @@ const skills = [
     icon: <PiDatabaseDuotone className="text-4xl" />,
     gradient: "from-emerald-400 via-green-400 to-lime-400",
     color: "text-emerald-400",
+    techCategory: "database",
   },
   {
     title: "Agile Methodologies",
@@ -54,6 +125,7 @@ const skills = [
     icon: <PiUsersDuotone className="text-4xl" />,
     gradient: "from-purple-400 via-violet-500 to-indigo-300",
     color: "text-purple-400",
+    techCategory: "agile",
   },
   {
     title: "Artificial Intelligence & Automation",
@@ -63,6 +135,7 @@ const skills = [
     icon: <PiBrainDuotone className="text-4xl" />,
     gradient: "from-fuchsia-200 via-pink-300 to-rose-400",
     color: "text-orange-400",
+    techCategory: "ai",
   },
 ];
 
@@ -126,29 +199,77 @@ const About = () => {
           />
         </motion.div>
 
-        {/* Efectos de partículas */}
-        <div className="absolute inset-0 z-20">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className={`absolute w-1 h-1 bg-gradient-to-r ${skill.gradient} rounded-full opacity-60`}
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -30, 0],
-                x: [0, Math.random() * 20 - 10, 0],
-                opacity: [0.6, 1, 0.6],
-                scale: [1, 1.5, 1],
-              }}
-              transition={{
-                duration: 3 + Math.random() * 2,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            />
-          ))}
+        {/* Efectos de partículas con iconos de tecnologías */}
+        <div className="absolute inset-0 z-20 overflow-hidden">
+          {techIcons[skill.techCategory].map((tech, i) => {
+            const IconComponent = tech.Icon;
+            const randomX = Math.random() * 100;
+            const randomY = Math.random() * 100;
+            const randomDelay = Math.random() * 3;
+            const randomDuration = 4 + Math.random() * 3;
+            
+            return (
+              <motion.div
+                key={i}
+                className={`absolute ${tech.color}`}
+                style={{
+                  left: `${randomX}%`,
+                  top: `${randomY}%`,
+                  opacity: 0.3,
+                }}
+                animate={{
+                  y: [0, -40, 0],
+                  x: [0, Math.random() * 30 - 15, 0],
+                  opacity: [0.2, 0.5, 0.2],
+                  scale: [1, 1.3, 1],
+                  rotate: [0, 360],
+                }}
+                transition={{
+                  duration: randomDuration,
+                  repeat: Infinity,
+                  delay: randomDelay,
+                  ease: "easeInOut",
+                }}
+              >
+                <IconComponent className="text-xl md:text-2xl drop-shadow-lg" />
+              </motion.div>
+            );
+          })}
+          
+          {/* Partículas adicionales más sutiles para llenar espacio */}
+          {[...Array(8)].map((_, i) => {
+            const randomIcon = techIcons[skill.techCategory][i % techIcons[skill.techCategory].length];
+            const IconComponent = randomIcon.Icon;
+            const randomX = Math.random() * 100;
+            const randomY = Math.random() * 100;
+            const randomDelay = Math.random() * 2;
+            
+            return (
+              <motion.div
+                key={`extra-${i}`}
+                className={`absolute ${randomIcon.color}`}
+                style={{
+                  left: `${randomX}%`,
+                  top: `${randomY}%`,
+                  opacity: 0.15,
+                }}
+                animate={{
+                  y: [0, -25, 0],
+                  x: [0, Math.random() * 20 - 10, 0],
+                  opacity: [0.1, 0.25, 0.1],
+                  scale: [0.8, 1.1, 0.8],
+                }}
+                transition={{
+                  duration: 5 + Math.random() * 2,
+                  repeat: Infinity,
+                  delay: randomDelay,
+                  ease: "easeInOut",
+                }}
+              >
+                <IconComponent className="text-base md:text-lg" />
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Contenido principal */}
@@ -266,7 +387,7 @@ const About = () => {
         with{" "}
         {/* <strong className="font-semibold">8 years of experience</strong> */}
         <span className="font-bold bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-400 dark:to-cyan-400 bg-clip-text text-transparent">
-          8 years of experience
+          8+ years of experience
         </span>{" "}
         currently living in{" "}
         {/* <strong className="font-semibold">Bilbao</strong>{" "} */}
