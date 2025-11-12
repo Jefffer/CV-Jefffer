@@ -8,7 +8,8 @@ import {
   PiUsersDuotone,
   PiBrainDuotone,
   PiPaletteDuotone,
-  PiFileCSharpFill
+  PiFileCSharpFill,
+  PiOpenAiLogo
 } from "react-icons/pi";
 import { LiaHandPointDownSolid, LiaHandPointDown, LiaAws } from "react-icons/lia";
 import {
@@ -78,6 +79,7 @@ const techIcons = {
     { Icon: SiPython, color: "text-yellow-400" },
     { Icon: TbApi, color: "text-fuchsia-400" },
     { Icon: SiGooglegemini, color: "text-blue-400" },
+    { Icon: PiOpenAiLogo, color: "text-black-400" },
   ],
 };
 
@@ -547,30 +549,6 @@ const About = () => {
 
       {/* Sección de habilidades */}
       <div ref={containerRef} className="w-full mt-20 relative">
-        {/* Indicador de progreso */}
-        <motion.div
-          className="fixed left-8 top-1/2 -translate-y-1/2 z-50 hidden lg:block"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 1.5 }}
-        >
-          <div className="flex flex-col gap-4">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={index}
-                className="w-3 h-3 rounded-full border-2 border-white/30 backdrop-blur-sm"
-                whileHover={{ scale: 1.5 }}
-                style={{
-                  background: `linear-gradient(45deg, ${skill.gradient
-                    .replace("from-", "")
-                    .replace(" via-", ", ")
-                    .replace(" to-", ", ")})`,
-                }}
-              />
-            ))}
-          </div>
-        </motion.div>
-
         {/* Skills sections */}
         {skills.map((skill, index) => (
           <SkillSection key={index} skill={skill} index={index} />
