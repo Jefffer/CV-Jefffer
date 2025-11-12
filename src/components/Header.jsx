@@ -42,12 +42,38 @@ const Header = () => {
   const [showCursor, setShowCursor] = useState(true);
   const [cursorPosition, setCursorPosition] = useState("title"); // "title", "const", "skill"
   const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const { darkMode, setDarkMode } = useTheme();
   const location = useLocation();
 
   const titleText = "Senior .NET Developer · React · Cloud";
   const constPrefixText = "const extraSkills = ";
   const extraSkills = skillsData;
+
+  // Efecto de parallax basado en scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.getElementById("main-header");
+      if (!header) return;
+      
+      const headerHeight = header.clientHeight;
+      const scrollY = window.scrollY;
+      
+      // Calcular progreso del scroll (0 = arriba, 1 = header completamente fuera de vista)
+      const progress = Math.min(scrollY / headerHeight, 1);
+      setScrollProgress(progress);
+      
+      // Mostrar mini header cuando se pasa el header principal
+      if (scrollY > headerHeight) {
+        setIsMiniHeaderVisible(true);
+      } else {
+        setIsMiniHeaderVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Efecto de parpadeo del cursor (más rápido y realista)
   useEffect(() => {
@@ -169,19 +195,6 @@ const Header = () => {
     return () => clearTimeout(timeout);
   }, [currentSkillIndex, isInitialLoad]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const header = document.getElementById("main-header");
-      if (window.scrollY > header.clientHeight) {
-        setIsMiniHeaderVisible(true);
-      } else {
-        setIsMiniHeaderVisible(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -226,7 +239,14 @@ const Header = () => {
         className="relative overflow-hidden bg-gradient-to-br from-slate-800 via-slate-900 to-indigo-950 dark:from-slate-900 dark:via-slate-950 dark:to-indigo-950 light:from-slate-50 light:via-indigo-50 light:to-purple-50 text-white dark:text-white light:text-gray-900 pt-16 md:pt-20 pb-8 md:pb-10 border-b-2 border-indigo-500/20 dark:border-indigo-500/20 light:border-indigo-200"
       >
         {/* Foto de fondo con desvanecido - Desktop (derecha con fade a izquierda) */}
-        <div className="hidden md:block absolute inset-y-0 right-0 w-1/3 pointer-events-none">
+        <motion.div 
+          className="hidden md:block absolute inset-y-0 right-0 w-1/3 pointer-events-none"
+          style={{
+            x: scrollProgress * 150, // Se mueve hacia la derecha
+            opacity: 1 - scrollProgress * 0.8, // Se desvanece gradualmente
+            scale: 1 + scrollProgress * 0.1, // Ligero zoom out
+          }}
+        >
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
@@ -237,7 +257,7 @@ const Header = () => {
               WebkitMaskImage: "linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
             }}
           />
-        </div>
+        </motion.div>
 
         {/* Foto de fondo con desvanecido - Mobile (arriba hacia abajo) */}
         <div className="md:hidden absolute inset-x-0 top-0 h-1/2 pointer-events-none">
@@ -262,6 +282,10 @@ const Header = () => {
               initial={{ opacity: 0, y: -30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
+              style={{
+                y: scrollProgress * -30, // Se mueve ligeramente hacia arriba
+                opacity: 1 - scrollProgress * 0.7, // Se desvanece
+              }}
             >
               <motion.h1
                 className="text-5xl md:text-6xl lg:text-7xl font-black  pb-2 tracking-wider leading-relaxed drop-shadow-[0_0_30px_rgba(99,102,241,0.3)] dark:drop-shadow-[0_0_30px_rgba(99,102,241,0.5)] light:drop-shadow-none "
@@ -284,10 +308,16 @@ const Header = () => {
 
             {/* Ventana tipo Browser/Terminal - Diseño moderno y atrevido */}
             <motion.div
-              className="relative w-full md:max-w-3xl backdrop-blur-2xl bg-gradient-to-br from-slate-800/40 via-slate-900/50 to-indigo-950/60 dark:from-slate-900/40 dark:via-slate-950/50 dark:to-indigo-950/60 light:from-white/98 light:via-slate-50/98 light:to-indigo-50/95 border border-white/20 dark:border-white/20 light:border-indigo-200/60 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.6)] light:shadow-[0_20px_60px_rgba(99,102,241,0.15)] overflow-hidden mb-6 text-left"
+              className="relative w-full md:max-w-3xl backdrop-blur-2xl bg-gradient-to-br from-slate-800/40 via-slate-900/50 to-indigo-950/60 dark:from-slate-900/40 dark:via-slate-950/50 dark:to-indigo-950/60 light:bg-[#fafafa] border border-white/20 dark:border-white/20 light:border-slate-200 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.6)] light:shadow-[0_4px_24px_rgba(0,0,0,0.08)] overflow-hidden mb-8 text-left"
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
+              style={{
+                x: scrollProgress * -120, // Se mueve hacia la izquierda
+                opacity: 1 - scrollProgress * 0.9, // Se desvanece más que la foto
+                rotateY: scrollProgress * -8, // Rotación 3D sutil
+                scale: 1 - scrollProgress * 0.15, // Se hace más pequeño
+              }}
             >
               {/* Barra superior tipo Mac con botones de control */}
               <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-slate-700/80 via-slate-800/80 to-slate-900/80 dark:from-slate-800/80 dark:via-slate-900/80 dark:to-slate-950/80 light:from-gradient-to-r light:from-slate-100/95 light:via-slate-50/95 light:to-indigo-100/90 border-b border-white/10 dark:border-white/10 light:border-indigo-200/40">
