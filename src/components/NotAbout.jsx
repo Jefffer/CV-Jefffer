@@ -468,7 +468,7 @@ const About = () => {
             {/* Fondo con gradiente */}
             <div className="relative px-6 py-3 rounded-full border-2 border-blue-500/30 dark:border-blue-400/30 bg-gradient-to-br from-blue-500/10 via-indigo-500/5 to-purple-500/10 dark:from-blue-500/20 dark:via-indigo-500/10 dark:to-purple-500/20 backdrop-blur-sm overflow-hidden">
               {/* Efecto de relleno animado de izquierda a derecha */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
+              <div className="absolute inset-0 bg-blue-600/90 dark:bg-blue-500/80 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
 
               {/* Contenido del botón */}
               <div className="relative z-10 flex items-center justify-center gap-3">
@@ -491,17 +491,17 @@ const About = () => {
 
                   {/* Texto hover - aparece desde abajo */}
                   <div className="absolute inset-0 flex flex-col items-start justify-center translate-y-[50px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
-                    <span className="text-xs font-medium dark:text-white/90 whitespace-nowrap">
+                    <span className="text-xs font-medium text-white/90 whitespace-nowrap">
                       English
                     </span>
-                    <span className="text-lg font-bold dark:text-white whitespace-nowrap">
+                    <span className="text-lg font-bold text-white whitespace-nowrap">
                       View CV
                     </span>
                   </div>
                 </div>
 
                 {/* Flecha sin animación */}
-                <div className="relative z-10 text-blue-600 dark:text-blue-400">
+                <div className="relative z-10 text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors duration-300">
                   <PiArrowRightBold className="text-xl" />
                 </div>
               </div>
@@ -519,7 +519,7 @@ const About = () => {
             {/* Fondo con gradiente */}
             <div className="relative px-6 py-3 rounded-full border-2 border-orange-500/30 dark:border-orange-400/30 bg-gradient-to-br from-orange-500/10 via-red-500/5 to-yellow-500/10 dark:from-orange-500/20 dark:via-red-500/10 dark:to-yellow-500/20 backdrop-blur-sm overflow-hidden">
               {/* Efecto de relleno animado de izquierda a derecha */}
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-yellow-600 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
+              <div className="absolute inset-0 bg-orange-600/90 dark:bg-orange-500/80 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
 
               {/* Contenido del botón */}
               <div className="relative z-10 flex items-center justify-center gap-3">
@@ -542,17 +542,17 @@ const About = () => {
 
                   {/* Texto hover - aparece desde abajo */}
                   <div className="absolute inset-0 flex flex-col items-start justify-center translate-y-[50px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
-                    <span className="text-xs font-medium dark:text-white/90 whitespace-nowrap">
+                    <span className="text-xs font-medium text-white/90 whitespace-nowrap">
                       Español
                     </span>
-                    <span className="text-lg font-bold dark:text-white whitespace-nowrap">
+                    <span className="text-lg font-bold text-white whitespace-nowrap">
                       Ver CV
                     </span>
                   </div>
                 </div>
 
                 {/* Flecha sin animación */}
-                <div className="relative z-10 text-orange-600 dark:text-orange-400">
+                <div className="relative z-10 text-orange-600 dark:text-orange-400 group-hover:text-white transition-colors duration-300">
                   <PiArrowRightBold className="text-xl" />
                 </div>
               </div>
