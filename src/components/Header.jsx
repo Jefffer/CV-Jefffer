@@ -29,55 +29,84 @@ import { IoClose } from "react-icons/io5";
 import { useTheme } from "../context/ThemeContext";
 import { BsSun, BsMoon } from "react-icons/bs";
 import { motion, AnimatePresence } from "framer-motion";
+import skillsData from "../data/skillsData";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMiniHeaderVisible, setIsMiniHeaderVisible] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
-  const [displayedText, setDisplayedText] = useState("");
+  const [displayedTitle, setDisplayedTitle] = useState("");
+  const [displayedConstPrefix, setDisplayedConstPrefix] = useState("");
+  const [displayedSkill, setDisplayedSkill] = useState("");
+  const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
+  const [cursorPosition, setCursorPosition] = useState("title"); // "title", "const", "skill"
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
   const { darkMode, setDarkMode } = useTheme();
   const location = useLocation();
 
-  const fullText = "Senior .NET Developer · React · Cloud · IA";
+  const titleText = "Senior .NET Developer · React · Cloud";
+  const constPrefixText = "const extraSkills = ";
+  const extraSkills = skillsData;
 
   // Efecto de parpadeo del cursor (más rápido y realista)
   useEffect(() => {
     const cursorInterval = setInterval(() => {
       setShowCursor((prev) => !prev);
-    }, 530); // Parpadeo cada 530ms (más realista)
+    }, 530);
 
     return () => clearInterval(cursorInterval);
   }, []);
 
-  // Efecto de escritura y borrado
+  // Efecto de escritura inicial completa
   useEffect(() => {
-    let currentIndex = 0;
-    let isDeleting = false;
+    if (!isInitialLoad) return;
+
     let timeout;
+    let phase = 1;
+    let charIndex = 0;
 
     const typeWriter = () => {
-      if (!isDeleting && currentIndex <= fullText.length) {
-        // Escribiendo
-        setDisplayedText(fullText.slice(0, currentIndex));
-        currentIndex++;
-        timeout = setTimeout(typeWriter, 80); // Velocidad de escritura
-      } else if (!isDeleting && currentIndex > fullText.length) {
-        // Esperar 10 segundos antes de empezar a borrar
-        timeout = setTimeout(() => {
-          isDeleting = true;
-          typeWriter();
-        }, 10000);
-      } else if (isDeleting && currentIndex > 0) {
-        // Borrando
-        currentIndex--;
-        setDisplayedText(fullText.slice(0, currentIndex));
-        timeout = setTimeout(typeWriter, 50); // Velocidad de borrado (más rápido)
-      } else if (isDeleting && currentIndex === 0) {
-        // Reiniciar el ciclo
-        isDeleting = false;
-        currentIndex = 0;
-        timeout = setTimeout(typeWriter, 500); // Pequeña pausa antes de reescribir
+      // FASE 1: Escribir título con cursor
+      if (phase === 1) {
+        setCursorPosition("title");
+        if (charIndex <= titleText.length) {
+          setDisplayedTitle(titleText.slice(0, charIndex));
+          charIndex++;
+          timeout = setTimeout(typeWriter, 80);
+        } else {
+          // Título completo, pasar a fase 2
+          phase = 2;
+          charIndex = 0;
+          timeout = setTimeout(typeWriter, 200);
+        }
+      }
+      // FASE 2: Escribir "const extraSkills = " con cursor
+      else if (phase === 2) {
+        setCursorPosition("const");
+        if (charIndex <= constPrefixText.length) {
+          setDisplayedConstPrefix(constPrefixText.slice(0, charIndex));
+          charIndex++;
+          timeout = setTimeout(typeWriter, 60);
+        } else {
+          // Prefijo completo, pasar a fase 3
+          phase = 3;
+          charIndex = 0;
+          timeout = setTimeout(typeWriter, 100);
+        }
+      }
+      // FASE 3: Escribir primera habilidad con comillas y punto y coma
+      else if (phase === 3) {
+        setCursorPosition("skill");
+        const fullSkillText = `"${extraSkills[currentSkillIndex]}";`;
+        if (charIndex <= fullSkillText.length) {
+          setDisplayedSkill(fullSkillText.slice(0, charIndex));
+          charIndex++;
+          timeout = setTimeout(typeWriter, 60);
+        } else {
+          // Escritura completa, el cursor permanece en "skill"
+          setIsInitialLoad(false);
+        }
       }
     };
 
@@ -85,6 +114,60 @@ const Header = () => {
 
     return () => clearTimeout(timeout);
   }, []);
+
+  // Efecto para rotar habilidades después de la carga inicial
+  useEffect(() => {
+    if (isInitialLoad) return;
+
+    let timeout;
+    const currentFullSkillText = `"${extraSkills[currentSkillIndex]}";`;
+    
+    // Paso 1: Esperar 5 segundos mostrando la habilidad completa
+    timeout = setTimeout(() => {
+      deleteSkill();
+    }, 5000);
+
+    const deleteSkill = () => {
+      let charIndex = currentFullSkillText.length;
+      
+      const deleteChar = () => {
+        if (charIndex > 0) {
+          charIndex--;
+          setDisplayedSkill(currentFullSkillText.slice(0, charIndex));
+          timeout = setTimeout(deleteChar, 30);
+        } else {
+          // Borrado completo, cambiar a la siguiente habilidad
+          setCurrentSkillIndex((prevIndex) => (prevIndex + 1) % extraSkills.length);
+        }
+      };
+      
+      deleteChar();
+    };
+
+    return () => clearTimeout(timeout);
+  }, [currentSkillIndex, isInitialLoad]);
+
+  // Efecto para escribir la nueva habilidad cuando cambia el índice
+  useEffect(() => {
+    if (isInitialLoad) return;
+    if (displayedSkill !== "") return; // Solo escribir cuando esté vacío
+
+    let timeout;
+    let charIndex = 0;
+    const fullSkillText = `"${extraSkills[currentSkillIndex]}";`;
+    
+    const writeChar = () => {
+      if (charIndex <= fullSkillText.length) {
+        setDisplayedSkill(fullSkillText.slice(0, charIndex));
+        charIndex++;
+        timeout = setTimeout(writeChar, 60);
+      }
+    };
+
+    writeChar();
+
+    return () => clearTimeout(timeout);
+  }, [currentSkillIndex, isInitialLoad]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -201,7 +284,7 @@ const Header = () => {
 
             {/* Ventana tipo Browser/Terminal - Diseño moderno y atrevido */}
             <motion.div
-              className="relative w-full md:max-w-3xl backdrop-blur-2xl bg-gradient-to-br from-slate-800/40 via-slate-900/50 to-indigo-950/60 dark:from-slate-900/40 dark:via-slate-950/50 dark:to-indigo-950/60 light:from-white/95 light:via-indigo-50/95 light:to-purple-50/95 border border-white/20 dark:border-white/20 light:border-indigo-300/50 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.6)] light:shadow-[0_8px_32px_rgba(99,102,241,0.3)] overflow-hidden mb-6"
+              className="relative w-full md:max-w-3xl backdrop-blur-2xl bg-gradient-to-br from-slate-800/40 via-slate-900/50 to-indigo-950/60 dark:from-slate-900/40 dark:via-slate-950/50 dark:to-indigo-950/60 light:from-white/95 light:via-indigo-50/95 light:to-purple-50/95 border border-white/20 dark:border-white/20 light:border-indigo-300/50 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.6)] light:shadow-[0_8px_32px_rgba(99,102,241,0.3)] overflow-hidden mb-6 text-left"
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
@@ -270,61 +353,72 @@ const Header = () => {
                 </div>
               </div>
 
-              {/* Contenido de la ventana */}
-              <div className="p-6 md:p-7">
-                {/* Título profesional con efecto terminal y escritura */}
+              {/* Contenido de la ventana - Altura fija - Efecto editor de texto */}
+              <div className="p-6 md:p-7 min-h-[160px] md:min-h-[140px]">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  className="mb-6"
+                  className="space-y-3 font-mono"
                 >
-                  <div className="flex items-start gap-2 mb-4">
-                    <span className="text-green-400 dark:text-green-400 light:text-green-600 font-mono text-sm mt-2">❯</span>
-                    <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 dark:from-indigo-200 dark:via-purple-200 dark:to-pink-200 light:from-indigo-700 light:via-purple-700 light:to-pink-700 bg-clip-text text-transparent leading-tight font-mono">
-                      {displayedText}
-                      <span className={`inline-block w-0.5 h-4 md:h-5 ml-0.5 bg-gradient-to-r from-indigo-300 to-purple-300 dark:from-indigo-300 dark:to-purple-300 light:from-indigo-700 light:to-purple-700 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}></span>
-                    </h2>
+                  {/* Línea 1: Título con cursor */}
+                  <div className="flex items-start gap-2">
+                    <span className="text-green-400 dark:text-green-400 light:text-green-600 text-sm mt-1">❯</span>
+                    <div className="flex-1">
+                      <h2 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 dark:from-indigo-200 dark:via-purple-200 dark:to-pink-200 light:from-indigo-700 light:via-purple-700 light:to-pink-700 bg-clip-text text-transparent leading-tight">
+                        {displayedTitle}
+                        {cursorPosition === "title" && (
+                          <span className={`inline-block w-0.5 h-5 md:h-6 ml-0.5 bg-white ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}></span>
+                        )}
+                      </h2>
+                    </div>
                   </div>
-                </motion.div>
 
-                {/* Skills con diseño tipo código/terminal */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.9 }}
-                  className="space-y-2"
-                >
-                  {[
-                    { key: "azureDevOps", value: "Azure DevOps", icon: "☁️" },
-                    { key: "cloudArch", value: "Cloud Architecture", icon: "🏗️" },
-                    { key: "aiEnthusiast", value: "AI Enthusiast", icon: "🤖" }
-                  ].map((skill, index) => (
-                    <motion.div
-                      key={skill.key}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 1 + index * 0.15 }}
-                      className="flex items-center gap-3 group"
-                    >
-                      <span className="text-cyan-400 dark:text-cyan-400 light:text-cyan-600 font-mono text-xs">
-                        const
-                      </span>
-                      <span className="text-purple-300 dark:text-purple-300 light:text-purple-700 font-mono text-sm">
-                        {skill.key}
-                      </span>
-                      <span className="text-white/40 dark:text-white/40 light:text-gray-400 font-mono text-sm">
-                        =
-                      </span>
-                      <span className="flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 dark:from-indigo-500/10 dark:to-purple-500/10 light:from-indigo-100/50 light:to-purple-100/50 border border-indigo-400/20 dark:border-indigo-400/20 light:border-indigo-300/40 rounded font-mono text-xs text-emerald-300 dark:text-emerald-300 light:text-emerald-700 group-hover:border-indigo-400/40 dark:group-hover:border-indigo-400/40 light:group-hover:border-indigo-400/60 transition-all">
-                        <span>{skill.icon}</span>
-                        <span>"{skill.value}"</span>
-                      </span>
-                      <span className="text-white/40 dark:text-white/40 light:text-gray-400 font-mono text-sm">
-                        ;
-                      </span>
-                    </motion.div>
-                  ))}
+                  {/* Línea 2: const extraSkills = "habilidad"; - Todo escrito carácter por carácter */}
+                  {displayedConstPrefix && (
+                    <div className="ml-4 text-sm md:text-base leading-relaxed">
+                      {/* const */}
+                      {displayedConstPrefix.length > 0 && (
+                        <span className="text-cyan-400 dark:text-cyan-400 light:text-cyan-600">
+                          {displayedConstPrefix.slice(0, Math.min(5, displayedConstPrefix.length))}
+                        </span>
+                      )}
+                      {/* espacio */}
+                      {displayedConstPrefix.length > 5 && <span> </span>}
+                      {/* extraSkills */}
+                      {displayedConstPrefix.length > 6 && (
+                        <span className="text-purple-300 dark:text-purple-300 light:text-purple-700">
+                          {displayedConstPrefix.slice(6, Math.min(17, displayedConstPrefix.length))}
+                        </span>
+                      )}
+                      {/* espacio */}
+                      {displayedConstPrefix.length > 17 && <span> </span>}
+                      {/* = */}
+                      {displayedConstPrefix.length > 18 && (
+                        <span className="text-white/40 dark:text-white/40 light:text-gray-400">
+                          {displayedConstPrefix.slice(18, Math.min(19, displayedConstPrefix.length))}
+                        </span>
+                      )}
+                      {/* espacio */}
+                      {displayedConstPrefix.length > 19 && <span> </span>}
+                      
+                      {/* Cursor al escribir "const extraSkills = " */}
+                      {cursorPosition === "const" && (
+                        <span className={`inline-block w-0.5 h-4 ml-0.5 bg-cyan-400 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}></span>
+                      )}
+                      
+                      {/* Habilidad con comillas en verde esmeralda */}
+                      {displayedConstPrefix.length >= constPrefixText.length && (
+                        <>
+                          <span className="text-emerald-300 dark:text-emerald-300 light:text-emerald-700">
+                            {displayedSkill}
+                          </span>
+                          {/* Cursor siempre visible después de la habilidad */}
+                          <span className={`inline-block w-0.5 h-4 ml-0.5 bg-emerald-400 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}></span>
+                        </>
+                      )}
+                    </div>
+                  )}
                 </motion.div>
               </div>
             </motion.div>
