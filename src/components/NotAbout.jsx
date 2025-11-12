@@ -450,114 +450,117 @@ const About = () => {
           </motion.div>
         </motion.div>
 
-        {/* Contenedor de botones mejorado */}
+        {/* Contenedor de botones mejorado - Unidos como un solo elemento */}
         <motion.div
-          className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 relative"
+          className="flex justify-center relative"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
         >
-          {/* Botón CV en inglés - Diseño Moderno */}
-          <motion.a
-            href="/cv-en.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative overflow-hidden"
-            whileTap={{ scale: 0.97 }}
-          >
-            {/* Fondo con gradiente */}
-            <div className="relative px-6 py-3 rounded-full border-2 border-blue-500/30 dark:border-blue-400/30 bg-gradient-to-br from-blue-500/10 via-indigo-500/5 to-purple-500/10 dark:from-blue-500/20 dark:via-indigo-500/10 dark:to-purple-500/20 backdrop-blur-sm overflow-hidden">
-              {/* Efecto de relleno animado de izquierda a derecha */}
-              <div className="absolute inset-0 bg-blue-600/90 dark:bg-blue-500/80 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
+          <div className="flex items-center border-2 border-slate-300/50 dark:border-slate-600/50 rounded-full overflow-hidden backdrop-blur-sm bg-slate-50/30 dark:bg-slate-800/30">
+            {/* Botón CV en inglés - Lado izquierdo */}
+            <motion.a
+              href="/cv-en.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden"
+              whileTap={{ scale: 0.97 }}
+            >
+              <div className="relative px-6 py-3 overflow-hidden">
+                {/* Efecto de relleno animado de derecha a izquierda */}
+                <div className="absolute inset-0 bg-blue-600/90 dark:bg-blue-500/80 translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
 
-              {/* Contenido del botón */}
-              <div className="relative z-10 flex items-center justify-center gap-3">
-                {/* Bandera UK */}
-                <div className="relative z-10">
-                  <Flag code="GB" className="h-6 rounded shadow-md" />
-                </div>
-
-                {/* Contenedor de texto con animación */}
-                <div className="relative h-12 w-20 flex items-center overflow-hidden">
-                  {/* Texto original - sube y desaparece en hover */}
-                  <div className="absolute inset-0 flex flex-col items-start justify-center group-hover:translate-y-[-50px] group-hover:opacity-0 transition-all duration-300 ease-in-out">
-                    <span className="text-xs font-medium text-blue-600 dark:text-blue-400 whitespace-nowrap">
-                      English
-                    </span>
-                    <span className="text-lg font-bold text-blue-700 dark:text-blue-300 whitespace-nowrap">
-                      View CV
-                    </span>
+                {/* Contenido del botón */}
+                <div className="relative z-10 flex items-center justify-center gap-3">
+                  {/* Bandera UK */}
+                  <div className="relative z-10">
+                    <Flag code="GB" className="h-6 rounded shadow-md" />
                   </div>
 
-                  {/* Texto hover - aparece desde abajo */}
-                  <div className="absolute inset-0 flex flex-col items-start justify-center translate-y-[50px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
-                    <span className="text-xs font-medium text-white/90 whitespace-nowrap">
-                      English
-                    </span>
-                    <span className="text-lg font-bold text-white whitespace-nowrap">
-                      View CV
-                    </span>
-                  </div>
-                </div>
+                  {/* Contenedor de texto con animación */}
+                  <div className="relative h-12 w-20 flex items-center overflow-hidden">
+                    {/* Texto original - sube y desaparece en hover */}
+                    <div className="absolute inset-0 flex flex-col items-start justify-center group-hover:translate-y-[-50px] group-hover:opacity-0 transition-all duration-500 ease-in-out">
+                      <span className="text-xs font-medium text-blue-700/70 dark:text-blue-300/70 whitespace-nowrap">
+                        English
+                      </span>
+                      <span className="text-lg font-bold text-blue-700 dark:text-blue-300 whitespace-nowrap">
+                        View CV
+                      </span>
+                    </div>
 
-                {/* Flecha sin animación */}
-                <div className="relative z-10 text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors duration-300">
-                  <PiArrowRightBold className="text-xl" />
+                    {/* Texto hover - aparece desde abajo */}
+                    <div className="absolute inset-0 flex flex-col items-start justify-center translate-y-[50px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+                      <span className="text-xs font-medium text-white/70 whitespace-nowrap">
+                        English
+                      </span>
+                      <span className="text-lg font-bold text-white whitespace-nowrap">
+                        View CV
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Flecha sin animación */}
+                  <div className="relative z-10 text-blue-600 dark:text-blue-400 group-hover:text-white transition-colors duration-300">
+                    <PiArrowRightBold className="text-xl" />
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.a>
+            </motion.a>
 
-          {/* Botón CV en español - Diseño Moderno */}
-          <motion.a
-            href="/cv-es.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative overflow-hidden"
-            whileTap={{ scale: 0.97 }}
-          >
-            {/* Fondo con gradiente */}
-            <div className="relative px-6 py-3 rounded-full border-2 border-orange-500/30 dark:border-orange-400/30 bg-gradient-to-br from-orange-500/10 via-red-500/5 to-yellow-500/10 dark:from-orange-500/20 dark:via-red-500/10 dark:to-yellow-500/20 backdrop-blur-sm overflow-hidden">
-              {/* Efecto de relleno animado de izquierda a derecha */}
-              <div className="absolute inset-0 bg-orange-600/90 dark:bg-orange-500/80 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
+            {/* Línea divisoria vertical */}
+            <div className="h-16 w-px bg-slate-300 dark:bg-slate-600" />
 
-              {/* Contenido del botón */}
-              <div className="relative z-10 flex items-center justify-center gap-3">
-                {/* Bandera España */}
-                <div className="relative z-10">
-                  <Flag code="ES" className="h-6 rounded shadow-md" />
-                </div>
+            {/* Botón CV en español - Lado derecho */}
+            <motion.a
+              href="/cv-es.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden"
+              whileTap={{ scale: 0.97 }}
+            >
+              <div className="relative px-6 py-3 overflow-hidden">
+                {/* Efecto de relleno animado de izquierda a derecha */}
+                <div className="absolute inset-0 bg-orange-600/90 dark:bg-orange-500/80 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
 
-                {/* Contenedor de texto con animación */}
-                <div className="relative h-12 w-20 flex items-center overflow-hidden">
-                  {/* Texto original - sube y desaparece en hover */}
-                  <div className="absolute inset-0 flex flex-col items-start justify-center group-hover:translate-y-[-50px] group-hover:opacity-0 transition-all duration-300 ease-in-out">
-                    <span className="text-xs font-medium text-orange-600 dark:text-orange-400 whitespace-nowrap">
-                      Español
-                    </span>
-                    <span className="text-lg font-bold text-orange-700 dark:text-orange-300 whitespace-nowrap">
-                      Ver CV
-                    </span>
+                {/* Contenido del botón */}
+                <div className="relative z-10 flex items-center justify-center gap-3">
+                  {/* Bandera España */}
+                  <div className="relative z-10">
+                    <Flag code="ES" className="h-6 rounded shadow-md" />
                   </div>
 
-                  {/* Texto hover - aparece desde abajo */}
-                  <div className="absolute inset-0 flex flex-col items-start justify-center translate-y-[50px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
-                    <span className="text-xs font-medium text-white/90 whitespace-nowrap">
-                      Español
-                    </span>
-                    <span className="text-lg font-bold text-white whitespace-nowrap">
-                      Ver CV
-                    </span>
-                  </div>
-                </div>
+                  {/* Contenedor de texto con animación */}
+                  <div className="relative h-12 w-20 flex items-center overflow-hidden">
+                    {/* Texto original - sube y desaparece en hover */}
+                    <div className="absolute inset-0 flex flex-col items-start justify-center group-hover:translate-y-[-50px] group-hover:opacity-0 transition-all duration-500 ease-in-out">
+                      <span className="text-xs font-medium text-orange-700/70 dark:text-orange-300/70 whitespace-nowrap">
+                        Español
+                      </span>
+                      <span className="text-lg font-bold text-orange-700 dark:text-orange-300 whitespace-nowrap">
+                        Ver CV
+                      </span>
+                    </div>
 
-                {/* Flecha sin animación */}
-                <div className="relative z-10 text-orange-600 dark:text-orange-400 group-hover:text-white transition-colors duration-300">
-                  <PiArrowRightBold className="text-xl" />
+                    {/* Texto hover - aparece desde abajo */}
+                    <div className="absolute inset-0 flex flex-col items-start justify-center translate-y-[50px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+                      <span className="text-xs font-medium text-white/70 whitespace-nowrap">
+                        Español
+                      </span>
+                      <span className="text-lg font-bold text-white whitespace-nowrap">
+                        Ver CV
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Flecha sin animación */}
+                  <div className="relative z-10 text-orange-600 dark:text-orange-400 group-hover:text-white transition-colors duration-300">
+                    <PiArrowRightBold className="text-xl" />
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.a>
+            </motion.a>
+          </div>
         </motion.div>
       </div>
 
