@@ -9,7 +9,10 @@ import {
   PiBrainDuotone,
   PiPaletteDuotone,
   PiFileCSharpFill,
-  PiOpenAiLogo
+  PiOpenAiLogo,
+  PiFilePdfFill,
+  PiDownloadSimpleBold,
+  PiArrowRightBold
 } from "react-icons/pi";
 import { LiaHandPointDownSolid, LiaHandPointDown, LiaAws } from "react-icons/lia";
 import {
@@ -449,101 +452,112 @@ const About = () => {
 
         {/* Contenedor de botones mejorado */}
         <motion.div
-          className="flex justify-center gap-6 relative"
+          className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 relative"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
         >
-          {/* Botón CV en inglés */}
-          <motion.div
-            className="relative group"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          {/* Botón CV en inglés - Diseño Moderno */}
+          <motion.a
+            href="/cv-en.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden"
+            whileTap={{ scale: 0.97 }}
           >
-            {/* Efecto de brillo de fondo */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl blur opacity-30 group-hover:opacity-60 transition duration-300" />
+            {/* Fondo con gradiente */}
+            <div className="relative px-6 py-3 rounded-full border-2 border-blue-500/30 dark:border-blue-400/30 bg-gradient-to-br from-blue-500/10 via-indigo-500/5 to-purple-500/10 dark:from-blue-500/20 dark:via-indigo-500/10 dark:to-purple-500/20 backdrop-blur-sm overflow-hidden">
+              {/* Efecto de relleno animado de izquierda a derecha */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
 
-            <a
-              href="/cv-en.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative group flex items-center justify-center font-semibold gap-3 px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-xl transition-all duration-300 hover:from-indigo-600 hover:to-purple-700 shadow-lg hover:shadow-xl overflow-hidden"
-            >
-              {/* Brillo animado */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                initial={{ x: "-100%", opacity: 0 }}
-                whileHover={{ x: "100%", opacity: 1 }}
-                transition={{ duration: 0.6 }}
-              />
+              {/* Contenido del botón */}
+              <div className="relative z-10 flex items-center justify-center gap-3">
+                {/* Bandera UK */}
+                <div className="relative z-10">
+                  <Flag code="GB" className="h-6 rounded shadow-md" />
+                </div>
 
-              <motion.div
-                className="relative flex items-center gap-3"
-                whileHover={{ x: 2 }}
-                transition={{ duration: 0.2 }}
-              >
-                <PiEyesFill className="transition-transform transform group-hover:scale-110 -scale-x-100" />
-                <span>View CV</span>
-                <motion.div
-                  className="w-2 h-2 bg-green-400 rounded-full"
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [1, 0.5, 1],
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                  }}
-                />
-              </motion.div>
-            </a>
-          </motion.div>
+                {/* Contenedor de texto con animación */}
+                <div className="relative h-12 w-20 flex items-center overflow-hidden">
+                  {/* Texto original - sube y desaparece en hover */}
+                  <div className="absolute inset-0 flex flex-col items-start justify-center group-hover:translate-y-[-50px] group-hover:opacity-0 transition-all duration-300 ease-in-out">
+                    <span className="text-xs font-medium text-blue-600 dark:text-blue-400 whitespace-nowrap">
+                      English
+                    </span>
+                    <span className="text-lg font-bold text-blue-700 dark:text-blue-300 whitespace-nowrap">
+                      View CV
+                    </span>
+                  </div>
 
-          {/* Botón CV en español */}
-          <motion.div
-            className="relative group"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+                  {/* Texto hover - aparece desde abajo */}
+                  <div className="absolute inset-0 flex flex-col items-start justify-center translate-y-[50px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
+                    <span className="text-xs font-medium dark:text-white/90 whitespace-nowrap">
+                      English
+                    </span>
+                    <span className="text-lg font-bold dark:text-white whitespace-nowrap">
+                      View CV
+                    </span>
+                  </div>
+                </div>
+
+                {/* Flecha sin animación */}
+                <div className="relative z-10 text-blue-600 dark:text-blue-400">
+                  <PiArrowRightBold className="text-xl" />
+                </div>
+              </div>
+            </div>
+          </motion.a>
+
+          {/* Botón CV en español - Diseño Moderno */}
+          <motion.a
+            href="/cv-es.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden"
+            whileTap={{ scale: 0.97 }}
           >
-            {/* Efecto de brillo de fondo */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-gray-500 to-gray-700 rounded-xl blur opacity-30 group-hover:opacity-60 transition duration-300" />
+            {/* Fondo con gradiente */}
+            <div className="relative px-6 py-3 rounded-full border-2 border-orange-500/30 dark:border-orange-400/30 bg-gradient-to-br from-orange-500/10 via-red-500/5 to-yellow-500/10 dark:from-orange-500/20 dark:via-red-500/10 dark:to-yellow-500/20 backdrop-blur-sm overflow-hidden">
+              {/* Efecto de relleno animado de izquierda a derecha */}
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-red-600 to-yellow-600 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-in-out" />
 
-            <a
-              href="/cv-es.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative group flex items-center justify-center font-semibold gap-3 px-6 py-3 bg-gradient-to-r from-gray-500 to-gray-700 text-white rounded-xl transition-all duration-300 hover:from-gray-600 hover:to-gray-800 shadow-lg hover:shadow-xl overflow-hidden"
-            >
-              {/* Brillo animado */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                initial={{ x: "-100%", opacity: 0 }}
-                whileHover={{ x: "100%", opacity: 1 }}
-                transition={{ duration: 0.6 }}
-              />
+              {/* Contenido del botón */}
+              <div className="relative z-10 flex items-center justify-center gap-3">
+                {/* Bandera España */}
+                <div className="relative z-10">
+                  <Flag code="ES" className="h-6 rounded shadow-md" />
+                </div>
 
-              <motion.div
-                className="relative flex items-center gap-3"
-                whileHover={{ x: 2 }}
-                transition={{ duration: 0.2 }}
-              >
-                <PiEyesFill className="transition-transform transform group-hover:scale-110 -scale-x-100" />
-                <span>Ver CV</span>
-                <motion.div
-                  className="w-2 h-2 bg-orange-400 rounded-full"
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [1, 0.5, 1],
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    delay: 0.5,
-                  }}
-                />
-              </motion.div>
-            </a>
-          </motion.div>
+                {/* Contenedor de texto con animación */}
+                <div className="relative h-12 w-20 flex items-center overflow-hidden">
+                  {/* Texto original - sube y desaparece en hover */}
+                  <div className="absolute inset-0 flex flex-col items-start justify-center group-hover:translate-y-[-50px] group-hover:opacity-0 transition-all duration-300 ease-in-out">
+                    <span className="text-xs font-medium text-orange-600 dark:text-orange-400 whitespace-nowrap">
+                      Español
+                    </span>
+                    <span className="text-lg font-bold text-orange-700 dark:text-orange-300 whitespace-nowrap">
+                      Ver CV
+                    </span>
+                  </div>
+
+                  {/* Texto hover - aparece desde abajo */}
+                  <div className="absolute inset-0 flex flex-col items-start justify-center translate-y-[50px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-in-out">
+                    <span className="text-xs font-medium dark:text-white/90 whitespace-nowrap">
+                      Español
+                    </span>
+                    <span className="text-lg font-bold dark:text-white whitespace-nowrap">
+                      Ver CV
+                    </span>
+                  </div>
+                </div>
+
+                {/* Flecha sin animación */}
+                <div className="relative z-10 text-orange-600 dark:text-orange-400">
+                  <PiArrowRightBold className="text-xl" />
+                </div>
+              </div>
+            </div>
+          </motion.a>
         </motion.div>
       </div>
 
