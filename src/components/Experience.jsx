@@ -262,6 +262,8 @@ const Experience = () => {
     const scale = useTransform(cardProgress, [0, 0.3, 0.7, 1], [0.8, 1, 1, 0.9]);
     const rotateX = useTransform(cardProgress, [0, 0.5, 1], [15, 0, -15]);
     const backgroundY = useTransform(cardProgress, [0, 1], [-100, 100]);
+    // Efecto de zoom sutil para la imagen de fondo (mantiene siempre cubierto el contenedor)
+    const backgroundScale = useTransform(cardProgress, [0, 0.3, 0.5, 0.7, 1], [1.1, 1.05, 1.08, 1.05, 1.1]);
     
     const toggleExpand = useCallback(() => {
       setIsExpanded(prev => !prev);
@@ -283,20 +285,19 @@ const Experience = () => {
         }}
         className="relative w-full min-h-screen flex items-center justify-center mb-32"
       >
-        {/* Background Image with Parallax */}
-        <motion.div
-          style={{ y: backgroundY }}
-          className="absolute inset-0 overflow-hidden"
-        >
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        {/* Background Image with Parallax and Zoom Effect */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div 
             style={{ 
+              y: backgroundY,
+              scale: backgroundScale,
               backgroundImage: `url(${exp.backgroundImage})`,
               filter: 'blur(2px) brightness(0.3)'
             }}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           />
           <div className={`absolute inset-0 bg-gradient-to-br ${exp.gradient}`} />
-        </motion.div>
+        </div>
 
         {/* Main Content */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
@@ -540,9 +541,9 @@ const Experience = () => {
           </motion.div>
         </div>
 
-        {/* Timeline Dot */}
+        {/* Timeline Dot - Oculto en móviles */}
         <motion.div
-          className="absolute left-1/2 transform -translate-x-1/2 z-20"
+          className="hidden md:block absolute left-1/2 transform -translate-x-1/2 z-20"
           style={{ y: useTransform(cardProgress, [0.3, 0.7], [50, -50]) }}
         >
           <motion.div
