@@ -541,24 +541,57 @@ const Experience = () => {
           </motion.div>
         </div>
 
-        {/* Timeline Dot - Oculto en móviles */}
+        {/* Timeline Dot - Centrado horizontalmente */}
         <motion.div
-          className="hidden md:block absolute left-1/2 transform -translate-x-1/2 z-20"
-          style={{ y: useTransform(cardProgress, [0.3, 0.7], [50, -50]) }}
+          className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 items-center justify-center"
         >
+          {/* Main Dot */}
           <motion.div
-            className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full border-4 border-white shadow-2xl"
+            className="w-5 h-5 rounded-full bg-gradient-to-br from-indigo-400 via-purple-500 to-pink-500 border-2 border-white dark:border-white/90 shadow-xl"
+            style={{
+              boxShadow: '0 0 30px rgba(99, 102, 241, 0.5), 0 0 60px rgba(168, 85, 247, 0.3)'
+            }}
             animate={isInView ? {
-              scale: [1, 1.2, 1],
+              scale: [1, 1.3, 1],
               boxShadow: [
-                "0 0 0 0 rgba(99, 102, 241, 0.7)",
-                "0 0 0 20px rgba(99, 102, 241, 0)",
+                "0 0 30px rgba(99, 102, 241, 0.5), 0 0 60px rgba(168, 85, 247, 0.3)",
+                "0 0 40px rgba(99, 102, 241, 0.7), 0 0 80px rgba(168, 85, 247, 0.5)",
+                "0 0 30px rgba(99, 102, 241, 0.5), 0 0 60px rgba(168, 85, 247, 0.3)",
               ]
             } : {}}
             transition={{
-              duration: 2,
+              duration: 2.5,
               repeat: Infinity,
-              repeatDelay: 1
+              ease: "easeInOut"
+            }}
+          />
+          
+          {/* Outer Pulsing Ring */}
+          <motion.div
+            className="absolute w-10 h-10 rounded-full border-2 border-indigo-400/30 dark:border-indigo-400/40"
+            animate={isInView ? {
+              scale: [1, 1.5, 1],
+              opacity: [0.4, 0, 0.4]
+            } : {}}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          {/* Secondary Outer Ring */}
+          <motion.div
+            className="absolute w-14 h-14 rounded-full border border-purple-400/20 dark:border-purple-400/30"
+            animate={isInView ? {
+              scale: [1, 1.6, 1],
+              opacity: [0.3, 0, 0.3]
+            } : {}}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.3
             }}
           />
         </motion.div>
@@ -568,30 +601,68 @@ const Experience = () => {
 
   return (
     <section ref={containerRef} className="relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="fixed inset-0 bg-gradient-to-br from-slate-950 via-gray-900 to-black -z-10" />
-      
-      {/* Floating particles */}
-      <div className="fixed inset-0 -z-10">
-        {Array.from({ length: 50 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-white/10 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0.1, 0.5, 0.1],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
+      {/* Subtle Grid Pattern Overlay - Timeline Aesthetic */}
+      <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            linear-gradient(to right, rgb(99 102 241) 1px, transparent 1px),
+            linear-gradient(to bottom, rgb(99 102 241) 1px, transparent 1px)
+          `,
+          backgroundSize: '80px 80px'
+        }} />
+      </div>
+
+      {/* Vertical Timeline Guides - Decorative */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-5">
+        <div className="absolute left-1/4 top-0 w-px h-full bg-gradient-to-b from-transparent via-indigo-400 to-transparent" />
+        <div className="absolute left-3/4 top-0 w-px h-full bg-gradient-to-b from-transparent via-purple-400 to-transparent" />
+      </div>
+
+      {/* Elegant Corner Accents */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Top Left Corner */}
+        <motion.div 
+          className="absolute top-0 left-0 w-64 h-64"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0.02, 0.05, 0.02] }}
+          transition={{ duration: 4, repeat: Infinity }}
+        >
+          <div className="absolute top-0 left-0 w-32 h-px bg-gradient-to-r from-indigo-400 to-transparent" />
+          <div className="absolute top-0 left-0 w-px h-32 bg-gradient-to-b from-indigo-400 to-transparent" />
+        </motion.div>
+        
+        {/* Top Right Corner */}
+        <motion.div 
+          className="absolute top-0 right-0 w-64 h-64"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0.02, 0.05, 0.02] }}
+          transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+        >
+          <div className="absolute top-0 right-0 w-32 h-px bg-gradient-to-l from-purple-400 to-transparent" />
+          <div className="absolute top-0 right-0 w-px h-32 bg-gradient-to-b from-purple-400 to-transparent" />
+        </motion.div>
+        
+        {/* Bottom Left Corner */}
+        <motion.div 
+          className="absolute bottom-0 left-0 w-64 h-64"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0.02, 0.05, 0.02] }}
+          transition={{ duration: 4, repeat: Infinity, delay: 2 }}
+        >
+          <div className="absolute bottom-0 left-0 w-32 h-px bg-gradient-to-r from-cyan-400 to-transparent" />
+          <div className="absolute bottom-0 left-0 w-px h-32 bg-gradient-to-t from-cyan-400 to-transparent" />
+        </motion.div>
+        
+        {/* Bottom Right Corner */}
+        <motion.div 
+          className="absolute bottom-0 right-0 w-64 h-64"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0.02, 0.05, 0.02] }}
+          transition={{ duration: 4, repeat: Infinity, delay: 3 }}
+        >
+          <div className="absolute bottom-0 right-0 w-32 h-px bg-gradient-to-l from-emerald-400 to-transparent" />
+          <div className="absolute bottom-0 right-0 w-px h-32 bg-gradient-to-t from-emerald-400 to-transparent" />
+        </motion.div>
       </div>
 
       {/* Header */}
@@ -633,15 +704,99 @@ const Experience = () => {
 
       {/* Timeline */}
       <div className="relative">
-        {/* Central timeline line */}
-        <div className="fixed left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-transparent via-indigo-500/50 to-transparent -z-0">
+        {/* Central timeline line - Enhanced Design */}
+        <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 pointer-events-none z-0">
+          {/* Base Timeline Line */}
+          <div className="absolute left-1/2 -translate-x-1/2 w-0.5 h-full">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-300/30 dark:via-indigo-500/40 to-transparent" />
+          </div>
+          
+          {/* Animated Progress Line */}
           <motion.div
-            className="w-full bg-gradient-to-b from-indigo-400 via-purple-500 to-pink-500 rounded-full"
+            className="absolute left-1/2 -translate-x-1/2 w-1 top-0 rounded-full"
             style={{
+              height: '100%',
+              background: 'linear-gradient(to bottom, rgba(99, 102, 241, 0), rgba(99, 102, 241, 0.6), rgba(168, 85, 247, 0.6), rgba(236, 72, 153, 0.4), rgba(99, 102, 241, 0))',
               scaleY: scrollYProgress,
-              transformOrigin: "top"
+              transformOrigin: "top",
+              boxShadow: '0 0 20px rgba(99, 102, 241, 0.4)'
             }}
           />
+          
+          {/* Glowing Scroll Indicator */}
+          <motion.div
+            className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full"
+            style={{
+              background: 'radial-gradient(circle, rgba(99, 102, 241, 0.9) 0%, rgba(168, 85, 247, 0.6) 50%, transparent 100%)',
+              top: useTransform(scrollYProgress, [0, 1], ['0%', '100%']),
+              filter: 'blur(2px)',
+              boxShadow: '0 0 30px rgba(99, 102, 241, 0.6)'
+            }}
+          />
+          
+          {/* Timeline Markers at each experience position */}
+          {experiences.map((_, index) => {
+            const position = ((index + 1) / (experiences.length + 1)) * 100;
+            return (
+              <motion.div
+                key={`marker-${index}`}
+                className="absolute left-1/2 -translate-x-1/2"
+                style={{ top: `${position}%` }}
+              >
+                {/* Central Marker Dot */}
+                <motion.div
+                  className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-indigo-400 to-purple-500 shadow-lg"
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ 
+                    scale: [0, 1.3, 1],
+                    opacity: [0, 1, 0.9]
+                  }}
+                  transition={{ 
+                    duration: 0.6,
+                    delay: index * 0.1
+                  }}
+                  viewport={{ once: true, margin: "-100px" }}
+                />
+                
+                {/* Expanding Ring */}
+                <motion.div
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-indigo-400/20 dark:border-indigo-400/30"
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ 
+                    scale: [0, 1.2, 1],
+                    opacity: [0, 0.4, 0]
+                  }}
+                  transition={{ 
+                    duration: 2,
+                    delay: index * 0.1,
+                    repeat: Infinity,
+                    repeatDelay: 3
+                  }}
+                  viewport={{ once: true, margin: "-100px" }}
+                />
+                
+                {/* Horizontal Line Connectors */}
+                <div className="absolute top-1/2 -translate-y-1/2">
+                  <motion.div 
+                    className="absolute right-2.5 w-12 h-px bg-gradient-to-r from-indigo-400/40 to-transparent"
+                    initial={{ scaleX: 0, opacity: 0 }}
+                    whileInView={{ scaleX: 1, opacity: 0.3 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    style={{ transformOrigin: "left" }}
+                  />
+                  <motion.div 
+                    className="absolute left-2.5 w-12 h-px bg-gradient-to-l from-purple-400/40 to-transparent"
+                    initial={{ scaleX: 0, opacity: 0 }}
+                    whileInView={{ scaleX: 1, opacity: 0.3 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    style={{ transformOrigin: "right" }}
+                  />
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Experience cards */}
