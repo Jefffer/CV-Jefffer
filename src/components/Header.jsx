@@ -461,29 +461,33 @@ const Header = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
             >
               {navLinks.map(({ to, iconDuotone, iconFill, label }) => (
-                <motion.div
+                <div
                   key={to}
-                  whileHover={{ y: -2 }}
-                  transition={{ duration: 0.15 }}
+                  className="group relative"
                 >
                   <Link
                     to={to}
-                    className={`group flex items-center gap-2 px-4 py-2.5 rounded-xl transition-all duration-200 border ${
+                    className={`relative overflow-hidden flex items-center gap-2 px-4 py-2.5 rounded-xl transition-all duration-200 border ${
                       location.pathname === to
                         ? "bg-white/15 dark:bg-white/15 light:bg-white border-white/30 dark:border-white/30 light:border-indigo-300 text-white dark:text-white light:text-indigo-700 shadow-lg backdrop-blur-md"
-                        : "border-transparent text-white/70 dark:text-white/70 light:text-gray-600 hover:text-white dark:hover:text-white light:hover:text-indigo-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-white/70 hover:border-white/20 dark:hover:border-white/20 light:hover:border-indigo-200 backdrop-blur-sm"
+                        : "border-transparent text-white/70 dark:text-white/70 light:text-gray-600 hover:text-white dark:hover:text-white light:hover:text-indigo-700 backdrop-blur-sm"
                     }`}
                     onMouseEnter={() => setHoveredItem(to)}
                     onMouseLeave={() => setHoveredItem(null)}
                   >
-                    <span className="text-lg transition-transform duration-150 group-hover:scale-110">
+                    {/* Efecto de relleno de abajo hacia arriba */}
+                    {location.pathname !== to && (
+                      <div className="absolute inset-0 bg-white/10 dark:bg-white/10 light:bg-white/70 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-xl" />
+                    )}
+                    
+                    <span className="relative z-10 text-lg transition-transform duration-150 group-hover:scale-110">
                       {location.pathname === to || hoveredItem === to
                         ? iconFill
                         : iconDuotone}
                     </span>
-                    <span className="font-medium text-sm">{label}</span>
+                    <span className="relative z-10 font-medium text-sm">{label}</span>
                   </Link>
-                </motion.div>
+                </div>
               ))}
             </motion.nav>
 
@@ -607,32 +611,36 @@ const Header = () => {
             <div className="container mx-auto px-4 md:px-6 py-3">
               <nav className="flex justify-center items-center gap-2">
                 {navLinks.map(({ to, iconDuotone, iconFill, label }) => (
-                  <motion.div
+                  <div
                     key={to}
-                    whileHover={{ y: -2 }}
-                    transition={{ duration: 0.15 }}
+                    className="group relative"
                   >
                     <Link
                       to={to}
-                      className={`group flex items-center justify-center md:gap-2 md:px-3 w-10 h-10 md:w-auto md:h-auto md:py-2.5 rounded-lg transition-all duration-200 ${
+                      className={`relative overflow-hidden group flex items-center justify-center md:gap-2 md:px-3 w-10 h-10 md:w-auto md:h-auto md:py-2.5 rounded-lg transition-all duration-200 ${
                         location.pathname === to
                           ? "bg-indigo-500/20 dark:bg-indigo-500/20 light:bg-indigo-100 text-white dark:text-white light:text-indigo-700 border border-indigo-400/30 dark:border-indigo-400/30 light:border-indigo-300 shadow-lg"
-                          : "text-white/60 dark:text-white/60 light:text-gray-500 hover:text-white dark:hover:text-white light:hover:text-indigo-700 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-indigo-50 border border-transparent hover:border-white/20 dark:hover:border-white/20 light:hover:border-indigo-200"
+                          : "text-white/60 dark:text-white/60 light:text-gray-500 hover:text-white dark:hover:text-white light:hover:text-indigo-700 border border-transparent"
                       }`}
                       title={label}
                       onMouseEnter={() => setHoveredItem(to)}
                       onMouseLeave={() => setHoveredItem(null)}
                     >
-                      <span className="text-base transition-transform duration-150 group-hover:scale-110">
+                      {/* Efecto de relleno de abajo hacia arriba */}
+                      {location.pathname !== to && (
+                        <div className="absolute inset-0 bg-white/10 dark:bg-white/10 light:bg-indigo-50 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-lg" />
+                      )}
+                      
+                      <span className="relative z-10 text-base transition-transform duration-150 group-hover:scale-110">
                         {location.pathname === to || hoveredItem === to
                           ? iconFill
                           : iconDuotone}
                       </span>
-                      <span className="hidden md:inline font-medium text-sm">
+                      <span className="relative z-10 hidden md:inline font-medium text-sm">
                         {label}
                       </span>
                     </Link>
-                  </motion.div>
+                  </div>
                 ))}
               </nav>
 
