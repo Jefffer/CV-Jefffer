@@ -270,37 +270,6 @@ const Skills = () => {
     },
   ];
 
-  // Componente para partículas flotantes
-  const FloatingParticles = () => {
-    const particles = Array.from({ length: 12 }, (_, i) => i);
-    
-    return (
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {particles.map((particle) => (
-          <motion.div
-            key={particle}
-            className="absolute w-1 h-1 bg-gradient-to-r from-blue-400 to-purple-400 dark:from-blue-300 dark:to-purple-300 rounded-full opacity-30"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              x: [0, Math.random() * 20 - 10, 0],
-              opacity: [0.3, 0.8, 0.3],
-              scale: [1, 1.5, 1],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
-    );
-  };
-
   // Componente individual de skill
   const SkillCard = ({ skill, index }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -395,10 +364,6 @@ const Skills = () => {
       id="skills" 
       className="relative min-h-screen py-20 overflow-hidden"
     >
-      
-      {/* Partículas flotantes */}
-      <FloatingParticles />
-
       <div className="relative z-10 container mx-auto px-6 max-w-[120ch]">
         {/* Header */}
         <motion.div

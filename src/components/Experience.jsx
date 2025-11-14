@@ -283,7 +283,7 @@ const Experience = () => {
           rotateX,
           transformPerspective: 1000
         }}
-        className="relative w-full min-h-screen flex items-center justify-center mb-32"
+        className="relative w-full min-h-screen flex items-center justify-center mt-5"
       >
         {/* Background Image with Parallax and Zoom Effect */}
         <div className="absolute inset-0 overflow-hidden">
@@ -670,7 +670,7 @@ const Experience = () => {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 text-center py-20"
+        className="relative z-10 text-center pt-20 pb-5"
       >
         <motion.div
           className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-4 md:mb-6"
