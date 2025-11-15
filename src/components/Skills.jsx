@@ -10,7 +10,7 @@ import { FaJsSquare, FaReact, FaDatabase, FaMicrosoft, FaHtml5,
   FaDotCircle,
   FaDocker
   } from 'react-icons/fa';
-
+import { LiaAws } from "react-icons/lia";
   import {    
     SiKotlin,    
     SiMysql,
@@ -80,6 +80,15 @@ const Skills = () => {
       delay: 0.3
     },
     { 
+      name: "React", 
+      icon: <FaReact className="text-5xl" />, 
+      category: "Frontend",
+      gradient: "from-blue-600 to-cyan-600",
+      hoverGradient: "from-blue-500 to-cyan-500",
+      iconColor: "text-cyan-400",
+      delay: 0.65
+    },
+    { 
       name: "Python", 
       icon: <FaPython className="text-5xl" />, 
       category: "Language",
@@ -125,6 +134,15 @@ const Skills = () => {
       delay: 0.55
     },
     { 
+      name: "AWS", 
+      icon: <LiaAws className="text-5xl" />, 
+      category: "Cloud",
+      gradient: "from-amber-600 to-orange-700",
+      hoverGradient: "from-amber-500 to-orange-600",
+      iconColor: "text-amber-400",
+      delay: 1.12
+    },
+    { 
       name: "PHP", 
       icon: <FaPhp className="text-5xl" />, 
       category: "Language",
@@ -132,15 +150,6 @@ const Skills = () => {
       hoverGradient: "from-violet-500 to-violet-700",
       iconColor: "text-violet-400",
       delay: 0.6
-    },
-    { 
-      name: "React", 
-      icon: <FaReact className="text-5xl" />, 
-      category: "Frontend",
-      gradient: "from-blue-600 to-cyan-600",
-      hoverGradient: "from-blue-500 to-cyan-500",
-      iconColor: "text-cyan-400",
-      delay: 0.65
     },
     { 
       name: "JavaScript", 
@@ -236,11 +245,11 @@ const Skills = () => {
       name: "MATLAB", 
       icon: <PiMathOperationsFill className="text-5xl" />, 
       category: "Tool",
-      gradient: "from-blue-600 to-indigo-600",
-      hoverGradient: "from-blue-500 to-indigo-500",
-      iconColor: "text-blue-400",
+      gradient: "from-orange-600 to-red-600",
+      hoverGradient: "from-orange-500 to-red-500",
+      iconColor: "text-orange-400",
       delay: 1.1
-    },
+    },    
     { 
       name: "phpMyAdmin", 
       icon: <SiPhpmyadmin className="text-5xl" />, 
@@ -506,7 +515,7 @@ const Skills = () => {
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
-              { number: "26+", label: "Technologies", color: "from-cyan-500 to-blue-300", icon: "◆" },
+              { number: "27+", label: "Technologies", color: "from-cyan-500 to-blue-300", icon: "◆" },
               { number: "8+", label: "Years Experience", color: "from-purple-400 to-indigo-400", icon: "●" },
               { number: "6+", label: "Specializations", color: "from-pink-400 to-cyan-400", icon: "◇" }
             ].map((stat, index) => (
