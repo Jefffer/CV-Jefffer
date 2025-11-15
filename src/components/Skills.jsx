@@ -431,82 +431,7 @@ const Skills = () => {
       {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.15),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(168,85,247,0.15),transparent_50%)]" /> */}
 
-      {/* Borde superior con formas distintivas - Zigzag ciberpunk */}
-      <div className="absolute top-0 left-0 right-0 h-16 overflow-hidden">
-        <svg className="absolute bottom-0 w-full h-16" preserveAspectRatio="none" viewBox="0 0 1200 100">
-          <defs>
-            <linearGradient id="topGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style={{ stopColor: 'rgb(59, 130, 246)', stopOpacity: 0.1 }} />
-              <stop offset="50%" style={{ stopColor: 'rgb(99, 102, 241)', stopOpacity: 0.2 }} />
-              <stop offset="100%" style={{ stopColor: 'rgb(168, 85, 247)', stopOpacity: 0.1 }} />
-            </linearGradient>
-          </defs>
-          {/* Patrón geométrico ciberpunk */}
-          <path 
-            d="M0,50 L50,20 L100,50 L150,10 L200,50 L250,30 L300,50 L350,20 L400,50 L450,10 L500,50 L550,30 L600,50 L650,20 L700,50 L750,10 L800,50 L850,30 L900,50 L950,20 L1000,50 L1050,10 L1100,50 L1150,30 L1200,50 L1200,0 L0,0 Z" 
-            fill="url(#topGradient)"
-            className="dark:opacity-100 opacity-50"
-          />
-          <path 
-            d="M0,50 L50,20 L100,50 L150,10 L200,50 L250,30 L300,50 L350,20 L400,50 L450,10 L500,50 L550,30 L600,50 L650,20 L700,50 L750,10 L800,50 L850,30 L900,50 L950,20 L1000,50 L1050,10 L1100,50 L1150,30 L1200,50" 
-            fill="none"
-            stroke="rgb(99, 102, 241)"
-            strokeWidth="2"
-            className="opacity-40"
-          />
-          {/* Línea de neón brillante */}
-          <motion.path 
-            d="M0,50 L50,20 L100,50 L150,10 L200,50 L250,30 L300,50 L350,20 L400,50 L450,10 L500,50 L550,30 L600,50 L650,20 L700,50 L750,10 L800,50 L850,30 L900,50 L950,20 L1000,50 L1050,10 L1100,50 L1150,30 L1200,50" 
-            fill="none"
-            stroke="rgb(34, 211, 238)"
-            strokeWidth="2"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: [0, 1, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </svg>
-      </div>
-
-      {/* Borde inferior con formas distintivas - Patrón hexagonal */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 overflow-hidden">
-        <svg className="absolute top-0 w-full h-24" preserveAspectRatio="none" viewBox="0 0 1200 120">
-          <defs>
-            <linearGradient id="bottomGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style={{ stopColor: 'rgb(168, 85, 247)', stopOpacity: 0.1 }} />
-              <stop offset="50%" style={{ stopColor: 'rgb(236, 72, 153)', stopOpacity: 0.2 }} />
-              <stop offset="100%" style={{ stopColor: 'rgb(99, 102, 241)', stopOpacity: 0.1 }} />
-            </linearGradient>
-          </defs>
-          {/* Patrón ciberpunk angular */}
-          <path 
-            d="M0,60 L60,30 L120,60 L180,20 L240,60 L300,40 L360,60 L420,25 L480,60 L540,35 L600,60 L660,30 L720,60 L780,20 L840,60 L900,40 L960,60 L1020,25 L1080,60 L1140,35 L1200,60 L1200,120 L0,120 Z" 
-            fill="url(#bottomGradient)"
-            className="dark:opacity-100 opacity-50"
-          />
-          <path 
-            d="M0,60 L60,30 L120,60 L180,20 L240,60 L300,40 L360,60 L420,25 L480,60 L540,35 L600,60 L660,30 L720,60 L780,20 L840,60 L900,40 L960,60 L1020,25 L1080,60 L1140,35 L1200,60" 
-            fill="none"
-            stroke="rgb(236, 72, 153)"
-            strokeWidth="2"
-            className="opacity-40"
-          />
-          {/* Hexágonos decorativos */}
-          {[...Array(10)].map((_, i) => (
-            <motion.polygon
-              key={i}
-              points={`${120 * i + 60},50 ${120 * i + 75},40 ${120 * i + 90},50 ${120 * i + 90},70 ${120 * i + 75},80 ${120 * i + 60},70`}
-              fill="none"
-              stroke="rgb(99, 102, 241)"
-              strokeWidth="1"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0.6, 0] }}
-              transition={{ duration: 3, repeat: Infinity, delay: i * 0.2 }}
-            />
-          ))}
-        </svg>
-      </div>
-
-      <div className="relative z-10 container mx-auto px-6 py-24 md:py-32 max-w-[120ch]">
+      <div className="relative z-10 container mx-auto px-6 py-24 md:py-24 max-w-[120ch]">
         {/* Header con estilo ciberpunk */}
         <motion.div
           className="text-center mb-16"
@@ -540,7 +465,7 @@ const Skills = () => {
             </span>
           </motion.h2>
           
-          <motion.p
+          {/* <motion.p
             className="text-lg text-cyan-100/80 dark:text-cyan-100/70 leading-relaxed max-w-2xl mx-auto tracking-wide font-light"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -549,7 +474,7 @@ const Skills = () => {
             <span className="font-mono text-indigo-400">[</span>
             {" "}Technologies powering innovative solutions{" "}
             <span className="font-mono text-indigo-400">]</span>
-          </motion.p>
+          </motion.p> */}
 
           {/* Línea decorativa ciberpunk */}
           <motion.div
@@ -653,9 +578,9 @@ const Skills = () => {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 2 }}
           >
-            <div className="h-px w-16 bg-gradient-to-r from-transparent to-cyan-400/50" />
+            <div className="h-px w-16 bg-gradient-to-r from-transparent to-indigo-400/50" />
             <span className="text-cyan-400/60 font-mono text-sm">[ END_OF_STACK ]</span>
-            <div className="h-px w-16 bg-gradient-to-l from-transparent to-purple-400/50" />
+            <div className="h-px w-16 bg-gradient-to-l from-transparent to-indigo-400/50" />
           </motion.div>
         </motion.div>
       </div>

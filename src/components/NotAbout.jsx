@@ -570,17 +570,6 @@ const About = () => {
         {skills.map((skill, index) => (
           <SkillSection key={index} skill={skill} index={index} />
         ))}
-
-        {/* Separador final elegante */}
-        <motion.div
-          className="w-full h-8 flex items-center justify-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="w-32 h-1 bg-gradient-to-r from-transparent via-gray-400 to-transparent dark:via-gray-600 rounded-full" />
-        </motion.div>
       </div>
     </section>
   );
