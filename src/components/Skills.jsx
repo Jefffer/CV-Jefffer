@@ -310,10 +310,10 @@ const Skills = () => {
           />
 
           {/* Esquinas ciberpunk */}
-          <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-cyan-400/40" />
-          <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-purple-400/40" />
-          <div className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-purple-400/40" />
-          <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-cyan-400/40" />
+          <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-indigo-200/40" />
+          <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-indigo-500/40" />
+          <div className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-indigo-500/40" />
+          <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-indigo-200/40" />
 
           {/* Línea de escaneo animada */}
           <motion.div
@@ -395,11 +395,11 @@ const Skills = () => {
       <div className="absolute inset-0 bg-slate-900 dark:bg-black" />
       
       {/* Patrón de puntos en intersecciones */}
-      <div className="absolute inset-0 opacity-30">
+      <div className="absolute inset-0 opacity-40">
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: `radial-gradient(circle, rgb(99 102 241) 1.5px, transparent 1.5px)`,
+            backgroundImage: `radial-gradient(circle, rgb(99 102 241) 1px, transparent 1px)`,
             backgroundSize: '80px 80px',
           }}
         />
@@ -407,12 +407,12 @@ const Skills = () => {
 
       {/* Líneas de neón horizontales animadas sutilmente */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div 
+        {/* <motion.div 
           className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
           style={{ top: '20%' }}
           animate={{ opacity: [0.3, 0.6, 0.3], scaleX: [0.8, 1, 0.8] }}
           transition={{ duration: 4, repeat: Infinity }}
-        />
+        /> */}
         <motion.div 
           className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent"
           style={{ top: '60%' }}
@@ -420,7 +420,7 @@ const Skills = () => {
           transition={{ duration: 5, repeat: Infinity, delay: 1 }}
         />
         <motion.div 
-          className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-pink-400 to-transparent"
+          className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-indigo-400 to-transparent"
           style={{ top: '85%' }}
           animate={{ opacity: [0.3, 0.6, 0.3], scaleX: [0.8, 1, 0.8] }}
           transition={{ duration: 6, repeat: Infinity, delay: 2 }}
@@ -428,8 +428,8 @@ const Skills = () => {
       </div>
 
       {/* Efectos de luz ciberpunk */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.15),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(168,85,247,0.15),transparent_50%)]" />
+      {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.15),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(168,85,247,0.15),transparent_50%)]" /> */}
 
       {/* Borde superior con formas distintivas - Zigzag ciberpunk */}
       <div className="absolute top-0 left-0 right-0 h-16 overflow-hidden">
@@ -521,9 +521,9 @@ const Skills = () => {
             animate={isInView ? { scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
             <span className="text-sm font-mono text-cyan-400 uppercase tracking-wider">System.Tech_Stack</span>
-            <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+            <div className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
           </motion.div>
 
           <motion.h2 
@@ -532,10 +532,10 @@ const Skills = () => {
             animate={isInView ? { scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(34,211,238,0.3)]">
+            <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(34,211,238,0.3)]">
               Tech
             </span>{" "}
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(168,85,247,0.3)]">
+            <span className="bg-gradient-to-r from-indigo-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(168,85,247,0.3)]">
               Arsenal
             </span>
           </motion.h2>
@@ -546,9 +546,9 @@ const Skills = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <span className="font-mono text-purple-400">[</span>
+            <span className="font-mono text-indigo-400">[</span>
             {" "}Technologies powering innovative solutions{" "}
-            <span className="font-mono text-purple-400">]</span>
+            <span className="font-mono text-indigo-400">]</span>
           </motion.p>
 
           {/* Línea decorativa ciberpunk */}
@@ -581,8 +581,8 @@ const Skills = () => {
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
-              { number: "26+", label: "Technologies", color: "from-cyan-400 to-blue-400", icon: "◆" },
-              { number: "8+", label: "Years Experience", color: "from-purple-400 to-pink-400", icon: "●" },
+              { number: "26+", label: "Technologies", color: "from-cyan-500 to-blue-300", icon: "◆" },
+              { number: "8+", label: "Years Experience", color: "from-purple-400 to-indigo-400", icon: "●" },
               { number: "6+", label: "Specializations", color: "from-pink-400 to-cyan-400", icon: "◇" }
             ].map((stat, index) => (
               <motion.div
