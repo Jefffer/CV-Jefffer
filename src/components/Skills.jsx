@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useInView, useMotionValue, useSpring, useScroll, useTransform } from 'framer-motion';
 import { FaJsSquare, FaReact, FaDatabase, FaMicrosoft, FaHtml5,
   FaCss3Alt,
   FaPython,
@@ -282,19 +282,38 @@ const Skills = () => {
   // Componente individual de skill con estilo ciberpunk
   const SkillCard = ({ skill, index }) => {
     const [isHovered, setIsHovered] = useState(false);
+    const [rotation, setRotation] = useState(0);
+    const [isRotating, setIsRotating] = useState(false);
+    
+    const handleHoverStart = () => {
+      setIsHovered(true);
+      if (!isRotating) {
+        setIsRotating(true);
+        setRotation(prev => prev + 360);
+        setTimeout(() => setIsRotating(false), 600); // Duración de la animación
+      }
+    };
     
     return (
       <motion.div
         className="group relative"
         initial={{ opacity: 0, y: 50, scale: 0.8 }}
-        animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+        animate={isInView ? { 
+          opacity: 1, 
+          y: 0, 
+          scale: 1,
+          rotateY: rotation
+        } : {}}
         transition={{ 
-          duration: 0.6, 
-          delay: skill.delay,
-          type: "spring",
-          stiffness: 100
+          opacity: { duration: 0.6, delay: skill.delay },
+          y: { duration: 0.6, delay: skill.delay, type: "spring", stiffness: 100 },
+          scale: { duration: 0.6, delay: skill.delay, type: "spring", stiffness: 100 },
+          rotateY: { duration: 0.6, ease: "linear" }
         }}
-        onHoverStart={() => setIsHovered(true)}
+        style={{
+          transformStyle: 'preserve-3d'
+        }}
+        onHoverStart={handleHoverStart}
         onHoverEnd={() => setIsHovered(false)}
       >
         {/* Card principal */}
@@ -305,7 +324,8 @@ const Skills = () => {
           backdrop-blur-xl
           border ${isHovered ? 'border-cyan-400/50' : 'border-slate-700/30 dark:border-slate-600/30'}
           shadow-lg hover:shadow-2xl hover:shadow-cyan-400/20
-        `}>
+        `}
+        style={{ transformStyle: 'preserve-3d' }}>
           {/* Grid pattern interno */}
           <div 
             className="absolute inset-0 opacity-5"
@@ -349,14 +369,13 @@ const Skills = () => {
               {skill.category}
             </motion.span>
 
-            {/* Icono con efecto de rotación 3D */}
+            {/* Icono con efecto de escala */}
             <motion.div
               className="mb-4 text-white drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]"
               animate={{ 
-                rotateY: isHovered ? 360 : 0,
                 scale: isHovered ? 1.15 : 1,
               }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
             >
               {skill.icon}
             </motion.div>
@@ -494,7 +513,6 @@ const Skills = () => {
           />
         </motion.div>
 
-        {/* Skills Grid */}
         <motion.div
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
           initial={{ opacity: 0 }}
