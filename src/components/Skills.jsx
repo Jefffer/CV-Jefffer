@@ -86,7 +86,7 @@ const Skills = () => {
       gradient: "from-blue-600 to-cyan-600",
       hoverGradient: "from-blue-500 to-cyan-500",
       iconColor: "text-cyan-400",
-      delay: 0.65
+      delay: 0.35
     },
     { 
       name: "Python", 
@@ -95,7 +95,7 @@ const Skills = () => {
       gradient: "from-yellow-600 to-yellow-800",
       hoverGradient: "from-yellow-500 to-yellow-700",
       iconColor: "text-yellow-400",
-      delay: 0.35
+      delay: 0.4
     },
     { 
       name: "Java", 
@@ -104,7 +104,7 @@ const Skills = () => {
       gradient: "from-orange-600 to-orange-800",
       hoverGradient: "from-orange-500 to-orange-700",
       iconColor: "text-orange-400",
-      delay: 0.4
+      delay: 0.45
     },
     { 
       name: "Spring Boot", 
@@ -113,7 +113,7 @@ const Skills = () => {
       gradient: "from-green-600 to-emerald-700",
       hoverGradient: "from-green-500 to-emerald-600",
       iconColor: "text-green-400",
-      delay: 0.45
+      delay: 0.5
     },
     { 
       name: "Docker", 
@@ -122,7 +122,7 @@ const Skills = () => {
       gradient: "from-cyan-600 to-cyan-800",
       hoverGradient: "from-cyan-500 to-cyan-700",
       iconColor: "text-cyan-400",
-      delay: 0.5
+      delay: 0.55
     },
     { 
       name: "Kubernetes", 
@@ -131,7 +131,7 @@ const Skills = () => {
       gradient: "from-blue-600 to-indigo-800",
       hoverGradient: "from-blue-500 to-indigo-700",
       iconColor: "text-blue-400",
-      delay: 0.55
+      delay: 0.6
     },
     { 
       name: "AWS", 
@@ -140,7 +140,7 @@ const Skills = () => {
       gradient: "from-amber-600 to-orange-700",
       hoverGradient: "from-amber-500 to-orange-600",
       iconColor: "text-amber-400",
-      delay: 1.12
+      delay: 0.65
     },
     { 
       name: "PHP", 
@@ -149,7 +149,7 @@ const Skills = () => {
       gradient: "from-violet-600 to-violet-800",
       hoverGradient: "from-violet-500 to-violet-700",
       iconColor: "text-violet-400",
-      delay: 0.6
+      delay: 0.7
     },
     { 
       name: "JavaScript", 
@@ -158,7 +158,7 @@ const Skills = () => {
       gradient: "from-yellow-600 to-amber-600",
       hoverGradient: "from-yellow-500 to-amber-500",
       iconColor: "text-yellow-400",
-      delay: 0.7
+      delay: 0.75
     },
     { 
       name: "HTML 5", 
@@ -167,7 +167,7 @@ const Skills = () => {
       gradient: "from-orange-600 to-red-600",
       hoverGradient: "from-orange-500 to-red-500",
       iconColor: "text-orange-400",
-      delay: 0.65
+      delay: 0.8
     },
     { 
       name: "CSS", 
@@ -176,7 +176,7 @@ const Skills = () => {
       gradient: "from-blue-600 to-blue-800",
       hoverGradient: "from-blue-500 to-blue-700",
       iconColor: "text-blue-400",
-      delay: 0.7
+      delay: 0.85
     },
     { 
       name: "Angular", 
@@ -185,7 +185,7 @@ const Skills = () => {
       gradient: "from-red-600 to-red-800",
       hoverGradient: "from-red-500 to-red-700",
       iconColor: "text-red-400",
-      delay: 0.75
+      delay: 0.9
     },
     { 
       name: "Node.js", 
@@ -194,7 +194,7 @@ const Skills = () => {
       gradient: "from-green-600 to-green-800",
       hoverGradient: "from-green-500 to-green-700",
       iconColor: "text-green-400",
-      delay: 0.8
+      delay: 0.95
     },
     { 
       name: "MySQL", 
@@ -203,7 +203,7 @@ const Skills = () => {
       gradient: "from-teal-600 to-teal-800",
       hoverGradient: "from-teal-500 to-teal-700",
       iconColor: "text-teal-400",
-      delay: 0.85
+      delay: 1.0
     },
     { 
       name: "PostgreSQL", 
@@ -212,7 +212,7 @@ const Skills = () => {
       gradient: "from-blue-700 to-indigo-800",
       hoverGradient: "from-blue-600 to-indigo-700",
       iconColor: "text-blue-400",
-      delay: 0.9
+      delay: 1.05
     },
     { 
       name: "MongoDB", 
@@ -221,7 +221,7 @@ const Skills = () => {
       gradient: "from-green-600 to-emerald-800",
       hoverGradient: "from-green-500 to-emerald-700",
       iconColor: "text-green-400",
-      delay: 0.95
+      delay: 1.1
     },
     { 
       name: "Kotlin", 
@@ -230,7 +230,7 @@ const Skills = () => {
       gradient: "from-purple-600 to-pink-600",
       hoverGradient: "from-purple-500 to-pink-500",
       iconColor: "text-purple-400",
-      delay: 1.0
+      delay: 1.15
     },
     { 
       name: "OutSystems", 
@@ -239,7 +239,7 @@ const Skills = () => {
       gradient: "from-red-600 to-rose-800",
       hoverGradient: "from-red-500 to-rose-700",
       iconColor: "text-red-400",
-      delay: 1.05
+      delay: 1.2
     },
     { 
       name: "MATLAB", 
@@ -248,7 +248,7 @@ const Skills = () => {
       gradient: "from-orange-600 to-red-600",
       hoverGradient: "from-orange-500 to-red-500",
       iconColor: "text-orange-400",
-      delay: 1.1
+      delay: 1.25
     },    
     { 
       name: "phpMyAdmin", 
@@ -257,7 +257,7 @@ const Skills = () => {
       gradient: "from-green-600 to-teal-600",
       hoverGradient: "from-green-500 to-teal-500",
       iconColor: "text-green-400",
-      delay: 1.15
+      delay: 1.3
     },
     { 
       name: "RabbitMQ", 
@@ -266,7 +266,7 @@ const Skills = () => {
       gradient: "from-orange-600 to-amber-700",
       hoverGradient: "from-orange-500 to-amber-600",
       iconColor: "text-orange-400",
-      delay: 1.3
+      delay: 1.35
     },
     { 
       name: "Elasticsearch", 
@@ -275,7 +275,7 @@ const Skills = () => {
       gradient: "from-yellow-600 to-yellow-800",
       hoverGradient: "from-yellow-500 to-yellow-700",
       iconColor: "text-yellow-400",
-      delay: 1.35
+      delay: 1.4
     },
   ];
 
@@ -404,7 +404,7 @@ const Skills = () => {
       <div className="absolute inset-0 bg-slate-900 dark:bg-black" />
       
       {/* Patrón de puntos en intersecciones */}
-      <div className="absolute inset-0 opacity-40">
+      <div className="absolute inset-0 opacity-60">
         <div 
           className="absolute inset-0"
           style={{
@@ -513,7 +513,7 @@ const Skills = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 1.2 }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-4xl mx-auto">
             {[
               { number: "27+", label: "Technologies", color: "from-cyan-500 to-blue-300", icon: "◆" },
               { number: "8+", label: "Years Experience", color: "from-purple-400 to-indigo-400", icon: "●" },
@@ -524,7 +524,7 @@ const Skills = () => {
                 className="relative group"
               >
                 {/* Card */}
-                <div className="relative bg-slate-800/60 dark:bg-slate-950/60 backdrop-blur-xl border border-slate-700/30 dark:border-slate-600/30 group-hover:border-cyan-400/30 rounded-2xl p-6 overflow-hidden transition-colors duration-300">
+                <div className="relative bg-slate-800/60 dark:bg-slate-950/60 backdrop-blur-xl border border-slate-700/30 dark:border-slate-600/30 group-hover:border-cyan-400/30 p-3 overflow-hidden transition-colors duration-300">
                   {/* Grid pattern */}
                   <div 
                     className="absolute inset-0 opacity-5"
@@ -547,7 +547,7 @@ const Skills = () => {
                   <div className="relative">
                     {/* Icono decorativo */}
                     <motion.div
-                      className="text-cyan-400/30 text-4xl font-bold mb-2"
+                      className="text-indigo-400/30 text-4xl font-bold mb-2"
                       animate={{ 
                         rotate: [0, 180, 360],
                         scale: [1, 1.2, 1]
