@@ -107,9 +107,24 @@ Fine-tune animations in individual components:
 - 3D transforms and perspective
 
 ### **4. Contact Integration**
+
+#### **EmailJS Setup**
 Configure EmailJS in `src/components/Contact.jsx`:
 - Replace service ID, template ID, and public key
 - Customize form fields and validation
+
+#### **reCAPTCHA v3 Setup** 🔐
+The contact form is protected by Google reCAPTCHA v3:
+
+1. Get your reCAPTCHA keys from [Google reCAPTCHA Admin](https://www.google.com/recaptcha/admin/create)
+2. Create a `.env` file (copy from `.env.example`)
+3. Add your Site Key:
+   ```env
+   VITE_RECAPTCHA_SITE_KEY=your_site_key_here
+   ```
+4. Restart the dev server
+
+📖 **Detailed setup instructions:** See [RECAPTCHA_SETUP.md](RECAPTCHA_SETUP.md)
 
 ---
 
@@ -122,6 +137,7 @@ Configure EmailJS in `src/components/Contact.jsx`:
 | **Tailwind CSS** | Responsive design, dark mode, custom utilities |
 | **React Icons** | Comprehensive icon library (FontAwesome, Simple Icons) |
 | **EmailJS** | Serverless contact form handling |
+| **reCAPTCHA v3** | Invisible spam protection for contact form |
 | **Vite** | Fast HMR, optimized production builds |
 
 ---

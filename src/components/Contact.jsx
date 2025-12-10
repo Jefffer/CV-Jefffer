@@ -19,6 +19,7 @@ import {
 } from "react-icons/hi";
 import emailjs from "@emailjs/browser";
 import { motion, useInView } from "framer-motion";
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const Contact = () => {
   const form = useRef();
@@ -26,29 +27,45 @@ const Contact = () => {
   const [status, setStatus] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const isInView = useInView(containerRef, { once: true, threshold: 0.1 });
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
+    
+    if (!executeRecaptcha) {
+      setStatus("error");
+      return;
+    }
+    
     setIsLoading(true);
 
-    emailjs
-      .sendForm(
+    try {
+      // Ejecutar reCAPTCHA
+      const token = await executeRecaptcha('contact_form');
+      
+      // Verificar que el token fue generado
+      if (!token) {
+        setStatus("error");
+        setIsLoading(false);
+        return;
+      }
+
+      // Enviar email con EmailJS
+      await emailjs.sendForm(
         "service_2j4ig4n",
         "template_vcmt7eb",
         form.current,
         "HBocGiWPceGhGPSWU"
-      )
-      .then(
-        (result) => {
-          setStatus("success");
-          form.current.reset();
-          setIsLoading(false);
-        },
-        (error) => {
-          setStatus("error");
-          setIsLoading(false);
-        }
       );
+      
+      setStatus("success");
+      form.current.reset();
+    } catch (error) {
+      console.error('Error:', error);
+      setStatus("error");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   // Datos de contacto
