@@ -52,10 +52,10 @@ const Contact = () => {
 
       // Enviar email con EmailJS
       await emailjs.sendForm(
-        "service_2j4ig4n",
-        "template_vcmt7eb",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         form.current,
-        "HBocGiWPceGhGPSWU"
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
       
       setStatus("success");
