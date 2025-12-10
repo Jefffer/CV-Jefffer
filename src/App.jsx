@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+import publicConfig from './config/public.config';
 import Header from './components/Header';
 import './styles/App.css';
 import Experience from './components/Experience';
@@ -14,7 +15,7 @@ import Education from './components/Education';
 
 function App() {
   return (
-    <GoogleReCaptchaProvider reCaptchaKey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}>
+    <GoogleReCaptchaProvider reCaptchaKey={publicConfig.recaptcha.siteKey}>
       <Router>
       <div className="flex flex-col min-h-screen">
         <Header />

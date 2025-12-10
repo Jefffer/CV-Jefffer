@@ -20,6 +20,7 @@ import {
 import emailjs from "@emailjs/browser";
 import { motion, useInView } from "framer-motion";
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import publicConfig from '../config/public.config';
 
 const Contact = () => {
   const form = useRef();
@@ -52,10 +53,10 @@ const Contact = () => {
 
       // Enviar email con EmailJS
       await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        publicConfig.emailjs.serviceId,
+        publicConfig.emailjs.templateId,
         form.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        publicConfig.emailjs.publicKey
       );
       
       setStatus("success");

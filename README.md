@@ -106,25 +106,42 @@ Fine-tune animations in individual components:
 - Motion variants and transitions
 - 3D transforms and perspective
 
-### **4. Contact Integration**
+### **4. Contact Integration** 🔐
 
-#### **EmailJS Setup**
-Configure EmailJS in `src/components/Contact.jsx`:
-- Replace service ID, template ID, and public key
-- Customize form fields and validation
+#### **Public Configuration**
+All public API keys are stored in `src/config/public.config.js`:
 
-#### **reCAPTCHA v3 Setup** 🔐
-The contact form is protected by Google reCAPTCHA v3:
+```javascript
+const publicConfig = {
+  emailjs: {
+    serviceId: "YOUR_SERVICE_ID",
+    templateId: "YOUR_TEMPLATE_ID", 
+    publicKey: "YOUR_PUBLIC_KEY"
+  },
+  recaptcha: {
+    siteKey: "YOUR_RECAPTCHA_SITE_KEY"
+  }
+};
+```
 
-1. Get your reCAPTCHA keys from [Google reCAPTCHA Admin](https://www.google.com/recaptcha/admin/create)
-2. Create a `.env` file (copy from `.env.example`)
-3. Add your Site Key:
-   ```env
-   VITE_RECAPTCHA_SITE_KEY=your_site_key_here
-   ```
-4. Restart the dev server
+#### **Getting Your Keys**
 
-📖 **Detailed setup instructions:** See [RECAPTCHA_SETUP.md](RECAPTCHA_SETUP.md)
+1. **EmailJS**:
+   - Create account at [EmailJS](https://www.emailjs.com/)
+   - Get Service ID, Template ID, and Public Key
+   - **Important**: Configure domain restrictions in dashboard
+
+2. **reCAPTCHA v3**:
+   - Register site at [Google reCAPTCHA](https://www.google.com/recaptcha/admin/create)
+   - Choose reCAPTCHA v3
+   - Get Site Key
+   - **Important**: Add your domains to whitelist
+
+#### **Security** 🛡️
+- ✅ These keys are **safe to commit** to version control
+- ✅ Designed for public exposure in frontend code
+- ⚠️ **MUST configure domain restrictions** in respective dashboards
+- 📖 See [SECURITY.md](SECURITY.md) for detailed security guide
 
 ---
 
