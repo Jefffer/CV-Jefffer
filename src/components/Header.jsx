@@ -250,7 +250,7 @@ const Header = () => {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: "url('/foto1.jpg')",
+              backgroundImage: "url('/foto7.jpg')",
               backgroundPosition: "center right",
               backgroundSize: "cover",
               maskImage: "linear-gradient(to left, rgba(0,0,0,1) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
@@ -260,11 +260,11 @@ const Header = () => {
         </motion.div>
 
         {/* Foto de fondo con desvanecido - Mobile (arriba hacia abajo) */}
-        <div className="md:hidden absolute inset-x-0 top-0 h-1/2 pointer-events-none">
+        <div className="md:hidden absolute inset-x-0 top-0 h-full pointer-events-none">
           <div
             className="absolute inset-0 bg-cover bg-center opacity-50 dark:opacity-50 light:opacity-25"
             style={{
-              backgroundImage: "url('/foto1.jpg')",
+              backgroundImage: "url('/foto4.jpg')",
               backgroundPosition: "center top",
             }}
           />
