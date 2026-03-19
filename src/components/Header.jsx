@@ -203,6 +203,79 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  const toggleTheme = () => {
+    setDarkMode((prev) => !prev);
+  };
+
+  const renderThemeSwitch = (positionClass = "") => (
+    <motion.button
+      onClick={toggleTheme}
+      className={`absolute z-20 flex items-center justify-center w-16 h-8 rounded-full border backdrop-blur-md transition-all duration-300 ${positionClass} ${
+        darkMode
+          ? "bg-gradient-to-r from-indigo-950/80 via-slate-900/80 to-slate-800/80 border-indigo-400/50 shadow-[0_8px_24px_-10px_rgba(99,102,241,0.8)]"
+          : "bg-gradient-to-r from-sky-200/50 via-cyan-100/50 to-amber-100/40 border-sky-300/70 shadow-[0_8px_20px_-10px_rgba(79,70,229,0.5)]"
+      }`}
+      whileTap={{ scale: 0.95 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.45, delay: 0.6 }}
+      aria-label={`Switch to ${darkMode ? "light" : "dark"} theme`}
+      title={`Switch to ${darkMode ? "light" : "dark"} theme`}
+    >
+      <motion.span
+        className="absolute inset-[1px] rounded-full"
+        animate={{ opacity: darkMode ? 0.18 : 0.28 }}
+        transition={{ duration: 0.25 }}
+        style={{
+          background: darkMode
+            ? "linear-gradient(90deg, rgba(165,180,252,0.14), rgba(59,130,246,0.04))"
+            : "linear-gradient(90deg, rgba(255,255,255,0.35), rgba(254,243,199,0.35))",
+        }}
+      />
+
+      {/* Estrellas en modo oscuro - Fondo */}
+      <motion.span
+        className="absolute inset-0 rounded-full overflow-hidden"
+        animate={{ opacity: darkMode ? 1 : 0 }}
+        transition={{ duration: 0.35 }}
+      >
+        <span className="absolute top-1 left-2 w-1 h-1 rounded-full bg-white/95 shadow-sm" />
+        <span className="absolute top-1.5 right-6 w-0.5 h-0.5 rounded-full bg-indigo-100 shadow-xs" />
+        <span className="absolute bottom-2 left-3 w-0.5 h-0.5 rounded-full bg-cyan-200" />
+        <span className="absolute top-0.5 left-6 w-0.5 h-0.5 rounded-full bg-indigo-200" />
+        <span className="absolute bottom-1.5 right-8 w-0.5 h-0.5 rounded-full bg-purple-200" />
+        <span className="absolute top-2.5 left-5.5 w-0.5 h-0.5 rounded-full bg-blue-100" />
+        <span className="absolute bottom-0.5 left-1.5 w-0.5 h-0.5 rounded-full bg-indigo-300" />
+      </motion.span>
+
+      {/* Thumb del interruptor - Círculo animado */}
+      <motion.span
+        className={`absolute left-[2px] w-6 h-6 rounded-full flex items-center justify-center shadow-lg transition-colors duration-300 ${
+          darkMode
+            ? "bg-gradient-to-br from-slate-100 to-indigo-200 text-indigo-900"
+            : "bg-gradient-to-br from-amber-300 to-orange-400 text-amber-950"
+        }`}
+        animate={{
+          x: darkMode ? 34 : 0,
+        }}
+        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+      >
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.span
+            key={darkMode ? "moon" : "sun"}
+            className="flex items-center justify-center text-base"
+            initial={{ rotate: -65, scale: 0.4, opacity: 0 }}
+            animate={{ rotate: 0, scale: 1, opacity: 1 }}
+            exit={{ rotate: 65, scale: 0.4, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+          >
+            {darkMode ? <BsMoon /> : <BsSun />}
+          </motion.span>
+        </AnimatePresence>
+      </motion.span>
+    </motion.button>
+  );
+
   const navLinks = [
     { to: "/", iconDuotone: <PiHouseDuotone />, iconFill: <PiHouseFill />, label: "Home" },
     { to: "/experience", iconDuotone: <PiBriefcaseDuotone />, iconFill: <PiBriefcaseFill />, label: "Experience" },
@@ -273,6 +346,9 @@ const Header = () => {
 
         {/* Fondos decorativos elegantes - ajustados para mejor contraste */}
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/20 via-purple-900/10 to-transparent dark:from-indigo-950/20 dark:via-purple-950/10 dark:to-transparent light:from-indigo-100/20 light:via-purple-100/30 light:to-pink-100/20" />
+
+        {/* Interruptor de tema - Superior derecha (desktop y mobile) */}
+        {renderThemeSwitch("top-4 right-4 md:top-6 md:right-6")}
 
         {/* Contenido principal alineado a la izquierda - Ancho completo */}
         <div className="relative z-10 container mx-auto px-6 md:px-8 lg:px-12">
@@ -511,24 +587,6 @@ const Header = () => {
             </motion.button>
           </div>
         </div>
-
-        {/* Botón de modo oscuro minimalista */}
-        <motion.button
-          onClick={() => setDarkMode(!darkMode)}
-          className="absolute top-6 right-6 group flex items-center gap-2 px-4 py-2.5 bg-white/5 dark:bg-white/5 light:bg-white/90 backdrop-blur-sm border border-white/10 dark:border-white/10 light:border-gray-200 rounded-lg transition-all duration-200 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-white hover:border-white/20 dark:hover:border-white/20 light:hover:border-gray-300 hover:shadow-lg text-white/80 dark:text-white/80 light:text-gray-600"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <span className="text-lg transition-transform duration-150 group-hover:scale-110">
-            {darkMode ? <BsSun /> : <BsMoon />}
-          </span>
-          <span className="text-sm font-medium hidden sm:inline">
-            {darkMode ? "Light" : "Dark"}
-          </span>
-        </motion.button>
       </header>
 
       {/* Menú móvil en pantalla completa */}
@@ -643,18 +701,6 @@ const Header = () => {
                   </div>
                 ))}
               </nav>
-
-              {/* Botón modo oscuro en miniheader - Solo desktop */}
-              <motion.button
-                onClick={() => setDarkMode(!darkMode)}
-                className="hidden md:flex absolute top-3 right-6 group items-center gap-2 px-3 py-2 bg-white/5 dark:bg-white/5 light:bg-indigo-100 backdrop-blur-sm border border-white/10 dark:border-white/10 light:border-indigo-300 rounded-lg transition-all duration-200 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-indigo-200 text-white/80 dark:text-white/80 light:text-indigo-700"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span className="text-base transition-transform duration-150 group-hover:scale-110">
-                  {darkMode ? <BsSun /> : <BsMoon />}
-                </span>
-              </motion.button>
             </div>
           </motion.div>
         )}
