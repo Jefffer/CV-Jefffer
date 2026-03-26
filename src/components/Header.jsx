@@ -666,8 +666,8 @@ const Header = () => {
             exit={{ y: -100, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="container mx-auto px-4 md:px-6 py-3">
-              <nav className="flex justify-center items-center gap-2">
+            <div className="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+              <nav className="flex justify-center items-center gap-2 flex-1">
                 {navLinks.map(({ to, iconDuotone, iconFill, label }) => (
                   <div
                     key={to}
@@ -701,6 +701,11 @@ const Header = () => {
                   </div>
                 ))}
               </nav>
+
+              {/* Interruptor de tema - Solo para desktop */}
+              <div className="hidden md:flex items-center">
+                {renderThemeSwitch("")}
+              </div>
             </div>
           </motion.div>
         )}
