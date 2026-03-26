@@ -6,21 +6,23 @@ import { PiGraduationCapDuotone, PiCalendarDotsFill, PiMedalDuotone, PiMapPinLin
 const educationData = [
   {
     university: "International University of La Rioja (UNIR)",
-    logo: "https://pbs.twimg.com/profile_images/1666002917482979329/L7ZnSnEv_400x400.png",
+    logo: "./unir.png",
     image: "./unir.jpg",
     degree: "Master's Degree in Software Engineering and Computer Systems",
     location: "Logroño, La Rioja",
     flag: "ES",
     period: "2024 - 2025",
+    url: "https://www.unir.net/",
   },
   {
     university: "District University Francisco José de Caldas",
-    logo: "https://www.udistrital.edu.co/sites/default/files/contenido-estatico/imagenes/escudo_ud.gif",
+    logo: "./ud.png",
     image: "./ud.jpg",
     degree: "Engineer's Degree in Computer Software Engineering",
     location: "Bogotá D.C", 
     flag: "CO",
     period: "2011 - 2017",
+    url: "https://www.udistrital.edu.co/inicio",
   },
 ];
     
@@ -140,25 +142,38 @@ const EducationCard = React.memo(({ edu, index }) => {
           
           {/* Creative logo placement - floating in corner */}
           <motion.div
-            className="absolute top-4 right-4 z-30"
+            className="absolute top-4 right-4 z-30 cursor-pointer"
             initial={{ scale: 0, rotate: -180, opacity: 0 }}
             animate={isInView ? { scale: 1, rotate: 0, opacity: 1 } : { scale: 0, rotate: -180, opacity: 0 }}
             transition={{ duration: 0.8, delay: index * 0.3 + 0.6, type: "spring", stiffness: 200 }}
-            whileHover={{ rotate: 15, scale: 1.1 }}
+            onClick={() => window.open(edu.url, "_blank")}
           >
-            <div className="relative">
-              <div className="w-16 h-16 md:w-20 md:h-20 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm rounded-2xl p-2 shadow-2xl border-2 border-white/50 dark:border-gray-700/50">
+            <div className="relative group">
+              {/* Botón estilizado del logo */}
+              <motion.div
+                className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-white/30 to-white/10 dark:from-gray-700/40 dark:to-gray-800/40 backdrop-blur-xl rounded-2xl p-1.5 border border-white/40 dark:border-gray-600/50 shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center group-hover:border-emerald-400/60 dark:group-hover:border-emerald-500/60"
+                whileHover={{ borderColor: "rgb(16, 185, 129)" }}
+              >
                 <img
                   src={edu.logo}
                   alt={edu.university}
-                  className="w-full h-full object-contain filter drop-shadow-lg"
+                  className="w-full h-full object-contain filter drop-shadow-md rounded-lg"
                 />
-              </div>
-              {/* Rotating glow effect */}
+              </motion.div>
+              
+              {/* Efecto de luz elegante - línea luminosa */}
               <motion.div
-                className="absolute -inset-2 bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-500 rounded-3xl opacity-0 group-hover:opacity-20 blur-md transition-opacity duration-500"
+                className="absolute -inset-3 bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-500 rounded-full opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-500 -z-10"
                 animate={{ rotate: 360 }}
-                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              />
+              
+              {/* Efecto de brillo suave en hover */}
+              <motion.div
+                className="absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-300 rounded-2xl"
+                style={{
+                  background: "radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), transparent 70%)",
+                }}
               />
             </div>
           </motion.div>
