@@ -460,7 +460,7 @@ const About = () => {
           <div className="flex items-center border-2 border-slate-300/50 dark:border-slate-600/50 rounded-full overflow-hidden backdrop-blur-sm bg-slate-50/30 dark:bg-slate-800/30 max-w-full">
             {/* Botón CV en inglés - Lado izquierdo */}
             <motion.a
-              href="/cv-en.pdf"
+              href="/CV_Jefferson_Rodriguez_en.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative overflow-hidden"
@@ -513,7 +513,7 @@ const About = () => {
 
             {/* Botón CV en español - Lado derecho */}
             <motion.a
-              href="/cv-es.pdf"
+              href="/CV_Jefferson_Rodriguez.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative overflow-hidden"
