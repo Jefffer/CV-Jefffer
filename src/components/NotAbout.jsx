@@ -207,7 +207,7 @@ const About = () => {
     return (
       <motion.div
         ref={sectionRef}
-        className="relative h-[50vh] w-full flex items-center justify-center overflow-hidden"
+        className="relative h-[62vh] md:h-[70vh] w-full flex items-center justify-center overflow-hidden"
         style={{ y, scale, opacity }}
       >
         {/* Imagen de fondo con parallax */}
@@ -215,11 +215,12 @@ const About = () => {
           className="absolute inset-0 w-full h-full"
           style={{ scale: imageScale }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60 z-10" />
+          <div className={`absolute inset-0 bg-gradient-to-br ${skill.gradient} opacity-20 z-10`} />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-slate-950/45 to-black/80 z-10" />
           <motion.img
             src={skill.image}
             alt={skill.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover saturate-125 contrast-105"
             style={{ rotate }}
           />
         </motion.div>
@@ -287,7 +288,9 @@ const About = () => {
           }
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className={`max-w-lg ${isEven ? "text-left" : "text-right"}`}>
+          <div className={`max-w-2xl ${isEven ? "text-left" : "text-right"}`}>
+            <div className="relative overflow-hidden rounded-3xl border border-white/20 bg-slate-950/45 px-6 py-8 md:px-10 md:py-10 shadow-[0_20px_80px_rgba(15,23,42,0.45)]">
+              <div className="pointer-events-none absolute -top-24 left-1/2 h-52 w-52 -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
             {/* Icono flotante */}
             <motion.div
               className={`inline-flex p-4 rounded-2xl bg-gradient-to-r ${skill.gradient} text-white mb-6 shadow-2xl`}
@@ -309,7 +312,7 @@ const About = () => {
 
             {/* Título con efecto de texto */}
             <motion.h3
-              className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight"
+              className="text-3xl md:text-5xl font-black text-white mb-4 leading-tight tracking-tight"
               initial={{ y: 50, opacity: 0 }}
               animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -323,7 +326,7 @@ const About = () => {
 
             {/* Descripción */}
             <motion.p
-              className="text-xl text-gray-200 leading-relaxed mb-6"
+              className="text-lg md:text-xl text-gray-200/95 leading-relaxed mb-6 font-light"
               initial={{ y: 30, opacity: 0 }}
               animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -338,6 +341,7 @@ const About = () => {
               animate={isInView ? { width: "100%" } : { width: 0 }}
               transition={{ duration: 1, delay: 0.8 }}
             />
+            </div>
 
             {/* Número de índice grande */}
             <motion.div
@@ -382,17 +386,14 @@ const About = () => {
         transition={{ duration: 0.6, delay: 0.4 }}
       >
         Hi there! I'm a{" "}
-        {/* <strong className="font-semibold">Software Developer</strong> */}
         <span className="font-bold bg-gradient-to-r from-indigo-500 to-purple-500 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
           Software Developer
         </span>{" "}
         with{" "}
-        {/* <strong className="font-semibold">8 years of experience</strong> */}
         <span className="font-bold bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-400 dark:to-cyan-400 bg-clip-text text-transparent">
           8+ years of experience
         </span>{" "}
         currently living in{" "}
-        {/* <strong className="font-semibold">Bilbao</strong>{" "} */}
         <span className="font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
           Bilbao
         </span>{" "}
@@ -400,8 +401,6 @@ const About = () => {
           code="ES"
           className="w-8 h-6 inline-block transition-transform transform hover:rotate-12"
         />
-        {/* <br /> */}
-        {/* I am passionate about creating robust, scalable, and efficient software solutions. */}
         <span className="text-lg text-indigo-500/90 dark:text-gray-300/90 mt-2 block">
           I am passionate about creating robust, scalable, and efficient
           software solutions.
