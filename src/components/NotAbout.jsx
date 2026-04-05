@@ -561,7 +561,7 @@ const About = () => {
       </div>
 
       {/* Sección de habilidades */}
-      <div ref={containerRef} className="w-full mt-20 relative">
+      <div ref={containerRef} className="w-full mt-5 relative">
         {/* Skills sections */}
         {skills.map((skill, index) => (
           <SkillSection key={index} skill={skill} index={index} />
