@@ -31,12 +31,14 @@ import {
   SiGraphql,
   SiKotlin,
   SiGit,
+  SiRabbitmq,
   SiGooglegemini
 } from "react-icons/si";
 import { TbBrandReactNative, TbApi, TbCloud, TbRobot } from "react-icons/tb";
 import { VscAzureDevops } from "react-icons/vsc";
-import { FaJava } from 'react-icons/fa';
+import { FaJava, FaPhp, FaHtml5, FaCss3Alt, FaDatabase } from 'react-icons/fa';
 import { DiMsqlServer, DiDotnet } from "react-icons/di";
+import useFloatingBubbles from "../hooks/useFloatingBubbles";
 
 import Flag from "react-world-flags";
 
@@ -47,38 +49,48 @@ const techIcons = {
     { Icon: SiDotnet, color: "text-purple-400" },
     { Icon: DiDotnet, color: "text-sky-400" },
     { Icon: FaJava, color: "text-orange-400" },
+    { Icon: FaPhp, color: "text-indigo-400" },
     { Icon: SiPython, color: "text-yellow-400" },
     { Icon: SiSpringboot, color: "text-green-400" },
     { Icon: DiMsqlServer, color: "text-red-400" },
+    { Icon: SiNodedotjs, color: "text-green-500" },
+    { Icon: SiRabbitmq, color: "text-orange-400" },
   ],
   frontend: [
     { Icon: SiReact, color: "text-cyan-400" },
     { Icon: SiAngular, color: "text-red-500" },
     { Icon: SiJavascript, color: "text-yellow-300" },
+    { Icon: FaHtml5, color: "text-orange-500" },
+    { Icon: FaCss3Alt, color: "text-blue-400" },
     { Icon: TbBrandReactNative, color: "text-blue-400" },
     { Icon: TbApi, color: "text-pink-400" },
+    { Icon: SiGraphql, color: "text-fuchsia-400" },
   ],
   devops: [
     { Icon: SiDocker, color: "text-blue-400" },
     { Icon: SiKubernetes, color: "text-blue-500" },
     { Icon: VscAzureDevops, color: "text-cyan-400" },
     { Icon: TbCloud, color: "text-indigo-400" },
+    { Icon: PiCloudDuotone, color: "text-sky-300" },
     { Icon: LiaAws, color: "text-orange-400" },
     { Icon: SiGit, color: "text-orange-500" },
   ],
   database: [
+    { Icon: FaDatabase, color: "text-slate-300" },
     { Icon: DiMsqlServer, color: "text-red-400" },
     { Icon: SiMongodb, color: "text-green-500" },
     { Icon: SiPostgresql, color: "text-blue-400" },
     { Icon: SiMysql, color: "text-blue-500" },
   ],
   agile: [
+    { Icon: PiUsersDuotone, color: "text-violet-300" },
     { Icon: VscAzureDevops, color: "text-cyan-400" },
     { Icon: SiGit, color: "text-orange-500" },
     { Icon: TbApi, color: "text-purple-400" },
   ],
   ai: [
     { Icon: TbRobot, color: "text-pink-400" },
+    { Icon: PiBrainDuotone, color: "text-fuchsia-300" },
     { Icon: SiPython, color: "text-yellow-400" },
     { Icon: TbApi, color: "text-fuchsia-400" },
     { Icon: SiGooglegemini, color: "text-blue-400" },
@@ -184,6 +196,14 @@ const About = () => {
 
     const isEven = index % 2 === 0;
 
+    const categoryIcons = techIcons[skill.techCategory] ?? [];
+    const dynamicBubbles = useFloatingBubbles({
+      icons: categoryIcons,
+      sectionIndex: index,
+      bubbleCount: 10,
+      isActive: isInView,
+    });
+
     return (
       <motion.div
         ref={sectionRef}
@@ -206,72 +226,49 @@ const About = () => {
 
         {/* Efectos de partículas con iconos de tecnologías */}
         <div className="absolute inset-0 z-20 overflow-hidden">
-          {techIcons[skill.techCategory].map((tech, i) => {
-            const IconComponent = tech.Icon;
-            const randomX = Math.random() * 100;
-            const randomY = Math.random() * 100;
-            const randomDelay = Math.random() * 3;
-            const randomDuration = 4 + Math.random() * 3;
-            
+          {dynamicBubbles.map((bubble) => {
+            const IconComponent = bubble.tech.Icon;
+            const size = bubble.size;
+            const iconSize = Math.max(14, Math.round(size * 0.38));
+
             return (
               <motion.div
-                key={i}
-                className={`absolute ${tech.color}`}
+                key={bubble.id}
+                className={`absolute ${bubble.tech.color}`}
                 style={{
-                  left: `${randomX}%`,
-                  top: `${randomY}%`,
-                  opacity: 0.3,
+                  left: `${bubble.x}%`,
+                  top: `${bubble.y}%`,
+                  transform: "translate(-50%, -50%)",
                 }}
                 animate={{
-                  y: [0, -40, 0],
-                  x: [0, Math.random() * 30 - 15, 0],
-                  opacity: [0.2, 0.5, 0.2],
-                  scale: [1, 1.3, 1],
-                  rotate: [0, 360],
+                  scale: [1, 1.02, 1],
+                  opacity: [0.34, 0.52, 0.34],
                 }}
                 transition={{
-                  duration: randomDuration,
+                  duration: 2.8,
                   repeat: Infinity,
-                  delay: randomDelay,
                   ease: "easeInOut",
                 }}
               >
-                <IconComponent className="text-xl md:text-2xl drop-shadow-lg" />
-              </motion.div>
-            );
-          })}
-          
-          {/* Partículas adicionales más sutiles para llenar espacio */}
-          {[...Array(8)].map((_, i) => {
-            const randomIcon = techIcons[skill.techCategory][i % techIcons[skill.techCategory].length];
-            const IconComponent = randomIcon.Icon;
-            const randomX = Math.random() * 100;
-            const randomY = Math.random() * 100;
-            const randomDelay = Math.random() * 2;
-            
-            return (
-              <motion.div
-                key={`extra-${i}`}
-                className={`absolute ${randomIcon.color}`}
-                style={{
-                  left: `${randomX}%`,
-                  top: `${randomY}%`,
-                  opacity: 0.15,
-                }}
-                animate={{
-                  y: [0, -25, 0],
-                  x: [0, Math.random() * 20 - 10, 0],
-                  opacity: [0.1, 0.25, 0.1],
-                  scale: [0.8, 1.1, 0.8],
-                }}
-                transition={{
-                  duration: 5 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: randomDelay,
-                  ease: "easeInOut",
-                }}
-              >
-                <IconComponent className="text-base md:text-lg" />
+                <div
+                  className="relative flex items-center justify-center rounded-full border border-white/22 bg-white/8 backdrop-blur-[1px] shadow-[0_5px_14px_rgba(15,23,42,0.22),inset_0_1px_6px_rgba(255,255,255,0.12)]"
+                  style={{ width: `${size}px`, height: `${size}px` }}
+                >
+                  <div
+                    className="pointer-events-none absolute rounded-full bg-white/22 blur-[1px]"
+                    style={{
+                      left: `${Math.round(size * 0.12)}px`,
+                      top: `${Math.round(size * 0.12)}px`,
+                      width: `${Math.round(size * 0.45)}px`,
+                      height: `${Math.round(size * 0.26)}px`,
+                    }}
+                  />
+                  <div className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-white/12" />
+                  <IconComponent
+                    className="relative z-10 drop-shadow-[0_0_6px_rgba(255,255,255,0.35)]"
+                    style={{ fontSize: `${iconSize}px` }}
+                  />
+                </div>
               </motion.div>
             );
           })}
