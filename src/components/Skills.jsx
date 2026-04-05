@@ -21,11 +21,14 @@ import { LiaAws } from "react-icons/lia";
     SiKubernetes,
     SiSpring,
     SiRabbitmq,
-    SiElasticsearch
+    SiElasticsearch,
+    SiGit,
+    SiGraphql
   } from "react-icons/si";
   import { DiMsqlServer, DiDotnet } from "react-icons/di";
 
   import { PiFileCSharpFill, PiMathOperationsFill  } from "react-icons/pi";
+  import { TbApi, TbRobot } from "react-icons/tb";
 
   import { VscAzureDevops } from "react-icons/vsc";
 
@@ -276,6 +279,42 @@ const Skills = () => {
       hoverGradient: "from-yellow-500 to-yellow-700",
       iconColor: "text-yellow-400",
       delay: 1.4
+    },
+    { 
+      name: "Git", 
+      icon: <SiGit className="text-5xl" />, 
+      category: "DevOps",
+      gradient: "from-orange-600 to-rose-700",
+      hoverGradient: "from-orange-500 to-rose-600",
+      iconColor: "text-orange-400",
+      delay: 1.45
+    },
+    { 
+      name: "REST APIs", 
+      icon: <TbApi className="text-5xl" />, 
+      category: "Integration",
+      gradient: "from-cyan-600 to-blue-700",
+      hoverGradient: "from-cyan-500 to-blue-600",
+      iconColor: "text-cyan-400",
+      delay: 1.5
+    },
+    { 
+      name: "GraphQL", 
+      icon: <SiGraphql className="text-5xl" />, 
+      category: "Integration",
+      gradient: "from-pink-600 to-fuchsia-700",
+      hoverGradient: "from-pink-500 to-fuchsia-600",
+      iconColor: "text-pink-400",
+      delay: 1.55
+    },
+    { 
+      name: "AI & LLMs", 
+      icon: <TbRobot className="text-5xl" />, 
+      category: "AI",
+      gradient: "from-emerald-600 to-teal-700",
+      hoverGradient: "from-emerald-500 to-teal-600",
+      iconColor: "text-emerald-400",
+      delay: 1.6
     },
   ];
 
