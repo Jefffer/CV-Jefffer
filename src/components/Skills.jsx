@@ -573,7 +573,7 @@ const Skills = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-4xl mx-auto">
             {[
               { number: "27+", label: "Technologies", color: "from-cyan-500 to-blue-300", icon: "◆" },
-              { number: "8+", label: "Years Experience", color: "from-purple-400 to-indigo-400", icon: "●" },
+              { number: "9+", label: "Years Experience", color: "from-purple-400 to-indigo-400", icon: "●" },
               { number: "6+", label: "Specializations", color: "from-pink-400 to-cyan-400", icon: "◇" }
             ].map((stat, index) => (
               <motion.div

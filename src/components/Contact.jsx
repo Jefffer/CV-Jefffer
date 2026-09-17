@@ -164,7 +164,7 @@ const Contact = () => {
           >
             {[
               { icon: <FaRocket />, text: "Remote Ready" },
-              { icon: <FaCode />, text: "8+ Years Experience" },
+              { icon: <FaCode />, text: "9+ Years Experience" },
               { icon: <FaLightbulb />, text: "Creative Solutions" },
               { icon: <FaHeart />, text: "Passionate Developer" }
             ].map((item, index) => (

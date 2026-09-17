@@ -1,13 +1,20 @@
 // Datos centralizados de habilidades para usar en toda la aplicación
 export const skillsData = [
   "Azure DevOps",
+  ".NET 10",
   "Cloud Architecture", 
-  "Artificial Intelligence",
-  "LLMs",
   ".NET Core",
+  "Artificial Intelligence",
+  ".NET 4.8",
+  "LLMs",
   "C#",
+  "Agile Methodologies",
+  ".NET 6",
   "SQL Server",
   "Mongo DB",
+  ".NET Framework",
+  "Microservices",
+  "Hexagonal Architecture",
   "Docker",
   "Kubernetes",
   "Python",
@@ -23,7 +30,6 @@ export const skillsData = [
   "Elasticsearch",
   "Kotlin",
   "OutSystems",
-  "Microservices",
   "REST APIs",
   "GraphQL"
 ];

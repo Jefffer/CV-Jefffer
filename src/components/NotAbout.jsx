@@ -391,7 +391,7 @@ const About = () => {
         </span>{" "}
         with{" "}
         <span className="font-bold bg-gradient-to-r from-emerald-500 to-cyan-500 dark:from-emerald-400 dark:to-cyan-400 bg-clip-text text-transparent">
-          8+ years of experience
+          9+ years of experience
         </span>{" "}
         currently living in{" "}
         <span className="font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">

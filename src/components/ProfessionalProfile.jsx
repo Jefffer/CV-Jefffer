@@ -116,7 +116,7 @@ const achievementsData = [
     year: "2024-2025",
   },
   {
-    title: "8+ Years Experience",
+    title: "9+ Years Experience",
     subtitle: "Software Development & Architecture",
     icon: <PiChartLineUp />,
     color: "from-orange-500 to-red-500",
