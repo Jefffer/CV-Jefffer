@@ -184,7 +184,7 @@ const Contact = () => {
           <div className="relative flex justify-center items-center mb-12">
             {/* Contenedor principal con "agujeros" */}
             <motion.div
-              className="relative bg-indigo-300 dark:bg-indigo-900 py-10 ml-12 mr-8 pl-16 pr-5 dark:text-gray-300 font-light"
+              className="relative bg-indigo-300 dark:bg-indigo-900 py-10 ml-12 mr-8 pl-5 lg:pl-16 pr-5 dark:text-gray-300 font-light"
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.7 }}
@@ -234,12 +234,12 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 30, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
                 transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
-                whileHover={{ y: -8, scale: 1.02 }}
+                // whileHover={{ y: -8, scale: 1.02 }}
               >
                 <CardWrapper
                   {...cardProps}
                   className={`
-                    relative p-6 rounded-2xl transition-all duration-300 block
+                    relative py-3 px-0 lg:px-6 lg:py-6 rounded-2xl transition-all duration-300 block
                     bg-white/40 dark:bg-white/5 backdrop-blur-lg
                     border border-white/20 dark:border-white/10
                     hover:bg-white/60 dark:hover:bg-white/10
@@ -280,12 +280,12 @@ const Contact = () => {
                         href={item.link}
                         target={item.link.startsWith('http') ? '_blank' : '_self'}
                         rel={item.link.startsWith('http') ? 'noopener noreferrer' : ''}
-                        className="text-gray-700 dark:text-gray-300 font-semibold hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-200"
+                        className="text-gray-700 m-0 dark:text-gray-300 font-semibold text-xs hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
                       >
                         {item.value}
                       </a>
                     ) : (
-                      <p className="text-gray-700 dark:text-gray-300 font-semibold">
+                      <p className="text-gray-700 dark:text-gray-300 font-semibold text-xs">
                         {item.value}
                       </p>
                     )}
