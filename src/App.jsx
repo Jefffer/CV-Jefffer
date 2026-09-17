@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+import ScrollToTop from './components/ScrollToTop';
 import publicConfig from './config/public.config';
 import Header from './components/Header';
 import './styles/App.css';
@@ -19,8 +20,8 @@ function App() {
       <Router>
       <div className="flex flex-col min-h-screen">
         <Header />
-        
         <main className="flex-grow bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-gray-900 dark:to-indigo-950">
+        <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<ContactPage />} />
