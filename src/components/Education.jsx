@@ -42,14 +42,14 @@ const Education = () => {
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
   return (
-    <section ref={containerRef} className="py-12 md:py-20 min-h-screen overflow-hidden">
+    <section ref={containerRef} className="min-h-screen overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-12 md:mb-16 pt-20"
         >
           <motion.div
             className="inline-flex items-center gap-3 px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-emerald-100 to-cyan-100 dark:from-emerald-900/30 dark:to-cyan-900/30 rounded-full border border-emerald-200 dark:border-emerald-700 mb-4 md:mb-6"

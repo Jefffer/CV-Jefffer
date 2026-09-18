@@ -146,7 +146,7 @@ const ProfessionalProfile = () => {
   return (
     <section
       ref={containerRef}
-      className="py-12 md:py-20 min-h-screen overflow-hidden"
+      className="min-h-screen overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Header */}
@@ -154,7 +154,7 @@ const ProfessionalProfile = () => {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-12 md:mb-16 pt-20"
         >
           <motion.div
             className="inline-flex items-center gap-3 px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-full border border-indigo-200 dark:border-indigo-700 mb-4 md:mb-6"

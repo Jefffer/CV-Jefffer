@@ -14,7 +14,7 @@ import {
   PiDownloadSimpleBold,
   PiArrowRightBold
 } from "react-icons/pi";
-import { LiaHandPointDownSolid, LiaHandPointDown, LiaAws } from "react-icons/lia";
+import { LiaHandPointUpSolid, LiaHandPointDown, LiaAws } from "react-icons/lia";
 import {
   SiDotnet, 
   SiReact, 
@@ -410,41 +410,11 @@ const About = () => {
       {/* Botones de descarga mejorados */}
       <div className="relative flex flex-col items-center mt-10">
         {/* Texto animado de llamada a la acción */}
-        <motion.div
-          className="mb-6 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.1 }}
-        >
-          <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-full border border-indigo-200 dark:border-indigo-700"
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ duration: 2, repeat: Infinity, repeatDelay: 2 }}
-          >
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            >
-              {/* <HiOutlineSparkles className="text-indigo-600 dark:text-indigo-400" /> */}
-            </motion.div>
-            <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">
-              Click to view my CV
-            </span>
-            <motion.div
-              animate={{
-                x: [0, 3, 0],
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                repeatDelay: 1,
-              }}
-            >
-              <LiaHandPointDownSolid className="text-indigo-600 dark:text-indigo-400 text-base" />
-            </motion.div>
-          </motion.div>
-        </motion.div>
+        
+          
+     
+
+        
 
         {/* Contenedor de botones mejorado - Unidos como un solo elemento */}
         <motion.div
@@ -558,6 +528,50 @@ const About = () => {
             </motion.a>
           </div>
         </motion.div>
+
+<motion.div
+          className="mt-6 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.1 }}
+        >
+
+        <motion.div
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-full border border-indigo-200 dark:border-indigo-700"
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 2, repeat: Infinity, repeatDelay: 2 }}
+          >
+             <motion.div
+              animate={{
+                x: [0, 3, 0],
+                scale: [1, 1.2, 1],
+              }}
+              transition={{
+                duration: 1,
+                repeat: Infinity,
+                repeatDelay: 1,
+              }}
+            >
+              <LiaHandPointUpSolid className="text-indigo-600 dark:text-indigo-400" />
+            </motion.div>
+            <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300">
+              Click to view my CV
+            </span>
+            <motion.div
+              animate={{
+                x: [0, 3, 0],
+                scale: [1, 1.2, 1],
+              }}
+              transition={{
+                duration: 1,
+                repeat: Infinity,
+                repeatDelay: 1,
+              }}
+            >
+              <LiaHandPointUpSolid className="text-indigo-600 dark:text-indigo-400 text-base" />
+            </motion.div>
+          </motion.div>      
+             </motion.div>  
       </div>
 
       {/* Sección de habilidades */}

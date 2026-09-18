@@ -673,7 +673,7 @@ const Experience = () => {
         className="relative z-10 text-center pt-20 pb-5"
       >
         <motion.div
-          className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-4 md:mb-6"
+          className="inline-flex items-center gap-3 px-4 md:px-6 py-2 md:py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-4 md:mb-6"
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 3, repeat: Infinity }}
         >
