@@ -5,15 +5,16 @@ export default function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // 1. Buscamos el header principal en el DOM
+    // Buscamos el header para calcular su altura
     const header = document.getElementById('main-header');
-    
-    // 2. Calculamos su altura total. Si por alguna razón no se encuentra, usamos 0.
     const headerHeight = header ? header.offsetHeight : 0;
 
-    // 3. Ejecutamos el scroll suave hacia la coordenada Y equivalente a la altura del header
+    // Si es Home ("/"), el destino es 0 (arriba del todo). 
+    // Para cualquier otra ruta, el destino es la altura del header.
+    const targetTop = pathname === '/' ? 0 : headerHeight;
+
     window.scrollTo({
-      top: headerHeight,
+      top: targetTop,
       left: 0,
       behavior: 'smooth' 
     });
